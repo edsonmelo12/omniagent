@@ -1,0 +1,31 @@
+{
+  "asset_id": "AC-30-14",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "title": "Qual peça combina com cada ocasião",
+  "caption": "Você sabe qual amigurumi combina com o seu momento? Matching é sobre contexto, não apenas preferência. Cada ocasião pede uma leitura diferente. Qual é a sua ocasião? Comente aqui 💬",
+  "hashtags": ["#AmiClube", "#AmigurumiBrasil", "#AmigurumiArtesanal", "#PresenteCriativo", "#DecoracaoComAlma", "#ArteEmFio", "#CuradoriaAmigurumi", "#PresenteDiferente", "#DecoracaoAutoral", "#AmigurumiPremium"],
+  "channel": "Instagram",
+  "objective": "Consideração",
+  "cta": "Comente a ocasião para sugestão",
+  "style": "editorial-myth",
+  "format": "post-preview",
+  "exported_images": [
+    "../publish/ac-30-14/slide-01.png",
+    "../publish/ac-30-14/slide-02.png",
+    "../publish/ac-30-14/slide-03.png",
+    "../publish/ac-30-14/slide-04.png",
+    "../publish/ac-30-14/slide-05.png",
+    "../publish/ac-30-14/slide-06.png",
+    "../publish/ac-30-14/slide-07.png"
+  ],
+  "slides": [
+    { "type": "placeholder" },
+    { "type": "placeholder" },
+    { "type": "placeholder" },
+    { "type": "placeholder" },
+    { "type": "placeholder" },
+    { "type": "placeholder" },
+    { "type": "placeholder" }
+  ]
+}

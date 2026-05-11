@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-14 Caption</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #1A1918;
+      color: #F7F3EE;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .caption-card {
+      background: #2A2826;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      border: 1px solid #C45C1F;
+    }
+    h2 {
+      font-size: 14px;
+      color: #C45C1F;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .caption-text {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 24px;
+    }
+    .hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .hashtag {
+      background: #C45C1F;
+      color: #F7F3EE;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .copy-btn {
+      background: #C45C1F;
+      color: #F7F3EE;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    .copy-btn:active { background: #D9A85A; }
+  </style>
+</head>
+<body>
+  <div class="caption-card">
+    <h2>AC-30-14 · Caption</h2>
+    <div class="caption-text">Você sabe qual amigurumi combina com o seu momento? Matching é sobre contexto, não apenas preferência. Cada ocasião pede uma leitura diferente. Qual é a sua ocasião? Comente aqui 💬</div>
+    <div class="hashtags">
+      <span class="hashtag">#AmiClube</span>
+      <span class="hashtag">#AmigurumiBrasil</span>
+      <span class="hashtag">#AmigurumiArtesanal</span>
+      <span class="hashtag">#PresenteCriativo</span>
+      <span class="hashtag">#DecoracaoComAlma</span>
+      <span class="hashtag">#ArteEmFio</span>
+      <span class="hashtag">#CuradoriaAmigurumi</span>
+      <span class="hashtag">#PresenteDiferente</span>
+      <span class="hashtag">#DecoracaoAutoral</span>
+      <span class="hashtag">#AmigurumiPremium</span>
+    </div>
+    <button class="copy-btn" onclick="copyCaption()">Copiar caption</button>
+  </div>
+  <script>
+    function copyCaption() {
+      const text = `Você sabe qual amigurumi combina com o seu momento? Matching é sobre contexto, não apenas preferência. Cada ocasião pede uma leitura diferente. Qual é a sua ocasião? Comente aqui 💬
+
+#AmiClube #AmigurumiBrasil #AmigurumiArtesanal #PresenteCriativo #DecoracaoComAlma #ArteEmFio #CuradoriaAmigurumi #PresenteDiferente #DecoracaoAutoral #AmigurumiPremium`;
+      navigator.clipboard.writeText(text);
+      document.querySelector('.copy-btn').textContent = 'Copiado!';
+      setTimeout(() => document.querySelector('.copy-btn').textContent = 'Copiar caption', 2000);
+    }
+  </script>
+</body>
+</html>

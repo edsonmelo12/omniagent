@@ -4267,9 +4267,41 @@
     "mtime": 1774829539.4812012,
     "hash": "e9213ab0765ece17b40c87dc4289f6c5"
   },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/strategy/v1/content-plan.md": {
+    "mtime": 1778462161.460149,
+    "hash": "7c1c93d46581990f2d8d98265888e77d"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/blog/v1/blog-topic-backlog.md": {
+    "mtime": 1778462243.5786238,
+    "hash": "5f8cc09695fd9355e325cd23ca7885bc"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/blog/v3/blog-architecture.md": {
+    "mtime": 1778462351.6014185,
+    "hash": "f5fdc00fa504ed5319bcaa8a19bde8c3"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/blog/v2/blog-brief.md": {
+    "mtime": 1778462306.541688,
+    "hash": "8abb5344cacdd07d24fb5f81a1cc578b"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/blog/v4/blog-post-draft.md": {
+    "mtime": 1778462475.1633062,
+    "hash": "b4e07810b67ecb757f0e561def045a7e"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/blog/v5/blog-post.md": {
+    "mtime": 1778462558.4804983,
+    "hash": "6c07fafeecb9e6fc0bc98a92a13c6f79"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/research/v1/market-intel.md": {
+    "mtime": 1778462096.8119092,
+    "hash": "61920d8c3b9e304600ff1d76b8e9ccb9"
+  },
   "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/context/v1/social-intelligence-summary.md": {
     "mtime": 1778461406.0119412,
     "hash": "303b47e36a3a112502bac6645625bded"
+  },
+  "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/2026-05-10-105000/context/v2/geo-discoverability-summary.md": {
+    "mtime": 1778461904.1243117,
+    "hash": "9a34c4c80491f34925311638adfaec1a"
   },
   "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/strategy/content-plan.md": {
     "mtime": 1774829838.0536916,
@@ -5124,8 +5156,8 @@
     "hash": "6b3cb88da46bc91b67cc807ce875c40b"
   },
   "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/amiclube/publishing/social-publish-worker-log.md": {
-    "mtime": 1778461201.989116,
-    "hash": "988f5440a7e6941a6727c7c35967513d"
+    "mtime": 1778463001.5351057,
+    "hash": "53b7b8062351b4f4c982145f4852df1b"
   },
   "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/amiclube/publishing/wordpress-validation.md": {
     "mtime": 1777425355.4985602,

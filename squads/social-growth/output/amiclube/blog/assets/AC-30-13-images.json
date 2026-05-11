@@ -1,0 +1,55 @@
+{
+  "asset_id": "AC-30-13",
+  "client": "amiclube",
+  "hero_image": "AC-30-13-compra-inteligente-hero.jpg",
+  "images": [
+    {
+      "id": "img-01",
+      "filename": "AC-30-13-compra-inteligente-hero.jpg",
+      "source_url": "https://www.pexels.com/photo/close-up-photo-of-crochet-tiger-amigurumi-toy-10585118/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-10",
+      "attribution_required": false,
+      "alt": "Close-up de amigurumi tigre em crochê com olhos de segurança e detalhes em laranja e preto",
+      "suggested_use": "hero do artigo / capa de carrossel",
+      "orientation": "landscape",
+      "dominant_colors": ["#8B4513", "#D2B48C", "#FF8C00"]
+    },
+    {
+      "id": "img-02",
+      "filename": "AC-30-13-toys-collection.jpg",
+      "source_url": "https://www.pexels.com/photo/stuffed-crochet-toys-10585047/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-10",
+      "attribution_required": false,
+      "alt": "Coleção de amigurumis de crochê incluindo urso marrom e pintinho amarelo dispostos em superfície clara",
+      "suggested_use": "slide 2-4 do carrossel / stories / post feed variedade de coleção",
+      "orientation": "landscape",
+      "dominant_colors": ["#8B7355", "#F5DEB3", "#FFD700"]
+    },
+    {
+      "id": "img-03",
+      "filename": "AC-30-13-plush-nursery.jpg",
+      "source_url": "https://www.pexels.com/photo/close-up-of-a-bunny-rabbit-stuffed-toy-4887078/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-10",
+      "attribution_required": false,
+      "alt": "Coelho de pelúcia e elefante em cenário pastel de berçário, decoração infantil aconchegante",
+      "suggested_use": "slide 5-6 do carrossel / stories decoração / post feed ambiente",
+      "orientation": "landscape",
+      "dominant_colors": ["#FFB6C1", "#B0D4F1", "#F5F0E8"]
+    },
+    {
+      "id": "img-04",
+      "filename": "AC-30-13-gifts-pink.jpg",
+      "source_url": "https://www.pexels.com/photo/photograph-of-gifts-wrapped-in-pink-wrapping-paper-5729090/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-10",
+      "attribution_required": false,
+      "alt": "Caixas de presente embrulhadas em papel rosa com laços, sobre parapeito de janela com luz natural",
+      "suggested_use": "post feed presente afetivo / stories dia dos namorados / capa de reels",
+      "orientation": "portrait",
+      "dominant_colors": ["#FF69B4", "#E8A0BF", "#F8F8FF"]
+    }
+  ]
+}

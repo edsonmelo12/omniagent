@@ -13,6 +13,8 @@ squads/social-growth/output/dashboard/public/
 *.log
 sys,json,re
 " squads/"
+squads/social-ht/
 **/.secrets/
 **/.env
 **/.env.*
+graphify-out/cache/

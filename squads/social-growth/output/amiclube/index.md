@@ -98,6 +98,17 @@
 - **CRM:** segue opcional como fonte, mas agora há trilhas `business` e `qualitative` ativas para cobertura
 - **Status da Prontidão:** `ready=true` no checklist do Otiniel
 - **Observação:** o arquivo JSON da GA4 fica em `backend/.secrets/ga4-amiclube.json` e não deve ser versionado
+## 🚀 Ciclo Atual (Semana 4)
+
+| Asset | Formato | Status | Preview |
+|-------|--------|--------|---------|
+| AC-30-13 | Blog | ✅ Image bank pronto | — |
+| AC-30-14 | Instagram Carrossel | ✅ DS editorial-myth ✓ | `social/previews/ac-30-14-editorial-myth-instagram-carousel.html` |
+| AC-30-15 | Instagram Reels | Pendente (img-03) | — |
+| AC-30-16 | Instagram Post | Pendente (img-04) | — |
+
+**Próximo:** AC-30-15 (Reels)
 
 ---
-*Última atualização: 2026-04-23 por Codex (checkpoint de aprovação estratégica adicionado ao ciclo canônico)*
+
+*Última atualização: 2026-05-10 por Codex (DS pipeline AC-30-14 completo)*

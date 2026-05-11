@@ -26,6 +26,7 @@ steps:
   - pipeline/steps/step-06b-publish-to-wordpress.md
   - pipeline/steps/step-06c-publish-social.md
   - pipeline/steps/step-06d-validate-seo.md
+  - pipeline/steps/step-06e-git-sync.md
   - pipeline/steps/step-07-monitor-health.md
   - pipeline/steps/step-08-action-recommendations.md
   - pipeline/steps/step-08-atos-analise-estrategica.md

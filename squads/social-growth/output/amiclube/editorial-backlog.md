@@ -33,7 +33,7 @@
 | AC-30-12 | P3 | 3 | Facebook Post | Atendimento previsível como diferencial competitivo | Autoridade | Abrir conversa para parceria | review |
 | AC-30-13 | P1 | 4 | Blog | Guia de compra inteligente de amigurumi | Conversão | Solicitar seleção personalizada | Planejado |
 | AC-30-13b| P1 | 4 | Blog | Investimento em Decoração: Artesanal no Home Office | Autoridade | Solicitar consultoria de ambiente | Planejado |
-| AC-30-14 | P1 | 4 | Instagram Carrossel | Qual peça combina com cada ocasião | Consideração | Comentar a ocasião para sugestão | Planejado |
+| AC-30-14 | P1 | 4 | Instagram Carrossel | Qual peça combina com cada ocasião | Consideração | Comentar a ocasião para sugestão | ✅ DS editorial-myth ✓ |
 | AC-30-15 | P2 | 4 | Instagram Reels | Transformação visual de ambientação | Conversão | Direct para proposta personalizada | Planejado |
 | AC-30-16 | P1 | 4 | Instagram Post Oferta | Vagas de atendimento da semana | Conversão | Orçamento no direct | Planejado |
 | AC-30-25 | P1 | 4 | Instagram Carrossel | Estética Dark Luxo: Por que veludo? | Descoberta | Ver catálogo de veludo | review |

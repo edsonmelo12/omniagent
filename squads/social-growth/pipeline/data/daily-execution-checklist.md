@@ -41,6 +41,16 @@
 - If the client changes the blog angle, rerun blog architecture and discovery optimization before repurposing, and recheck the length, featured-image, image-selection and source-search constraints.
 - If a post reveals a new topic of interest, record it for the next cycle.
 
+## Version Control
+
+- Before ending the session, run the git sync to commit and push all changes:
+  ```bash
+  node squads/social-growth/scripts/git-sync.mjs [--dry-run]
+  ```
+- Verify the sync log at `squads/social-growth/logs/git-sync-*.log`
+- If push is rejected, check `pipeline/data/git-sync-policy.md` for troubleshooting
+- Never commit `.env` files, secrets, or credentials
+
 ## Weekly Wrap-Up
 
 - Identify the best-performing theme of the week.

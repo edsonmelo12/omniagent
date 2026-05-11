@@ -1,0 +1,132 @@
+{
+  "asset_id": "AC-30-14",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "instagram-carousel",
+  "title": "Qual peça combina com cada ocasião",
+  "deck_label": "ocasiões",
+  "topic": "Matching",
+  "footer": "@amiclube",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Consideração",
+  "cta": "Comentar Agora",
+  "caption": "Você sabe qual amigurumi combina com o seu momento?\n\nCada ocasião pede uma leitura diferente. Não existe \"o melhor amigurumi\". Existe \"o melhor para o que você precisa agora\".\n\nSeja para presentear alguém especial, decorar seu espaço, ou trazer mais conforto para o dia a dia — a peça certa transforma qualquer momento.\n\nQual é a sua ocasião? Comente aqui que a gente sugere a peça ideal para você.",
+  "hashtags": ["#AmiClube", "#AmigurumiBrasil", "#AmigurumiArtesanal", "#PresenteCriativo", "#DecoracaoComAlma", "#ArteEmFio", "#CuradoriaAmigurumi", "#PresenteDiferente", "#DecoracaoAutoral", "#AmigurumiPremium"],
+  "exported_images": [
+    "publish/ac-30-14/ac-30-14-01.png",
+    "publish/ac-30-14/ac-30-14-02.png",
+    "publish/ac-30-14/ac-30-14-03.png",
+    "publish/ac-30-14/ac-30-14-04.png",
+    "publish/ac-30-14/ac-30-14-05.png",
+    "publish/ac-30-14/ac-30-14-06.png",
+    "publish/ac-30-14/ac-30-14-07.png"
+  ],
+  "images": [
+    "amiclube/blog/assets/AC-30-13-toys-collection.jpg"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DESCUBRA",
+      "title": "Você sabe qual amigurumi combina com cada ocasião?",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "85% center",
+        "size": "130%",
+        "overlay": "rgba(26,25,24,0.5)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PRESENTE ESPECIAL",
+      "title": "Presente especial",
+      "body": "momento de dar algo único",
+      "textVariant": "light",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "25% center",
+        "size": "120%",
+        "overlay": "rgba(247,243,238,0.7)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "DECORAR ESPAÇO",
+      "title": "Decorar espaço",
+      "body": "peça que aquece o ambiente",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "50% center",
+        "size": "110%",
+        "overlay": "rgba(26,25,24,0.6)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PRESENTEAR CRIANÇA",
+      "title": "Presentear criança",
+      "body": "companions de carinho",
+      "textVariant": "light",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "40% center",
+        "size": "100%",
+        "overlay": "rgba(247,243,238,0.65)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "AMBIENTE PROFISSIONAL",
+      "title": "Ambiente profissional",
+      "body": "toque de personalidade no escritório",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "20% 30%",
+        "size": "115%",
+        "overlay": "rgba(26,25,24,0.7)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "CONEXÃO AFETIVA",
+      "title": "Conexão afetiva",
+      "body": "o que torna cada peça única",
+      "textVariant": "light",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "70% center",
+        "size": "125%",
+        "overlay": "rgba(247,243,238,0.7)"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "PARTICIPE",
+      "title": "Comente: qual ocasião você gostaria de presentear?",
+      "body": "",
+      "cta": "Comente aqui",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "amiclube/blog/assets/AC-30-13-toys-collection.jpg",
+        "position": "50% center",
+        "size": "110%",
+        "overlay": "rgba(26,25,24,0.75)"
+      }
+    }
+  ]
+}

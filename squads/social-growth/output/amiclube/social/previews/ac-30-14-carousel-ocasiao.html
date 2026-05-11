@@ -10,15 +10,16 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #F5F0EA;
-      --primary: #1E3A8A;
-      --accent: #D4AF37;
-      --text: #111827;
-      --text-muted: #6B7280;
+      --accent: #722F37;
+      --terracotta: #C75B39;
+      --text: #F5F0E8;
+      --text-muted: rgba(245,240,232,0.7);
+      --card-bg: rgba(45,35,24,0.55);
+      --card-border: rgba(245,240,232,0.15);
     }
     body {
       margin: 0;
-      background: #0A0A0A;
+      background: #1A1512;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -30,10 +31,10 @@
     .frame {
       width: 420px;
       height: 525px;
-      background: var(--bg);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+      position: relative;
     }
     .carousel {
       width: 100%;
@@ -45,7 +46,7 @@
       display: flex;
       width: 700%;
       height: 100%;
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .slide {
       width: calc(100% / 7);
@@ -55,180 +56,188 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 32px 28px 48px;
-      background: var(--bg);
+      padding: 28px 24px 20px;
+      background-size: cover;
+      background-position: center;
     }
-    .slide.dark { background: var(--primary); }
-    .slide.accent { background: linear-gradient(135deg, var(--primary) 0%, #2D3A5A 100%); }
-    
-    .kicker {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,21,18,0.3) 0%, rgba(26,21,18,0.7) 50%, rgba(26,21,18,0.9) 100%);
+      z-index: 1;
     }
-    .slide.dark .kicker { color: var(--accent); }
-    
-    .title {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+    .slide > * { position: relative; z-index: 2; }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .slide.dark .title { color: #fff; }
-    .slide.accent .title { color: #fff; }
-    
-    .body-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .slide.dark .body-text { color: rgba(255,255,255,0.8); }
-    .slide.accent .body-text { color: rgba(255,255,255,0.85); }
-    
-    .context-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-    .slide.dark .context-card { background: rgba(255,255,255,0.1); }
-    .context-icon {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-    .context-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .slide.dark .context-title { color: #fff; }
-    .context-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-    .slide.dark .context-desc { color: rgba(255,255,255,0.7); }
-    
-    .synthesis {
-      text-align: center;
-      padding: 20px;
-      background: rgba(30,58,138,0.08);
-      border-radius: 12px;
-    }
-    .synthesis p {
-      font-size: 14px;
-      color: var(--text);
-      font-style: italic;
-      line-height: 1.5;
-    }
-    .slide.dark .synthesis { background: rgba(255,255,255,0.1); }
-    .slide.dark .synthesis p { color: #fff; }
-    
-    .cta-section {
-      text-align: center;
-    }
-    .cta-question {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .slide.dark .cta-question { color: #fff; }
-    .cta-box {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 16px 28px;
-      background: var(--accent);
-      color: #111827;
-      font-size: 14px;
-      font-weight: 700;
-      border-radius: 24px;
-    }
-    .slide.dark .cta-box { background: var(--accent); }
-    
     .brand {
       display: flex;
       align-items: center;
       gap: 8px;
     }
     .brand-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--primary);
-      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .slide.dark .brand-icon { background: #fff; color: var(--primary); }
-    .brand-name {
+      color: #F5F0E8;
+      font-weight: 800;
       font-size: 12px;
+    }
+    .brand-name {
+      font-size: 11px;
       font-weight: 600;
       color: var(--text-muted);
+      letter-spacing: 0.05em;
     }
-    .slide.dark .brand-name { color: rgba(255,255,255,0.7); }
-    
-    .progress-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px 28px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
-    }
-    .progress-track {
-      flex: 1;
-      height: 3px;
-      background: rgba(0,0,0,0.1);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .slide.dark .progress-track { background: rgba(255,255,255,0.2); }
-    .progress-fill {
-      height: 100%;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    .slide.dark .progress-fill { background: #fff; }
-    .progress-label {
+    .slide-number {
       font-size: 11px;
       font-weight: 500;
       color: var(--text-muted);
+      letter-spacing: 0.1em;
     }
-    .slide.dark .progress-label { color: rgba(255,255,255,0.6); }
-    
-    .dots {
-      position: absolute;
-      bottom: 12px;
-      left: 0;
-      right: 0;
+
+    .center-content {
+      flex: 1;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 6px;
-      z-index: 10;
+      text-align: center;
+      padding: 20px 0;
     }
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.2);
+    .kicker {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 12px;
     }
-    .slide.dark .dot { background: rgba(255,255,255,0.3); }
-    .dot.active { background: var(--primary); width: 18px; border-radius: 3px; }
-    .slide.dark .dot.active { background: #fff; }
-    
+    .title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 340px;
+    }
+    .title em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px;
+      width: 100%;
+    }
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .synthesis {
+      text-align: center;
+    }
+    .synthesis-quote {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      font-style: italic;
+    }
+    .synthesis-quote strong {
+      color: var(--terracotta);
+      font-style: normal;
+    }
+    .synthesis-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    .cta-section {
+      text-align: center;
+    }
+    .cta-question {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .cta-box {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #F5F0E8;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 24px;
+      letter-spacing: 0.02em;
+    }
+    .cta-link {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .bottom-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 8px;
+    }
+    .progress-track {
+      flex: 1;
+      height: 2px;
+      background: rgba(245,240,232,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--terracotta);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .progress-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
     .nav-area {
       position: fixed;
       top: 0; bottom: 0;
-      width: 50px;
+      width: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -238,21 +247,21 @@
       transition: opacity 0.3s;
     }
     .nav-area:hover { opacity: 1; }
-    .nav-area.prev { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.3), transparent); }
-    .nav-area.next { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.3), transparent); }
+    .nav-area.prev { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.4), transparent); }
+    .nav-area.next { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.4), transparent); }
     .nav-arrow {
-      width: 32px;
-      height: 32px;
-      border: 2px solid rgba(255,255,255,0.5);
+      width: 36px;
+      height: 36px;
+      border: 2px solid rgba(245,240,232,0.4);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .nav-arrow svg {
-      width: 16px; height: 16px;
-      stroke: rgba(255,255,255,0.8);
-      stroke-width: 2; fill: none;
+      width: 18px; height: 18px;
+      stroke: rgba(245,240,232,0.7);
+      stroke-width: 2.5; fill: none;
     }
   </style>
 </head>
@@ -260,114 +269,173 @@
   <div class="frame">
     <div class="carousel">
       <div class="wrapper" id="wrapper">
-        
+
         <!-- Slide 1: Capa -->
-        <section class="slide" data-frame="1">
-          <div class="brand">
-            <div class="brand-icon">A</div>
-            <span class="brand-name">AmiClube</span>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:center center;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">1/7</span>
           </div>
-          <div style="text-align:center;flex:1;display:flex;align-items:center;justify-content:center;">
+          <div class="center-content">
             <div>
-              <div class="kicker">DESCUBRA</div>
-              <div class="title">Você sabe qual amigurumi combina com o seu momento?</div>
+              <div class="kicker">Descubra</div>
+              <div class="title">Você sabe qual amigurumi combina com o seu <em>momento</em>?</div>
             </div>
           </div>
-          <div class="progress-bar">
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:14.28%"></div></div>
+            <span class="progress-label">1 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 2: Presente especial -->
-        <section class="slide" data-frame="2">
-          <div class="kicker">OCASIÃO 1</div>
-          <div class="title">Presentear alguém especial?</div>
-          <div class="context-card">
-            <div class="context-icon">🎁</div>
-            <div class="context-title">A peça certa transforma entrega em memória</div>
-            <div class="context-desc">Escolha pelo significado, não pelo tamanho</div>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:30% center;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">2/7</span>
           </div>
-          <div class="progress-bar">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+            <div class="kicker" style="text-align:left;">Ocasião 1</div>
+            <div class="title" style="text-align:left;font-size:22px;">Presentear alguém especial?</div>
+            <div class="card">
+              <div class="card-icon">🎁</div>
+              <div class="card-title">A peça certa transforma entrega em memória</div>
+              <div class="card-desc">Escolha pelo significado, não pelo tamanho</div>
+            </div>
+          </div>
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:28.56%"></div></div>
+            <span class="progress-label">2 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 3: Decorar espaço -->
-        <section class="slide dark" data-frame="3">
-          <div class="kicker">OCASIÃO 2</div>
-          <div class="title">Decorar seu espaço?</div>
-          <div class="context-card">
-            <div class="context-icon">🏠</div>
-            <div class="context-title">O amigurumi ideal adiciona personalidade</div>
-            <div class="context-desc">Sem ocupar demais, com personalidade</div>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:70% center;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">3/7</span>
           </div>
-          <div class="progress-bar">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+            <div class="kicker" style="text-align:left;">Ocasião 2</div>
+            <div class="title" style="text-align:left;font-size:22px;">Decorar seu espaço?</div>
+            <div class="card">
+              <div class="card-icon">🏠</div>
+              <div class="card-title">O amigurumi ideal adiciona personalidade</div>
+              <div class="card-desc">Sem ocupar demais, com a alma certa</div>
+            </div>
+          </div>
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:42.84%"></div></div>
+            <span class="progress-label">3 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 4: Presentear criança -->
-        <section class="slide" data-frame="4">
-          <div class="kicker">OCASIÃO 3</div>
-          <div class="title">Presentear criança?</div>
-          <div class="context-card">
-            <div class="context-icon">🧒</div>
-            <div class="context-title">Segurança, textura e conexão emocional</div>
-            <div class="context-desc">O que mais importa na escolha</div>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:center 70%;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">4/7</span>
           </div>
-          <div class="progress-bar">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+            <div class="kicker" style="text-align:left;">Ocasião 3</div>
+            <div class="title" style="text-align:left;font-size:22px;">Presentear criança?</div>
+            <div class="card">
+              <div class="card-icon">🧒</div>
+              <div class="card-title">Segurança, textura e conexão emocional</div>
+              <div class="card-desc">O que mais importa na escolha</div>
+            </div>
+          </div>
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:57.12%"></div></div>
+            <span class="progress-label">4 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 5: Escritório -->
-        <section class="slide dark" data-frame="5">
-          <div class="kicker">OCASIÃO 4</div>
-          <div class="title">Presença no escritório?</div>
-          <div class="context-card">
-            <div class="context-icon">💼</div>
-            <div class="context-title">Leveza e profissionalismo podem andar juntos</div>
-            <div class="context-desc">Na peça certa, no tamanho adequado</div>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:center 20%;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">5/7</span>
           </div>
-          <div class="progress-bar">
-            <div class="progress-track"><div class="progress-fill" style="width:71.4%"></div></div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+            <div class="kicker" style="text-align:left;">Ocasião 4</div>
+            <div class="title" style="text-align:left;font-size:22px;">Presença no escritório?</div>
+            <div class="card">
+              <div class="card-icon">💼</div>
+              <div class="card-title">Leveza e profissionalismo podem andar juntos</div>
+              <div class="card-desc">Na peça certa, no tamanho adequado</div>
+            </div>
+          </div>
+          <div class="bottom-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:71.40%"></div></div>
+            <span class="progress-label">5 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 6: Síntese -->
-        <section class="slide accent" data-frame="6">
-          <div class="synthesis">
-            <p>"Não existe 'o melhor amigurumi'.<br>Existe '<strong>o melhor para o que você precisa agora</strong>'."</p>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:center center;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">6/7</span>
           </div>
-          <div class="context-card" style="margin-top:16px;">
-            <div class="context-title">Cada ocasião pede uma leitura diferente</div>
-            <div class="context-desc"> Matching é sobre contexto, não apenas preferência</div>
+          <div class="center-content">
+            <div class="synthesis">
+              <div class="synthesis-quote">
+                "Não existe 'o melhor amigurumi'.<br>Existe '<strong>o melhor para o que você precisa agora</strong>'."
+              </div>
+              <div class="synthesis-sub">Cada ocasião pede uma leitura diferente. Matching é sobre contexto, não apenas preferência.</div>
+            </div>
           </div>
-          <div class="progress-bar">
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:85.68%"></div></div>
+            <span class="progress-label">6 / 7</span>
           </div>
         </section>
-        
+
         <!-- Slide 7: CTA -->
-        <section class="slide" data-frame="7">
-          <div class="brand">
-            <div class="brand-icon">A</div>
-            <span class="brand-name">AmiClube</span>
+        <section class="slide" style="background-image:url(../../blog/assets/AC-30-13-toys-collection.jpg);background-position:25% center;">
+          <div class="top-bar">
+            <div class="brand">
+              <div class="brand-icon">A</div>
+              <span class="brand-name">AmiClube</span>
+            </div>
+            <span class="slide-number">7/7</span>
           </div>
-          <div class="cta-section" style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-            <div class="cta-question">Qual é a sua ocasião?</div>
-            <div class="cta-box">Comente aqui 💬</div>
+          <div class="center-content">
+            <div class="cta-section">
+              <div class="cta-question">Qual é a sua ocasião?</div>
+              <div class="cta-box">Comente aqui 💬</div>
+              <div class="cta-link">Leia mais: Guia de Compra Inteligente</div>
+            </div>
           </div>
-          <div style="text-align:center;font-size:11px;color:var(--text-muted);">Leia mais: Guia de Compra</div>
-          <div class="progress-bar">
+          <div class="bottom-bar">
             <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+            <span class="progress-label">7 / 7</span>
           </div>
         </section>
-        
+
       </div>
     </div>
   </div>
-  
+
   <div class="nav-area prev" onclick="prevSlide()">
     <div class="nav-arrow"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
   </div>

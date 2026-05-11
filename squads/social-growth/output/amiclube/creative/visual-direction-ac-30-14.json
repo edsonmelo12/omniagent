@@ -1,0 +1,87 @@
+{
+  "asset_id": "AC-30-14",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "title": "Qual peça combina com cada ocasião?",
+  "topic": "Matching",
+  "deck_label": "Instagram",
+  "footer": "AmiClube",
+  "style": "editorial-myth",
+  "format": "instagram-carousel",
+  "canvas": { "width": 1080, "height": 1350 },
+  "preview": { "width": 420, "height": 525 },
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Descubra",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "center center", "overlay": "rgba(26,25,24,0.75)" },
+      "title": { "text": "Você sabe qual amigurumi combina com o seu momento?" },
+      "subtitle": { "text": "Matching é sobre contexto, não apenas preferência." },
+      "textVariant": "dark"
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ocasião 1",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "30% center", "overlay": "rgba(26,25,24,0.7)" },
+      "heading": { "text": "Presentear alguém especial?" },
+      "body": { "text": "A peça certa transforma entrega em memória. Escolha pelo significado, não pelo tamanho." },
+      "textVariant": "dark",
+      "truthCard": true
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ocasião 2",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "70% center", "overlay": "rgba(26,25,24,0.7)" },
+      "heading": { "text": "Decorar seu espaço?" },
+      "body": { "text": "O amigurumi ideal adiciona personalidade. Sem ocupar demais, com a alma certa." },
+      "textVariant": "dark",
+      "truthCard": true
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ocasião 3",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "center 70%", "overlay": "rgba(26,25,24,0.7)" },
+      "heading": { "text": "Presentear criança?" },
+      "body": { "text": "Segurança, textura e conexão emocional. O que mais importa na escolha." },
+      "textVariant": "dark",
+      "truthCard": true
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ocasião 4",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "center 20%", "overlay": "rgba(26,25,24,0.7)" },
+      "heading": { "text": "Presença no escritório?" },
+      "body": { "text": "Leveza e profissionalismo podem andar juntos. Na peça certa, no tamanho adequado." },
+      "textVariant": "dark",
+      "truthCard": true
+    },
+    {
+      "type": "content",
+      "eyebrow": "Síntese",
+      "background": { "type": "gradient", "from": "#1A1918", "to": "#241F12" },
+      "heading": { "text": "Não existe 'o melhor amigurumi'. Existe 'o melhor para o que você precisa agora'." },
+      "body": { "text": "Cada ocasião pede uma leitura diferente." },
+      "cta": { "text": "Qual é a sua ocasião?" },
+      "textVariant": "dark",
+      "truthCard": true
+    },
+    {
+      "type": "cta",
+      "eyebrow": "CTA",
+      "background": { "type": "image", "src": "../../blog/assets/AC-30-13-toys-collection.jpg", "position": "25% center", "overlay": "rgba(26,25,24,0.8)" },
+      "title": { "text": "Qual é a sua ocasião?" },
+      "body": { "text": "Comente aqui que a gente sugere a peça ideal para você." },
+      "cta": { "text": "Comente aqui 💬" },
+      "textVariant": "dark"
+    }
+  ],
+  "caption": "Você sabe qual amigurumi combina com o seu momento? Matching é sobre contexto, não apenas preferência. Cada ocasião pede uma leitura diferente. Qual é a sua ocasião? Comente aqui 💬 #AmiClube #AmigurumiBrasil #PresenteCriativo #DecoracaoAutoral",
+  "hashtags": ["#AmiClube", "#AmigurumiBrasil", "#AmigurumiArtesanal", "#PresenteCriativo", "#DecoracaoComAlma", "#ArteEmFio", "#CuradoriaAmigurumi", "#PresenteDiferente", "#DecoracaoAutoral", "#AmigurumiPremium"],
+  "first_impression": {
+    "role": "context",
+    "image_crop": "varied per slide (30%, 70%, center 70%, center 20%)",
+    "similarity_risk": "low"
+  }
+}

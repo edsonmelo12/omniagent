@@ -80,6 +80,7 @@
 ## Publishing
 
 - [Daily Execution Checklist](daily-execution-checklist.md)
+- [Git Sync Policy](git-sync-policy.md)
 - [Current Creative Playbook](../../output/creative/operational-playbook.md) review copy only
 - Current Pipeline Compliance Report: `../../output/{client}/review/pipeline-compliance-{asset-or-batch-id}.md`
 - [Current Schedule Approval](../../output/approvals/schedule-approval.md) review copy only
