@@ -1,0 +1,121 @@
+{
+  "asset_id": "AC-30-14",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "instagram-carousel",
+  "title": "Qual peça combina com cada ocasião",
+  "deck_label": "ocasiões",
+  "topic": "Matching",
+  "footer": "@amiclube",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Consideração",
+  "cta": "Comentar Agora",
+  "caption": "Você sabe qual amigurumi combina com o seu momento?\n\nCada ocasião pede uma leitura diferente. Não existe \"o melhor amigurumi\". Existe \"o melhor para o que você precisa agora\".\n\nSeja para presentear alguém especial, decorar seu espaço, ou trazer mais conforto para o dia a dia — a peça certa transforma qualquer momento.\n\nQual é a sua ocasião? Comente aqui que a gente sugere a peça ideal para você.",
+  "hashtags": ["#AmiClube", "#AmigurumiBrasil", "#AmigurumiArtesanal", "#PresenteCriativo", "#DecoracaoComAlma", "#ArteEmFio", "#CuradoriaAmigurumi", "#PresenteDiferente", "#DecoracaoAutoral", "#AmigurumiPremium"],
+  "exported_images": [
+    "../publish/ac-30-14-ds/slide-01.png",
+    "../publish/ac-30-14-ds/slide-02.png",
+    "../publish/ac-30-14-ds/slide-03.png",
+    "../publish/ac-30-14-ds/slide-04.png",
+    "../publish/ac-30-14-ds/slide-05.png",
+    "../publish/ac-30-14-ds/slide-06.png",
+    "../publish/ac-30-14-ds/slide-07.png"
+  ],
+  "images": [
+    "../../blog/assets/AC-30-13-compra-inteligente-hero.jpg",
+    "../../blog/assets/AC-30-13B-home-office-hero.jpg"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DESCUBRA",
+      "title": "Você sabe qual amigurumi combina com o seu momento?",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "../../blog/assets/AC-30-13-compra-inteligente-hero.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "OCASIÃO 1",
+      "title": "Presentear alguém especial?",
+      "body": "A peça certa transforma entrega em memória.",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "OCASIÃO 2",
+      "title": "Decorar seu espaço?",
+      "body": "O amigurumi ideal adiciona personalidade sem ocupar demais.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F7F3EE"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "OCASIÃO 3",
+      "title": "Presentear criança?",
+      "body": "Segurança, textura e conexão emocional são o que mais importa.",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "OCASIÃO 4",
+      "title": "Presença no escritório?",
+      "body": "Leveza e profissionalismo podem andar juntos — na peça certa.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F7F3EE"
+      }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "REFLEXÃO",
+      "title": "Cada ocasião pede uma leitura diferente.",
+      "body": "Não existe \"o melhor amigurumi\". Existe \"o melhor para o que você precisa agora\".",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "PARTICIPE",
+      "title": "Qual é a sua ocasião?",
+      "body": "Comente aqui que a gente sugere a peça ideal para você.",
+      "cta": "Comentar Agora",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#8C6A5E",
+        "to": "#C45C1F"
+      }
+    }
+  ]
+}

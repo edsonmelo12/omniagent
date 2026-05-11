@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC-30-28 — Instagram Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;400&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #2a2a2a; display: flex; flex-direction: column;
+  align-items: center; padding: 32px 16px; min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+.header { color: #ccc; text-align: center; margin-bottom: 24px; }
+.header h1 { font-size: 18px; margin-bottom: 6px; }
+.header p { font-size: 12px; opacity: 0.6; }
+
+.frame {
+  width: 420px; height: 525px;
+  aspect-ratio: 1080/1350; position: relative; overflow: hidden;
+  background: #1a1a1a;
+}
+
+/* Background image as full canvas */
+.bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: brightness(0.35) saturate(0.7);
+}
+
+/* Scrim — gradient overlay, not opaque card */
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.2) 0%, rgba(26,26,26,0.55) 50%, rgba(26,26,26,0.8) 100%);
+}
+
+/* Content floats over background */
+.content {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 48px; text-align: center; color: #fff;
+}
+
+/* Brand lockup */
+.brand-top {
+  position: absolute; top: 28px; left: 28px; z-index: 3;
+  display: flex; align-items: center; gap: 10px;
+}
+.brand-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #8b6f5c; display: flex; align-items: center;
+  justify-content: center; color: #fff; font-size: 11px; font-weight: 700;
+}
+.brand-name { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+/* Typography hierarchy */
+.eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #D4AF37; margin-bottom: 16px;
+}
+.headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px; font-weight: 700; line-height: 1.15;
+  color: #fff; margin-bottom: 20px; max-width: 360px;
+}
+.headline-emphasis {
+  color: #D4AF37;
+}
+.divider { width: 40px; height: 1px; background: #D4AF37; margin-bottom: 20px; }
+.body-text {
+  font-size: 14px; line-height: 1.6;
+  color: rgba(255,255,255,0.7); max-width: 340px;
+}
+
+.cta {
+  margin-top: 24px; font-size: 13px; font-weight: 600;
+  color: #D4AF37; letter-spacing: 0.5px;
+}
+
+/* Brand sign-off */
+.brand-bottom {
+  position: absolute; bottom: 28px; right: 28px; z-index: 3;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+}
+
+/* Compliance */
+.compliance {
+  margin-top: 24px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+  padding: 16px; color: #F5F0EB; font-size: 11px; width: 420px;
+}
+.compliance h4 { font-size: 12px; margin-bottom: 10px; color: #D4AF37; }
+.compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.compliance-item { display: flex; gap: 6px; }
+.compliance-label { opacity: 0.6; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>AC-30-28 — Instagram Post</h1>
+  <p>1080×1350px · Single post · Organic Image-led · Playfair + DM Sans</p>
+</div>
+
+<article class="frame" aria-label="AC-30-28 Decoração artesanal no home office">
+  <img class="bg" src="../../blog/assets/AC-30-13B-home-office-hero.jpg" alt="Amigurumi em crochê sobre superfície de madeira, com planta ao fundo, sugerindo presença decorativa e acolhimento visual." />
+  <div class="overlay"></div>
+
+  <div class="brand-top">
+    <div class="brand-avatar">A</div>
+    <span class="brand-name">amiclube</span>
+  </div>
+
+  <div class="content">
+    <span class="eyebrow">Decoração Artesanal</span>
+    <h1 class="headline">Seu home office fala sobre você.<br>A questão é: <span class="headline-emphasis">o que ele diz?</span></h1>
+    <div class="divider"></div>
+    <p class="body-text">Uma peça artesanal bem posicionada — na mesa, na estante ou no fundo de câmera — transforma a leitura do espaço. Não é enfeite. É estratégia de imagem.</p>
+    <p class="cta">Fale com a AmiClube →</p>
+  </div>
+
+  <div class="brand-bottom">amiclube</div>
+</article>
+
+<div class="compliance">
+  <h4>Render Compliance Card — AC-30-28</h4>
+  <div class="compliance-grid">
+    <div class="compliance-item"><span class="compliance-label">Canvas:</span> 1080×1350px</div>
+    <div class="compliance-item"><span class="compliance-label">Skill:</span> social-single-post</div>
+    <div class="compliance-item"><span class="compliance-label">Style:</span> Organic Image-led</div>
+    <div class="compliance-item"><span class="compliance-label">Bg:</span> Full canvas image + scrim</div>
+    <div class="compliance-item"><span class="compliance-label">Typography:</span> Playfair (headline) + DM Sans</div>
+    <div class="compliance-item"><span class="compliance-label">Messages:</span> 1 dominant</div>
+    <div class="compliance-item"><span class="compliance-label">DNA:</span> allowed</div>
+    <div class="compliance-item"><span class="compliance-label">pt-BR:</span> <span style="color:#2D6A4F;">ok</span></div>
+  </div>
+</div>
+</body>
+</html>

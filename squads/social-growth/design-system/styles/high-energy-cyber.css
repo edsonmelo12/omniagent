@@ -1,0 +1,62 @@
+:root {
+  --style-name: "high-energy-cyber";
+  --style-bg: #0a0b1a;
+  --style-bg-alt: #111328;
+  --style-surface: rgba(0, 255, 255, 0.07);
+  --style-surface-strong: rgba(0, 255, 255, 0.14);
+  --style-text-heading: #00ffff;
+  --style-text-body: #b0e0e6;
+  --style-text-muted: #6b7b8d;
+  --style-accent: #ff00ff;
+  --style-accent-soft: color-mix(in srgb, #ff00ff 22%, transparent);
+  --style-border: color-mix(in srgb, #00ffff 42%, transparent);
+  --style-heading-font: "Space Grotesk", "DM Sans", sans-serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.03;
+  --style-vignette-opacity: 0.65;
+  --style-gradient: radial-gradient(circle at 18% 15%, rgba(0, 255, 255, 0.15), transparent 40%), linear-gradient(145deg, #0a0b1a 0%, #1a0b2e 52%, #0a0b1a 100%);
+}
+
+[data-text-variant="dark"] .title,
+[data-text-variant="dark"] .heading {
+  color: #00ffff;
+  text-shadow: 0 0 30px color-mix(in srgb, #00ffff 40%, transparent), 0 0 60px color-mix(in srgb, #00ffff 20%, transparent);
+}
+
+[data-text-variant="dark"] .body-text,
+[data-text-variant="dark"] .subtitle {
+  color: #b0e0e6;
+}
+
+[data-text-variant="dark"] .proof-card {
+  background: rgba(0, 255, 255, 0.06);
+  border-color: rgba(0, 255, 255, 0.2);
+  color: #b0e0e6;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+}
+
+[data-text-variant="dark"] .cta-block {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.25), rgba(0, 255, 255, 0.15));
+  border-color: rgba(255, 0, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.15);
+}
+
+[data-text-variant="dark"] .divider {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 22px color-mix(in srgb, #00ffff 40%, transparent);
+}
+
+[data-text-variant="dark"] .header-zone {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+[data-text-variant="dark"] .brand-mark {
+  color: #ff00ff;
+  text-shadow: 0 0 20px color-mix(in srgb, #ff00ff 40%, transparent);
+}
+
+[data-text-variant="dark"] .footer-zone { color: rgba(0, 255, 255, 0.35); }
+[data-text-variant="dark"] .progress-bar { background: rgba(0, 255, 255, 0.10); }
+[data-text-variant="dark"] .progress-bar span { background: linear-gradient(90deg, #00ffff, #ff00ff); }
+[data-text-variant="dark"] .swipe-arrow { color: #ff00ff; }

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350">
+  <title>AC-30-14 Export</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #F5F0EA;
+      --primary: #1E3A8A;
+      --accent: #D4AF37;
+      --text: #111827;
+      --text-muted: #6B7280;
+    }
+    body {
+      margin: 0;
+      background: #0A0A0A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      overflow: hidden;
+    }
+    .frame {
+      width: 1080px;
+      height: 1350px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 70px 120px;
+      background: var(--bg);
+    }
+    .slide.dark { background: var(--primary); }
+    .slide.accent { background: linear-gradient(135deg, var(--primary) 0%, #2D3A5A 100%); }
+    
+    .kicker {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .slide.dark .kicker { color: var(--accent); }
+    
+    .title {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .slide.dark .title { color: #fff; }
+    .slide.accent .title { color: #fff; }
+    
+    .body-text {
+      font-size: 32px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .slide.dark .body-text { color: rgba(255,255,255,0.8); }
+    .slide.accent .body-text { color: rgba(255,255,255,0.85); }
+    
+    .context-card {
+      background: #fff;
+      border-radius: 36px;
+      padding: 48px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .slide.dark .context-card { background: rgba(255,255,255,0.1); }
+    .context-icon {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+    .context-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .slide.dark .context-title { color: #fff; }
+    .context-desc {
+      font-size: 28px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+    .slide.dark .context-desc { color: rgba(255,255,255,0.7); }
+    
+    .synthesis {
+      text-align: center;
+      padding: 52px;
+      background: rgba(30,58,138,0.08);
+      border-radius: 32px;
+    }
+    .synthesis p {
+      font-size: 36px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .slide.dark .synthesis { background: rgba(255,255,255,0.1); }
+    .slide.dark .synthesis p { color: #fff; }
+    
+    .cta-section {
+      text-align: center;
+    }
+    .cta-question {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .slide.dark .cta-question { color: #fff; }
+    .cta-box {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 40px 72px;
+      background: var(--accent);
+      color: #111827;
+      font-size: 36px;
+      font-weight: 700;
+      border-radius: 60px;
+    }
+    .slide.dark .cta-box { background: var(--accent); }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand-icon {
+      width: 82px;
+      height: 82px;
+      background: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 36px;
+    }
+    .slide.dark .brand-icon { background: #fff; color: var(--primary); }
+    .brand-name {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .slide.dark .brand-name { color: rgba(255,255,255,0.7); }
+  </style>
+</head>
+<body>
+  <div class="frame" id="frame"></div>
+
+  <script>
+    const slidesData = [
+      {
+        type: 'cover',
+        kicker: 'DESCUBRA',
+        title: 'Você sabe qual amigurumi combina com o seu momento?',
+        brand: true
+      },
+      {
+        type: 'context',
+        kicker: 'OCASIÃO 1',
+        title: 'Presentear alguém especial?',
+        icon: '🎁',
+        cardTitle: 'A peça certa transforma entrega em memória',
+        cardDesc: 'Escolha pelo significado, não pelo tamanho'
+      },
+      {
+        type: 'context',
+        dark: true,
+        kicker: 'OCASIÃO 2',
+        title: 'Decorar seu espaço?',
+        icon: '🏠',
+        cardTitle: 'O amigurumi ideal adiciona personalidade',
+        cardDesc: 'Sem ocupar demais, com personalidade'
+      },
+      {
+        type: 'context',
+        kicker: 'OCASIÃO 3',
+        title: 'Presentear criança?',
+        icon: '🧒',
+        cardTitle: 'Segurança, textura e conexão emocional',
+        cardDesc: 'O que mais importa na escolha'
+      },
+      {
+        type: 'context',
+        dark: true,
+        kicker: 'OCASIÃO 4',
+        title: 'Presença no escritório?',
+        icon: '💼',
+        cardTitle: 'Leveza e profissionalismo podem andar juntos',
+        cardDesc: 'Na peça certa, no tamanho adequado'
+      },
+      {
+        type: 'synthesis',
+        kicker: 'SÍNTESE',
+        quote: '"Não existe \'o melhor amigurumi\'.<br>Existe \'<strong>o melhor para o que você precisa agora</strong>\'."',
+        cardTitle: 'Cada ocasião pede uma leitura diferente',
+        cardDesc: 'Matching é sobre contexto, não apenas preferência',
+        dark: true
+      },
+      {
+        type: 'cta',
+        kicker: 'VENHA',
+        question: 'Qual é a sua ocasião?',
+        cta: 'Comente aqui 💬',
+        brand: true
+      }
+    ];
+
+    const frame = document.getElementById('frame');
+
+    function renderSlide(data, index) {
+      const slide = document.createElement('section');
+      slide.className = 'slide' + (data.dark ? ' dark' : '') + (data.type === 'synthesis' ? ' accent' : '');
+      
+      let html = '';
+      
+      if (data.brand) {
+        html += `
+          <div class="brand">
+            <div class="brand-icon">A</div>
+            <span class="brand-name">AmiClube</span>
+          </div>
+        `;
+      }
+      
+      if (data.type === 'cover') {
+        html += `
+          <div style="text-align:center;flex:1;display:flex;align-items:center;justify-content:center;">
+            <div>
+              <div class="kicker">${data.kicker}</div>
+              <div class="title">${data.title}</div>
+            </div>
+          </div>
+        `;
+      } else if (data.type === 'context') {
+        html += `
+          <div class="kicker">${data.kicker}</div>
+          <div class="title">${data.title}</div>
+          <div class="context-card">
+            <div class="context-icon">${data.icon}</div>
+            <div class="context-title">${data.cardTitle}</div>
+            <div class="context-desc">${data.cardDesc}</div>
+          </div>
+        `;
+      } else if (data.type === 'synthesis') {
+        html += `
+          <div class="kicker">${data.kicker}</div>
+          <div class="synthesis">
+            <p>${data.quote}</p>
+          </div>
+          <div class="context-card">
+            <div class="context-title">${data.cardTitle}</div>
+            <div class="context-desc">${data.cardDesc}</div>
+          </div>
+        `;
+      } else if (data.type === 'cta') {
+        html += `
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+            <div class="cta-question">${data.question}</div>
+            <div class="cta-box">${data.cta}</div>
+          </div>
+        `;
+      }
+      
+      slide.innerHTML = html;
+      return slide;
+    }
+
+    slidesData.forEach((data, i) => {
+      const slide = renderSlide(data, i);
+      frame.appendChild(slide);
+    });
+  </script>
+</body>
+</html>

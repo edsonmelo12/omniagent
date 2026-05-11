@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-18 | Mitos: o que é amigurumi premium · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&family=Playfair+Display:wght@800&display=swap');
+    :root { --ink:#111827; --muted:#6b7280; --accent:#0f766e; --warm:#b45309; --card:#ffffff; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ffffff 0%, #f5efe7 46%, #e7d8c8 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 14px; }
+    .shield-col { min-width: 0; }
+    .shield-label { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #8b8b8b; font-weight: 800; margin-bottom: 4px; }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 4px 9px; border-radius: 999px;
+      background: rgba(15, 118, 110, .16);
+      border: 1px solid rgba(15, 118, 110, .34);
+      color: #bbf7d0; font-size: 11px; font-weight: 800; letter-spacing: .03em;
+    }
+    .frame {
+      width: min(340px, calc(100vw - 32px));
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 15, 10, .12);
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .18);
+    }
+    /* .mock-header foi removido */
+    .carousel { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; background: #0b1017; }
+    .wrapper { display: flex; width: 700%; height: 100%; transition: transform .42s cubic-bezier(.65, 0, .35, 1); }
+    .slide { width: calc(100% / 7); height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #111827; }
+    .bg {
+      position: absolute; inset: 0;
+      background-image: url('../../social/assets/AC-30-04-posicionamento-hero.jpg');
+      background-size: cover; background-position: center;
+      transform: scale(1.14);
+    }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6, 10, 16, .18) 0%, rgba(6, 10, 16, .76) 100%),
+                  linear-gradient(115deg, rgba(15, 118, 110, .10) 0%, rgba(180, 83, 9, .16) 100%);
+    }
+    .content {
+      position: relative; z-index: 2; height: 100%;
+      padding: 34px 30px 28px; display: flex; flex-direction: column; justify-content: space-between; color: #fff;
+    }
+    .kicker { color: #f9d2ac; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 34px; line-height: .95; letter-spacing: -.03em;
+      max-width: 11ch; margin: 12px 0 10px; text-wrap: balance; text-shadow: 0 2px 12px rgba(0,0,0,.24);
+    }
+    .body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.92); max-width: 24ch; }
+    .mythfact { display: grid; gap: 10px; }
+    .block {
+      border-radius: 18px; padding: 14px 14px 16px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16);
+    }
+    .block.myth { background: rgba(220, 76, 93, .18); }
+    .block.fact { background: rgba(15, 118, 110, .18); }
+    .label { font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 8px; }
+    .headline { font-size: 26px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+    .copy { margin-top: 8px; font-size: 13px; line-height: 1.45; color: rgba(255,255,255,.92); }
+    .check-card {
+      background: rgba(255,255,255,.96); color: #1f2937; border-radius: 18px; padding: 16px;
+      border: 1px solid rgba(255,255,255,.2); box-shadow: 0 16px 30px rgba(0,0,0,.18);
+    }
+    .check-kicker { font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--warm); margin-bottom: 8px; }
+    .check-title { font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+    .check-copy { margin-top: 10px; font-size: 13px; line-height: 1.5; color: #3f3f46; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px; border-radius: 14px;
+      background: var(--warm); color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; width: fit-content;
+    }
+    /* .nav foi removido do HTML */
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.12); z-index: 8; }
+    .progress-fill { height: 100%; width: 14.2857%; background: linear-gradient(90deg, #f59e0b, #dc4c5d); transition: width .25s ease; }
+    @media (max-width: 1240px) { .shield-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body>
+  <header class="shield">
+    <div class="shield-row">
+      <div class="shield-col"><div class="shield-label">Título do Post</div><div class="shield-value">Mitos: o que é amigurumi premium</div></div>
+      <div class="shield-col"><div class="shield-label">Tipo</div><div class="shield-value">Instagram Carrossel</div></div>
+      <div class="shield-col"><div class="shield-label">Canal</div><div class="shield-value">Instagram</div></div>
+      <div class="shield-col"><div class="shield-label">Artigo-Pai</div><div class="shield-value">AC-30-01</div></div>
+      <div class="shield-col"><div class="shield-label">Objetivo</div><div class="shield-value"><span class="badge">Descoberta</span></div></div>
+    </div>
+  </header>
+
+  <div class="frame">
+    <!-- mock_header removido -->
+    <div class="carousel">
+      <!-- Navegação via teclado ← → -->
+      <div class="wrapper" id="wrapper">
+        <section class="slide">
+          <div class="bg"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div>
+              <div class="kicker">MITOS E FATOS</div>
+              <div class="title">O QUE É UM AMIGURUMI PREMIUM?</div>
+              <div class="body">Nem tudo que parece premium se sustenta na prática. Vamos separar leitura e mito.</div>
+            </div>
+            <div class="pill-row">
+              <div class="badge">1/7</div>
+              <div class="badge" style="background:rgba(255,255,255,.12);">premium</div>
+            </div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="opacity:.76; filter: saturate(1.02) contrast(1.03);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="mythfact">
+              <div class="block myth">
+                <div class="label">MITO 1</div>
+                <div class="headline">PREMIUM É SÓ PREÇO ALTO</div>
+                <div class="copy">Preço ajuda, mas não define sozinho a leitura de valor.</div>
+              </div>
+              <div class="block fact">
+                <div class="label">FATO 1</div>
+                <div class="headline">PREMIUM É COERÊNCIA ENTRE PROPÓSITO E ENTREGA</div>
+                <div class="copy">A qualidade aparece quando estética, acabamento e comunicação se alinham.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(7px) saturate(1.02); transform: scale(1.2); opacity:.92;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">MITO 2</div>
+              <div class="check-title">PREMIUM É EXCESSO DE ENFEITE</div>
+              <div class="check-copy">A peça forte é a que comunica intenção com clareza, não a que acumula elementos.</div>
+            </div>
+            <div class="badge" style="margin-top:18px; align-self:flex-start;">2/7</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(7px) saturate(1.02); transform: scale(1.2); opacity:.92;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card" style="background: rgba(255,255,255,.95);">
+              <div class="check-kicker">FATO 2</div>
+              <div class="check-title">A LEITURA PRECISA SER IMEDIATA</div>
+              <div class="check-copy">Se a proposta não aparece na primeira visão, o valor percebido cai.</div>
+            </div>
+            <div class="badge" style="margin-top:18px; align-self:flex-start;">3/7</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.2); opacity:.88;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">MITO 3</div>
+              <div class="check-title">QUALQUER PEÇA É PREMIUM SE O POST DISSER ISSO</div>
+              <div class="check-copy">Mensagem sem lastro visual ou de reputação não sustenta posicionamento.</div>
+            </div>
+            <div class="badge" style="margin-top:18px; align-self:flex-start;">4/7</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.2); opacity:.88;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">FATO 3</div>
+              <div class="check-title">PREMIUM TEM CONSISTÊNCIA DE MARCA</div>
+              <div class="check-copy">A peça precisa parecer parte de uma proposta, não um acaso visual.</div>
+            </div>
+            <div class="badge" style="margin-top:18px; align-self:flex-start;">5/7</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.2); opacity:.84;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">CHECKLIST</div>
+              <div class="check-title">3 PERGUNTAS PARA VALIDAR A LEITURA</div>
+              <div class="check-copy">A peça está clara? A proposta está coerente? A marca transmite confiança?</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">ver comparação</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(10px) saturate(1.02); transform: scale(1.22); opacity:.68;"></div>
+          <div class="overlay" style="background:linear-gradient(180deg, rgba(6,10,16,.12) 0%, rgba(6,10,16,.84) 100%);"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card" style="max-width: 300px;">
+              <div class="check-kicker">FECHO FINAL</div>
+              <div class="check-title">SALVE PARA REVISAR ANTES DE COMPRAR</div>
+              <div class="check-copy">Premium não é excesso. É critério em cada decisão visível.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">salvar mito/fato</div>
+          </div>
+        </section>
+      </div>
+      <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    </div>
+  </div>
+  <script>
+    let current = 0;
+    const total = 7;
+    const wrapper = document.getElementById("wrapper");
+    const progress = document.getElementById("progress");
+    function move(delta) {
+      current = (current + delta + total) % total;
+      wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') move(-1);
+      if (e.key === 'ArrowRight') move(1);
+    });
+    let startX = 0;
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mousedown', e => startX = e.clientX);
+    carousel.addEventListener('mouseup', e => {
+      const diff = e.clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+  </script>
+</body>
+</html>

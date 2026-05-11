@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniAgent | Analytics &amp; ROI Dashboard</title>
+<!-- Google Fonts: Space Grotesk, Manrope, Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#000904",
+              "on-primary-fixed-variant": "#42436b",
+              "on-background": "#191c1e",
+              "secondary": "#6b38d4",
+              "on-secondary-fixed": "#23005c",
+              "on-primary-container": "#8283af",
+              "surface-container": "#eceef1",
+              "surface-container-low": "#f2f4f7",
+              "tertiary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#c2c2f2",
+              "surface-bright": "#f7f9fc",
+              "error-container": "#ffdad6",
+              "secondary-container": "#8455ef",
+              "surface-container-highest": "#e0e3e6",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#eff1f4",
+              "surface-dim": "#d8dadd",
+              "secondary-fixed-dim": "#d0bcff",
+              "on-error-container": "#93000a",
+              "primary": "#020229",
+              "on-surface-variant": "#47464e",
+              "on-tertiary-fixed-variant": "#005236",
+              "surface-container-high": "#e6e8eb",
+              "surface": "#f7f9fc",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#002516",
+              "primary-fixed": "#e1e0ff",
+              "surface-variant": "#e0e3e6",
+              "on-secondary-container": "#fffbff",
+              "error": "#ba1a1a",
+              "background": "#f7f9fc",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#009a6a",
+              "surface-tint": "#5a5b84",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1e",
+              "inverse-primary": "#c2c2f2",
+              "on-tertiary-fixed": "#002113",
+              "on-secondary-fixed-variant": "#5516be",
+              "tertiary-fixed-dim": "#4edea3",
+              "secondary-fixed": "#e9ddff",
+              "primary-container": "#1a1b41",
+              "outline": "#77767f",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c8c5cf",
+              "inverse-surface": "#2d3133",
+              "on-primary-fixed": "#16173d"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      body {
+        background-color: #f7f9fc;
+        color: #191c1e;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-secondary/20 selection:text-secondary">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-slate-100 dark:bg-slate-950 flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div>
+<h1 class="font-headline text-2xl font-black text-indigo-900 leading-none">OmniAgent</h1>
+<p class="font-label text-[10px] tracking-widest uppercase text-slate-500 mt-1">Precision Navigator</p>
+</div>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full py-3 px-4 bg-secondary text-on-secondary font-label font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-secondary-container transition-all active:scale-95 shadow-lg shadow-secondary/20">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Campaign
+            </button>
+</div>
+<!-- Client Selector (Contextual addition) -->
+<div class="px-4 mb-8">
+<div class="bg-indigo-500/5 rounded-xl p-3 border border-indigo-500/10">
+<p class="font-label text-[10px] text-slate-400 mb-2 px-2">ACTIVE CLIENT</p>
+<div class="flex items-center justify-between px-2 cursor-pointer group">
+<span class="font-body font-bold text-sm text-indigo-900">Global Horizon Corp</span>
+<span class="material-symbols-outlined text-sm text-slate-400 group-hover:text-secondary">unfold_more</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-violet-600 dark:text-violet-400 border-l-4 border-violet-600 dark:border-violet-400 pl-4 bg-indigo-50 dark:bg-indigo-900/20 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-body text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-body text-sm font-medium">Clients</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span class="font-body text-sm font-medium">Channels</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+<span class="font-body text-sm font-medium">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-indigo-500/5">
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-body text-sm font-medium">Help</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-500 dark:text-slate-400 pl-5 hover:text-indigo-900 dark:hover:text-indigo-100 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-body text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen relative">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex justify-between items-center px-8 z-40 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<h2 class="font-headline font-bold text-lg tracking-tight text-indigo-900">Analytics</h2>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label text-sm font-medium text-slate-500 hover:text-indigo-900 transition-colors" href="#">Dashboard</a>
+<a class="font-label text-sm font-bold text-violet-600 border-b-2 border-violet-600 pb-1" href="#">ROI Reports</a>
+<a class="font-label text-sm font-medium text-slate-500 hover:text-indigo-900 transition-colors" href="#">Ben AI</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary-container text-white rounded-md font-label text-xs font-bold hover:bg-opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    Ben AI Quick-Ask
+                </button>
+<button class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-md font-label text-xs font-bold hover:bg-secondary hover:text-white transition-all">
+                    Instant Report
+                </button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">smart_toy</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="close-up portrait of professional male executive in high-end office with natural lighting and blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3HKz_wc-0uU-70ptrHQIpacoXGrJ5GnXNkqAizPfQn_aRd6CRUuCUIxzsxfD0HxaYt4Elm67PoOl8JZHoiDWzrGYWPeMRoZYY5HB3KWUQNzZRaHn6IZuAUrNao-lOryj6JieEr_QtwLsf2jLqKkwdtx591zyJBsDPDludhbOpdIl8P7otn7QAVk2h5PmRgIGFYF2Sqc0jayj710Bop6im1qzBEuXc-XLNGWCJvmjoqmTu9O1numPxNn_lXf5TGStapirGQfUtSK0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="pt-24 px-8 pb-12">
+<!-- AI Agent Activity Feed Overlay (Floating Mini-Cockpit) -->
+<div class="mb-8 flex items-center justify-between glass-card p-4 rounded-xl border border-white/40 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center border-2 border-white ring-1 ring-violet-200">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">face_6</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center border-2 border-white ring-1 ring-emerald-200">
+<span class="material-symbols-outlined text-xs text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">face_2</span>
+</div>
+</div>
+<div>
+<p class="font-label text-[10px] text-slate-400 uppercase tracking-tighter font-bold">Live AI Feed</p>
+<p class="text-xs font-medium text-slate-700">Aria is optimizing 4 Reels; Ben detected a viral trend in 'Fintech'.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-slate-500">SYSTEMS NOMINAL</span>
+</div>
+</div>
+<!-- Top-Level KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- KPI 1 -->
+<div class="surface-container-lowest glass-card p-6 rounded-xl border border-white/20 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-slate-400 p-2 bg-slate-50 rounded-lg">stream</span>
+<span class="bg-emerald-100 text-on-tertiary-container font-label text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">trending_up</span> +14.2%
+                        </span>
+</div>
+<p class="font-label text-xs text-slate-500 mb-1">Deep Engagement Rate</p>
+<h3 class="font-headline text-3xl font-bold text-indigo-900 tracking-tight">28.4%</h3>
+<div class="mt-4 h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="surface-container-lowest glass-card p-6 rounded-xl border border-white/20 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-slate-400 p-2 bg-slate-50 rounded-lg">calculate</span>
+<span class="bg-emerald-100 text-on-tertiary-container font-label text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+                            STABLE
+                        </span>
+</div>
+<p class="font-label text-xs text-slate-500 mb-1">Projected ROI</p>
+<h3 class="font-headline text-3xl font-bold text-indigo-900 tracking-tight">4.8x</h3>
+<p class="text-[10px] text-slate-400 mt-2 font-medium">Predicted for Q3: 5.2x</p>
+</div>
+<!-- KPI 3 -->
+<div class="surface-container-lowest glass-card p-6 rounded-xl border border-white/20 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-slate-400 p-2 bg-slate-50 rounded-lg">monetization_on</span>
+<span class="bg-violet-100 text-secondary font-label text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">bolt</span> AI DRIVEN
+                        </span>
+</div>
+<p class="font-label text-xs text-slate-500 mb-1">Total AI Attributed Revenue</p>
+<h3 class="font-headline text-3xl font-bold text-indigo-900 tracking-tight">$842,500</h3>
+<div class="flex items-center gap-2 mt-4">
+<div class="flex -space-x-1">
+<div class="w-4 h-4 rounded-full bg-indigo-200"></div>
+<div class="w-4 h-4 rounded-full bg-violet-200"></div>
+</div>
+<span class="text-[10px] text-slate-500">62% of total ecosystem spend</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Main Grid (8-col / 4-col feel) -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: Analytics Charts (8 cols) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Channel Performance Graph Area -->
+<section class="surface-container-lowest glass-card p-8 rounded-xl border border-white/20 shadow-sm overflow-hidden">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="font-headline text-xl font-bold text-indigo-900">Multi-Channel Velocity</h4>
+<p class="font-body text-xs text-slate-500">Aggregated engagement and growth metrics</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-50 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-indigo-900"></span>
+<span class="text-[10px] font-bold">LinkedIn</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-50 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-bold">Instagram</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-50 border border-slate-100">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="text-[10px] font-bold">TikTok</span>
+</div>
+</div>
+</div>
+<!-- Abstract Chart Visualization -->
+<div class="h-64 relative flex items-end gap-1 px-2">
+<div class="absolute inset-0 flex flex-col justify-between opacity-5">
+<div class="w-full h-px bg-indigo-900"></div>
+<div class="w-full h-px bg-indigo-900"></div>
+<div class="w-full h-px bg-indigo-900"></div>
+<div class="w-full h-px bg-indigo-900"></div>
+</div>
+<!-- Mock Data Visual -->
+<div class="flex-1 flex flex-col justify-end h-full gap-2">
+<div class="w-full bg-indigo-900/10 rounded-t-sm h-[40%] relative group cursor-pointer hover:bg-indigo-900/20 transition-all">
+<div class="absolute -top-1 left-0 w-full h-1 bg-indigo-900 shadow-[0_0_8px_rgba(2,2,41,0.5)]"></div>
+</div>
+<div class="w-full bg-secondary/10 rounded-t-sm h-[65%] relative group cursor-pointer hover:bg-secondary/20 transition-all">
+<div class="absolute -top-1 left-0 w-full h-1 bg-secondary shadow-[0_0_8px_rgba(107,56,212,0.5)]"></div>
+</div>
+<div class="w-full bg-tertiary-fixed-dim/10 rounded-t-sm h-[85%] relative group cursor-pointer hover:bg-tertiary-fixed-dim/20 transition-all">
+<div class="absolute -top-1 left-0 w-full h-1 bg-tertiary-fixed-dim shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-end h-full gap-2">
+<div class="w-full bg-indigo-900/10 rounded-t-sm h-[45%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-indigo-900"></div>
+</div>
+<div class="w-full bg-secondary/10 rounded-t-sm h-[70%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-secondary"></div>
+</div>
+<div class="w-full bg-tertiary-fixed-dim/10 rounded-t-sm h-[80%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-end h-full gap-2">
+<div class="w-full bg-indigo-900/10 rounded-t-sm h-[35%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-indigo-900"></div>
+</div>
+<div class="w-full bg-secondary/10 rounded-t-sm h-[60%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-secondary"></div>
+</div>
+<div class="w-full bg-tertiary-fixed-dim/10 rounded-t-sm h-[90%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-end h-full gap-2">
+<div class="w-full bg-indigo-900/10 rounded-t-sm h-[50%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-indigo-900"></div>
+</div>
+<div class="w-full bg-secondary/10 rounded-t-sm h-[75%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-secondary"></div>
+</div>
+<div class="w-full bg-tertiary-fixed-dim/10 rounded-t-sm h-[95%] relative">
+<div class="absolute -top-1 left-0 w-full h-1 bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-2">
+<span class="text-[10px] font-bold text-slate-400">MON</span>
+<span class="text-[10px] font-bold text-slate-400">TUE</span>
+<span class="text-[10px] font-bold text-slate-400">WED</span>
+<span class="text-[10px] font-bold text-slate-400">THU</span>
+<span class="text-[10px] font-bold text-slate-400">FRI</span>
+<span class="text-[10px] font-bold text-slate-400">SAT</span>
+<span class="text-[10px] font-bold text-slate-400">SUN</span>
+</div>
+</section>
+<!-- AI Agent Attribution Section -->
+<section class="surface-container-low p-8 rounded-xl border border-slate-200 shadow-sm">
+<h4 class="font-headline text-lg font-bold text-indigo-900 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">token</span>
+                            AI Agent ROI Performance
+                        </h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="surface-container-lowest p-5 rounded-lg border border-white/50 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 bg-indigo-50 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">face_6</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body font-bold text-sm text-slate-800">Aria (Content Studio)</p>
+<span class="text-xs font-black text-secondary">6.2x ROI</span>
+</div>
+<p class="text-[11px] text-slate-500">Auto-generation efficiency +32% since last week.</p>
+</div>
+</div>
+<div class="surface-container-lowest p-5 rounded-lg border border-white/50 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 bg-emerald-50 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">face_2</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body font-bold text-sm text-slate-800">Ben (Trend Research)</p>
+<span class="text-xs font-black text-tertiary-fixed-dim">3.4x ROI</span>
+</div>
+<p class="text-[11px] text-slate-500">Early trend identification saved $12k in ad spend.</p>
+</div>
+</div>
+<div class="surface-container-lowest p-5 rounded-lg border border-white/50 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 bg-amber-50 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">face_4</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body font-bold text-sm text-slate-800">Leo (Community Mgr)</p>
+<span class="text-xs font-black text-amber-600">4.1x ROI</span>
+</div>
+<p class="text-[11px] text-slate-500">2,400+ comments managed with 98% sentiment accuracy.</p>
+</div>
+</div>
+<div class="surface-container-lowest p-5 rounded-lg border border-white/50 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 bg-blue-50 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-500" style="font-variation-settings: 'FILL' 1;">face_5</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body font-bold text-sm text-slate-800">Cora (Strategy Lab)</p>
+<span class="text-xs font-black text-blue-600">5.8x ROI</span>
+</div>
+<p class="text-[11px] text-slate-500">Attribution modelling improved targeting by 18%.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right: Ben AI Insights Panel (4 cols) -->
+<div class="col-span-12 lg:col-span-4">
+<section class="sticky top-24 surface-container-lowest glass-card rounded-xl border border-white/40 shadow-xl overflow-hidden">
+<div class="p-6 bg-primary-container text-white">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center shadow-lg shadow-secondary/50">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<h5 class="font-headline font-bold text-lg leading-none">Ben AI Insights</h5>
+<p class="font-label text-[10px] text-indigo-300 tracking-wider">REAL-TIME OPTIMIZATION</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="space-y-4">
+<div class="bg-indigo-50/50 p-4 rounded-lg border-l-4 border-secondary">
+<p class="font-body text-sm font-bold text-indigo-900 mb-1">Platform Imbalance Detected</p>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                                        Instagram Reels are outperforming LinkedIn posts by <span class="text-secondary font-black">30%</span>. Increase budget for AI Aria video generation to maximize weekend peak.
+                                    </p>
+</div>
+<div class="bg-indigo-50/50 p-4 rounded-lg border-l-4 border-emerald-500">
+<p class="font-body text-sm font-bold text-indigo-900 mb-1">Viral Trend Alert</p>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                                        The 'Sustainable Logistics' topic is gaining 140% more traction than projected. I suggest pivoting the Monday campaign to focus on green shipping.
+                                    </p>
+</div>
+<div class="bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300">
+<p class="font-body text-sm font-bold text-slate-700 mb-1">Efficiency Note</p>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                                        Content repurposing workflows are currently running at 94% capacity. No immediate intervention needed.
+                                    </p>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-100">
+<p class="font-label text-[10px] font-bold text-slate-400 mb-4 uppercase tracking-widest">Recommended Actions</p>
+<button class="w-full py-3 mb-3 bg-indigo-900 text-white font-label font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-black transition-all">
+                                    Shift $2.5k Budget to Instagram
+                                </button>
+<button class="w-full py-3 border border-indigo-100 text-indigo-900 font-label font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-indigo-50 transition-all">
+                                    Generate Trend Report
+                                </button>
+</div>
+<div class="relative mt-4">
+<input class="w-full bg-slate-50 border-0 border-b-2 border-slate-200 focus:border-secondary focus:ring-0 text-sm font-body px-0 py-3 transition-all placeholder:text-slate-400" placeholder="Ask Ben anything about ROI..." type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-slate-300 cursor-pointer hover:text-secondary">send</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer Stats / Meta Data -->
+<div class="mt-12 flex flex-wrap items-center justify-between py-6 border-t border-slate-200 opacity-60">
+<div class="flex items-center gap-8">
+<div>
+<p class="font-label text-[10px] uppercase font-bold text-slate-400">Last Sync</p>
+<p class="text-xs font-bold text-slate-700">4 minutes ago</p>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase font-bold text-slate-400">Data Integrity</p>
+<p class="text-xs font-bold text-slate-700 text-emerald-600 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> 99.9%
+                        </p>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase font-bold text-slate-400">Total API Calls</p>
+<p class="text-xs font-bold text-slate-700">1.2M / mo</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-medium text-slate-500 italic">"OmniAgent: Navigation focused on the horizon of growth."</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Floating Action (Suppressed as per rules for Details/Settings, but often used for 'Ben' on Dashboard) -->
+<!-- Not rendering FAB here as per "Task-Focused" suppression rules for complex dashboards unless requested, but the top bar has it. -->
+</body></html>

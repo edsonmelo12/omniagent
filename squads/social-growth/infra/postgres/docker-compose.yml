@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: social-growth-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: social_growth
+      POSTGRES_USER: social_growth
+      POSTGRES_PASSWORD: social_growth_local_change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - social_growth_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U social_growth -d social_growth"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  social_growth_postgres_data:

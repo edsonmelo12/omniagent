@@ -1,0 +1,97 @@
+name: "Social Growth Squad"
+code: "social-growth"
+description: "Pesquisa, estrategia, arquitetura editorial de blog, GEO de site, criacao, otimizacao de descoberta, repurpose, direcao visual, renderizacao, revisao, agendamento e monitoramento de perfis sociais e blog de clientes."
+icon: "📣"
+version: "1.2.1"
+language: "pt-BR"
+
+context_loading:
+  default_mode: "fast-safe"
+  quick_entrypoint: "state-summary.md"
+  policy: "pipeline/data/fast-safe-routing-policy.md"
+  rule: "Load data files on demand by route; do not preload every file in data for quick/status/social-copy tasks."
+
+skills:
+  - web_search
+  - web_fetch
+  - data-analysis
+  - analytics-tracking
+  - anysite
+  - content-trend-researcher
+  - content-repurposing
+  - copywriting
+  - seo-2025-expert
+  - write-seo-geo-content
+  - creative-director
+  - social-visual-system
+  - instagram-carousel
+  - linkedin-carousel
+  - stories-sequence
+  - social-single-post
+  - pinterest-pin
+  - pipeline-compliance-audit
+  - meta-insights
+
+data:
+  - pipeline/data/client-record-template.md
+  - pipeline/data/example-client-record.md
+  - pipeline/data/client-intake-guide.md
+  - pipeline/data/daily-usage-guide.md
+  - pipeline/data/operating-flow.md
+  - pipeline/data/intake-sources.md
+  - pipeline/data/future-expansion-roadmap.md
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/blog-brief-template.md
+  - pipeline/data/blog-topic-backlog-template.md
+  - pipeline/data/blog-publication-scorecard-template.md
+  - pipeline/data/client-editorial-backlog-template.md
+  - pipeline/data/blog-family-ledger-template.md
+  - pipeline/data/blog-policy.md
+  - pipeline/data/wordpress-scheduling-cron-policy.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/content-routing-rules.md
+  - pipeline/data/delivery-routing-policy.md
+  - pipeline/data/fast-safe-routing-policy.md
+  - pipeline/data/visual-styles.md
+  - pipeline/data/visual-production-gate.md
+  - pipeline/data/visual-evidence-contract.md
+  - pipeline/data/skill-invocation-gate.md
+  - pipeline/data/pipeline-incident-trace-template.md
+  - pipeline/data/orchestration-boundaries.md
+  - pipeline/steps/step-04b-pipeline-compliance-audit.md
+  - pipeline/data/tone-of-voice.md
+  - pipeline/data/monitoring-intake.md
+  - pipeline/data/monitoring-kpis.md
+  - pipeline/data/action-playbook.md
+  - pipeline/data/monitoring-rhythm.md
+  - pipeline/data/daily-execution-checklist.md
+  - pipeline/data/account-launch-kit.md
+  - pipeline/data/weekly-cycle-template.md
+  - pipeline/data/internal-quickstart.md
+  - pipeline/data/operational-index.md
+  - pipeline/data/start-here.md
+  - pipeline/data/master-guide.md
+  - pipeline/data/naming-standard.md
+  - pipeline/data/social-intelligence-intake.md
+  - pipeline/data/social-intelligence-summary-template.md
+  - pipeline/data/geo-discoverability-summary-template.md
+  - pipeline/data/social-sales-proposal-module.md
+  - pipeline/data/multi-agency-platform.md
+  - pipeline/data/backend-architecture.md
+  - pipeline/data/api-contract.md
+  - pipeline/data/backend-folder-structure.md
+  - pipeline/data/relational-schema.md
+  - pipeline/data/mvp-roadmap.md
+  - pipeline/data/screen-map.md
+  - pipeline/data/product-master-guide.md
+  - pipeline/data/comece-aqui.md
+  - pipeline/data/local-db-setup.md
+  - pipeline/data/migration-order.md
+
+pipeline:
+  file: pipeline/pipeline.yaml
+  checkpoints:
+    - pipeline/steps/step-05-approve-schedule.md

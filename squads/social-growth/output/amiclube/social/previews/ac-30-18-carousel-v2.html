@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-18 V2 | Mitos: O que é amigurumi premium · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&family=Playfair+Display:wght@800&display=swap');
+    :root { --ink:#111827; --muted:#6b7280; --accent:#0f766e; --coral:#dc4c5d; --warm:#b45309; --card:#ffffff; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ffffff 0%, #f0fdf4 46%, #e7fee7 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+    .export-mode { display: none; }
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 14px; }
+    .shield-col { min-width: 0; }
+    .shield-label { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #8b8b8b; font-weight: 800; margin-bottom: 4px; }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 4px 9px; border-radius: 999px;
+      background: rgba(15, 118, 110, .16);
+      border: 1px solid rgba(15, 118, 110, .34);
+      color: #bbf7d0; font-size: 11px; font-weight: 800; letter-spacing: .03em;
+    }
+    .frame {
+      width: min(340px, calc(100vw - 32px));
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 15, 10, .12);
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .18);
+    }
+    .mock-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #fff; border-bottom: 1px solid #ece7df; }
+    .avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--coral)); }
+    .name { font-size: 13px; font-weight: 800; line-height: 1.1; color: #212529; }
+    .subname { font-size: 11px; color: var(--muted); }
+    .carousel { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; background: #0a1015; }
+    .wrapper { display: flex; width: 800%; height: 100%; transition: transform .42s cubic-bezier(.65, 0, .35, 1); }
+    .slide { width: calc(100% / 8); height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #0a1015; }
+    .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 16, 21, .14) 0%, rgba(10, 16, 21, .80) 100%), linear-gradient(115deg, rgba(220, 76, 93, .12) 0%, rgba(15, 118, 110, .12) 100%); }
+    .content { position: relative; z-index: 2; height: 100%; padding: 34px 30px 28px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; }
+    .kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .kicker.mito { color: #fecdd3; }
+    .kicker.fato { color: #bbf7d0; }
+    .kicker.cover { color: #fecdd3; }
+    .title { font-family: "Playfair Display", serif; font-size: 34px; line-height: .95; letter-spacing: -.03em; max-width: 12ch; margin: 12px 0 10px; text-wrap: balance; }
+    .body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.92); max-width: 26ch; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16); font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .mito-card { background: rgba(220, 76, 93, .92); border-radius: 16px; padding: 16px; border: 2px solid rgba(255,255,255,.2); }
+    .mito-label { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: 8px; }
+    .mito-text { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; text-decoration: line-through; opacity: .85; }
+    .fato-card { background: rgba(15, 118, 110, .92); border-radius: 16px; padding: 16px; border: 2px solid rgba(255,255,255,.2); margin-top: 12px; }
+    .fato-label { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: 8px; }
+    .fato-text { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .compare-card { display: flex; flex-direction: column; gap: 10px; }
+    .compare-label { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+    .compare-row { display: flex; gap: 10px; }
+    .compare-item { flex: 1; border-radius: 12px; padding: 14px; }
+    .compare-item.mito { background: rgba(220, 76, 93, .88); }
+    .compare-item.fato { background: rgba(15, 118, 110, .88); }
+    .compare-item-title { font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; opacity: .8; }
+    .compare-item-text { font-size: 13px; font-weight: 700; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px; border-radius: 14px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; width: fit-content; }
+    /* .nav foi removido */
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.12); z-index: 8; }
+    .progress-fill { height: 100%; width: 12.5%; background: linear-gradient(90deg, var(--coral), var(--accent)); transition: width .25s ease; }
+    @media (max-width: 1240px) { .shield-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body>
+  <header class="shield">
+    <div class="shield-row">
+      <div class="shield-col"><div class="shield-label">Título</div><div class="shield-value">Mitos: O que é amigurumi premium</div></div>
+      <div class="shield-col"><div class="shield-label">Tipo</div><div class="shield-value">Instagram Carrossel</div></div>
+      <div class="shield-col"><div class="shield-label">Canal</div><div class="shield-value">Instagram</div></div>
+      <div class="shield-col"><div class="shield-label">Artigo-Pai</div><div class="shield-value">AC-30-01</div></div>
+      <div class="shield-col"><div class="shield-label">Objetivo</div><div class="shield-value"><span class="badge">Descoberta</span></div></div>
+    </div>
+  </header>
+
+  <div class="frame">
+    <!-- mock_header removido -->
+    <div class="carousel">
+      <!-- Navegação via teclado ← → -->
+      <div class="wrapper" id="wrapper">
+
+        <!-- Slide 1: Cover -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg'); filter: blur(2px); transform: scale(1.08);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div>
+              <div class="kicker cover">MITOS E VERDADES</div>
+              <div class="title" style="max-width: 10ch;">O QUE É AMIGURUMI PREMIUM?</div>
+              <div class="body">5 comparações para não errar na sua próxima compra.</div>
+            </div>
+            <div class="pill-row">
+              <div class="pill">1/8</div><div class="pill">comparação</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2: Mito 1 -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg'); filter: blur(6px); transform: scale(1.14);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="compare-card">
+              <div class="compare-label">COMPARAÇÃO 1 DE 4</div>
+              <div class="compare-row">
+                <div class="compare-item mito">
+                  <div class="compare-item-title">✗ MITO</div>
+                  <div class="compare-item-text">"É premium se for importado"</div>
+                </div>
+                <div class="compare-item fato">
+                  <div class="compare-item-title">✓ FATO</div>
+                  <div class="compare-item-text">Origem não define qualidade</div>
+                </div>
+              </div>
+              <div class="body" style="font-size: 13px;">Há artesanato brasileiro que supera importados em critério e acabamento.</div>
+            </div>
+            <div class="pill-row" style="margin-top:14px;"><div class="pill">2/8</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 3: Mito 2 -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg'); filter: blur(6px); transform: scale(1.14);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="compare-card">
+              <div class="compare-label">COMPARAÇÃO 2 DE 4</div>
+              <div class="compare-row">
+                <div class="compare-item mito">
+                  <div class="compare-item-title">✗ MITO</div>
+                  <div class="compare-item-text">"É premium pelo tamanho"</div>
+                </div>
+                <div class="compare-item fato">
+                  <div class="compare-item-title">✓ FATO</div>
+                  <div class="compare-item-text">Tamanho não garante padrão</div>
+                </div>
+              </div>
+              <div class="body" style="font-size: 13px;">Um mini bem-executado vale mais que um grande com acabamento precário.</div>
+            </div>
+            <div class="pill-row" style="margin-top:14px;"><div class="pill">3/8</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 4: Mito 3 -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg'); filter: blur(6px); transform: scale(1.14);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="compare-card">
+              <div class="compare-label">COMPARAÇÃO 3 DE 4</div>
+              <div class="compare-row">
+                <div class="compare-item mito">
+                  <div class="compare-item-title">✗ MITO</div>
+                  <div class="compare-item-text">"É premium se for bonito"</div>
+                </div>
+                <div class="compare-item fato">
+                  <div class="compare-item-title">✓ FATO</div>
+                  <div class="compare-item-text">Acabamento técnico conta mais</div>
+                </div>
+              </div>
+              <div class="body" style="font-size: 13px;">Beleza sem estrutura é superfície. Verifique costuras, densidade e trava.</div>
+            </div>
+            <div class="pill-row" style="margin-top:14px;"><div class="pill">4/8</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Mito 4 -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg'); filter: blur(6px); transform: scale(1.14);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="compare-card">
+              <div class="compare-label">COMPARAÇÃO 4 DE 4</div>
+              <div class="compare-row">
+                <div class="compare-item mito">
+                  <div class="compare-item-title">✗ MITO</div>
+                  <div class="compare-item-text">"É premium pelo preço alto"</div>
+                </div>
+                <div class="compare-item fato">
+                  <div class="compare-item-title">✓ FATO</div>
+                  <div class="compare-item-text">Preço não mede valor real</div>
+                </div>
+              </div>
+              <div class="body" style="font-size: 13px;">Use os 5 sinais de qualidade. Essa é a única métrica que importa na decisão.</div>
+            </div>
+            <div class="pill-row" style="margin-top:14px;"><div class="pill">5/8</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 6: Checklist -->
+        <section class="slide">
+          <div class="bg" style="background: linear-gradient(160deg, #0a2018 0%, #0f2922 100%);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div>
+              <div style="font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #bbf7d0; margin-bottom: 16px;">CHECKLIST FINAL</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 28px; line-height: .95; letter-spacing: -.03em; color: #fff; margin-bottom: 20px;">Use estes critérios:</div>
+              <div style="background: rgba(15, 118, 110, .88); border-radius: 16px; padding: 18px; border: 2px solid rgba(255,255,255,.2);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;">✓</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #fff;">Acabamento das costuras</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;">✓</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #fff;">Densidade do enchimento</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;">✓</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #fff;">Tipo de fio</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;">✓</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #fff;">Trava interna dos olhos</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;">✓</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #fff;">Equilíbrio e proporção</div>
+                </div>
+              </div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">6/8</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 7: CTA -->
+        <section class="slide">
+          <div class="bg" style="background: linear-gradient(160deg, #0a2018 0%, #0f2922 100%);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center; text-align:center;">
+            <div>
+              <div class="title" style="max-width: 14ch; margin: 0 auto 16px;">COMPARTILHE COM QUEM ESTÁ COMPRANDO</div>
+              <div class="body" style="margin-bottom: 20px;">Às vezes a melhor decisão começa com uma comparação.</div>
+              <div class="cta" style="width: 100%; background: var(--coral);">ver comparação</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 8: Fecho -->
+        <section class="slide">
+          <div class="bg" style="background: linear-gradient(160deg, #0a2018 0%, #0f2922 100%);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center; text-align:center;">
+            <div>
+              <div class="title" style="max-width: 14ch; margin: 0 auto 16px; color: #bbf7d0;">VERDADE: PREMIUM É CRITÉRIO</div>
+              <div class="body" style="margin-bottom: 20px; font-size: 16px;">A peça que você vai guardar por anos começa com a escolha certa.</div>
+              <div class="pill-row" style="justify-content:center; gap: 10px;">
+                <div class="pill" style="background: rgba(15,118,110,.3);">salvar</div>
+                <div class="pill" style="background: rgba(220,76,93,.3);">compartilhar</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const total = 8;
+    const wrapper = document.getElementById("wrapper");
+    const progress = document.getElementById("progress");
+    function move(delta) {
+      current = (current + delta + total) % total;
+      wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') move(-1);
+      if (e.key === 'ArrowRight') move(1);
+    });
+    let startX = 0;
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mousedown', e => startX = e.clientX);
+    carousel.addEventListener('mouseup', e => {
+      const diff = e.clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+  </script>
+</body>
+</html>

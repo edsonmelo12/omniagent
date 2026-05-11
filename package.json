@@ -1,0 +1,32 @@
+{
+  "name": "opensquad-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "creative:flow": "npx tsx scripts/run-creative-flow.ts",
+    "creative:preview": "npx tsx scripts/export-preview.ts",
+    "creative:schedule": "npx tsx scripts/schedule-creative-flow.ts",
+    "social:monitor:wordpress-future": "node squads/social-growth/scripts/monitor-wordpress-future-posts.mjs",
+    "social:build:publish-queue": "node squads/social-growth/scripts/build-social-publish-queue.mjs",
+    "social:run:publish-worker": "node squads/social-growth/scripts/run-social-publish-worker.mjs",
+    "social:monitor:publish-queue": "node squads/social-growth/scripts/monitor-social-publish-queue.mjs",
+    "social:sync:state-approvals": "node squads/social-growth/scripts/sync-state-approvals.mjs",
+    "social:validate:creative-dna": "node squads/social-growth/scripts/validate-creative-dna-acceptance.mjs",
+    "social:summary": "node squads/social-growth/scripts/generate-state-summary.mjs",
+    "social:consistency:audit": "node squads/social-growth/scripts/consistency-audit.mjs",
+    "social:bootstrap": "node squads/social-growth/scripts/generate-state-summary.mjs && node squads/social-growth/scripts/consistency-audit.mjs",
+    "social:validate:links": "node squads/social-growth/scripts/validate-links-before-publish.mjs",
+    "social:workflow": "node squads/social-growth/scripts/publish-workflow.mjs",
+    "social:reconcile": "node squads/social-growth/scripts/reconcile-post-publish.mjs",
+    "social:design:compose": "node squads/social-growth/design-system/engine/compose.mjs",
+    "social:design:preset": "node squads/social-growth/design-system/engine/preset-from-brand.mjs"
+  },
+  "dependencies": {
+    "@google-analytics/admin": "^9.1.0",
+    "@google-analytics/data": "^5.2.2",
+    "playwright": "^1.58.2"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

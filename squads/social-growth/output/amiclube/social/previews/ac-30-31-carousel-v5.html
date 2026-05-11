@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<title>AC-30-31 v5 | 7 perguntas de confiança</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a1a;display:flex;flex-direction:column;align-items:center;min-height:100vh;font-family:'DM Sans',sans-serif;padding:32px 16px}
+.header{color:#ccc;text-align:center;margin-bottom:24px}
+.header h1{font-size:18px;margin-bottom:6px}
+.header p{font-size:12px;opacity:0.6}
+.carousel-container{position:relative;width:420px}
+.carousel-viewport{width:420px;height:525px;overflow:hidden;position:relative;cursor:grab;user-select:none;border-radius:12px;touch-action:pan-y}
+.carousel-viewport:active{cursor:grabbing}
+.carousel-track{display:flex;height:100%;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+.slide{min-width:420px;height:525px;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:0 32px}
+.slide.light{background:#FAF5EE;color:#2C1810}
+.slide.dark{background:#2C1810;color:#FAF5EE}
+.slide.gradient{background:linear-gradient(165deg,#2C1810 0%,#C4673A 50%,#7A8C6E 100%);color:#fff}
+.slide-inner{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.slide-inner.center{justify-content:center;align-items:center;text-align:center}
+.tag{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.slide.light .tag{color:#C4673A}
+.slide.dark .tag{color:#7A8C6E}
+.slide.gradient .tag{color:rgba(255,255,255,0.6)}
+.headline{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;line-height:1.15}
+.body-text{font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;opacity:0.8}
+.slide.light .body-text{color:#2C1810;opacity:0.7}
+.feature-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0}
+.slide.light .feature-item{border-bottom:1px solid #E8E0D5}
+.slide.dark .feature-item{border-bottom:1px solid rgba(255,255,255,0.08)}
+.feature-label{font-size:13px;font-weight:600}
+.feature-desc{font-size:11px;opacity:0.6;margin-top:2px}
+.cta-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:#C4673A;color:#fff;font-weight:600;font-size:13px;border-radius:24px}
+.progress-bar{position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;display:flex;align-items:center;gap:8px;z-index:10}
+.progress-track{flex:1;height:3px;border-radius:2px;overflow:hidden}
+.slide.light .progress-track{background:rgba(0,0,0,0.08)}
+.slide.dark .progress-track,.slide.gradient .progress-track{background:rgba(255,255,255,0.12)}
+.progress-fill{height:100%;border-radius:2px}
+.slide.light .progress-fill{background:#C4673A}
+.slide.dark .progress-fill,.slide.gradient .progress-fill{background:#fff}
+.progress-label{font-size:10px;font-weight:500}
+.slide.light .progress-label{color:rgba(0,0,0,0.3)}
+.slide.dark .progress-label,.slide.gradient .progress-label{color:rgba(255,255,255,0.4)}
+.swipe-arrow{position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center}
+.slide.light .swipe-arrow{background:linear-gradient(to right,transparent,rgba(0,0,0,0.06))}
+.slide.dark .swipe-arrow{background:linear-gradient(to right,transparent,rgba(255,255,255,0.08))}
+.slide.gradient .swipe-arrow{background:linear-gradient(to right,transparent,rgba(255,255,255,0.1))}
+.preview-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.preview-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:all 0.2s}
+.preview-dots .dot.active{background:#C4673A;transform:scale(1.3)}
+.controls{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:transparent;color:#ccc;font-size:18px;cursor:pointer}
+.nav-btn:hover{background:rgba(255,255,255,0.1)}
+body.export-mode .swipe-arrow,body.export-mode .progress-label,body.export-mode .preview-dots,body.export-mode .controls,body.export-mode .header{display:none!important}
+body.export-mode .progress-bar{padding:0!important}
+body.export-mode .progress-track{display:none!important}
+body.export-mode{--slide-w:1080px;--slide-h:1350px}
+body.export-mode .carousel-container{width:var(--slide-w)}
+body.export-mode .carousel-viewport{width:var(--slide-w);height:var(--slide-h)}
+body.export-mode .carousel-track{display:flex;height:var(--slide-h)}
+body.export-mode .slide{min-width:var(--slide-w);height:var(--slide-h);padding:0 80px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>AC-30-31 — Instagram Carousel</h1>
+  <p>1080×1350px · 7 slides · Warm Editorial</p>
+</div>
+
+<div class="carousel-container">
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track">
+
+      <div class="slide light">
+        <div class="slide-inner center">
+          <span class="tag">Guia de confiança</span>
+          <h1 class="headline">7 perguntas que mostram se um amigurumi é confiável.</h1>
+          <p class="body-text">Antes de comprar, faça essas perguntas.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:14.28%"></div></div><span class="progress-label">1/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide dark">
+        <div class="slide-inner center">
+          <span class="tag">Pergunta 1</span>
+          <h1 class="headline">A peça é mostrada em detalhe real?</h1>
+          <p class="body-text">Marcas confiáveis não escondem. Mostram textura, proximidade e ângulos suficientes.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:28.56%"></div></div><span class="progress-label">2/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide gradient">
+        <div class="slide-inner center">
+          <span class="tag">Pergunta 2</span>
+          <h1 class="headline">A marca explica materiais e uso?</h1>
+          <p class="body-text">Não precisa de aula técnica. Mas precisa contextualizar: materiais, personalização e tipo de uso.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:42.84%"></div></div><span class="progress-label">3/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide light">
+        <div class="slide-inner center">
+          <span class="tag">Pergunta 3</span>
+          <h1 class="headline">A apresentação sugere cuidado?</h1>
+          <div style="margin-top:8px">
+            <div class="feature-item"><div class="feature-label">Fundos limpos</div></div>
+            <div class="feature-item"><div class="feature-label">Luz coerente</div></div>
+            <div class="feature-item"><div class="feature-label">Composição serena</div></div>
+          </div>
+          <p class="body-text">Apresentação = disciplina visual.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:57.12%"></div></div><span class="progress-label">4/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide dark">
+        <div class="slide-inner center">
+          <span class="tag">Pergunta 4</span>
+          <h1 class="headline">O atendimento transmite tranquilidade?</h1>
+          <p class="body-text">Responde com clareza? Explica prazo? Conduz personalização sem ruído? Isso importa.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:71.4%"></div></div><span class="progress-label">5/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide light">
+        <div class="slide-inner center">
+          <span class="tag">Pergunta 5</span>
+          <h1 class="headline">O portfólio é consistente?</h1>
+          <p class="body-text">O estilo se mantém? A qualidade oscila demais? Consistência é sinal forte de confiança.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:85.68%"></div></div><span class="progress-label">6/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <div class="slide gradient">
+        <div class="slide-inner center">
+          <span class="tag">Fecho</span>
+          <h1 class="headline">Salve para consultar antes da próxima compra.</h1>
+          <p class="body-text" style="opacity:0.8">"Lindo" não basta. O que reduz incerteza é experiência descrita.</p>
+          <div class="cta-btn">Ver catálogo →</div>
+        </div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div><span class="progress-label">7/7</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="preview-dots" id="dots"></div>
+<div class="controls">
+  <button class="nav-btn" onclick="prevSlide()">←</button>
+  <button class="nav-btn" onclick="nextSlide()">→</button>
+</div>
+
+<script>
+let current=0;const total=7;const track=document.getElementById('track');const dotsEl=document.getElementById('dots');
+for(let i=0;i<total;i++){const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);dotsEl.appendChild(d)}
+function goTo(n){current=n;track.style.transform=`translateX(-${current*420}px)`;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current))}
+function nextSlide(){if(current<total-1){current++;updateSlide()}}
+function prevSlide(){if(current>0){current--;updateSlide()}}
+function updateSlide(){track.style.transform=`translateX(-${current*420}px)`;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current))}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextSlide();if(e.key==='ArrowLeft')prevSlide()});
+const vp=document.getElementById('viewport');let ts=0;
+vp.addEventListener('touchstart',e=>{ts=e.changedTouches[0].screenX},{passive:true});
+vp.addEventListener('touchend',e=>{const diff=ts-e.changedTouches[0].screenX;if(Math.abs(diff)>40){diff>0?nextSlide():prevSlide()}},{passive:true});
+</script>
+</body>
+</html>

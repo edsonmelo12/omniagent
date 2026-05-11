@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-11 | Bastidor de curadoria e qualidade · AmiClube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --accent: #0F766E;
+      --warm: #B45309;
+      --gold: #D4AF37;
+      --card: #ffffff;
+      --text: #F5F0EA;
+    }
+    body {
+      margin: 0;
+      background: #0A0A0A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+    .frame {
+      width: 360px;
+      height: 640px;
+      background: var(--ink);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .wrapper {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .slide {
+      width: calc(100% / 4);
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 24px 48px;
+    }
+    /* Background image */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../blog/assets/AC-30-09-reputacao-marca-hero.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,24,39,0.2) 0%, rgba(17,24,39,0.85) 100%);
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    /* Typography */
+    .kicker {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.05;
+      margin: 8px 0 12px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: rgba(245,240,234,0.8);
+      line-height: 1.5;
+    }
+    /* Cards */
+    .card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .card-kicker {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .card-copy {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    /* CTA */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      background: var(--warm);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 24px;
+      width: fit-content;
+    }
+    /* Progress dots */
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 10;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: var(--text);
+      width: 18px;
+      border-radius: 3px;
+    }
+    /* Navigation */
+    .nav-area {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .nav-area:hover { opacity: 1; }
+    .nav-area.prev { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.3), transparent); }
+    .nav-area.next { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.3), transparent); }
+    .nav-arrow {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-arrow svg {
+      width: 16px;
+      height: 16px;
+      stroke: rgba(255,255,255,0.8);
+      stroke-width: 2;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+<div class="frame frame-container">
+<div class="carousel">
+<div class="wrapper frame-wrapper" id="wrapper">
+        
+        <!-- Frame 1: Cover -->
+        <section class="slide" data-frame="1">
+          <div class="bg" style="transform: scale(1.1);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div>
+              <div class="kicker">REELS</div>
+              <div class="title">REPUTAÇÃO = COERÊNCIA</div>
+              <div class="subtitle">5 sinais de confiança para avaliar uma marca artesanal antes de comprar.</div>
+            </div>
+            <div class="card">
+              <div class="card-kicker">COBERTURA</div>
+              <div class="card-title">FOTO BONITA NÃO BASTA</div>
+              <div class="card-copy">Coerência observável é maior que promessa vaga.</div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Frame 2: Sinais 1-2 -->
+        <section class="slide" data-frame="2">
+          <div class="bg" style="filter: blur(6px); transform: scale(1.15);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content: center;">
+            <div class="card">
+              <div class="card-kicker">SINAL 1</div>
+              <div class="card-title">ACABAMENTO VISÍVEL</div>
+              <div class="card-copy">Detalhe, textura e proximidade revelam cuidado.</div>
+            </div>
+            <div class="card" style="margin-top: 12px;">
+              <div class="card-kicker">SINAL 2</div>
+              <div class="card-title">CLAREZA COMERCIAL</div>
+              <div class="card-copy">Prazo, pedido e contato bem definidos.</div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Frame 3: Sinais 3-4 -->
+        <section class="slide" data-frame="3">
+          <div class="bg" style="filter: blur(8px); transform: scale(1.2); opacity: 0.9;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content: center;">
+            <div class="card">
+              <div class="card-kicker">SINAL 3</div>
+              <div class="card-title">LINGUAGEM COM CRITÉRIO</div>
+              <div class="card-copy">Sem promessas vazias ou exageros.</div>
+            </div>
+            <div class="card" style="margin-top: 12px;">
+              <div class="card-kicker">SINAL 4</div>
+              <div class="card-title">DEPOIMENTOS ESPECÍFICOS</div>
+              <div class="card-copy">Relatos sobre experiência real de compra.</div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Frame 4: Sinal 5 + CTA -->
+        <section class="slide" data-frame="4">
+          <div class="bg" style="filter: blur(10px); transform: scale(1.2); opacity: 0.7;"></div>
+          <div class="overlay" style="background: linear-gradient(180deg, rgba(17,24,39,0.3) 0%, rgba(17,24,39,0.9) 100%);"></div>
+          <div class="content" style="justify-content: center; align-items: center; text-align: center;">
+            <div class="card" style="max-width: 260px;">
+              <div class="card-kicker">SINAL 5 + CHECKLIST</div>
+              <div class="card-title">7 PERGUNTAS</div>
+              <div class="card-copy">Verifique os 7 pontos antes de fechar sua compra.</div>
+            </div>
+            <div class="cta" style="margin-top: 20px;">SALVAR</div>
+          </div>
+        </section>
+        
+      </div>
+      <div class="dots">
+        <div class="dot active" data-idx="0"></div>
+        <div class="dot" data-idx="1"></div>
+        <div class="dot" data-idx="2"></div>
+        <div class="dot" data-idx="3"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navigation areas outside frame -->
+  <div class="nav-area prev" onclick="prevSlide()">
+    <div class="nav-arrow"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+  </div>
+  <div class="nav-area next" onclick="nextSlide()">
+    <div class="nav-arrow"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></div>
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('wrapper');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    const total = 4;
+
+    function updateSlide() {
+      wrapper.style.transform = `translateX(-${current * 25}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function nextSlide() {
+      if (current < total - 1) { current++; updateSlide(); }
+    }
+
+    function prevSlide() {
+      if (current > 0) { current--; updateSlide(); }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Touch/swipe
+    let startX = 0;
+    document.querySelector('.carousel').addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.querySelector('.carousel').addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff < -50) nextSlide();
+      if (diff > 50) prevSlide();
+    });
+  </script>
+</body>
+</html>

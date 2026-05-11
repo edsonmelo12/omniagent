@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC-30-30 — Facebook Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #2a2a2a; display: flex; flex-direction: column;
+  align-items: center; padding: 24px 16px; min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+.header { color: #ccc; text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 16px; margin-bottom: 4px; }
+.header p { font-size: 11px; opacity: 0.6; }
+
+.frame {
+  width: 600px; height: 315px;
+  aspect-ratio: 1.91/1; position: relative; overflow: hidden;
+  background: #1A1A1A;
+}
+
+/* Background */
+.bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: brightness(0.35) saturate(0.8);
+}
+
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.4) 100%);
+}
+
+.content {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 32px 40px;
+}
+
+/* Brand lockup */
+.brand-top {
+  position: absolute; top: 16px; left: 20px; z-index: 3;
+  display: flex; align-items: center; gap: 8px;
+}
+.brand-avatar {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #8b6f5c; display: flex; align-items: center;
+  justify-content: center; color: #fff; font-size: 9px; font-weight: 700;
+}
+.brand-name {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+}
+
+/* Typography */
+.eyebrow {
+  font-size: 9px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: #D4AF37; margin-bottom: 10px;
+}
+.headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px; font-weight: 700; line-height: 1.2;
+  color: #fff; margin-bottom: 12px; max-width: 380px;
+}
+.body-text {
+  font-size: 13px; line-height: 1.5;
+  color: rgba(255,255,255,0.8); max-width: 400px;
+}
+
+.cta {
+  margin-top: 12px; font-size: 12px; font-weight: 600;
+  color: #D4AF37;
+}
+
+/* Brand bottom */
+.brand-bottom {
+  position: absolute; bottom: 14px; right: 20px; z-index: 3;
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AC-30-30 — Facebook Post</h1>
+  <p>1200×630px (1.91:1) · Facebook · Dark Premium</p>
+</div>
+
+<article class="frame" aria-label="AC-30-30 Decoração com alma">
+  <img class="bg" src="../../blog/assets/AC-30-13B-home-office-hero.jpg" alt="Fundo" />
+  <div class="overlay"></div>
+  
+  <div class="brand-top">
+    <div class="brand-avatar">A</div>
+    <span class="brand-name">amiclube</span>
+  </div>
+  
+  <div class="content">
+    <span class="eyebrow">Decoração Artesanal</span>
+    <h1 class="headline">A decoração que tem alma não se aprende. Se sente.</h1>
+    <p class="body-text">O home office pode ter a cadeira mais confortável, a iluminação ideal. Mas se não houver um elemento que reflita quem você é, o espaço permanece frio.</p>
+    <p class="cta">Leia o artigo completo →</p>
+  </div>
+  
+  <div class="brand-bottom">amiclube</div>
+</article>
+
+</body>
+</html>

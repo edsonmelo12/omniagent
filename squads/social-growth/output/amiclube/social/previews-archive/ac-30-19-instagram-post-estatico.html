@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>Conforto no toque: Ergonomia</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Inter:wght@700;800;900&display=swap');
+    :root { --gold:#d4af37; --cream:#fff7ed; --warm:#f9d2ac; --ink:#111827; --teal:#0f766e; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width:1080px; height:1350px; overflow:hidden; background:#17110d; font-family:"DM Sans","Inter",Arial,sans-serif; color:#fff; }
+    body.preview { width:auto; height:auto; min-height:100vh; display:flex; align-items:flex-start; justify-content:center; overflow:auto; padding:24px; background:radial-gradient(circle at top left,#ffffff 0%,#f4ebdf 45%,#e7d7c6 100%); }
+    .card-container { width:1080px; height:1350px; position:relative; overflow:hidden; background:#17110d; }
+    body.preview .card-container { transform:scale(var(--preview-scale, .6)); transform-origin:top center; border-radius:22px; box-shadow:0 24px 58px rgba(27,18,11,.28); margin-bottom:calc(1350px * (var(--preview-scale, .6) - 1)); }
+    .bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.03); filter:saturate(1.08) contrast(1.05); }
+    .overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,10,10,.10) 0%, rgba(10,10,10,.36) 43%, rgba(13,17,23,.86) 100%), linear-gradient(120deg, rgba(15,118,110,.18), rgba(180,83,9,.18)); }
+    .grain { position:absolute; inset:0; opacity:.18; background-image:radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px); background-size:9px 9px; mix-blend-mode:overlay; }
+    .content { position:relative; z-index:2; height:100%; padding:72px 70px 64px; display:flex; flex-direction:column; justify-content:space-between; }
+    .top { display:flex; justify-content:space-between; align-items:flex-start; gap:32px; }
+    .kicker { display:inline-flex; align-items:center; border-radius:999px; padding:18px 26px; background:rgba(17,24,39,.72); border:2px solid rgba(249,210,172,.45); color:var(--warm); font-size:28px; line-height:1; font-weight:900; letter-spacing:.17em; text-transform:uppercase; backdrop-filter:blur(8px); }
+    .mark { width:94px; height:94px; border-radius:50%; background:var(--gold); color:#17110d; display:grid; place-items:center; font-size:46px; font-weight:900; box-shadow:0 20px 45px rgba(0,0,0,.28); }
+    .copy { max-width:790px; margin-top:auto; margin-bottom:58px; }
+    .title { max-width:11ch; font-size:106px; line-height:.91; letter-spacing:-.065em; font-weight:900; text-transform:uppercase; text-shadow:0 4px 20px rgba(0,0,0,.35); text-wrap:balance; }
+    .lead { max-width:760px; margin-top:30px; font-size:44px; line-height:1.16; font-weight:800; color:rgba(255,247,237,.96); text-shadow:0 2px 12px rgba(0,0,0,.32); }
+    .chips { display:flex; gap:16px; flex-wrap:wrap; margin-top:34px; }
+    .chip { min-height:58px; padding:16px 22px; border-radius:999px; background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.18); font-size:25px; line-height:1; font-weight:900; letter-spacing:.08em; text-transform:uppercase; backdrop-filter:blur(5px); }
+    .footer { display:flex; align-items:flex-end; justify-content:space-between; gap:38px; }
+    .brand { font-size:30px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,247,237,.92); }
+    .action { max-width:430px; padding:22px 28px; border-radius:20px; background:var(--cream); color:#234555; font-size:29px; line-height:1.04; font-weight:900; text-transform:uppercase; letter-spacing:.04em; box-shadow:0 16px 34px rgba(0,0,0,.22); }
+  </style>
+</head>
+<body>
+  <article class="card-container" aria-label="Conforto no toque: Ergonomia">
+    <img class="bg" src="../assets/AC-30-19-conforto-uso-hero.jpg" alt="Amigurumi artesanal em destaque">
+    <div class="overlay"></div><div class="grain"></div>
+    <div class="content">
+      <div class="top"><div class="kicker">ergonomia</div><div class="mark">A</div></div>
+      <div class="copy">
+        <h1 class="title">Conforto no toque</h1>
+        <p class="lead">A peça é bonita. Mas ela também funciona bem no uso real?</p>
+        <div class="chips"><span class="chip">peça</span><span class="chip">rotina</span><span class="chip">ambiente</span></div>
+      </div>
+      <div class="footer"><div class="brand">amiclube</div><div class="action">salvar antes da compra</div></div>
+    </div>
+  </article>
+  <script>
+    if (new URLSearchParams(location.search).has('preview')) {
+      document.body.classList.add('preview');
+      const fit = () => {
+        const scale = Math.min(window.innerWidth / 1080, window.innerHeight / 1350) * 0.94;
+        document.documentElement.style.setProperty('--preview-scale', String(scale));
+      };
+      window.addEventListener('resize', fit);
+      fit();
+    }
+  </script>
+</body>
+</html>

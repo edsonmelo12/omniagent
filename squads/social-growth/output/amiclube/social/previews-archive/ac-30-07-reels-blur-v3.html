@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-07 | Preço alto ou investimento inteligente? · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&display=swap');
+    :root { --ink: #111827; --muted: #6b7280; --accent: #b45309; --teal: #0f766e; --card: #ffffff; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ffffff 0%, #eef5f2 44%, #ddebe7 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 14px; }
+    .shield-col { min-width: 0; }
+    .shield-label { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #8b8b8b; font-weight: 800; margin-bottom: 4px; }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(180, 83, 9, .16);
+      border: 1px solid rgba(180, 83, 9, .34);
+      color: #fed7aa;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+    .stack {
+      width: min(360px, calc(100vw - 32px));
+      display: grid;
+      gap: 18px;
+    }
+    .frame {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 10px solid #16171a;
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .24);
+      background: #0a0f16;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../blog/assets/AC-30-09-reputacao-marca-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.10);
+      filter: saturate(1.02);
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6,10,16,.16) 0%, rgba(6,10,16,.76) 100%),
+        linear-gradient(125deg, rgba(15,118,110,.12) 0%, rgba(180,83,9,.12) 100%);
+    }
+    .screen {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      padding: 28px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .time { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: rgba(255,255,255,.78); }
+    .kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #f9d2ac; }
+    .title {
+      font-family: "DM Sans", "Inter", sans-serif;
+      font-size: 60px;
+      line-height: .94;
+      letter-spacing: -.055em;
+      font-weight: 800;
+      text-wrap: balance;
+      max-width: 11ch;
+      text-shadow: 0 2px 12px rgba(0,0,0,.26);
+    }
+    .lead { margin-top: 14px; font-size: 22px; line-height: 1.35; max-width: 22ch; color: rgba(255,255,255,.94); }
+    .surface {
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      padding: 18px;
+      backdrop-filter: blur(6px);
+    }
+    .surface-title { font-family: "DM Sans", "Inter", sans-serif; font-size: 32px; line-height: 1; font-weight: 800; letter-spacing: -.04em; max-width: 12ch; }
+    .surface-copy { margin-top: 10px; font-size: 20px; line-height: 1.42; color: rgba(255,255,255,.92); }
+    .filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .filter {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.09);
+      border-radius: 16px;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #fff;
+      color: #173b47;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 24px rgba(0,0,0,.14);
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,.88);
+    }
+    .footer strong { font-weight: 800; }
+    @media (max-width: 1240px) { .shield-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body>
+  <div class="stack">
+    <section class="frame">
+      <div class="bg"></div>
+      <div class="overlay"></div>
+      <div class="screen">
+        <div class="topline">
+          <div class="kicker">ABERTURA</div>
+          <div class="time">00:15</div>
+        </div>
+        <div>
+          <div class="title">PREÇO ALTO OU INVESTIMENTO INTELIGENTE?</div>
+          <div class="lead">A resposta está no contexto de uso, não no número isolado.</div>
+        </div>
+        <div class="footer"><div><strong>1/4</strong> valor além do preço</div><div>contexto de uso</div></div>
+      </div>
+    </section>
+    <section class="frame">
+      <div class="bg" style="filter: blur(7px) saturate(1.02); transform: scale(1.18); opacity:.88;"></div>
+      <div class="overlay" style="background:linear-gradient(180deg, rgba(6,10,16,.14) 0%, rgba(6,10,16,.78) 100%), linear-gradient(125deg, rgba(180,83,9,.12) 0%, rgba(15,118,110,.08) 100%);"></div>
+      <div class="screen">
+        <div class="topline"><div class="kicker">QUEBRA</div><div class="time">00:12</div></div>
+        <div class="surface">
+          <div class="surface-title">PREÇO SEM CONTEXTO NÃO MEDE VALOR</div>
+          <div class="surface-copy">Quando você olha só para o preço, perde a função, a proposta e a confiança.</div>
+        </div>
+        <div class="footer"><div><strong>2/4</strong> preço sem contexto</div><div>valor não fecha</div></div>
+      </div>
+    </section>
+    <section class="frame">
+      <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.18); opacity:.86;"></div>
+      <div class="overlay"></div>
+      <div class="screen">
+        <div class="topline"><div class="kicker">CRITÉRIOS</div><div class="time">00:13</div></div>
+        <div>
+          <div class="surface-title">3 FILTROS QUE MUDAM A LEITURA</div>
+          <div class="filters">
+            <div class="filter">qualidade</div>
+            <div class="filter">confiança</div>
+            <div class="filter">proposta</div>
+          </div>
+        </div>
+        <div class="cta">avaliar com critério</div>
+        <div class="footer"><div><strong>3/4</strong> três filtros</div><div>qualidade, confiança, proposta</div></div>
+      </div>
+    </section>
+    <section class="frame">
+      <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.18); opacity:.82;"></div>
+      <div class="overlay"></div>
+      <div class="screen">
+        <div class="topline"><div class="kicker">FECHO</div><div class="time">00:10</div></div>
+        <div>
+          <div class="title" style="max-width: 10ch;">COMENTE "QUERO ANÁLISE"</div>
+          <div class="lead">A leitura certa não pede pressa. Ela pede contexto e comparação consciente.</div>
+        </div>
+        <div class="cta">abrir conversa</div>
+        <div class="footer"><div><strong>4/4</strong> comente "quero análise"</div><div>abrir conversa</div></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

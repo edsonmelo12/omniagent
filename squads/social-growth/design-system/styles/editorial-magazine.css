@@ -1,0 +1,18 @@
+:root {
+  --style-name: "editorial-magazine";
+  --style-bg: #F5F0E8;
+  --style-bg-alt: #E8D5C4;
+  --style-surface: rgba(255, 255, 255, 0.07);
+  --style-surface-strong: rgba(255, 255, 255, 0.12);
+  --style-text-heading: #2D2318;
+  --style-text-body: #5C4033;
+  --style-text-muted: #8B7355;
+  --style-accent: #722F37;
+  --style-accent-soft: color-mix(in srgb, #722F37 22%, transparent);
+  --style-border: color-mix(in srgb, #722F37 42%, transparent);
+  --style-heading-font: "Playfair Display", Georgia, serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.025;
+  --style-vignette-opacity: 0.18;
+  --style-gradient: radial-gradient(circle at 22% 12%, color-mix(in srgb, #722F37 20%, transparent), transparent 34%), linear-gradient(145deg, #F5F0E8 0%, #E8D5C4 58%, #F5F0E8 100%);
+}

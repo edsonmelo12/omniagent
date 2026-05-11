@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-30-33 Facebook v5 — AmiClube</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; font-family: 'Inter', sans-serif; }
+        .container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+        .fb-post { width: 500px; background: #fff; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); overflow: hidden; }
+        .fb-header { display: flex; align-items: center; padding: 12px 16px; gap: 12px; }
+        .fb-avatar { width: 40px; height: 40px; border-radius: 50%; background: #C9A8A0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 18px; }
+        .fb-user { display: flex; flex-direction: column; }
+        .fb-name { font-weight: 600; font-size: 15px; color: #050505; }
+        .fb-meta { font-size: 13px; color: #65676B; }
+        .fb-content { padding: 0 16px 16px; }
+        .fb-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #050505; line-height: 1.3; margin-bottom: 12px; }
+        .fb-body { font-size: 15px; color: #050505; line-height: 1.5; }
+        .fb-body p { margin-bottom: 12px; }
+        .fb-list { list-style: none; margin: 16px 0; }
+        .fb-list li { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 14px; color: #050505; }
+        .fb-list .check { color: #8FB8A8; font-weight: 700; }
+        .fb-cta { display: inline-block; margin-top: 8px; color: #1877F2; text-decoration: none; font-weight: 600; }
+        .fb-cta:hover { text-decoration: underline; }
+        .fb-pattern { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 2px 2px, rgba(143,184,168,0.1) 1px, transparent 0); background-size: 8px 8px; pointer-events: none; }
+        .post-wrapper { position: relative; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post-wrapper">
+            <div class="fb-pattern"></div>
+            <div class="fb-post">
+                <div class="fb-header">
+                    <div class="fb-avatar">A</div>
+                    <div class="fb-user">
+                        <div class="fb-name">AmiClube</div>
+                        <div class="fb-meta">Artesanal premium</div>
+                    </div>
+                </div>
+                <div class="fb-content">
+                    <div class="fb-title">7 perguntas que mostram se um amigurumi artesanal é confiável, antes de você comprar.</div>
+                    <div class="fb-body">
+                        <p>Produtos afetivos despertam confiança em segundos. Uma peça delicada, uma paleta suave, e pronto: a sensação de segurança parece instalada.</p>
+                        <p>Mas no artesanal premium, essa ordem precisa ser invertida. Segurança não começa depois da compra. Ela já precisa estar visível NA FORMA como a marca apresenta a peça.</p>
+                        <p>Então antes de comprar, faça essas 7 perguntas:</p>
+                    </div>
+                    <ul class="fb-list">
+                        <li><span class="check">✓</span> A peça é mostrada em detalhe real, ou escondida?</li>
+                        <li><span class="check">✓</span> A marca explica materiais e contexto de uso?</li>
+                        <li><span class="check">✓</span> A apresentação sugere cuidado?</li>
+                        <li><span class="check">✓</span> O atendimento responde com clareza?</li>
+                        <li><span class="check">✓</span> O portfólio é consistente?</li>
+                        <li><span class="check">✓</span> Os relatos são específicos?</li>
+                        <li><span class="check">✓</span> A experiência parece previsível?</li>
+                    </ul>
+                    <div class="fb-body">
+                        <p>Quanto mais "sim", menor a dependência de suposição. Essa é a base mais segura para comprar artesanato premium.</p>
+                        <a href="https://amiclube.com.br" class="fb-cta">Quer ver peças avaliadas com esse critério? Acessar catálogo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill Invocation Ledger -->
+    <script type="text/markdown" id="skill-ledger">
+## Skill Invocation Ledger
+
+| Agent | Skill | Source File | Applied To | Concrete Use | Status |
+|-------|-------|--------------|-------------|--------------|---------|
+| Creative Renderer | social-visual-system | skills/social-visual-system/SKILL.md | AC-30-33 render | Isometric Craft palette (Dusty Rose #C9A8A0 + Mint #8FB8A8 + Lavender #A8A0C4) | invoked |
+| Creative Renderer | social-single-post | skills/social-single-post/SKILL.md | AC-30-33 format | Typography-led single frame + pattern overlay | invoked |
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<title>AC-30-20 v4 | Escala de Conforto</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0f16;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'DM Sans',sans-serif}
+
+.stories-viewport{width:min(360px,100vw);height:min(640px,calc(100vw * 16 / 9));overflow:hidden;position:relative;cursor:grab;user-select:none;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.stories-viewport:active{cursor:grabbing}
+
+.frame-container{width:min(360px,100vw);height:min(640px,calc(100vw * 16 / 9));overflow:hidden;position:relative;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.frame-wrapper{display:flex;height:100%;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform}
+
+.story{width:min(360px,100vw);height:min(640px,calc(100vw * 16 / 9));position:relative;overflow:hidden;flex-shrink:0}
+
+.story-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:rotate(3deg) scale(1.1)}
+.story-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.92) 100%)}
+.story-solid{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:#2A2A2A}
+
+.story-content{position:relative;z-index:2;padding:60px 28px 80px;display:flex;flex-direction:column;height:100%;color:#fff}
+.story-content .top-section{flex:0}
+.story-content .mid-section{flex:1;display:flex;flex-direction:column;justify-content:center}
+.story-content .bottom-section{flex:0}
+
+.headline{font-family:'Playfair Display',serif;font-size:32px;line-height:1.15;font-weight:700;margin-bottom:12px}
+.headline.sm{font-size:26px}
+.headline.cta{font-size:28px}
+
+.subhead{font-size:16px;line-height:1.5;opacity:0.85;margin-bottom:16px}
+
+.scale-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.scale-num{width:44px;height:44px;border-radius:50%;background:rgba(212,165,116,0.2);border:2px solid #D4A574;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#D4A574;flex-shrink:0}
+.scale-text{font-size:18px;line-height:1.4;flex:1;padding-top:2px}
+
+.cta-btn{display:inline-block;padding:14px 36px;background:#1A1A1A;color:#D4A574;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;border:2px solid #D4A574}
+
+.link-sticker{display:inline-flex;align-items:center;gap:6px;margin-top:18px;padding:10px 20px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border-radius:20px;border:1px solid rgba(255,255,255,0.25);font-size:12px;font-weight:600;color:#fff;text-decoration:none}
+.link-sticker svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2}
+
+.story-dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:10}
+.story-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s}
+.story-dot.active{background:#fff;transform:scale(1.3)}
+
+.preview-controls{position:fixed;top:16px;right:16px;z-index:100;display:flex;gap:8px}
+.preview-btn{background:#fff;color:#111;border:none;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
+
+.accent-line{width:40px;height:3px;background:#D4A574;border-radius:2px;margin-bottom:16px}
+
+@media(prefers-reduced-motion){.frame-wrapper{transition:none}}
+
+body.export-mode .story-dots,
+body.export-mode .preview-controls{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="preview-controls">
+<button class="preview-btn" onclick="prevStory()">← Anterior</button>
+<button class="preview-btn" onclick="nextStory()">Próximo →</button>
+</div>
+
+<div class="frame-container" id="viewport">
+<div class="frame-wrapper" id="track" style="transform:translateX(0px)">
+
+<!-- Frame 1: Hook -->
+<div class="story">
+<img class="story-bg" src="../../blog/assets/AC-30-01b-saude-bem-estar-hero.jpg" alt="Amigurumi artesanal">
+<div class="story-overlay"></div>
+<div class="story-content">
+<div class="mid-section">
+<div class="accent-line"></div>
+<div class="headline">Conforto também é critério.</div>
+<div class="subhead">Avalie na escala de 1 a 5 quanto conforto essa peça transmite.</div>
+</div>
+</div>
+</div>
+
+<!-- Frame 2: Nível 1-2 -->
+<div class="story">
+<div class="story-solid"></div>
+<div class="story-content">
+<div class="mid-section">
+<div class="accent-line"></div>
+<div class="headline sm">Nível 1–2</div>
+<div class="scale-item">
+<div class="scale-num">1</div>
+<div class="scale-text">Toque áspero, sem atenção a materiais seguros.</div>
+</div>
+<div class="scale-item">
+<div class="scale-num">2</div>
+<div class="scale-text">Firmeza inconsistente, pontos soltos ao manusear.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Frame 3: Nível 3-4 -->
+<div class="story">
+<div class="story-solid"></div>
+<div class="story-content">
+<div class="mid-section">
+<div class="accent-line"></div>
+<div class="headline sm">Nível 3–4</div>
+<div class="scale-item">
+<div class="scale-num">3</div>
+<div class="scale-text">Consistente, mas sem foco no uso diário.</div>
+</div>
+<div class="scale-item">
+<div class="scale-num">4</div>
+<div class="scale-text">Confortável no dia a dia, acabamento cuidado.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Frame 4: Nível 5 -->
+<div class="story">
+<div class="story-solid"></div>
+<div class="story-content">
+<div class="mid-section">
+<div class="accent-line"></div>
+<div class="headline sm">Nível 5</div>
+<div class="scale-item">
+<div class="scale-num">5</div>
+<div class="scale-text">Conforto claro em cada detalhe. Decisão segura.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Frame 5: CTA -->
+<div class="story" style="background:#D4A574">
+<div class="story-solid" style="background:#D4A574"></div>
+<div class="story-content">
+<div class="mid-section" style="text-align:center">
+<div class="headline cta" style="color:#1A1A1A">Quer ajuda para avaliar?</div>
+<div class="subhead" style="color:#333;margin-bottom:24px">Curadoria gratuita no direct.</div>
+<div class="cta-btn">Enviar mensagem</div>
+<a href="https://amiclube.com.br/ergonomia-e-cuidados-ao-escolher-amigurumi" class="link-sticker" style="margin-top:20px;display:inline-flex">
+<svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Leia o artigo completo
+</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="story-dots"><div class="story-dot active"></div><div class="story-dot"></div><div class="story-dot"></div><div class="story-dot"></div><div class="story-dot"></div></div>
+</div>
+
+<script>
+const TOTAL = 5;
+let current = 0;
+const track = document.getElementById('track');
+const container = document.getElementById('viewport');
+
+function getViewportWidth() {
+  return container.offsetWidth || 360;
+}
+
+function goTo(i) {
+if (i < 0 || i >= TOTAL) return;
+current = i;
+track.style.transform = 'translateX(' + (-current * 100 / TOTAL) + '%)';
+document.querySelectorAll('.story-dot').forEach((dot, idx) => {
+dot.classList.toggle('active', idx === current);
+});
+}
+
+function nextStory() { goTo(current + 1); }
+function prevStory() { goTo(current - 1); }
+
+let startX = 0, isDragging = false, dragStartOffset = 0, dragOffset = 0;
+
+container.addEventListener('mousedown', (e) => {
+isDragging = true;
+startX = e.clientX;
+dragStartOffset = current * (100 / TOTAL);
+container.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+if (!isDragging) return;
+const vw = container.offsetWidth;
+dragOffset = ((e.clientX - startX) / vw) * (100 / TOTAL);
+track.style.transition = 'none';
+track.style.transform = 'translateX(' + (-dragStartOffset + dragOffset) + '%)';
+});
+
+document.addEventListener('mouseup', () => {
+if (!isDragging) return;
+isDragging = false;
+container.style.cursor = 'grab';
+track.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';
+const threshold = 100 / TOTAL * 0.15;
+if (Math.abs(dragOffset) > threshold) {
+dragOffset > 0 ? goTo(current - 1) : goTo(current + 1);
+} else {
+goTo(current);
+}
+dragOffset = 0;
+});
+
+container.addEventListener('touchstart', (e) => {
+startX = e.touches[0].clientX;
+dragStartOffset = current * (100 / TOTAL);
+}, {passive: true});
+
+container.addEventListener('touchmove', (e) => {
+const vw = container.offsetWidth;
+dragOffset = ((e.touches[0].clientX - startX) / vw) * (100 / TOTAL);
+track.style.transition = 'none';
+track.style.transform = 'translateX(' + (-dragStartOffset + dragOffset) + '%)';
+}, {passive: true});
+
+container.addEventListener('touchend', () => {
+track.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';
+const threshold = 100 / TOTAL * 0.15;
+if (Math.abs(dragOffset) > threshold) {
+dragOffset > 0 ? goTo(current - 1) : goTo(current + 1);
+} else {
+goTo(current);
+}
+dragOffset = 0;
+});
+
+document.addEventListener('keydown', (e) => {
+if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextStory();
+if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevStory();
+});
+
+goTo(0);
+</script>
+
+</body>
+</html>

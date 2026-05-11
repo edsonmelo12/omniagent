@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=DM+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>AC-30-22 | 3 perguntas antes da compra</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#2a2a2a;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'DM Sans',sans-serif}
+        .ig-frame{width:420px;height:525px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+        .noise-overlay{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.08;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+        .header{padding:16px 24px 0;display:flex;align-items:center;gap:8px;z-index:10}
+        .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#8C6A5E,#6B4F46)}
+        .brand-name{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+        .brand-handle{font-size:9px;color:#999;letter-spacing:0.5px}
+        .content{flex:1;padding:24px 24px 32px;display:flex;flex-direction:column;position:relative;z-index:5}
+        .sticky-tag{display:inline-block;background:#b91c1c;color:#fff;font-size:9px;font-weight:800;padding:4px 8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;transform:rotate(-1deg)}
+        .headline{font-family:'Courier Prime',monospace;font-size:22px;line-height:1.25;font-weight:700;margin-bottom:8px}
+        .headline-ghost{font-family:'Courier Prime',monospace;font-size:22px;line-height:1.25;color:#b91c1c;text-decoration:line-through;margin-bottom:16px;opacity:0.6}
+        .divider{width:80px;height:1px;background:#222;margin-bottom:16px;opacity:0.3}
+        .body-text{font-family:'Courier Prime',monospace;font-size:12px;line-height:1.6;color:#333;margin-bottom:16px}
+        .checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+        .check-item{display:flex;align-items:flex-start;gap:8px;font-family:'Courier Prime',monospace;font-size:11px;line-height:1.5;color:#333}
+        .check-mark{color:#b91c1c;font-size:16px;font-weight:700;flex-shrink:0;margin-top:-2px}
+        .cta-box{margin-top:auto;border:2px dashed #222;padding:16px;text-align:center;background:rgba(0,0,0,0.02);transform:rotate(-0.5deg)}
+        .cta-text{font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;color:#222;text-transform:uppercase;letter-spacing:0.5px}
+    </style>
+</head>
+<body>
+    <div class="ig-frame" style="background:#f5f0ea">
+        <div class="noise-overlay"></div>
+        <header class="header">
+            <div class="avatar"></div>
+            <div>
+                <div class="brand-name">AMICLUBE</div>
+                <div class="brand-handle">@amiclube</div>
+            </div>
+        </header>
+        <main class="content">
+            <div class="sticky-tag">⚠️ LEIA ANTES</div>
+            <div class="headline">3 perguntas que evitam</div>
+            <div class="headline">o arrependimento na compra</div>
+            <div class="headline-ghost">do seu amigurumi</div>
+            <div class="divider"></div>
+            <div class="body-text">A pressa em aproveitar um "preço imbatível" ignora riscos invisíveis. Antes de finalizar:</div>
+            <div class="checklist">
+                <div class="check-item"><span class="check-mark">✗</span> A proposta é coerente com minha intenção real ou é só um preço baixo?</div>
+                <div class="check-item"><span class="check-mark">✗</span> O atendimento me dá previsibilidade total sobre prazos e canais?</div>
+                <div class="check-item"><span class="check-mark">✗</span> Eu consigo justificar a escolha além do número na etiqueta?</div>
+            </div>
+            <div class="body-text" style="font-weight:700">Se respondeu "não" a qualquer uma — sua decisão ainda não é segura.</div>
+            <div class="cta-box">
+                <div class="cta-text">📩 Mande uma mensagem agora — curadoria gratuita</div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

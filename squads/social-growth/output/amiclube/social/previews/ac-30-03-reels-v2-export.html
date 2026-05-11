@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-03 | Erro: focar só no preço · AmiClube (V2 — Export)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&family=Playfair+Display:wght@800&display=swap');
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --accent: #0f766e;
+      --warm: #b45309;
+      --coral: #dc4c5d;
+      --card: #ffffff;
+      --dark: #0a0f16;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--dark);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 1920px;
+    }
+
+    .shield { display: none; }
+
+    .frame-container {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .frame-wrapper { display: flex; width: 400%; height: 100%; }
+    .frame {
+      width: calc(100% / 4);
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,15,22,.12) 0%, rgba(10,15,22,.82) 100%),
+                  linear-gradient(115deg, rgba(15, 118, 110, .08) 0%, rgba(180, 83, 9, .12) 100%);
+    }
+
+    .screen {
+      position: absolute; inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 84px 72px 66px;
+    }
+
+    .topline {
+      position: absolute;
+      top: 84px; left: 72px; right: 72px;
+      display: flex; justify-content: space-between; align-items: center; gap: 36px;
+    }
+    .time { font-size: 33px; font-weight: 800; letter-spacing: .08em; color: rgba(255,255,255,.78); }
+    .kicker { font-size: 30px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #fecdd3; }
+
+    .content { width: 100%; }
+
+    .chips {
+      position: absolute;
+      bottom: 66px; left: 72px; right: 72px;
+      display: flex; flex-wrap: wrap; gap: 24px;
+    }
+
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 156px; line-height: .93;
+      letter-spacing: -.05em; text-wrap: balance;
+      max-width: 10ch;
+      text-shadow: 0 6px 36px rgba(0,0,0,.26);
+    }
+    .title .highlight { color: #fecdd3; }
+    .body { font-size: 48px; line-height: 1.55; color: rgba(255,255,255,.92); margin-top: 48px; }
+
+    .content--cta {
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .number-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px;
+      margin-top: 60px;
+    }
+    .number-card {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 36px; padding: 42px;
+    }
+    .number { font-size: 84px; font-weight: 800; color: var(--warm); }
+    .number-label { font-size: 30px; font-weight: 700; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .04em; }
+
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 36px 48px; border-radius: 42px;
+      background: #fff; color: var(--ink);
+      font-size: 33px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+      box-shadow: 0 24px 60px rgba(0,0,0,.18);
+      margin-top: 72px;
+    }
+
+    .chip {
+      display: inline-flex; align-items: center; gap: 18px;
+      padding: 24px 36px; border-radius: 999px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16);
+      font-size: 30px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.12); z-index: 8; }
+    .progress-fill { height: 100%; width: 25%; background: linear-gradient(90deg, var(--warm), var(--coral)); }
+  </style>
+</head>
+<body>
+
+  <header class="shield">
+    <div class="shield-row">
+      <div class="shield-col"><div class="shield-label">Título</div><div class="shield-value">Erro: focar só no preço</div></div>
+      <div class="shield-col"><div class="shield-label">Tipo</div><div class="shield-value">Instagram Reels (Export)</div></div>
+      <div class="shield-col"><div class="shield-label">Canal</div><div class="shield-value">Instagram</div></div>
+      <div class="shield-col"><div class="shield-label">Artigo-Pai</div><div class="shield-value">AC-30-01</div></div>
+      <div class="shield-col"><div class="shield-label">Objetivo</div><div class="shield-value"><span class="badge">Descoberta</span></div></div>
+    </div>
+  </header>
+
+  <div class="frame-container">
+    <div class="frame-wrapper" id="wrapper">
+
+      <section class="frame">
+        <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); transform: scale(1.08);"></div>
+        <div class="overlay"></div>
+        <div class="screen">
+          <div class="topline">
+            <div class="kicker">ERRO COMUM</div>
+            <div class="time">0:03</div>
+          </div>
+          <div class="content">
+            <div class="title">Focar só no <span class="highlight">PREÇO</span> é o erro #1</div>
+            <div class="body">Quem compra só por valor, quase sempre se arrepende.</div>
+          </div>
+          <div class="chips">
+            <div class="chip">1/4</div><div class="chip">Descoberta</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(4px) saturate(1.1); transform: scale(1.12);"></div>
+        <div class="overlay"></div>
+        <div class="screen">
+          <div class="topline">
+            <div class="kicker">CONCEITO</div>
+            <div class="time">0:06</div>
+          </div>
+          <div class="content">
+            <div class="title" style="max-width: 12ch;">PREÇO ≠ <span class="highlight">QUALIDADE</span></div>
+            <div class="body">Um amigurumi de R$ 200 pode ter mais valor que um de R$ 500. O que transforma isso em verdade são os critérios de avaliação.</div>
+          </div>
+          <div class="chips">
+            <div class="chip">2/4</div><div class="chip">Contexto</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.05); transform: scale(1.16);"></div>
+        <div class="overlay"></div>
+        <div class="screen">
+          <div class="topline">
+            <div class="kicker">Critérios</div>
+            <div class="time">0:10</div>
+          </div>
+          <div class="content">
+            <div class="title" style="font-size: 108px; max-width: 14ch;">3 Filtros de Qualidade</div>
+            <div class="number-grid">
+              <div class="number-card">
+                <div class="number">01</div>
+                <div class="number-label">Acabamento</div>
+              </div>
+              <div class="number-card">
+                <div class="number">02</div>
+                <div class="number-label">Material</div>
+              </div>
+              <div class="number-card">
+                <div class="number">03</div>
+                <div class="number-label">Trava</div>
+              </div>
+            </div>
+          </div>
+          <div class="chips">
+            <div class="chip">3/4</div><div class="chip">Filtros</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(10px) saturate(1.05); transform: scale(1.2);"></div>
+        <div class="overlay"></div>
+        <div class="screen">
+          <div class="topline">
+            <div class="kicker">FECHAMENTO</div>
+            <div class="time">0:15</div>
+          </div>
+          <div class="content content--cta">
+            <div class="title" style="max-width: 14ch; font-size: 126px;">COMPARTILHE COM QUEM COMPARA PREÇO</div>
+            <div class="body">Às vezes, a melhor decisão começa com uma pergunta.</div>
+            <div class="cta">link na bio</div>
+          </div>
+          <div class="chips">
+            <div class="chip">4/4</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="progress"><div class="progress-fill" id="progress"></div></div>
+  </div>
+
+</body>
+</html>

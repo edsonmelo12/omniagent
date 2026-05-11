@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-31 Preview — 7 Perguntas de Confiabilidade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5F0E8;
+      --burgundy: #722F37;
+      --dark-burgundy: #4A1C25;
+      --amber: #B48A1D;
+      --white: #FFFFFF;
+      --overlay-burgundy: rgba(114, 47, 55, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .preview-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .phone-frame {
+      width: 430px;
+      height: 932px;
+      background: var(--cream);
+      border-radius: 40px;
+      padding: 16px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3), 0 0 0 12px #2c2c2c;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .instagram-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .instagram-header .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--burgundy), var(--amber));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    .username { font-weight: 600; font-size: 14px; color: var(--dark-burgundy); }
+    .verified-badge { color: var(--amber); font-size: 14px; margin-left: 4px; }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Slide 1: Cover */
+    .slide-1 {
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+      color: var(--cream);
+    }
+
+    .slide-1 .hero-icon {
+      font-size: 80px;
+      margin-bottom: 24px;
+      opacity: 0.8;
+    }
+
+    .slide-1 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--cream);
+    }
+
+    .slide-1 .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: italic;
+      opacity: 0.9;
+      color: var(--cream);
+    }
+
+    .slide-1 .brand-mark {
+      position: absolute;
+      bottom: 40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      color: var(--cream);
+    }
+
+    /* Slides 2-6: Questions */
+    .slide-question {
+      background: var(--cream);
+      color: var(--dark-burgundy);
+    }
+
+    .slide-question .slide-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .slide-question h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      color: var(--burgundy);
+    }
+
+    .slide-question .answer {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--dark-burgundy);
+      max-width: 320px;
+      opacity: 0.9;
+    }
+
+    .slide-question .slide-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    /* Slide 7: CTA */
+    .slide-cta {
+      background: linear-gradient(135deg, var(--cream) 0%, #E8E0D4 100%);
+      color: var(--dark-burgundy);
+    }
+
+    .slide-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--burgundy);
+    }
+
+    .slide-cta .cta-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 300px;
+      color: var(--dark-burgundy);
+    }
+
+    .slide-cta .cta-button {
+      display: inline-block;
+      background: var(--burgundy);
+      color: var(--cream);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .slide-cta .cta-button:hover {
+      background: var(--dark-burgundy);
+      transform: translateY(-2px);
+    }
+
+    .slide-cta .cta-save {
+      font-size: 14px;
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    /* Navigation dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(114, 47, 55, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: var(--burgundy);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Instagram bottom bar */
+    .instagram-footer {
+      padding: 16px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .engagement-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .engagement-icon {
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .engagement-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .likes-count {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--dark-burgundy);
+    }
+
+    .caption .hashtag {
+      color: var(--amber);
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 8px 16px;
+    }
+
+    .carousel-btn {
+      background: var(--burgundy);
+      color: var(--cream);
+      border: none;
+      padding: 8px 24px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--dark-burgundy);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Compliance info */
+    .compliance-bar {
+      background: var(--dark-burgundy);
+      color: var(--cream);
+      padding: 8px 16px;
+      font-size: 11px;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+    }
+
+    .asset-info {
+      color: var(--cream);
+      font-size: 12px;
+      text-align: center;
+      padding: 12px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { padding: 20px; }
+      .phone-frame { width: 100%; max-width: 375px; height: auto; }
+      .carousel-container { height: 450px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-wrapper">
+    <div class="phone-frame">
+      <div class="instagram-header">
+        <div class="user-info">
+          <div class="avatar">A</div>
+          <span class="username">amiclube_artesanal<span class="verified-badge">✓</span></span>
+        </div>
+        <span style="font-size: 24px; cursor: pointer;">⋯</span>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slide 1: Cover -->
+          <div class="slide slide-1">
+            <div class="hero-icon">🛡️</div>
+            <h1>7 perguntas de<br>confiabilidade</h1>
+            <p class="subtitle">antes de investir em peças artesanais</p>
+            <span class="brand-mark">AmiClube</span>
+          </div>
+
+          <!-- Slide 2: Question 1 -->
+          <div class="slide slide-question">
+            <div class="slide-icon">✨</div>
+            <div class="slide-number">01</div>
+            <h2>A peça tem garantia de qualidade artesanal?</h2>
+            <p class="answer">Peças artesanais bem-feitas resistem a anos de uso. Verifique se a artesã oferece garantia ou política de troca.</p>
+          </div>
+
+          <!-- Slide 3: Question 2 -->
+          <div class="slide slide-question">
+            <div class="slide-icon">🧸</div>
+            <div class="slide-number">02</div>
+            <h2>Os materiais são hipoalergênicos e adequados para crianças?</h2>
+            <p class="answer">Fios de algodão orgânico e enchimento antialérgico são essenciais para segurança de bebês e crianças pequenas.</p>
+          </div>
+
+          <!-- Slide 4: Question 3 -->
+          <div class="slide slide-question">
+            <div class="slide-icon">👁️</div>
+            <div class="slide-number">03</div>
+            <h2>A artesã tem portfólio verificável e avaliações reais?</h2>
+            <p class="answer">Busque por depoimentos, fotos de clientes e consistência no trabalho. Reputação construída com tempo.</p>
+          </div>
+
+          <!-- Slide 5: Question 4 -->
+          <div class="slide slide-question">
+            <div class="slide-icon">🎨</div>
+            <div class="slide-number">04</div>
+            <h2>Há opções de personalização e curadoria?</h2>
+            <p class="answer">Peças sob encomenda demonstram atenção ao cliente e possibilitam escolher cores, tamanhos e detalhes.</p>
+          </div>
+
+          <!-- Slide 6: Questions 5 & 6 -->
+          <div class="slide slide-question">
+            <div class="slide-icon">📦</div>
+            <div class="slide-number">05 · 06</div>
+            <h2>Entrega segura? Atendimento humanizado?</h2>
+            <p class="answer">Embalagem protegida e resposta rápida no direct são sinais de profissionalismo e respeito ao cliente.</p>
+          </div>
+
+          <!-- Slide 7: CTA -->
+          <div class="slide slide-cta">
+            <h2>Ainda tem dúvidas?</h2>
+            <p class="cta-body">Salva este post para consultar antes da sua próxima compra. Queremos que você se sinta segura em cada escolha.</p>
+            <a href="#" class="cta-button">🔗 Link na bio para o artigo completo</a>
+            <p class="cta-save">💾 Salva para não esquecer</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
+        <div class="dot" data-slide="4"></div>
+        <div class="dot" data-slide="5"></div>
+        <div class="dot" data-slide="6"></div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" onclick="moveSlide(-1)">← Anterior</button>
+        <button class="carousel-btn" id="nextBtn" onclick="moveSlide(1)">Próximo →</button>
+      </div>
+
+      <div class="instagram-footer">
+        <div class="engagement-row">
+          <span class="engagement-icon">❤️</span>
+          <span class="engagement-icon">💬</span>
+          <span class="engagement-icon">📤</span>
+          <span class="engagement-icon" style="margin-left: auto;">🔖</span>
+        </div>
+        <div class="likes-count">1.247 curtidas</div>
+        <div class="caption">
+          <strong>amiclube_artesanal</strong> 7 perguntas essenciais para avaliar a confiabilidade de uma peça artesanal antes de comprar. Sua segurança e satisfação são nossa prioridade! ✨<br><br>
+          <span class="hashtag">#AmiClube</span> <span class="hashtag">#Artesanal</span> <span class="hashtag">#Amigurumi</span> <span class="hashtag">#DecoracaoArtesanal</span> <span class="hashtag">#ConscienciaDeCompra</span> <span class="hashtag">#Seguranca</span>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div style="color: var(--cream); font-size: 12px; text-align: center; margin-top: 20px; padding: 12px; border: 1px solid rgba(245, 240, 232, 0.2); border-radius: 8px;">
+      <strong>Preview Render Compliance — AC-30-31</strong><br>
+      Canvas: 1080×1350px | Format: Instagram Portrait 4:5 | Style: Warm Editorial<br>
+      Parent Blog: AC-30-09B | Content Pillar: Confiança e Reputação | Pipeline: VDC ✅ RCC ✅ Render ✅<br>
+      <em>Generated by Atlas CEO · May 9, 2026 · Preview Only — Do Not Publish</em>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 7;
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    function moveSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = 0;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      updateCarousel();
+    }
+
+    // Dot navigation
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentSlide = parseInt(dot.dataset.slide);
+        updateCarousel();
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') moveSlide(-1);
+      if (e.key === 'ArrowRight') moveSlide(1);
+    });
+
+    // Initialize
+    updateCarousel();
+  </script>
+</body>
+</html>

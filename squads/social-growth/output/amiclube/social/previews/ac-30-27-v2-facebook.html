@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC-30-27 v2 · O artesanal como luxo em 2026</title>
+<style>
+:root{--ink:#110b0d;--wine:#34131c;--gold:#d9a760;--cream:#fff0dc;--muted:#d6bea0}
+*{box-sizing:border-box}
+body{margin:0;background:#0b0809;color:var(--cream);font-family:Inter,Arial,sans-serif}
+
+.card-container{
+  width:1200px;
+  height:630px;
+  position:relative;
+  overflow:hidden;
+  background:#120b0d;
+  padding:54px 62px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:42px;
+  align-items:center
+}
+.card-container::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../../blog/assets/AC-30-05b-veludo-luxo-hero.jpg") center/cover;
+  opacity:.42;
+  filter:saturate(1.08) contrast(1.1)
+}
+.card-container::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(12,8,9,.96),rgba(35,13,19,.82) 52%,rgba(12,8,9,.45)),radial-gradient(circle at 84% 20%,rgba(217,167,96,.24),transparent 30%)
+}
+
+.copy,.proof{position:relative;z-index:2}
+
+.eyebrow{
+  font-size:18px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:900
+}
+
+h1{
+  font-family:Georgia,serif;
+  font-size:74px;
+  line-height:.94;
+  letter-spacing:-.055em;
+  margin:18px 0 22px;
+  text-shadow:0 18px 42px rgba(0,0,0,.6)
+}
+h1 span{color:var(--gold);font-style:italic}
+
+.lead{
+  font-size:29px;
+  line-height:1.22;
+  max-width:620px;
+  color:#fff6e8;
+  font-weight:700
+}
+
+.proof{
+  border:1px solid rgba(217,167,96,.36);
+  border-radius:30px;
+  background:rgba(16,10,12,.58);
+  padding:32px;
+  box-shadow:0 24px 70px rgba(0,0,0,.36);
+  backdrop-filter:blur(10px)
+}
+
+.proof-title{
+  font-size:24px;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-weight:900;
+  margin-bottom:20px
+}
+
+.point{
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:14px;
+  margin:18px 0;
+  font-size:24px;
+  line-height:1.18;
+  color:#fff1dc;
+  font-weight:750
+}
+.num{font-family:Georgia,serif;color:var(--gold);font-size:34px;line-height:.9}
+
+.brand{
+  position:absolute;
+  z-index:3;
+  left:62px;
+  bottom:38px;
+  color:rgba(255,240,220,.72);
+  font-size:16px;
+  letter-spacing:.22em;
+  text-transform:uppercase
+}
+
+.cta{
+  position:absolute;
+  z-index:3;
+  right:62px;
+  bottom:38px;
+  color:var(--gold);
+  font-size:18px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.02em
+}
+
+.article-url{
+  position:absolute;
+  z-index:3;
+  right:62px;
+  bottom:70px;
+  font-size:11px;
+  color:rgba(217,167,96,.6);
+  letter-spacing:.02em;
+  font-family:monospace
+}
+</style>
+</head>
+<body>
+<article class="card-container">
+  <section class="copy">
+    <div class="eyebrow">Autoridade AmiClube</div>
+    <h1>O artesanal como <span>luxo</span> em 2026</h1>
+    <p class="lead">A diferença não está em parecer feito à mão. Está em transformar textura, curadoria e presença em valor percebido.</p>
+  </section>
+  <aside class="proof">
+    <div class="proof-title">O que muda a categoria</div>
+    <div class="point"><span class="num">1</span><span>Material com presença sensorial.</span></div>
+    <div class="point"><span class="num">2</span><span>Design pensado para ambiente real.</span></div>
+    <div class="point"><span class="num">3</span><span>Compra orientada por critério, não impulso.</span></div>
+  </aside>
+  <div class="brand">AmiClube</div>
+  <div class="article-url">amiclube.com.br/tendencias-2026-veludo</div>
+  <a href="https://amiclube.com.br/tendencias-2026-veludo" class="cta">LER ARTIGO COMPLETO</a>
+</article>
+</body>
+</html>

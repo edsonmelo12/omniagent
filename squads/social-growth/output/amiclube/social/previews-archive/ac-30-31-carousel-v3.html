@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-31 v3 — Instagram Carrossel (7 slides)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-purple: #1E1B4B;
+      --text-white: #FFFFFF;
+      --accent-pink: #F472B6;
+      --accent-cyan: #22D3EE;
+      --accent-yellow: #FACC15;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .preview-container { max-width: 1200px; margin: 0 auto; }
+
+    .preview-header { text-align: center; margin-bottom: 30px; }
+    .preview-header h1 { font-size: 24px; color: #FFFFFF; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; }
+    .preview-header p { font-size: 14px; color: #888; }
+    .preview-meta { display: flex; gap: 12px; justify-content: center; margin-top: 8px; }
+
+    .badge { background: #F472B6; color: #FFFFFF; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+    .badge.style { background: #1E1B4B; border: 1px solid #F472B6; }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 540px; height: 675px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(244,114,182,0.3);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(540px * 7);
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide {
+      width: 540px; height: 675px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 36px;
+      background: var(--bg-purple);
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(244,114,182,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 150px; height: 150px;
+      background: radial-gradient(circle, rgba(34,211,238,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .slide-1 .slide-content { justify-content: center; text-align: center; }
+    .slide-2, .slide-3, .slide-4, .slide-5 { justify-content: flex-start; padding-top: 20px; }
+    .slide-6, .slide-7 .slide-content { justify-content: center; text-align: center; }
+
+    .slide-number {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--accent-pink);
+      color: white;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .slide-icon { font-size: 48px; margin-bottom: 12px; }
+
+    .slide-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .slide-title .highlight { color: var(--accent-pink); }
+    .slide-title .highlight-2 { color: var(--accent-cyan); }
+
+    .slide-subtitle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.4;
+    }
+
+    .slide-body {
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    .slide-body .accent { color: var(--accent-cyan); font-weight: 600; }
+
+    .slide-list { list-style: none; margin-top: 12px; }
+    .slide-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 18px; color: var(--text-white);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .slide-list li::before {
+      content: "→";
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .slide-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-yellow);
+      margin-top: 12px;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .progress-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #333;
+      transition: background 0.3s;
+    }
+
+    .progress-dot.active { background: var(--accent-pink); }
+
+    .nav-arrows { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+
+    .nav-btn {
+      background: var(--accent-pink);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .nav-btn:hover { opacity: 0.8; }
+    .nav-btn:disabled { background: #333; cursor: not-allowed; }
+
+    .export-info {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: #1E1B4B;
+      border-radius: 8px;
+    }
+
+    .export-info h3 { font-size: 16px; color: #ccc; margin-bottom: 8px; }
+    .export-info p { font-size: 14px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>AC-30-31 v3 — Instagram Carrossel</h1>
+      <p>7 slides • High-Energy Cyber • 1080x1350px</p>
+      <div class="preview-meta">
+        <span class="badge">v3</span>
+        <span class="badge style">High-Energy Cyber</span>
+        <span class="badge">AC-30-09B</span>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="track">
+        <div class="slide slide-1">
+          <span class="slide-number">1</span>
+          <div class="slide-content">
+            <span class="slide-icon">⚡</span>
+            <h2 class="slide-title"><span class="highlight">7 PERGUNTAS</span></h2>
+            <p class="slide-subtitle">de segurança ANTES de comprar</p>
+          </div>
+        </div>
+
+        <div class="slide slide-2">
+          <span class="slide-number">2</span>
+          <div class="slide-content">
+            <span class="slide-icon">🔍</span>
+            <h2 class="slide-title"><span class="highlight-2">1.</span> <span class="highlight">DETALHES?</span></h2>
+            <p class="slide-body">Fotos de perto revelam <span class="accent">acabamento real</span></p>
+          </div>
+        </div>
+
+        <div class="slide slide-3">
+          <span class="slide-number">3</span>
+          <div class="slide-content">
+            <span class="slide-icon">🧵</span>
+            <h2 class="slide-title"><span class="highlight-2">2.</span> <span class="highlight">MATERIAIS?</span></h2>
+            <p class="slide-body">Composição declarada = <span class="accent">transparência</span></p>
+          </div>
+        </div>
+
+        <div class="slide slide-4">
+          <span class="slide-number">4</span>
+          <div class="slide-content">
+            <span class="slide-icon">🎁</span>
+            <h2 class="slide-title"><span class="highlight-2">3.</span> <span class="highlight">APRESENTAÇÃO?</span></h2>
+            <p class="slide-body">Como mostram = <span class="accent">como entregam</span></p>
+          </div>
+        </div>
+
+        <div class="slide slide-5">
+          <span class="slide-number">5</span>
+          <div class="slide-content">
+            <span class="slide-icon">💬</span>
+            <h2 class="slide-title"><span class="highlight-2">4.</span> <span class="highlight">ATENDIMENTO?</span></h2>
+            <p class="slide-body">Respostas vagas = <span class="accent">alerta</span></p>
+          </div>
+        </div>
+
+        <div class="slide slide-6">
+          <span class="slide-number">6</span>
+          <div class="slide-content">
+            <span class="slide-icon">⭐</span>
+            <h2 class="slide-title"><span class="highlight-2">5.</span> <span class="highlight">DEPOIMENTOS?</span></h2>
+            <p class="slide-body">Clientes <span class="accent">reais</span> — nãofake</p>
+          </div>
+        </div>
+
+        <div class="slide slide-7">
+          <span class="slide-number">7</span>
+          <div class="slide-content">
+            <span class="slide-icon">📲</span>
+            <h2 class="slide-title"><span class="highlight">RESPONDEU?</span></h2>
+            <p class="slide-subtitle">Manda uma mensagem</p>
+            <p class="slide-cta">@juliana.amiclube</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-dots" id="dots">
+      <span class="progress-dot active"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+    </div>
+
+    <div class="nav-arrows">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← Anterior</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Próximo →</button>
+    </div>
+
+    <div class="export-info">
+      <h3>Export Ready</h3>
+      <p>7 PNGs • 1080x1350px • 2x Retina</p>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 7;
+    const track = document.getElementById('track');
+    const dots = document.querySelectorAll('.progress-dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 540}px)`;
+      dots.forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    function prevSlide() { if (currentSlide > 0) { currentSlide--; updateCarousel(); } }
+    function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); } }
+
+    updateCarousel();
+  </script>
+</body>
+</html>

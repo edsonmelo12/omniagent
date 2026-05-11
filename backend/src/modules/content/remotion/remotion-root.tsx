@@ -1,0 +1,143 @@
+import { Composition, registerRoot } from "remotion";
+import { CopyMotionVideo } from "./copy-motion-video.js";
+
+export const REMOTION_COMPOSITION_ID = "CopyMotionVideo";
+export const REMOTION_FPS = 30;
+export const REMOTION_DURATION_IN_FRAMES = 240;
+export const REMOTION_WIDTH = 1080;
+export const REMOTION_HEIGHT = 1920;
+
+const defaultProps = {
+  title: "Direção visual de copy",
+  summary: "Sequência animada para apresentar a copy, a direção visual e os blocos de conteúdo aprovados.",
+  clientName: "Cliente",
+  workflowOwner: "creative-renderer",
+  workflowSquad: "social-growth",
+  workflowTrail: [
+    { label: "creator", role: "write", output: "copy.md" },
+    { label: "visual-director", role: "shape", output: "visual-direction.md" },
+    { label: "creative-renderer", role: "render", output: "video.mp4" },
+  ],
+  items: [
+    {
+      position: 1,
+      title: "Hook principal",
+      channel: "instagram",
+      format: "reel",
+      status: "planned",
+      objective: "Abrir a peça com uma promessa clara",
+      reason: "A audiência precisa entender a tese em segundos",
+      hook: "A promessa aparece antes da explicação",
+      proof: "Mostre um detalhe que sustenta o argumento",
+      cta: "Salvar para revisar depois",
+      visualCue: "card de contraste alto com leitura imediata",
+    },
+    {
+      position: 2,
+      title: "Variação de CTA",
+      channel: "facebook",
+      format: "carousel",
+      status: "planned",
+      objective: "Reduzir atrito no próximo passo",
+      reason: "Uma CTA simples melhora a intenção de clique",
+      hook: "Clareza vende mais do que volume",
+      proof: "Um exemplo curto sustenta o valor",
+      cta: "Revisar a proposta",
+      visualCue: "hierarquia editorial com fecho visível",
+    },
+    {
+      position: 3,
+      title: "Legenda de apoio",
+      channel: "linkedin",
+      format: "post",
+      status: "planned",
+      objective: "Criar contexto e autoridade",
+      reason: "A legenda melhora a leitura da oferta",
+      hook: "Quando o método fica claro, a leitura anda",
+      proof: "Conecte a promessa a uma evidência concreta",
+      cta: "Aplicar a estrutura",
+      visualCue: "layout em passos curtos com respiro",
+    },
+  ],
+  creativeSignals: [
+    {
+      id: "proof-1",
+      position: 1,
+      title: "Prova de valor",
+      pillar: "proof",
+      angle: "positioning",
+      objective: "Aumentar credibilidade",
+      reason: "A prova sustenta a promessa",
+      format: "post com CTA",
+      hook: "A prova precisa aparecer antes da promessa.",
+      proof: "Mostre processo, caso real ou evidência visual antes de pedir confiança.",
+      cta: "Ver a prova",
+      visualCue: "bloco de evidência com contraste alto",
+      channel: "instagram",
+      status: "planned",
+    },
+    {
+      id: "edu-2",
+      position: 2,
+      title: "A lógica de execução",
+      pillar: "educational",
+      angle: "authority",
+      objective: "Ensinar o processo",
+      reason: "Clareza reduz atrito",
+      format: "post educativo",
+      hook: "Clareza vende mais do que volume.",
+      proof: "Explique o processo em blocos curtos.",
+      cta: "Salvar para usar",
+      visualCue: "sequência em passos curtos",
+      channel: "linkedin",
+      status: "planned",
+    },
+    {
+      id: "comm-3",
+      position: 3,
+      title: "Chamada comercial",
+      pillar: "commercial",
+      angle: "conversion",
+      objective: "Conduzir a decisão",
+      reason: "Um próximo passo claro encurta a venda",
+      format: "post com CTA",
+      hook: "Se a oferta confunde, a decisão trava.",
+      proof: "Reduza objeção com um próximo passo simples.",
+      cta: "Rever a proposta",
+      visualCue: "tese forte no topo e CTA isolado",
+      channel: "facebook",
+      status: "planned",
+    },
+  ],
+  references: ["Prova de valor · Aumentar credibilidade", "A lógica de execução · Ensinar o processo"],
+  direction: {
+    firstPass: "uma ideia clara por peça",
+    hookSystem: "gancho > prova > fecho",
+    masterAsset: "Instagram",
+    contentRhythm: "3x weekly authority-driven cadence",
+    productImagePolicy: "Uma peça clara, com leitura rápida e próximo passo visível.",
+    rules: ["Mobile-first readability", "One dominant idea per slide or frame", "High-contrast editorial layouts"],
+  },
+  accent: "#2563eb",
+  accentSoft: "rgba(37,99,235,0.16)",
+  background: "#0f172a",
+  foreground: "#f8fafc",
+  muted: "#cbd5e1",
+  border: "rgba(148,163,184,0.24)",
+};
+
+export const RemotionRoot = () => {
+  return (
+    <Composition
+      id={REMOTION_COMPOSITION_ID}
+      component={CopyMotionVideo}
+      durationInFrames={REMOTION_DURATION_IN_FRAMES}
+      fps={REMOTION_FPS}
+      width={REMOTION_WIDTH}
+      height={REMOTION_HEIGHT}
+      defaultProps={defaultProps}
+    />
+  );
+};
+
+registerRoot(RemotionRoot);

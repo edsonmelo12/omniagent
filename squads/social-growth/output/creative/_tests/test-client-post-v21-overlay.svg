@@ -1,0 +1,71 @@
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E0B09" stop-opacity="0.04"/>
+      <stop offset="0.28" stop-color="#0E0B09" stop-opacity="0.10"/>
+      <stop offset="0.72" stop-color="#0E0B09" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#0E0B09" stop-opacity="0.36"/>
+    </linearGradient>
+    <linearGradient id="warmTop" x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="0.56" stop-color="#F3E5D0" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1350" fill="url(#shade)"/>
+  <rect width="1080" height="180" fill="url(#warmTop)"/>
+
+  <text x="82" y="116" fill="#4A4038" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.32em">
+    AMIGURUMI / OFÍCIO
+  </text>
+  <rect x="82" y="134" width="52" height="5" rx="2.5" fill="#4A4038"/>
+  <rect x="144" y="134" width="72" height="5" rx="2.5" fill="#E6D5BD"/>
+  <rect x="224" y="134" width="58" height="5" rx="2.5" fill="#DA4F60"/>
+  <rect x="290" y="134" width="46" height="5" rx="2.5" fill="#299D8F"/>
+
+  <text x="82" y="212" fill="#4A4038" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-0.06em">
+    Bastidor
+  </text>
+  <text x="84" y="300" fill="#4A4038" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-0.06em">
+    que gera
+  </text>
+  <text x="84" y="388" fill="#4A4038" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-0.06em">
+    valor no
+  </text>
+  <text x="84" y="472" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-0.06em">
+    <tspan fill="#DA4F60" font-style="italic">detalhe.</tspan>
+  </text>
+  <text x="84" y="560" fill="#4A4038" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="900" letter-spacing="-0.06em">
+    percebido.
+  </text>
+
+  <text x="84" y="654" fill="#3E3631" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.01em">
+    O fio, a peça e a ferramenta deixam claro que existe cuidado real.
+  </text>
+
+  <g opacity="0.96">
+    <rect x="82" y="1116" width="312" height="52" rx="26" fill="#E6D5BD"/>
+    <text x="107" y="1149" fill="#191613" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="0.12em">
+      FIO / PEÇA
+    </text>
+  </g>
+
+  <g opacity="0.96">
+    <rect x="82" y="1188" width="252" height="44" rx="22" fill="#299D8F"/>
+    <text x="106" y="1216" fill="#F7F1E8" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0.12em">
+      DETALHE DO PROCESSO
+    </text>
+  </g>
+
+  <g opacity="0.94">
+    <rect x="770" y="182" width="228" height="42" rx="21" fill="#191613" fill-opacity="0.46"/>
+    <text x="792" y="210" fill="#F7F1E8" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0.18em">
+      PROVA DO NICHO
+    </text>
+  </g>
+
+  <text x="82" y="1288" fill="#6B625A" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.18em">
+    FEED / 1080X1350
+  </text>
+</svg>

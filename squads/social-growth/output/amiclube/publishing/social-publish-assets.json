@@ -1,0 +1,318 @@
+{
+  "version": "1.0.0",
+  "client": "amiclube",
+  "generatedAt": "2026-05-09T01:19:53.710Z",
+  "sourceManifestPath": "squads/social-growth/output/amiclube/review/campaign-manifest.json",
+  "exportDir": "squads/social-growth/output/amiclube/social/publish",
+  "selectedAssets": 22,
+  "exportedAssets": 22,
+  "exports": [
+    {
+      "asset_id": "AC-30-02",
+      "type": "carrossel",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-02-carousel-5-sinais.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-02/ac-30-02-07.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-03",
+      "type": "reels",
+      "status": "published",
+      "source_preview_path": "social/previews/ac-30-03-reels-v2.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-03/ac-30-03-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-03/ac-30-03-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-03/ac-30-03-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-03/ac-30-03-04.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-04",
+      "type": "post",
+      "status": "published",
+      "source_preview_path": "social/previews/ac-30-04-facebook-authority.html",
+      "export_kind": "single_image_png",
+      "selector_used": "(viewport)",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-04/ac-30-04-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-06",
+      "type": "carrossel",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-06-v8.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-06/ac-30-06-07.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-07",
+      "type": "reels",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-07-v4-reels.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-07/ac-30-07-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-07/ac-30-07-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-07/ac-30-07-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-07/ac-30-07-04.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-08",
+      "type": "post estático",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-08-instagram-post-estatico.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".frame",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-08/ac-30-08-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-10",
+      "type": "carrossel",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-10-carousel-reputacao.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-10/ac-30-10-06.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-11",
+      "type": "reels",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-11-reels-reputacao.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-11/ac-30-11-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-11/ac-30-11-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-11/ac-30-11-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-11/ac-30-11-04.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-12",
+      "type": "post",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-12-facebook-atendimento-previsivel.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".card-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-12/ac-30-12-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-17",
+      "type": "carrossel",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-17-carousel-v3.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-17/ac-30-17-07.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-18",
+      "type": "carrossel",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-18-carousel-v2.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-07.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-18/ac-30-18-08.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-19",
+      "type": "post",
+      "status": "published",
+      "source_preview_path": "social/previews/ac-30-19-v2-editorial.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".frame",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-19/ac-30-19-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-20",
+      "type": "stories",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-20-v4-stories.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-20/ac-30-20-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-20/ac-30-20-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-20/ac-30-20-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-20/ac-30-20-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-20/ac-30-20-05.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-21",
+      "type": "carrossel",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-21-v3.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-21/ac-30-21-07.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-25",
+      "type": "carrossel",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-25-v4-carousel.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "(viewport)",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-25/ac-30-25-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-26",
+      "type": "reels",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-26-v4-reels.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-26/ac-30-26-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-26/ac-30-26-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-26/ac-30-26-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-26/ac-30-26-04.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-27",
+      "type": "post",
+      "status": "review",
+      "source_preview_path": "social/previews/ac-30-27-v2-facebook.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".card-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-27/ac-30-27-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-33",
+      "type": "post",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-33-facebook-v5.html",
+      "export_kind": "single_image_png",
+      "selector_used": "(viewport)",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-33/ac-30-33-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-34",
+      "type": "post",
+      "status": "published",
+      "source_preview_path": "social/previews/ac-30-34-facebook.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".card-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-34/ac-30-34-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-35",
+      "type": "post",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-35-facebook-reputacao.html",
+      "export_kind": "single_image_png",
+      "selector_used": ".frame",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-35/ac-30-35-01.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-31",
+      "type": "carrossel",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-31-carousel-v5.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-04.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-05.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-06.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-31/ac-30-31-07.png"
+      ]
+    },
+    {
+      "asset_id": "AC-30-32",
+      "type": "reels",
+      "status": "approved",
+      "source_preview_path": "social/previews/ac-30-32-reels-v5.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": "viewport:.frame-container",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-32/ac-30-32-01.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-32/ac-30-32-02.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-32/ac-30-32-03.png",
+        "squads/social-growth/output/amiclube/social/publish/ac-30-32/ac-30-32-04.png"
+      ]
+    }
+  ],
+  "failures": [
+    "failed screenshot AC-30-04 selector=.card-container index=1"
+  ],
+  "notes": []
+}

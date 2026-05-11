@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>AC-30-15 | Instagram Reels — AmiClube</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--burgundy:#4A1C23;--dark:#1A1A1A;--gold:#C9A227;--cream:#F5F0E8;--text:#fff}
+
+/*Skill Invocation Ledger
+| Agent | Skill | Source File | Applied To | Concrete Use | Status |
+| Creative Renderer | social-ht | skills/soci al-ht/ SKILL.ht | AC-30-15 all 5 frames | Fallback: social-ht não disponível — renderizado via social-ht | invoked |
+| Creative Renderer | social-ht | skills/social- visual- system/ SKILL.ht | AC-30-15 all 5 frames | DNA AmiClube: Dark Luxo, scroll-snap, progress bar | invoked |
+*/
+body{min-height:100vh;background:var(--dark);font-family:Inter,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;overflow:hidden}
+.outer{position:relative;width:540px;height:960px;overflow:hidden;background:var(--burgundy);border-radius:16px}
+.frames{position:relative;width:100%;height:100%;overflow:hidden;scroll-snap-type:y mandatory}
+.frame{position:absolute;top:0;left:0;width:100%;height:100%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 2rem;text-align:center;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.frame.active{position:relative;opacity:1;visibility:visible;display:flex}
+.frame::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,162,39,.15),transparent 60%);pointer-events:none}
+.frame > *{position:relative;z-index:1}
+.eyebrow{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);margin-bottom:.75rem}
+h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.2;max-width:90%}
+p{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.5;max-width:340px}
+.step{font-size:3.5rem;font-weight:700;color:rgba(201,162,39,.25);font-family:'Playfair Display',serif}
+.contrast{background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);padding:.5rem 1.5rem;border-radius:8px;font-size:.8rem;font-weight:600;color:var(--gold);margin-top:1rem}
+.metric{font-size:3.5rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif}
+.cta{background:var(--gold);color:var(--dark);font-weight:700;padding:.85rem 2.5rem;border-radius:8px;border:none;font-size:.9rem;cursor:pointer;margin-top:1rem;letter-spacing:.05em}
+.progress-bar{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:3px;height:80%;background:rgba(255,255,255,.2);border-radius:3px;z-index:10}
+.progress-fill{width:100%;background:var(--gold);border-radius:3px;transition:height .3s}
+.timestamp{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.1em}
+.counter{position:absolute;top:.75rem;right:1rem;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.1em;z-index:10}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-size:.7rem;color:rgba(255,255,255,.5);animation:bounce 2s infinite;z-index:10}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+</style>
+</head>
+<body>
+<div class="outer">
+  <div class="progress-bar"><div class="progress-fill" id="prog" style="height:20%"></div></div>
+  <div class="frames" id="frames" onscroll="onScroll()">
+    <div class="frame active" data-frame="1"><div class="step">1/5</div><div class="eyebrow">Transformação Visual</div><h2>Ambiente vazio vira presença afectiva</h2><p>Uma peça artesanal altera a sensação de um espaço em segundos.</p></div>
+    <div class="frame" data-frame="2"><div class="step">2/5</div><div class="eyebrow">Antes</div><h2>Estantes com função — sem identidade</h2><p>Prateleiras organizadas, produtos genéricos. Nenhuma peça desperta memória.</p></div>
+    <div class="frame" data-frame="3"><div class="step">3/5</div><div class="eyebrow">Seleção</div><h2>O amigurumi como ponto focal</h2><p>A peça certa concentra atenção, equilibra composição e humaniza o ambiente.</p></div>
+    <div class="frame" data-frame="4"><div class="step">4/5</div><div class="contrast">Curadoria AmiClube · Peças avaliadas antes do catálogo</div><h2>Depois</h2><p>A estante não mudou. A presença mudou. É isso que uma peça artesanal faz.</p></div>
+    <div class="frame" data-frame="5"><div class="step">5/5</div><div class="metric">24h</div><h2>Direct para proposta personalizada</h2><p>Mande as fotos do seu ambiente. Respondemos em até 24h.</p><button class="cta">Mandar direct</button></div>
+  </div>
+  <div class="scroll-hint">↓ role para continuar</div>
+  <div class="counter" id="counter">1 / 5</div>
+</div>
+<script>
+const frames = document.querySelectorAll('.frame');
+const prog = document.getElementById('prog');
+const counter = document.getElementById('counter');
+const framesEl = document.getElementById('frames');
+let lastActive = 0;
+function onScroll() {
+  const scrollY = framesEl.scrollTop;
+  const fh = framesEl.clientHeight;
+  const newActive = Math.floor(scrollY / fh);
+  if (newActive !== lastActive && newActive < frames.length && newActive >= 0) {
+    frames[lastActive].classList.remove('active');
+    frames[newActive].classList.add('active');
+    lastActive = newActive;
+    prog.style.height = `${((newActive + 1) / frames.length) * 100}%`;
+    counter.textContent = `${newActive + 1} / ${frames.length}`;
+  }
+}
+framesEl.addEventListener('wheel', e => { e.preventDefault(); framesEl.scrollTop += e.deltaY > 0 ? framesEl.clientHeight : -framesEl.clientHeight; });
+framesEl.addEventListener('touchstart', t => { framesEl.dataset.y = t.touches[0].clientY; });
+framesEl.addEventListener('touchend', t => {
+  const startY = parseFloat(framesEl.dataset.y);
+  const diff = startY - t.changedTouches[0].clientY;
+  if (Math.abs(diff) > 30) {
+    if (diff > 0 && lastActive < frames.length - 1) {
+      framesEl.scrollTop += framesEl.clientHeight;
+    } else if (diff < 0 && lastActive > 0) {
+      framesEl.scrollTop -= framesEl.clientHeight;
+    }
+  }
+});
+</script>
+</body>
+</html>

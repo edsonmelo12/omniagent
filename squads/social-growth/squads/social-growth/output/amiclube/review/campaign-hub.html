@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Hub · amiclube · Canonical</title>
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --card-border:#e2e8f0;
+      --accent:#b48a1d;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#cbd5e1;
+      --ok:#16a34a;
+      --warn:#d97706;
+      --blog-accent:#2563eb;
+      --social-accent:#7c3aed;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:inter,system-ui,-apple-system,sans-serif;line-height:1.5}
+    .wrap{max-width:1400px;margin:40px auto;padding:0 24px}
+    
+    header{margin-bottom:32px;border-bottom:2px solid var(--accent);padding-bottom:24px}
+    h1{margin:0;font-size:2.2rem;color:var(--text);letter-spacing:-0.03em;font-weight:800}
+    .header-meta{display:flex;gap:12px;margin-top:12px;align-items:center}
+    
+    .badge{font:700 10px/1 sans-serif;border-radius:4px;padding:5px 10px;text-transform:uppercase;letter-spacing:0.05em;background:#f1f5f9;color:var(--muted);border:1px solid var(--card-border)}
+    .badge.premium{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .badge.blog{background:var(--blog-accent);color:#fff;border-color:var(--blog-accent)}
+    .badge.social{background:var(--social-accent);color:#fff;border-color:var(--social-accent)}
+    
+    .campaign-group{background:var(--card);border:1px solid var(--card-border);border-radius:20px;margin-bottom:40px;overflow:hidden;box-shadow:var(--shadow)}
+    .campaign-header{padding:24px 30px;background:#fdfdfd;border-bottom:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center}
+    .campaign-header h2{margin:0;font-size:1.3rem;font-weight:800;color:var(--text)}
+    
+    .campaign-body{padding:30px}
+    
+    .social-row{display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;margin-top:24px}
+    .social-row::-webkit-scrollbar{height:8px}
+    .social-row::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px}
+
+    .card{min-width:320px;background:#fff;border:1px solid var(--card-border);border-radius:14px;padding:20px;position:relative;transition:all 0.3s ease;box-shadow:0 2px 4px rgba(0,0,0,0.02)}
+    .card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 20px rgba(0,0,0,0.05)}
+    .card.blog-main{min-width:100%;background:#fcfcfc;border-left:4px solid var(--blog-accent)}
+    
+    .card-id{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between;text-transform:uppercase}
+    .card-title{font-size:1.1rem;font-weight:700;margin-bottom:14px;color:var(--text)}
+    
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+    .tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;background:#f8fafc;color:var(--muted);border:1px solid var(--card-border)}
+    .tag.status-ok{background:#f0fdf4;color:#16a34a;border-color:#bcf0da}
+    .tag.status-warn{background:#fffbeb;color:#d97706;border-color:#fde68a}
+    .tag.status-review{background:#fef3c7;color:#d97706;border-color:#fde68a}
+    
+    .card-actions{display:flex;gap:10px}
+    .btn{flex:1;text-align:center;padding:10px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:0.2s;cursor:pointer;border:none;display:inline-block}
+    .btn-primary{background:var(--text);color:#fff}
+    .btn-primary:hover{background:var(--accent)}
+    .btn-outline{background:#fff;color:var(--text);border:1px solid var(--line)}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+    .hub-link-badge{font-size:9px;color:var(--muted);margin-top:6px;word-break:break-all;font-family:monospace}
+
+    /* Modal System */
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.8);display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px);padding:40px}
+    .modal-content{width:100%;max-width:1200px;height:100%;background:#fff;border-radius:24px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5)}
+    .modal-header{padding:16px 24px;border-bottom:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center;background:#fff}
+    .modal-close{cursor:pointer;background:#f1f5f9;border:none;border-radius:50%;width:36px;height:36px;font-size:20px;display:flex;align-items:center;justify-content:center;transition:0.2s}
+    .modal-close:hover{background:var(--accent);color:#fff}
+    .modal-iframe{flex:1;border:none;width:100%;height:100%}
+
+    .empty-state{color:var(--muted);font-style:italic;font-size:0.95rem;background:#f1f5f9;padding:20px;border-radius:12px;text-align:center}
+    footer{margin-top:60px;padding:40px 0;border-top:1px solid var(--card-border);color:var(--muted);font-size:0.85rem;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Campaign Hub · amiclube</h1>
+      <div class="header-meta">
+        <span class="badge premium">Premium Light v2.1</span>
+        <span class="badge">Review: PUBLISH</span>
+        <span class="badge">Amiclube Exclusive</span>
+        <span class="badge">Gerado: 04/05/2026 10:04</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="campaign-group">
+        <div class="campaign-header">
+          <h2>Assets</h2>
+          <span class="badge">0 social · 0 blog</span>
+        </div>
+        <div class="campaign-body">
+          
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hub gerado automaticamente a partir do campaign-manifest.json · Regenerar após qualquer atualização de asset</p>
+    </footer>
+  </div>
+
+    <!-- Modal -->
+    <div id="preview-modal" class="modal-overlay" onclick="closeModal(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <strong id="modal-title">Preview</strong>
+          <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <iframe id="modal-iframe" class="modal-iframe"></iframe>
+      </div>
+    </div>
+
+    <script>
+      const HUB_BUILD = 1777899846995;
+      function openModal(url, title) {
+        document.getElementById("modal-title").textContent = title || "Preview";
+        const sep = url.includes("?") ? "&" : "?";
+        document.getElementById("modal-iframe").src = url + sep + "_b=" + HUB_BUILD;
+        document.getElementById("preview-modal").style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal(e) {
+        if (e && e.target !== e.currentTarget) return;
+        document.getElementById("preview-modal").style.display = "none";
+        document.getElementById("modal-iframe").src = "";
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
+</body>
+</html>

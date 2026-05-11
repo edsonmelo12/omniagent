@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Ops Dashboard Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: oklch(14% 0.01 285);
+      --surface: oklch(14% 0.01 285 / 0.86);
+      --surface-strong: oklch(18% 0.012 285 / 0.94);
+      --fg: oklch(98% 0.002 106);
+      --muted: oklch(72% 0.01 260);
+      --border: oklch(30% 0.015 260 / 0.72);
+      --accent: oklch(48% 0.15 254);
+      --accent-soft: oklch(48% 0.15 254 / 0.16);
+      --success: oklch(70% 0.15 155);
+      --warning: oklch(78% 0.16 85);
+      --danger: oklch(64% 0.2 28);
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --font-display: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-mono: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(12, 92, 171, 0.22), transparent 34%),
+        radial-gradient(circle at 85% 20%, rgba(12, 92, 171, 0.12), transparent 24%),
+        linear-gradient(180deg, #101116 0%, #09090b 100%);
+      color: var(--fg);
+      font-family: var(--font-body);
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 32px;
+    }
+
+    .dashboard-shell {
+      width: min(980px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px) saturate(130%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(12, 92, 171, 0.45);
+      flex: none;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 2px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: pretty;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--fg);
+      font-size: 13px;
+      font-weight: 500;
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .pill:hover,
+    .metric-card:hover,
+    .queue-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .pill:focus-visible,
+    .metric-card:focus-visible,
+    .queue-item:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 12px color-mix(in srgb, #10B981 55%, transparent);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--surface);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px) saturate(120%);
+    }
+
+    .panel-main {
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel-side {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .hero {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-copy {
+      max-width: 420px;
+    }
+
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3vw, 34px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 42ch;
+    }
+
+    .hero-metric {
+      min-width: 188px;
+      padding: 18px;
+      border: 1px solid rgba(12, 92, 171, 0.22);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(12, 92, 171, 0.2), rgba(12, 92, 171, 0.06)),
+        rgba(255, 255, 255, 0.02);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metric-label {
+      margin: 0 0 8px;
+      color: color-mix(in srgb, var(--fg) 66%, var(--muted));
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-metric-value {
+      margin: 0 0 10px;
+      font-size: 40px;
+      line-height: 0.96;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-metric-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric-card {
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .metric-label {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      margin: 0 0 6px;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .metric-sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .delta-up {
+      color: var(--success);
+    }
+
+    .delta-warn {
+      color: var(--warning);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .timeline-head h3,
+    .side-section h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-track {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 96px 1fr 70px;
+      gap: 14px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .timeline-row strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .bar {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .bar > span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 72%, white), var(--accent));
+    }
+
+    .side-section {
+      display: grid;
+      gap: 10px;
+    }
+
+    .queue-item {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.025);
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .queue-top,
+    .queue-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .queue-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .queue-meta,
+    .queue-bottom {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .status.live {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: rgba(12, 92, 171, 0.24);
+    }
+
+    .status.risk {
+      color: var(--warning);
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.18);
+    }
+
+    .footer-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-note strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        padding: 18px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-metric {
+        width: 100%;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-row {
+        grid-template-columns: 84px 1fr 56px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .topbar-actions {
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="dashboard-shell" aria-label="Social operations dashboard preview">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div class="brand-copy">
+          <p class="eyebrow">Ops Console</p>
+          <p class="title">Social pulse board</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="pill" tabindex="0">
+          <span class="dot" aria-hidden="true"></span>
+          Live ingest healthy
+        </div>
+        <div class="pill" tabindex="0">Last sync 09:32</div>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-main" aria-labelledby="panel-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Today · Priority stream</p>
+            <h2 id="panel-title">The social ops team can clear brand-risk mentions without losing the campaign tempo.</h2>
+            <p>One compact view for response velocity, queue health, and which channels need human attention before the next publishing block.</p>
+          </div>
+          <aside class="hero-metric" aria-label="Critical response metric">
+            <p class="hero-metric-label">Median first response</p>
+            <p class="hero-metric-value">11m</p>
+            <p class="hero-metric-meta">Down from 16m yesterday after routing TikTok escalations to the live triage lane.</p>
+          </aside>
+        </div>
+
+        <div class="metrics-grid">
+          <section class="metric-card" tabindex="0" aria-label="Mentions triaged">
+            <p class="metric-label">Mentions triaged</p>
+            <p class="metric-value">428</p>
+            <p class="metric-sub"><span class="delta-up">+12%</span> vs. the same window last Monday.</p>
+          </section>
+          <section class="metric-card" tabindex="0" aria-label="Escalations pending">
+            <p class="metric-label">Escalations pending</p>
+            <p class="metric-value">07</p>
+            <p class="metric-sub">Two creator-flagged issues need legal review before noon.</p>
+          </section>
+          <section class="metric-card" tabindex="0" aria-label="Coverage gap">
+            <p class="metric-label">Coverage gap</p>
+            <p class="metric-value">18%</p>
+            <p class="metric-sub"><span class="delta-warn">Watch Instagram</span> comment backlog on product-drop posts.</p>
+          </section>
+        </div>
+
+        <section class="timeline" aria-labelledby="timeline-title">
+          <div class="timeline-head">
+            <h3 id="timeline-title">Channel pressure</h3>
+            <p class="eyebrow">Load by active queue</p>
+          </div>
+          <div class="timeline-track">
+            <div class="timeline-row">
+              <strong>TikTok</strong>
+              <div class="bar" aria-hidden="true"><span style="width: 82%;"></span></div>
+              <span>82%</span>
+            </div>
+            <div class="timeline-row">
+              <strong>Instagram</strong>
+              <div class="bar" aria-hidden="true"><span style="width: 68%;"></span></div>
+              <span>68%</span>
+            </div>
+            <div class="timeline-row">
+              <strong>X / Threads</strong>
+              <div class="bar" aria-hidden="true"><span style="width: 46%;"></span></div>
+              <span>46%</span>
+            </div>
+            <div class="timeline-row">
+              <strong>YouTube</strong>
+              <div class="bar" aria-hidden="true"><span style="width: 24%;"></span></div>
+              <span>24%</span>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <aside class="panel panel-side" aria-label="Action queue">
+        <section class="side-section">
+          <h3>Queue needing attention</h3>
+          <article class="queue-item" tabindex="0">
+            <div class="queue-top">
+              <p class="queue-title">Creator escalation on launch reel</p>
+              <span class="status live">Live</span>
+            </div>
+            <p class="queue-meta">Volume spiked after pricing confusion in the caption edit pushed at 08:54.</p>
+            <div class="queue-bottom">
+              <span>Owner: Maya</span>
+              <span>ETA response: 6m</span>
+            </div>
+          </article>
+          <article class="queue-item" tabindex="0">
+            <div class="queue-top">
+              <p class="queue-title">Comment moderation drift</p>
+              <span class="status risk">At risk</span>
+            </div>
+            <p class="queue-meta">Keyword filters missed a batch of reseller links on Instagram story replies.</p>
+            <div class="queue-bottom">
+              <span>Owner: Ben</span>
+              <span>18 items</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="side-section">
+          <h3>Shift notes</h3>
+          <article class="queue-item" tabindex="0">
+            <p class="queue-meta">Use the campaign macro only for creator questions. Keep billing or shipping issues in support handoff.</p>
+            <div class="footer-note">
+              <span>Coverage handoff at 11:00</span>
+              <strong>3 analysts online</strong>
+            </div>
+          </article>
+        </section>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

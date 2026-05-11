@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omni-Blog-Audit · AC-30-13B</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;700;800&family=Space+Grotesk:wght@600&display=swap');
+    :root {
+      --zinc-950: #09090b; --zinc-900: #18181b; --zinc-800: #27272a; --zinc-500: #71717a; --zinc-200: #e4e4e7;
+      --accent: #b45309; --bg-article: #f4f4f5; --paper: #ffffff;
+    }
+    body { margin: 0; display: grid; grid-template-areas: "shield shield" "article audit"; grid-template-columns: 1fr 380px; grid-template-rows: auto 1fr; min-height: 100vh; font-family: 'Inter', sans-serif; }
+    .shield-zone { grid-area: shield; background: var(--zinc-950); color: var(--zinc-200); padding: 16px 24px; border-bottom: 1px solid var(--zinc-800); display: flex; justify-content: space-between; align-items: center; z-index: 100; position: sticky; top: 0; }
+    .meta-group { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label { font-family: 'Space Grotesk', monospace; font-size: 10px; font-weight: 600; text-transform: uppercase; color: var(--zinc-500); }
+    .meta-value { font-size: 13px; font-weight: 500; }
+    .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: #1e3a8a; color: #dbeafe; }
+    .article-zone { grid-area: article; padding: 60px; background: var(--bg-article); overflow-y: auto; display: flex; justify-content: center; }
+    article { max-width: 800px; background: var(--paper); border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .hero { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .content { padding: 48px; }
+    h1 { font-family: Georgia, serif; font-size: 32px; margin-bottom: 24px; color: #1a1a1a; line-height: 1.2; }
+    h2 { font-family: Georgia, serif; font-size: 22px; margin: 32px 0 16px; color: #333; }
+    p, li { font-size: 17px; line-height: 1.6; color: #444; margin-bottom: 18px; }
+    .audit-zone { grid-area: audit; padding: 24px; background: var(--zinc-900); color: var(--zinc-200); border-left: 1px solid var(--zinc-800); height: calc(100vh - 70px); position: sticky; top: 70px; overflow-y: auto; }
+    .audit-section { margin-bottom: 32px; }
+    .audit-title { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--zinc-500); border-bottom: 1px solid var(--zinc-800); padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between; }
+    .audit-item { margin-bottom: 12px; }
+    .audit-label { display: block; font-size: 10px; color: var(--zinc-500); margin-bottom: 4px; }
+    .audit-data { display: block; font-family: ui-monospace, monospace; font-size: 11px; background: #000; padding: 8px; border-radius: 4px; border: 1px solid #27272a; }
+    .status-ok { color: #22c55e; }
+  </style>
+</head>
+<body>
+  <header class="shield-zone">
+    <div class="meta-group">
+      <span class="meta-label">ID do Artigo</span>
+      <span class="meta-value">AC-30-13B</span>
+    </div>
+    <div class="meta-group">
+      <span class="meta-label">Tese</span>
+      <span class="meta-value">Amigurumis de luxo são investimentos Soft Tech</span>
+    </div>
+    <div class="meta-group">
+      <span class="meta-label">Objetivo</span>
+      <span class="meta-value badge">Autoridade / Descoberta</span>
+    </div>
+  </header>
+
+  <main class="article-zone">
+    <article>
+      <img class="hero" src="https://images.unsplash.com/photo-1612144431180-2d672779556c?q=80&w=1080" alt="Home Office moderno com detalhe de amigurumi premium.">
+      <div class="content">
+        <h1>Investimento em Decoração: Amigurumi no Home Office e a tendência Soft Tech</h1>
+        <p>O ambiente de trabalho em 2026 não é mais apenas sobre produtividade; é sobre <strong>identidade e bem-estar</strong>. Com a consolidação do conceito <strong>Soft Tech</strong>, o <strong>amigurumi decoração home office</strong> tornou-se um ativo desejado...</p>
+        <h2>O papel do amigurumi no ambiente corporativo moderno</h2>
+        <p>Em um cenário dominado por telas frias, o toque tátil do crochê premium cria o contraste necessário para reduzir o estresse visual.</p>
+        <p><strong>CTA:</strong> Interessado em transformar seu ambiente? Solicite uma consultoria de ambientação artesanal hoje mesmo.</p>
+      </div>
+    </article>
+  </main>
+
+  <aside class="audit-zone">
+    <div class="audit-section">
+      <div class="audit-title">Identity</div>
+      <div class="audit-item"><span class="audit-label">Slug</span><span class="audit-data">amigurumi-decoracao-home-office-investimento</span></div>
+      <div class="audit-item"><span class="audit-label">Meta Description</span><span class="audit-data">Descubra como usar amigurumis de luxo para elevar seu home office...</span></div>
+    </div>
+    <div class="audit-section">
+      <div class="audit-title">SEO Audit <span class="status-ok">PASS</span></div>
+      <div class="audit-item"><span class="audit-label">Focus Keyword</span><span class="audit-data">amigurumi decoração home office</span></div>
+      <div class="audit-item"><span class="audit-label">Presence</span><span class="audit-data">H1: OK | P1: OK | Meta: OK | Slug: OK</span></div>
+    </div>
+    <div class="audit-section">
+      <div class="audit-title">GEO & Entities</div>
+      <div class="audit-item"><span class="audit-data">Soft Tech 2026, Bem-estar Corporativo, Decoração Artesanal, Imagem Profissional</span></div>
+    </div>
+    <div class="audit-section">
+      <div class="audit-title">Image Audit</div>
+      <div class="audit-item"><span class="audit-label">Alt-Text Hero</span><span class="audit-data">Home Office moderno com detalhe de amigurumi premium suavizando o ambiente tech.</span></div>
+    </div>
+  </aside>
+</body>
+</html>

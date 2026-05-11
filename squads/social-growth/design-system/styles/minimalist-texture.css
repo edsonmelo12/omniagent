@@ -1,0 +1,54 @@
+:root {
+  --style-name: "minimalist-texture";
+  --style-bg: #f5f4f0;
+  --style-bg-alt: #eae8e2;
+  --style-surface: rgba(0, 0, 0, 0.03);
+  --style-surface-strong: rgba(0, 0, 0, 0.06);
+  --style-text-heading: #2a2824;
+  --style-text-body: #4a4742;
+  --style-text-muted: #8a8680;
+  --style-accent: #8b7355;
+  --style-accent-soft: color-mix(in srgb, #8b7355 18%, transparent);
+  --style-border: color-mix(in srgb, #8b7355 30%, transparent);
+  --style-heading-font: "DM Sans", Arial, sans-serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.02;
+  --style-vignette-opacity: 0.08;
+  --style-gradient: linear-gradient(180deg, #f5f4f0 0%, #eae8e2 100%);
+}
+
+[data-text-variant="dark"] .title,
+[data-text-variant="dark"] .heading {
+  color: #f5f4f0;
+}
+
+[data-text-variant="dark"] .body-text,
+[data-text-variant="dark"] .subtitle {
+  color: rgba(245, 244, 240, 0.85);
+}
+
+[data-text-variant="dark"] .proof-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f5f4f0;
+}
+
+[data-text-variant="dark"] .cta-block {
+  color: #f5f4f0;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-text-variant="dark"] .divider {
+  background: #8b7355;
+}
+
+[data-text-variant="dark"] .header-zone {
+  color: rgba(245, 244, 240, 0.4);
+}
+
+[data-text-variant="dark"] .brand-mark { color: #8b7355; }
+[data-text-variant="dark"] .footer-zone { color: rgba(245, 244, 240, 0.3); }
+[data-text-variant="dark"] .progress-bar { background: rgba(245, 244, 240, 0.10); }
+[data-text-variant="dark"] .progress-bar span { background: #8b7355; }
+[data-text-variant="dark"] .swipe-arrow { color: rgba(245, 244, 240, 0.35); }

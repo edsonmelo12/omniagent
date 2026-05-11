@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-14 | Qual peça combina com cada ocasião · AmiClube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #F5F0EA;
+      --primary: #1E3A8A;
+      --accent: #D4AF37;
+      --text: #111827;
+      --text-muted: #6B7280;
+    }
+    body {
+      margin: 0;
+      background: #0A0A0A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+    .frame {
+      width: 420px;
+      height: 525px;
+      background: var(--bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .wrapper {
+      display: flex;
+      width: 700%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .slide {
+      width: calc(100% / 7);
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px 28px 48px;
+      background: var(--bg);
+    }
+    .slide.dark { background: var(--primary); }
+    .slide.accent { background: linear-gradient(135deg, var(--primary) 0%, #2D3A5A 100%); }
+    
+    .kicker {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .slide.dark .kicker { color: var(--accent); }
+    
+    .title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .slide.dark .title { color: #fff; }
+    .slide.accent .title { color: #fff; }
+    
+    .body-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .slide.dark .body-text { color: rgba(255,255,255,0.8); }
+    .slide.accent .body-text { color: rgba(255,255,255,0.85); }
+    
+    .context-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .slide.dark .context-card { background: rgba(255,255,255,0.1); }
+    .context-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .context-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .slide.dark .context-title { color: #fff; }
+    .context-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .slide.dark .context-desc { color: rgba(255,255,255,0.7); }
+    
+    .synthesis {
+      text-align: center;
+      padding: 20px;
+      background: rgba(30,58,138,0.08);
+      border-radius: 12px;
+    }
+    .synthesis p {
+      font-size: 14px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .slide.dark .synthesis { background: rgba(255,255,255,0.1); }
+    .slide.dark .synthesis p { color: #fff; }
+    
+    .cta-section {
+      text-align: center;
+    }
+    .cta-question {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .slide.dark .cta-question { color: #fff; }
+    .cta-box {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 16px 28px;
+      background: var(--accent);
+      color: #111827;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 24px;
+    }
+    .slide.dark .cta-box { background: var(--accent); }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .slide.dark .brand-icon { background: #fff; color: var(--primary); }
+    .brand-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .slide.dark .brand-name { color: rgba(255,255,255,0.7); }
+    
+    .progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 28px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+    }
+    .progress-track {
+      flex: 1;
+      height: 3px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .slide.dark .progress-track { background: rgba(255,255,255,0.2); }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .slide.dark .progress-fill { background: #fff; }
+    .progress-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .slide.dark .progress-label { color: rgba(255,255,255,0.6); }
+    
+    .dots {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 10;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.2);
+    }
+    .slide.dark .dot { background: rgba(255,255,255,0.3); }
+    .dot.active { background: var(--primary); width: 18px; border-radius: 3px; }
+    .slide.dark .dot.active { background: #fff; }
+    
+    .nav-area {
+      position: fixed;
+      top: 0; bottom: 0;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .nav-area:hover { opacity: 1; }
+    .nav-area.prev { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.3), transparent); }
+    .nav-area.next { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.3), transparent); }
+    .nav-arrow {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-arrow svg {
+      width: 16px; height: 16px;
+      stroke: rgba(255,255,255,0.8);
+      stroke-width: 2; fill: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="carousel">
+      <div class="wrapper" id="wrapper">
+        
+        <!-- Slide 1: Capa -->
+        <section class="slide" data-frame="1">
+          <div class="brand">
+            <div class="brand-icon">A</div>
+            <span class="brand-name">AmiClube</span>
+          </div>
+          <div style="text-align:center;flex:1;display:flex;align-items:center;justify-content:center;">
+            <div>
+              <div class="kicker">DESCUBRA</div>
+              <div class="title">Você sabe qual amigurumi combina com o seu momento?</div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:14.28%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 2: Presente especial -->
+        <section class="slide" data-frame="2">
+          <div class="kicker">OCASIÃO 1</div>
+          <div class="title">Presentear alguém especial?</div>
+          <div class="context-card">
+            <div class="context-icon">🎁</div>
+            <div class="context-title">A peça certa transforma entrega em memória</div>
+            <div class="context-desc">Escolha pelo significado, não pelo tamanho</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:28.56%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 3: Decorar espaço -->
+        <section class="slide dark" data-frame="3">
+          <div class="kicker">OCASIÃO 2</div>
+          <div class="title">Decorar seu espaço?</div>
+          <div class="context-card">
+            <div class="context-icon">🏠</div>
+            <div class="context-title">O amigurumi ideal adiciona personalidade</div>
+            <div class="context-desc">Sem ocupar demais, com personalidade</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:42.84%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 4: Presentear criança -->
+        <section class="slide" data-frame="4">
+          <div class="kicker">OCASIÃO 3</div>
+          <div class="title">Presentear criança?</div>
+          <div class="context-card">
+            <div class="context-icon">🧒</div>
+            <div class="context-title">Segurança, textura e conexão emocional</div>
+            <div class="context-desc">O que mais importa na escolha</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:57.12%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 5: Escritório -->
+        <section class="slide dark" data-frame="5">
+          <div class="kicker">OCASIÃO 4</div>
+          <div class="title">Presença no escritório?</div>
+          <div class="context-card">
+            <div class="context-icon">💼</div>
+            <div class="context-title">Leveza e profissionalismo podem andar juntos</div>
+            <div class="context-desc">Na peça certa, no tamanho adequado</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:71.4%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 6: Síntese -->
+        <section class="slide accent" data-frame="6">
+          <div class="synthesis">
+            <p>"Não existe 'o melhor amigurumi'.<br>Existe '<strong>o melhor para o que você precisa agora</strong>'."</p>
+          </div>
+          <div class="context-card" style="margin-top:16px;">
+            <div class="context-title">Cada ocasião pede uma leitura diferente</div>
+            <div class="context-desc"> Matching é sobre contexto, não apenas preferência</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:85.68%"></div></div>
+          </div>
+        </section>
+        
+        <!-- Slide 7: CTA -->
+        <section class="slide" data-frame="7">
+          <div class="brand">
+            <div class="brand-icon">A</div>
+            <span class="brand-name">AmiClube</span>
+          </div>
+          <div class="cta-section" style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+            <div class="cta-question">Qual é a sua ocasião?</div>
+            <div class="cta-box">Comente aqui 💬</div>
+          </div>
+          <div style="text-align:center;font-size:11px;color:var(--text-muted);">Leia mais: Guia de Compra</div>
+          <div class="progress-bar">
+            <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="nav-area prev" onclick="prevSlide()">
+    <div class="nav-arrow"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+  </div>
+  <div class="nav-area next" onclick="nextSlide()">
+    <div class="nav-arrow"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></div>
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('wrapper');
+    let current = 0;
+    const total = 7;
+
+    function updateSlide() { wrapper.style.transform = `translateX(-${current * 14.28}%)`; }
+    function nextSlide() { if (current < total - 1) { current++; updateSlide(); } }
+    function prevSlide() { if (current > 0) { current--; updateSlide(); } }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    let startX = 0;
+    document.querySelector('.carousel').addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.querySelector('.carousel').addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff < -50) nextSlide();
+      if (diff > 50) prevSlide();
+    });
+  </script>
+</body>
+</html>

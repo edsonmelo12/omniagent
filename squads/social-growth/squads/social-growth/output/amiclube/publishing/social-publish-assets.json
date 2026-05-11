@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "client": "amiclube",
+  "generatedAt": "2026-04-30T21:39:11.298Z",
+  "sourceManifestPath": "squads/social-growth/output/amiclube/review/campaign-manifest.json",
+  "exportDir": "squads/social-growth/output/amiclube/social/publish",
+  "selectedAssets": 0,
+  "exportedAssets": 0,
+  "exports": [],
+  "failures": [],
+  "notes": [
+    "social-publish-assets-policy missing; using default statuses"
+  ]
+}

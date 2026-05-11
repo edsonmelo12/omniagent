@@ -1,0 +1,118 @@
+{
+  "asset_id": "AC-30-06",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "instagram-carousel",
+  "title": "Mitos e verdades sobre preço de amigurumi",
+  "deck_label": "mitos",
+  "topic": "Mitos e Verdades",
+  "footer": "@amiclube",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Descoberta",
+  "cta": "👆 Clique no link da bio e leia o artigo completo!",
+  "caption": "Mito ou verdade: preço baixo é sempre bom negócio? 🤔\n\nNo amigurumi, a mesma pergunta gera respostas diferentes dependendo do critério usado. Algumas crenças comuns falham quando você olha por dentro da proposta.\n\n🧵 Salve este carrossel e use como filtro na próxima compra.\n\n👉 Veja o guia completo no link da bio!",
+  "hashtags": ["#amigurumi", "#comprainteligente", "#precoevalor", "#artesanatopremium", "#mitosedicas", "#presentesafetivos"],
+  "exported_images": [
+    "../publish/ac-30-06-ds/slide-01.png",
+    "../publish/ac-30-06-ds/slide-02.png",
+    "../publish/ac-30-06-ds/slide-03.png",
+    "../publish/ac-30-06-ds/slide-04.png",
+    "../publish/ac-30-06-ds/slide-05.png",
+    "../publish/ac-30-06-ds/slide-06.png",
+    "../publish/ac-30-06-ds/slide-07.png"
+  ],
+  "images": [
+    "../../blog/assets/AC-30-05-preco-valor-hero.jpg"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "MITOS E VERDADES",
+      "title": "O PREÇO NÃO CONTA SOZINHO",
+      "body": "4 mitos que confundem quem compra amigurumi",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "../../blog/assets/AC-30-05-preco-valor-hero.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 1",
+      "title": "Amigurumi importado é sempre melhor",
+      "body": "\"Origem não garante qualidade — o importante é a tensão, o enchimento e o acabamento.\"",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 2",
+      "title": "Quanto maior, mais caro deve ser",
+      "body": "\"O preço reflete tempo de execução, não tamanho. Um amigurumi pequeno pode levar dias.\"",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F7F3EE"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 3",
+      "title": "Se é bonito, está bem feito",
+      "body": "\"Beleza esconde costura malfeita, enchimento irregular e materiais de baixa durabilidade.\"",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 4",
+      "title": "Preço alto = qualidade garantida",
+      "body": "\"Preço alto pode ser marca, não qualidade. Avalie acabamento, simetria e segurança.\"",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F7F3EE"
+      }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "CHECK LIST",
+      "title": "5 SINAIS DE QUALIDADE",
+      "body": "✓ Costura invisível e firme\n✓ Enchimento uniforme\n✓ Simetria nas partes\n✓ Segurança nos olhos\n✓ Tamanho real condizente",
+      "textVariant": "dark",
+      "background": {
+        "type": "solid",
+        "color": "#1A1918"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "SALVE PARA REVISAR ANTES DA COMPRA",
+      "body": "amiclube.com.br",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#8C6A5E",
+        "to": "#C45C1F"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "{{ISO_DATE}}",
+  "default_channel_state": "ACTIVE",
+  "channels": [
+    {
+      "id": "instagram",
+      "state": "ACTIVE",
+      "account_exists": true,
+      "publish_enabled": true,
+      "credentials_valid": true,
+      "reason": "Canal ativo"
+    },
+    {
+      "id": "linkedin",
+      "state": "PARKED",
+      "account_exists": false,
+      "publish_enabled": false,
+      "credentials_valid": false,
+      "reason": "Aguardando conta/chaves"
+    }
+  ],
+  "enforcement": {
+    "production_states": ["ACTIVE"],
+    "enforce_on_social_statuses": [
+      "review",
+      "approved",
+      "ready_to_schedule",
+      "scheduled",
+      "published"
+    ],
+    "allowed_backlog_social_statuses": ["planned", "parked", "backlog"]
+  }
+}

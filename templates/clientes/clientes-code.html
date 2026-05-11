@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniAgent | Client Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c8c5cf",
+              "surface-container": "#eceef1",
+              "surface-dim": "#d8dadd",
+              "surface-variant": "#e0e3e6",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-background": "#191c1e",
+              "tertiary-fixed": "#6ffbbe",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e0e3e6",
+              "background": "#f7f9fc",
+              "surface-tint": "#5a5b84",
+              "on-tertiary-fixed-variant": "#005236",
+              "on-primary-fixed-variant": "#42436b",
+              "on-tertiary-fixed": "#002113",
+              "on-secondary-fixed-variant": "#5516be",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#eff1f4",
+              "secondary-container": "#8455ef",
+              "tertiary-container": "#002516",
+              "outline": "#77767f",
+              "primary-container": "#1a1b41",
+              "on-surface": "#191c1e",
+              "on-primary-container": "#8283af",
+              "surface": "#f7f9fc",
+              "primary": "#020229",
+              "on-secondary-fixed": "#23005c",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#d0bcff",
+              "secondary-fixed": "#e9ddff",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "tertiary": "#000904",
+              "on-primary-fixed": "#16173d",
+              "surface-container-high": "#e6e8eb",
+              "inverse-surface": "#2d3133",
+              "inverse-primary": "#c2c2f2",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#c2c2f2",
+              "surface-container-low": "#f2f4f7",
+              "surface-bright": "#f7f9fc",
+              "secondary": "#6b38d4",
+              "on-surface-variant": "#47464e",
+              "on-tertiary-container": "#009a6a",
+              "on-secondary-container": "#fffbff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#e1e0ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #6b38d4 0%, #8455ef 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar (The Anchor) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold tracking-tight text-indigo-950 dark:text-indigo-100 font-headline">OmniAgent</h1>
+<p class="text-[10px] font-label uppercase tracking-[0.2em] text-on-primary-container">Precision Navigator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-slate-200/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm">Dashboard</span>
+</a>
+<!-- Clients (ACTIVE) -->
+<a class="group flex items-center px-6 py-3 border-l-4 border-violet-600 text-violet-700 bg-white active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="groups" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-label text-sm font-semibold">Clients</span>
+</a>
+<!-- AI Agents -->
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-slate-200/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="smart_toy">smart_toy</span>
+<span class="font-label text-sm">AI Agents</span>
+</a>
+<!-- Analytics -->
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-slate-200/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="monitoring">monitoring</span>
+<span class="font-label text-sm">Analytics</span>
+</a>
+<!-- Settings -->
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-slate-200/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="font-label text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-1">
+<button class="w-full py-2 px-4 rounded-md primary-gradient text-white font-label text-xs font-bold uppercase tracking-wider mb-6 hover:opacity-90 transition-opacity">
+                New Client
+            </button>
+<a class="flex items-center py-2 text-slate-500 hover:text-indigo-900 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="help">help</span>
+<span class="font-label text-xs">Help Center</span>
+</a>
+<a class="flex items-center py-2 text-slate-500 hover:text-indigo-900 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="account_circle">account_circle</span>
+<span class="font-label text-xs">Account</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/70 backdrop-blur-xl flex justify-between items-center h-16 px-8 shadow-[0_12px_40px_rgba(26,27,65,0.04)]">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-md pl-10 pr-4 py-2 text-sm focus:ring-0 focus:bg-white transition-all placeholder:text-slate-400" placeholder="Search clients, sectors, or agents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<button class="hover:text-violet-500 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-violet-500 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<button class="hover:text-violet-500 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<button class="bg-primary-container text-on-secondary-container px-4 py-2 rounded-md font-label text-[11px] uppercase tracking-wider font-bold hover:opacity-90 active:scale-98 transition-all">
+                Onboard Client
+            </button>
+<div class="flex items-center gap-3 pl-2">
+<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="professional portrait of a creative director in a minimalist studio setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBReJjLLJszwGVsa8Hkb8DZI9_16WRRS_RB1pm0AuIgueDT7COyZtrE7X0eskG88vemUQlUvsbAFvgkSAQTQXfyTUpNiuxd9xqa3TX8_irZh1u4IiMT_tiuM6N6MsTidNMp2jIuN10nuaSvD3o1K5_fniUA9ShvN483qj1UKpUCr5o4RXBJgCQClzAvijqmZWDc1cTJeeo4CpzueDPYKyTlnxc5iwncEHj1kCyUrCvzbQR-bkcQUt8FCcS1PtpRUHI3NrcaTLj2ieM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-10 pb-12 min-h-screen">
+<!-- Client Overview Header -->
+<section class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline text-4xl font-bold text-primary tracking-tight">Client Manager</h2>
+<p class="font-body text-on-surface-variant mt-1">Managing 128 global accounts across 14 territories.</p>
+</div>
+<div class="flex gap-8">
+<div class="text-right">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Active</p>
+<p class="font-headline text-2xl font-bold text-on-tertiary-container">114</p>
+</div>
+<div class="text-right">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">At Risk</p>
+<p class="font-headline text-2xl font-bold text-error">14</p>
+</div>
+<div class="h-10 w-[1px] bg-slate-200"></div>
+<div class="text-right">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Avg Health</p>
+<p class="font-headline text-2xl font-bold text-secondary">92%</p>
+</div>
+</div>
+</section>
+<!-- Filters & Bulk Actions -->
+<section class="flex justify-between items-center mb-6 bg-surface-container-low p-2 rounded-xl">
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-white rounded-lg shadow-sm font-label text-xs font-semibold text-primary">All Clients</button>
+<button class="px-4 py-2 hover:bg-white/50 rounded-lg font-label text-xs text-on-surface-variant transition-all">Enterprise</button>
+<button class="px-4 py-2 hover:bg-white/50 rounded-lg font-label text-xs text-on-surface-variant transition-all">SMBs</button>
+<button class="px-4 py-2 hover:bg-white/50 rounded-lg font-label text-xs text-on-surface-variant transition-all">At Risk</button>
+</div>
+<div class="flex items-center gap-4 px-4">
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="filter_list">filter_list</span>
+<span class="font-label text-xs text-on-surface-variant">Filter by Agent</span>
+</div>
+<div class="h-4 w-[1px] bg-slate-300"></div>
+<button class="font-label text-xs text-secondary font-bold flex items-center gap-2 hover:opacity-80">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+                    Bulk Actions (0)
+                </button>
+</div>
+</section>
+<!-- Client Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Client Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(26,27,65,0.06)] group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary-fixed-dim/20 text-on-tertiary-container text-[10px] font-bold font-label px-2 py-1 rounded">HEALTHY</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold text-primary">AeroDynamics</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-tighter">Aerospace &amp; Tech</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Engagement</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold">+24%</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-tertiary-fixed-dim h-2"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-3"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-5"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-4"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-6"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">ROI Growth</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold">12.4x</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-secondary-fixed-dim h-3"></div>
+<div class="w-1 bg-secondary-fixed-dim h-5"></div>
+<div class="w-1 bg-secondary-fixed-dim h-2"></div>
+<div class="w-1 bg-secondary-fixed-dim h-6"></div>
+<div class="w-1 bg-secondary-fixed-dim h-5"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-slate-50">
+<div class="flex -space-x-2">
+<img alt="Ben" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="close-up portrait of a male AI technician in a high-tech lab environment with soft blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzV3hpXSrY-4rO7PyY7E0u8YIErEIxOd4QTejFeM44KV_21WznPE5Vc7kfrJ_VhbDEhwVroLHduoF6JdpMHjS3fUZvBGNybSGJlyha0mMT7dpDqxZhVN62VAiPtAeIIZV41MIkEblXLCf4n6Epez8Q5nLSpnpm_4FpQNvCvID8JwcicgOCSFC0XSEQnp2V1k3aFf7QkH0DMF7D0deI8dn5CGicE9UYSISa0oh5BfjGRaudETbeBJh8eGgMd1AtBfwXyEioEmcx-pI"/>
+<img alt="Aria" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="close-up portrait of a female AI strategy agent with a focused expression and modern aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmqMdYDYT8YyANf_MiPRAF54FF_AU7ObRekz0mUbJh8A5S1a6f95DdQQ6Wa9B-YzFX7HpUaJwH9DfhPr9BqniuaI9T2aB2i0M7EXLtBP6nt1Sl0irUq2DX2W0Xuo_CZh_EZGhJhmPLrWihl56lrLfh2WYX8-ZT1kwHH6oaX_Wusf1_u9rE0br2QmGCBTOiUknSQIWAQdE5PDu0_NaU3NzjAfC22krheho750FDvpcLLY9xV5Bffe7OzS8K8rI5gCP9PpSUQUEJ90E"/>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="link" style="font-variation-settings: 'FILL' 1;">link</span>
+<span class="material-symbols-outlined text-lg text-slate-200" data-icon="warning">warning</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="share" style="font-variation-settings: 'FILL' 1;">share</span>
+</div>
+</div>
+</div>
+<!-- Client Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(26,27,65,0.06)] group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-secondary-fixed/30 text-secondary text-[10px] font-bold font-label px-2 py-1 rounded">WARNING</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-2xl" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold text-primary">BioHealth Solutions</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-tighter">Biotech &amp; Wellness</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Engagement</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold text-error">-8.2%</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-error/30 h-6"></div>
+<div class="w-1 bg-error/30 h-5"></div>
+<div class="w-1 bg-error/30 h-4"></div>
+<div class="w-1 bg-error/30 h-3"></div>
+<div class="w-1 bg-error/30 h-2"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">ROI Growth</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold">4.1x</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-secondary-fixed-dim h-4"></div>
+<div class="w-1 bg-secondary-fixed-dim h-3"></div>
+<div class="w-1 bg-secondary-fixed-dim h-4"></div>
+<div class="w-1 bg-secondary-fixed-dim h-5"></div>
+<div class="w-1 bg-secondary-fixed-dim h-4"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-slate-50">
+<div class="flex -space-x-2">
+<img alt="Leo" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="professional portrait of a young male AI engineer in a bright modern office with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoa2Z-9hQ6u459vfP9Lr6gui7f4Tt-Vosp5Rwkf5XHmOEr8RLC7z7y5qhKWyACiGDwIEmIUkqSXKZkAf3vVZ7A5AwEhOhjFc9OmVZ25mmm3jOrygKL8IVGk_iCl1RNLN8P2iii_EKguAQt90todNr-riLiq_ZETdGfpg8S6b8LvO6-v3unQmkz64-qWo4RbL1m6Fiyl8z5PuAWyWfcwi6fC_3DNpsPMajFW9slWhcLp7cxGchjoIYkIohMWuPIrd770ACCL72uU38"/>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-error" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="link" style="font-variation-settings: 'FILL' 1;">link</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="share" style="font-variation-settings: 'FILL' 1;">share</span>
+<span class="material-symbols-outlined text-lg text-slate-200" data-icon="cancel">cancel</span>
+</div>
+</div>
+</div>
+<!-- Client Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(26,27,65,0.06)] group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary-fixed-dim/20 text-on-tertiary-container text-[10px] font-bold font-label px-2 py-1 rounded">HEALTHY</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-lg bg-pink-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-pink-600 text-2xl" data-icon="styler">styler</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold text-primary">Lumina Fashion</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-tighter">Luxury Retail</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Engagement</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold">+52%</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-tertiary-fixed-dim h-2"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-4"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-5"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-7"></div>
+<div class="w-1 bg-tertiary-fixed-dim h-8"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">ROI Growth</p>
+<div class="flex items-end gap-2">
+<span class="font-headline text-lg font-bold">18.2x</span>
+<div class="flex items-end gap-[2px] h-6">
+<div class="w-1 bg-secondary-fixed-dim h-2"></div>
+<div class="w-1 bg-secondary-fixed-dim h-3"></div>
+<div class="w-1 bg-secondary-fixed-dim h-5"></div>
+<div class="w-1 bg-secondary-fixed-dim h-6"></div>
+<div class="w-1 bg-secondary-fixed-dim h-7"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-slate-50">
+<div class="flex -space-x-2">
+<img alt="Aria" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="close-up portrait of a woman with a creative professional aesthetic in a modern loft studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvMjdBUmNC1ACzUNp6YhUS0aRx75q2WjIWFxdXhMQWa3MKtzqV4JoCANQHnb71la5qgR1qDdWzKeU2FK7HGgXiwpFj1ayCaeE5Ct8rRyipkGTG31uWJd2HX_d4nenka_LqMTMWDdyhobgsjAQJ6yqduV4i0ZcbifLnra4GzXra9731R-Fz2avWQ8lm3RjI8J9E0exAjDRVN2aoFIiEGezzqvPh2ROM1UcuUfTuljVHN6VEnTRUs_uBFmr-o3pWitu9vGkqOn8ECls"/>
+<img alt="Ben" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="professional male portrait with sleek background and corporate lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl-AvHUMOYjZCGkOrRgF7OTNDXpaAeO0vtagBFcviG40mIYLQxFz_IunbDWcqiuyBeO8Qbmx_nvRY0D3iIfdB6dU-kaFGBxhY1x1tImA98P3ikZz_mQtqHleVYuxhcMG8RB6LdbgnpCpvoBMkH-PDwiaD9cghT-fVxqgMbCvxyHSivgJORQeLZ6o7Dmt7J-cIC91phVmThYSB9_E5NzbMeixt7Ny3vtxrM3Kp6IMgGS-j67M82e8nKmkFEJUbmN1Ayb7_cc2WwR_U"/>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="link" style="font-variation-settings: 'FILL' 1;">link</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="share" style="font-variation-settings: 'FILL' 1;">share</span>
+<span class="material-symbols-outlined text-lg text-tertiary-fixed-dim" data-icon="public" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+</div>
+</div>
+<!-- Additional Action Card -->
+<div class="border-2 border-dashed border-slate-200 rounded-xl flex flex-col items-center justify-center p-8 hover:bg-slate-50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-slate-400 text-3xl" data-icon="add">add</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-slate-500">Add New Entity</h4>
+<p class="font-label text-xs text-slate-400 text-center mt-2 max-w-[150px]">Manually onboard or import via CSV/API</p>
+</div>
+</div>
+<!-- System Status Bar -->
+<footer class="mt-12 flex justify-between items-center bg-primary-container p-6 rounded-2xl text-on-secondary-container">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+<p class="font-label text-xs tracking-wider opacity-80">AI AGENTS STANDBY: 48 ONLINE</p>
+</div>
+<div class="h-4 w-[1px] bg-white/20"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm opacity-60" data-icon="update">update</span>
+<p class="font-label text-xs tracking-wider opacity-80">LAST SYNC: 4M AGO</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 font-label text-[10px] uppercase tracking-widest py-1 px-3 border border-white/20 rounded hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="file_download">file_download</span>
+                    Export Report
+                </button>
+<button class="flex items-center gap-2 font-label text-[10px] uppercase tracking-widest py-1 px-3 bg-secondary text-white rounded hover:opacity-90 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+                    Run Optimization
+                </button>
+</div>
+</footer>
+</main>
+</body></html>

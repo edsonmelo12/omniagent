@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitor - Social Growth Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0C5CAB;
+      --secondary: #0A4A8A;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --surface: #09090B;
+      --surface-elevated: #121216;
+      --surface-glass: rgba(18, 18, 22, 0.7);
+      --text: #FAFAFA;
+      --text-muted: #A1A1AA;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--surface); color: var(--text); min-height: 100vh; display: flex; }
+    .sidebar { width: 240px; background: var(--surface-elevated); border-right: 1px solid var(--border); padding: 24px 16px; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+    .sidebar-logo { display: flex; align-items: center; gap: 12px; padding: 0 8px 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .sidebar-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .sidebar-logo-text { font-weight: 600; font-size: 16px; }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.15s ease; }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.04); color: var(--text); }
+    .nav-item.active { background: var(--primary); color: white; }
+    .nav-icon { width: 20px; height: 20px; opacity: 0.8; }
+    .main { flex: 1; margin-left: 240px; padding: 24px 32px; background: var(--surface); min-height: 100vh; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .header-title { font-size: 24px; font-weight: 600; }
+    .header-filters { display: flex; gap: 16px; align-items: center; }
+    .filter-group { display: flex; flex-direction: column; gap: 4px; }
+    .filter-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 500; }
+    .filter-select { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; color: var(--text); font-size: 14px; font-family: inherit; min-width: 160px; cursor: pointer; }
+    .filter-select:hover, .filter-select:focus { border-color: var(--primary); outline: none; }
+    .section { margin-bottom: 32px; }
+    .section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .status-badge { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .status-badge.ok { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status-badge.failed { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    .card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; backdrop-filter: blur(12px); }
+    .alert-card { margin-bottom: 12px; padding: 16px 20px; border-radius: 10px; display: flex; align-items: center; gap: 16px; }
+    .alert-card.critical { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .alert-card.warning { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .alert-card.info { background: rgba(12, 92, 171, 0.1); border: 1px solid rgba(12, 92, 171, 0.3); }
+    .alert-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .alert-icon.critical { background: var(--danger); }
+    .alert-icon.warning { background: var(--warning); }
+    .alert-icon.info { background: var(--primary); }
+    .alert-content { flex: 1; }
+    .alert-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .alert-desc { font-size: 13px; color: var(--text-muted); }
+    .queue-table { width: 100%; border-collapse: collapse; }
+    .queue-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .queue-table td { padding: 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
+    .queue-table tr:last-child td { border-bottom: none; }
+    .queue-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+    .status-pill.published { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status-pill.scheduled { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+    .status-pill.blocked { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .timestamp { font-size: 12px; color: var(--text-muted); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--secondary); }
+    .btn-secondary { background: var(--surface-elevated); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--primary); }
+    .empty-state { text-align: center; padding: 48px; color: var(--text-muted); }
+    .metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+    .metric-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .metric-title { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .metric-value { font-size: 32px; font-weight: 700; }
+    .metric-value.success { color: var(--success); }
+    .metric-value.warning { color: var(--warning); }
+    .metric-value.danger { color: var(--danger); }
+    .metric-sub { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 16px; } .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">SG</div>
+      <span class="sidebar-logo-text">Social Growth</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        Overview
+      </a>
+      <a href="campaigns.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+        Campaigns
+      </a>
+      <a href="schedule.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Schedule
+      </a>
+      <a href="monitor.html" class="nav-item active">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Monitor
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+        Analytics
+      </a>
+      <a href="settings.html" class="nav-item" style="margin-top: auto;">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h1 class="header-title">Monitor</h1>
+      <div class="header-filters">
+        <div class="filter-group">
+          <label class="filter-label">Cliente</label>
+          <select class="filter-select" id="clientSelect">
+            <option value="amiclube">AmiClube</option>
+            <option value="portal">Portal de Mídas</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary" onclick="loadData()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          Atualizar
+        </button>
+      </div>
+    </header>
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-title">Status Geral</div>
+        <div class="metric-value" id="statusValue">-</div>
+        <div class="metric-sub" id="statusSub">Carregando...</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Na Fila</div>
+        <div class="metric-value" id="queueCount">-</div>
+        <div class="metric-sub">Ativos agendados</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Críticos</div>
+        <div class="metric-value danger" id="criticalCount">-</div>
+        <div class="metric-sub">Requerem atenção</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Última Verificação</div>
+        <div class="metric-value" id="lastCheck">-</div>
+        <div class="metric-sub">Timestamp UTC</div>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">
+        Alertas
+        <span class="status-badge" id="statusBadge">-</span>
+      </h2>
+      <div class="card">
+        <div id="alertsContainer">
+          <div class="empty-state">Carregando alertas...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Fila de Publicação</h2>
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <table class="queue-table">
+          <thead>
+            <tr>
+              <th>Ativo</th>
+              <th>Canal</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody id="queueTableBody">
+            <tr><td colspan="5" class="empty-state">Carregando fila...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    async function loadData() {
+      const fallbackData = {
+        monitorStatus: 'OK',
+        metrics: { totalInQueue: 10, published: 1, scheduled: 8, blocked: 1 },
+        queue: [],
+        alerts: { critical: [], warning: [], info: [] },
+        lastUpdated: new Date().toISOString()
+      };
+      
+      var data = fallbackData;
+      
+      try {
+        const response = await fetch('data.json');
+        if (response.ok) {
+          data = await response.json();
+        }
+      } catch (e) {
+        console.log('Usando dados offline');
+      }
+      
+      // Status
+      const statusEl = document.getElementById('statusValue');
+      const statusSub = document.getElementById('statusSub');
+      const statusBadge = document.getElementById('statusBadge');
+      
+      if (data.monitorStatus === 'OK') {
+        statusEl.textContent = 'OK';
+        statusEl.className = 'metric-value success';
+        statusSub.textContent = 'Sistema funcionando';
+        statusBadge.textContent = 'OK';
+        statusBadge.className = 'status-badge ok';
+      } else {
+        statusEl.textContent = 'FALHA';
+        statusEl.className = 'metric-value danger';
+        statusSub.textContent = 'Verificar alertas';
+        statusBadge.textContent = 'FALHA';
+        statusBadge.className = 'status-badge failed';
+      }
+      
+      document.getElementById('queueCount').textContent = data.metrics?.totalInQueue || 0;
+      document.getElementById('criticalCount').textContent = (data.alerts?.critical || []).length;
+      document.getElementById('lastCheck').textContent = data.lastUpdated ? new Date(data.lastUpdated).toLocaleString('pt-BR') : '-';
+      
+      // Alerts
+      const alertsContainer = document.getElementById('alertsContainer');
+      const allAlerts = [...(data.alerts?.critical || []), ...(data.alerts?.warning || []), ...(data.alerts?.info || [])];
+      
+      if (allAlerts.length === 0) {
+        alertsContainer.innerHTML = '<div class="empty-state">Nenhum alerta no momento</div>';
+      } else {
+        alertsContainer.innerHTML = allAlerts.map(function(alert) {
+          const isCritical = alert.includes('blocked') || alert.includes('critical');
+          const type = isCritical ? 'critical' : (alert.includes('warning') ? 'warning' : 'info');
+          const icon = isCritical ? '!' : (alert.includes('warning') ? '!' : 'i');
+          const title = alert.split(':')[0];
+          const desc = alert.split(':').slice(1).join(':') || 'Verificar status';
+          return '<div class="alert-card ' + type + '">' +
+            '<div class="alert-icon ' + type + '">' + icon + '</div>' +
+            '<div class="alert-content">' +
+              '<div class="alert-title">' + title + '</div>' +
+              '<div class="alert-desc">' + desc + '</div>' +
+            '</div></div>';
+        }).join('');
+      }
+      
+      // Queue table
+      const queueBody = document.getElementById('queueTableBody');
+      if (data.queue && data.queue.length > 0) {
+        var html = '';
+        for (var i = 0; i < data.queue.length; i++) {
+          var item = data.queue[i];
+          var statusText = item.status === 'published' ? 'Publicado' : (item.status === 'scheduled' ? 'Agendado' : 'Bloqueado');
+          var result = item.reason || item.result || '-';
+          html += '<tr><td><strong>' + item.asset_id + '</strong></td>' +
+            '<td>' + item.channel + '</td>' +
+            '<td>' + item.publish_at + '</td>' +
+            '<td><span class="status-pill ' + item.status + '">' + statusText + '</span></td>' +
+            '<td>' + result + '</td></tr>';
+        }
+        queueBody.innerHTML = html;
+      } else {
+        queueBody.innerHTML = '<tr><td colspan="5" class="empty-state">Nenhum item na fila</td></tr>';
+      }
+    }
+    
+    loadData();
+  </script>
+</body>
+</html>

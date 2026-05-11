@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-30-16 - AmiClube Instagram Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --burgundy: #722F37;
+            --terracotta: #C75B39;
+            --charcoal: #1A1A1A;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .post-container {
+            width: 1080px;
+            height: 1350px;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-accent {
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--burgundy);
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+
+        .bg-accent-2 {
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            opacity: 0.06;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 100px;
+        }
+
+        .brand-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--burgundy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-icon span {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--cream);
+        }
+
+        .brand-name {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .headline {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            color: var(--burgundy);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -2px;
+        }
+
+        .headline-accent {
+            color: var(--terracotta);
+        }
+
+        .subheadline {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 26px;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            max-width: 720px;
+        }
+
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(199, 91, 57, 0.1);
+            border: 2px solid var(--terracotta);
+            padding: 16px 28px;
+            border-radius: 50px;
+            margin-bottom: 48px;
+        }
+
+        .urgency-badge span {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--terracotta);
+        }
+
+        .divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--terracotta));
+            margin-bottom: 48px;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .detail-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--burgundy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .detail-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--cream);
+        }
+
+        .detail-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 22px;
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            margin-top: auto;
+            margin-bottom: 80px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--burgundy);
+            padding: 24px 48px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(114, 47, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--terracotta);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(199, 91, 57, 0.4);
+        }
+
+        .cta-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--cream);
+        }
+
+        .cta-arrow {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-arrow svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--charcoal);
+        }
+
+        .hashtags {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--burgundy);
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+        }
+
+        .decorative-star {
+            position: absolute;
+            top: 120px;
+            right: 120px;
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+            opacity: 0.6;
+        }
+
+        .decorative-dot {
+            position: absolute;
+            bottom: 200px;
+            right: 180px;
+            width: 12px;
+            height: 12px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    =============================================================================
+    SKILL INVOCATION LEDGER - AC-30-16
+    =============================================================================
+    Skills Invoked:
+    ├── social-single-post    [Formato: post único conversão]
+    └── social-visual-system  [Aplicação: DNA AmiClube / Paleta Proof Layer]
+
+    Specifications:
+    ├── Canvas: 1080x1350px (Instagram feed)
+    ├── Frames: 1 (single post)
+    ├── Paleta: Proof Layer (alta legibilidade)
+    │   ├── Primary: #F5F0E8 (Cream)
+    │   ├── Secondary: #722F37 (Deep Burgundy)
+    │   ├── Accent: #C75B39 (Terracotta)
+    │   ├── Text: #1A1A1A (Charcoal)
+    │   └── Highlight: #D4AF37 (Gold)
+    ├── Tipografia: DM Sans (700) + Inter (body)
+    └── Formato: Post estático com CTA claro
+    =============================================================================
+    -->
+
+    <div class="post-container">
+        <div class="bg-accent"></div>
+        <div class="bg-accent-2"></div>
+
+        <svg class="decorative-star" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <div class="decorative-dot"></div>
+
+        <div class="content">
+            <div class="brand-bar">
+                <div class="brand-icon">
+                    <span>A</span>
+                </div>
+                <span class="brand-name">AmiClube</span>
+            </div>
+
+            <h1 class="headline">
+                Vagas de<br>
+                <span class="headline-accent">atendimento</span><br>
+                da semana
+            </h1>
+
+            <p class="subheadline">
+                Existem pedidos que merecem atenção dedicada. E esta semana, abrimos horários exclusivos para novos projetos.
+            </p>
+
+            <div class="urgency-badge">
+                <span>⏰ Horários limitados esta semana</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <p class="detail-text">Cada projeto recebe análise de coherência: a peça certa, para a ocasião certa, no orçamento certo.</p>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <p class="detail-text">Presente, decoração ou encomenda personalizada — temos a curadoria ideal para o seu momento.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="#" class="cta-button">
+                    <span class="cta-text">Mandar "ORÇAMENTO" no direct</span>
+                    <div class="cta-arrow">
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </div>
+                </a>
+            </div>
+
+            <p class="hashtags">#AmiClube #AtendimentoPersonalizado #CuradoriaAmigurumi #PresenteEspecial</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-31 v4 — Instagram Carrossel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Medium&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0D0D0D;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: #3D3D3D;
+    }
+
+    .headline {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: #F5F5F0;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .subhead {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #D4F03E;
+      max-width: 80%;
+    }
+
+    .cta {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      font-family: 'Archivo Medium', sans-serif;
+      font-size: 18px;
+      color: #D4F03E;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .progress-dots {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #F5F5F0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #D4F03E;
+      border-color: #D4F03E;
+    }
+
+    @media (max-width: 600px) {
+      .headline { font-size: 36px; }
+      .subhead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="track" id="track">
+      <!-- Slide 1: Capa -->
+      <div class="slide" data-slide="1">
+        <h1 class="headline">7 perguntas que mostram se um amigurumi é confiável antes de você comprar</h1>
+        <p class="cta">Swipe para ver →</p>
+      </div>
+
+      <!-- Slide 2: Q1 -->
+      <div class="slide" data-slide="2">
+        <h2 class="headline">1. A peça é mostrada em detail real?</h2>
+        <p class="subhead">Marcas confiáveis não escondem. Mostram detalhe, textura, proximidade.</p>
+      </div>
+
+      <!-- Slide 3: Q2 -->
+      <div class="slide" data-slide="3">
+        <h2 class="headline">2. A marca explica materiais e contexto de uso?</h2>
+        <p class="subhead">Clareza sobre o produto = sinal de responsabilidade.</p>
+      </div>
+
+      <!-- Slide 4: Q3 -->
+      <div class="slide" data-slide="4">
+        <h2 class="headline">3. A apresentação sugere cuidado?</h2>
+        <p class="subhead">Fundos limpos, luz coerente. Apresentação é disciplina visual.</p>
+      </div>
+
+      <!-- Slide 5: Q4 -->
+      <div class="slide" data-slide="5">
+        <h2 class="headline">4. O atendimento transmite tranquilidade?</h2>
+        <p class="subhead">Responde com clareza? Explica prazo? Passa segurança sem soar defensivo?</p>
+      </div>
+
+      <!-- Slide 6: Q5 -->
+      <div class="slide" data-slide="6">
+        <h2 class="headline">5. O portfólio é consistente?</h2>
+        <p class="subhead">A qualidade percebida se mantém ou oscila demais?</p>
+      </div>
+
+      <!-- Slide 7: Fechamento -->
+      <div class="slide" data-slide="7">
+        <h1 class="headline">7 perguntas. 1 decisão mais serine.</h1>
+        <p class="cta">Acesse amiclube.com.br</p>
+      </div>
+    </div>
+
+    <div class="progress-dots" id="dots">
+      <div class="dot active" data-slide="1"></div>
+      <div class="dot" data-slide="2"></div>
+      <div class="dot" data-slide="3"></div>
+      <div class="dot" data-slide="4"></div>
+      <div class="dot" data-slide="5"></div>
+      <div class="dot" data-slide="6"></div>
+      <div class="dot" data-slide="7"></div>
+    </div>
+  </div>
+
+  <script>
+    const track = document.getElementById('track');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = 7;
+    let currentSlide = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      currentSlide = index;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    // Touch/drag
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const diff = e.touches[0].clientX - startX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goToSlide(currentSlide - 1);
+        else goToSlide(currentSlide + 1);
+        isDragging = false;
+      }
+    });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+      if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+    });
+
+    // Click on dots
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
+    // Auto-scroll (opcional)
+    setInterval(() => {
+      if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+      else goToSlide(0);
+    }, 5000);
+  </script>
+</body>
+</html>

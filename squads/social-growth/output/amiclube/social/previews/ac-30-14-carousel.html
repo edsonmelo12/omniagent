@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>AC-30-14 | Carrossel Instagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/*{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#F5F0E8;--warm:#E8D5C4;--burgundy:#722F37;--terracotta:#C75B39;--brown:#2D2318;--fh:"Cormorant Garamond",serif;--fb:"DM Sans",sans}
+/*Skill Invocation Ledger
+|instagram-carousel|Format carrossel 7 slides|
+|social-visual-system|DNA AmiClube + Warm Editorial|*/
+body{font-family:var(--fb);background:linear-gradient(135deg,#1a1512,#2d2318);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:1.5rem}
+.label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--warm);opacity:.7}
+.wrapper{position:relative;width:540px;height:675px;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1),0 20px 50px rgba(0,0,0,.4)}
+.slides{position:relative;width:100%;height:calc(100% - 60px);overflow:hidden;background:var(--cream)}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 2.5rem;text-align:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;background:var(--cream)}
+.slide.active{opacity:1;visibility:visible}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(199,91,57,.08),transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(114,47,55,.06),transparent 50%);pointer-events:none;z-index:0}
+.content{position:relative;z-index:1;max-width:100%;display:flex;flex-direction:column;align-items:center;gap:1.25rem}
+.icon{font-size:2.5rem;margin-bottom:.5rem}
+.heading{font-family:var(--fh);font-size:1.75rem;font-weight:700;color:var(--brown);line-height:1.2}
+.s1 .heading{font-size:2rem}
+.body{font-family:var(--fb);font-size:1rem;color:var(--brown);line-height:1.6;opacity:.85;max-width:320px}
+.cta{margin-top:.5rem;padding:.75rem 1.5rem;background:var(--burgundy);color:var(--cream);font-size:.875rem;font-weight:600;border-radius:100px}
+.accent{width:60px;height:3px;background:linear-gradient(90deg,var(--terracotta),var(--burgundy));border-radius:2px}
+.emoji{font-size:1.5rem;margin-bottom:.25rem}
+.nav{width:100%;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;background:var(--brown)}
+.btn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;opacity:.7;transition:opacity .2s,transform .2s;color:var(--cream)}
+.btn:hover{opacity:1;transform:scale(1.1)}
+.btn:disabled{opacity:.3;cursor:not-allowed}
+.btn svg{width:20px;height:20px;fill:currentColor}
+.dots{display:flex;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(245,240,232,.3);cursor:pointer;transition:all .3s}
+.dot.active{background:var(--terracotta);width:24px;border-radius:4px}
+.counter{position:absolute;top:12px;right:12px;padding:6px 12px;background:rgba(45,35,24,.85);border-radius:6px;font-size:.75rem;font-weight:600;color:var(--cream);z-index:10}
+.duration{position:absolute;bottom:8px;left:12px;padding:4px 10px;background:rgba(45,35,24,.75);border-radius:4px;font-size:.68rem;color:var(--cream);opacity:.8;z-index:10}
+.info{display:flex;gap:2rem;margin-top:.5rem}
+.info-item{font-size:.75rem;color:var(--warm);opacity:.6}
+.info-item span{font-weight:600;color:var(--cream)}
+.tags{font-size:.68rem;color:var(--warm);opacity:.4;max-width:540px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="label">Preview - Instagram Carrossel</div>
+<div class="wrapper">
+<div class="counter"><span id="counter">1/7</span></div>
+<div class="duration" id="duration">4.0s</div>
+<div class="slides">
+<div class="slide s1 active" data-duration="4.0">
+<div class="content">
+<div class="emoji">&#x1F31F;</div>
+<h1 class="heading">Você sabe qual amigurumi combina com o seu momento?</h1>
+<div class="accent"></div>
+</div>
+</div>
+<div class="slide" data-duration="3.0">
+<div class="content">
+<div class="icon">&#x1F381;</div>
+<h2 class="heading">Presentear alguém especial?</h2>
+<p class="body">A peça certa transforma entrega em memória.</p>
+</div>
+</div>
+<div class="slide" data-duration="3.0">
+<div class="content">
+<div class="icon">&#x1F3E0;</div>
+<h2 class="heading">Decorar seu espaço?</h2>
+<p class="body">O amigurumi ideal adiciona personalidade sem ocupar demais.</p>
+</div>
+</div>
+<div class="slide" data-duration="3.0">
+<div class="content">
+<div class="icon">&#x1F476;</div>
+<h2 class="heading">Presentear criança?</h2>
+<p class="body">Seguranca, textura e conexao emocional sao o que mais importa.</p>
+</div>
+</div>
+<div class="slide" data-duration="3.0">
+<div class="content">
+<div class="icon">&#x1F4BC;</div>
+<h2 class="heading">Presenca no escritorio?</h2>
+<p class="body">Leveza e Profissionalismo podem andar juntos - na peça certa.</p>
+</div>
+</div>
+<div class="slide" data-duration="3.5">
+<div class="content">
+<div class="icon">&#x1F4A1;</div>
+<h2 class="heading">Cada ocasiao pede uma leitura diferente.</h2>
+<p class="body">Não existe "o melhor amigurumi". Existe "o melhor para o que você precisa agora".</p>
+</div>
+</div>
+<div class="slide" data-duration="5.0">
+<div class="content">
+<div class="emoji">&#x1F4E9;&#x1F381;</div>
+<h2 class="heading">Qual é a sua ocasião?</h2>
+<p class="body">Comente aqui que a gente sugere a peça ideal para você.</p>
+<div class="cta">Comentar agora</div>
+</div>
+</div>
+</div>
+<div class="nav">
+<button class="btn" id="prev" disabled><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+<div class="dots">
+<div class="dot active" data-i="0"></div><div class="dot" data-i="1"></div><div class="dot" data-i="2"></div><div class="dot" data-i="3"></div><div class="dot" data-i="4"></div><div class="dot" data-i="5"></div><div class="dot" data-i="6"></div>
+</div>
+<button class="btn" id="next"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>
+</div>
+</div>
+<div class="info">
+<div class="info-item"><span>7</span> slides</div>
+<div class="info-item"><span>~25s</span> duração</div>
+<div class="info-item">Paleta <span>Warm Editorial</span></div>
+</div>
+<div class="tags">#AmiClube #AmigurumiBrasil #AmigurumiArtesanal #PresenteCriativo #DecoraçãoComAlma</div>
+<script>
+(function(){var s=document.querySelectorAll(".slide");var d=document.querySelectorAll(".dot");var p=document.getElementById("prev");var n=document.getElementById("next");var c=document.getElementById("counter");var t=document.getElementById("duration");var i=0;var x=s.length;function u(){s.forEach(function(sl,idx){sl.classList.toggle("active",idx===i)});d.forEach(function(dl,idx){dl.classList.toggle("active",idx===i)});c.textContent=(i+1)+"/"+x;t.textContent=(s[i].dataset.duration||"3.0")+"s";p.disabled=0===i;n.disabled=i===x-1}function nxt(){if(i<x-1){i++;u()}}function prv(){if(i>0){i--;u()}}p.addEventListener("click",prv);n.addEventListener("click",nxt);d.forEach(function(dl,idx){dl.addEventListener("click",function(){i=idx;u()})});document.addEventListener("keydown",function(e){if("ArrowRight"===e.key||" "===e.key){e.preventDefault();nxt()}else if("ArrowLeft"===e.key){e.preventDefault();prv()}})})();
+</script>
+</body>
+</html>

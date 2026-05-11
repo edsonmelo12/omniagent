@@ -1,0 +1,40 @@
+{
+  "asset_id": "AC-30-DS-STORIES",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "stories-sequence",
+  "title": "Dicas Rápidas de Amigurumi",
+  "deck_label": "dicas",
+  "footer": "@amiclube",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DICA 1",
+      "title": "USE OLHOS DE SEGURANÇA",
+      "body": "Nunca cole olhos com cola quente — use olhos de segurança travados.",
+      "textVariant": "dark",
+      "background": { "type": "solid", "color": "#1A1918" }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "DICA 2",
+      "title": "ESCOLHA O FIO CERTO",
+      "body": "Fio 100% algodão é mais seguro para crianças.",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#F7F3EE" }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "SALVE PARA VER DEPOIS",
+      "body": "amiclube.com.br",
+      "textVariant": "dark",
+      "background": { "type": "gradient", "from": "#8C6A5E", "to": "#C45C1F" }
+    }
+  ]
+}

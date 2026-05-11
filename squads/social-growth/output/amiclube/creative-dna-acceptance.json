@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "client": "amiclube",
+  "updatedAt": "2026-04-30T21:05:00.000Z",
+  "principle": "Criatividade deve variar execução, composição e ritmo sem trair a personalidade quente, humana, artesanal e útil da AmiClube.",
+  "core": {
+    "mustFeelLike": [
+      "warm",
+      "human",
+      "artisanal",
+      "expressive",
+      "supportive",
+      "useful",
+      "decorative-but-controlled"
+    ],
+    "mustAvoid": [
+      "cold",
+      "corporate",
+      "tech",
+      "cyber",
+      "glitch",
+      "sterile",
+      "generic-card"
+    ]
+  },
+  "styleEnvelope": {
+    "allowed": [
+      "Editorial Magazine",
+      "Minimalist Texture",
+      "Dark Premium",
+      "Organic Image-led",
+      "Proof-led",
+      "Backstage",
+      "Educational"
+    ],
+    "conditional": [
+      {
+        "style": "Motion Social",
+        "requires": "Permitido para reels/stories quando mantiver calor humano, clareza e prova; bloquear neon tecnológico, glitch ou estética cyber."
+      },
+      {
+        "style": "Authentic Rough",
+        "requires": "Permitido quando reforçar proximidade artesanal sem parecer amador, agressivo ou desorganizado."
+      }
+    ],
+    "blockedByDefault": [
+      {
+        "style": "High-Energy Cyber",
+        "reason": "Estética tecnológica/neon/glitch conflita com o DNA artesanal, quente e humano da AmiClube. Exige aprovação explícita do usuário."
+      }
+    ]
+  },
+  "playground": [
+    "image crop",
+    "support photo",
+    "craft texture",
+    "product close-up",
+    "workspace mood",
+    "editorial hierarchy",
+    "proof-led composition",
+    "warm dark premium",
+    "organic contrast",
+    "accent color"
+  ],
+  "acceptanceRules": [
+    "Variação deve mudar composição, densidade, ritmo, imagem/crop ou hierarquia sem trocar o universo emocional da marca.",
+    "Diversity alone is not a valid justification for leaving the client DNA.",
+    "Blog-derived social assets must check available blog imagery first and justify texture-only or no-image decisions.",
+    "A blocked style can only pass with explicit user approval recorded in the VDC."
+  ]
+}

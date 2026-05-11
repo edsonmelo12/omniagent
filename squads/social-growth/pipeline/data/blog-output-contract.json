@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "canonical_paths": {
+    "blog_post": "squads/social-growth/output/{client}/blog/blog-post.md",
+    "blog_build_dir": "squads/social-growth/output/{client}/blog/builds",
+    "blog_preview_dir": "squads/social-growth/output/{client}/blog/previews",
+    "campaign_manifest": "squads/social-growth/output/{client}/review/campaign-manifest.json",
+    "campaign_hub": "squads/social-growth/output/{client}/review/campaign-hub.html"
+  },
+  "word_count": {
+    "default_min": 1200,
+    "default_max": 1600,
+    "absolute_min_reject": 900,
+    "preview_visible_min": 900,
+    "preview_to_markdown_ratio_min": 0.75
+  },
+  "required_sections": [
+    "Topic and Intent",
+    "Copy Brief Preservation",
+    "Opening Pattern Decision",
+    "Author Block",
+    "Title Tag",
+    "Meta Description",
+    "H1",
+    "Intro",
+    "Body",
+    "FAQ",
+    "Source Notes",
+    "Schema",
+    "Conclusion",
+    "Discovery Optimization Notes",
+    "Structural Preservation Notes",
+    "Word Count Target",
+    "Featured Image",
+    "Featured Image Source Search",
+    "Featured Image Selection Criteria",
+    "Family Ledger Entry",
+    "Skill Execution Evidence"
+  ]
+}

@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dallas Rent a Car · Carrossel Instagram · Aluguel mensal</title>
+    <style>
+      :root {
+        --brand: #1d4ed8;
+        --brand-dark: #0f2f88;
+        --brand-light: #7fb2ff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --paper: #eef4ff;
+        --paper-border: #d6e5ff;
+        --night: #0a1631;
+        --night-soft: #13254a;
+        --white: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(125, 173, 255, 0.28), transparent 28%),
+          radial-gradient(circle at right 20%, rgba(29, 78, 216, 0.16), transparent 24%),
+          linear-gradient(180deg, #f6f9ff 0%, #e8f0ff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 18px;
+      }
+
+      .shell {
+        width: min(1100px, 100%);
+        display: grid;
+        grid-template-columns: minmax(320px, 420px) minmax(260px, 1fr);
+        gap: 28px;
+        align-items: center;
+      }
+
+      .phone {
+        position: relative;
+        width: 420px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 14px;
+        border-radius: 36px;
+        background: linear-gradient(180deg, #111827 0%, #1f2937 100%);
+        box-shadow: 0 30px 70px rgba(15, 23, 42, 0.28);
+      }
+
+      .screen {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border-radius: 28px;
+        background: #fff;
+      }
+
+      .track {
+        display: flex;
+        height: 100%;
+        transition: transform 280ms ease;
+      }
+
+      .slide {
+        position: relative;
+        flex: 0 0 100%;
+        height: 100%;
+        padding: 28px 28px 72px;
+        overflow: hidden;
+      }
+
+      .slide.light {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.84)),
+          radial-gradient(circle at top right, rgba(125,178,255,0.24), transparent 26%),
+          linear-gradient(180deg, var(--paper) 0%, #ffffff 100%);
+        color: var(--ink);
+      }
+
+      .slide.dark {
+        background:
+          linear-gradient(180deg, rgba(5,16,42,0.86), rgba(5,16,42,0.92)),
+          radial-gradient(circle at top right, rgba(127,178,255,0.18), transparent 22%),
+          linear-gradient(180deg, var(--night) 0%, var(--night-soft) 100%);
+        color: var(--white);
+      }
+
+      .slide.gradient {
+        background:
+          linear-gradient(155deg, var(--brand-dark) 0%, var(--brand) 52%, var(--brand-light) 100%);
+        color: var(--white);
+      }
+
+      .grain::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.07;
+        background-image:
+          radial-gradient(circle at 20% 20%, currentColor 0.7px, transparent 0.8px),
+          radial-gradient(circle at 70% 30%, currentColor 0.7px, transparent 0.8px),
+          radial-gradient(circle at 40% 80%, currentColor 0.7px, transparent 0.8px);
+        background-size: 22px 22px;
+        pointer-events: none;
+      }
+
+      .ig-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ig-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        background: rgba(255,255,255,0.16);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .light .avatar {
+        background: rgba(29, 78, 216, 0.10);
+        border-color: rgba(29, 78, 216, 0.16);
+        color: var(--brand-dark);
+      }
+
+      .handle {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .light .eyebrow {
+        background: rgba(29, 78, 216, 0.10);
+        color: var(--brand-dark);
+      }
+
+      .dark .eyebrow,
+      .gradient .eyebrow {
+        background: rgba(255,255,255,0.12);
+        color: rgba(255,255,255,0.92);
+      }
+
+      h1, h2, h3, p, ul { position: relative; z-index: 2; margin: 0; }
+
+      h1, h2 {
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 34px;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        margin-top: 18px;
+      }
+
+      h3 {
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 24px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+
+      .sub {
+        margin-top: 14px;
+        font-size: 15px;
+        line-height: 1.48;
+        color: inherit;
+        opacity: 0.9;
+        max-width: 92%;
+      }
+
+      .hero-kicker {
+        margin-top: 20px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .proof {
+        margin-top: 20px;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(6px);
+      }
+
+      .light .proof {
+        background: rgba(255,255,255,0.72);
+        border: 1px solid var(--paper-border);
+      }
+
+      .proof strong {
+        display: block;
+        font-size: 38px;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .proof span {
+        display: block;
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 18px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .card {
+        padding: 14px;
+        border-radius: 18px;
+        min-height: 118px;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .light .card {
+        background: rgba(255,255,255,0.8);
+        border-color: var(--paper-border);
+      }
+
+      .card .num {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.72;
+        margin-bottom: 10px;
+      }
+
+      .card strong {
+        display: block;
+        font-size: 17px;
+        line-height: 1.18;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 12px;
+        line-height: 1.45;
+        opacity: 0.88;
+      }
+
+      .steps {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+        display: grid;
+        gap: 12px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .steps li {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 12px 0;
+        border-top: 1px solid rgba(255,255,255,0.14);
+      }
+
+      .light .steps li {
+        border-top-color: rgba(15,23,42,0.08);
+      }
+
+      .step-badge {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        font-weight: 800;
+        background: rgba(255,255,255,0.14);
+      }
+
+      .light .step-badge {
+        background: rgba(29, 78, 216, 0.10);
+        color: var(--brand-dark);
+      }
+
+      .metrics {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .metric {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.10);
+      }
+
+      .light .metric {
+        background: rgba(255,255,255,0.80);
+        border: 1px solid var(--paper-border);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+
+      .metric span {
+        font-size: 12px;
+        line-height: 1.45;
+        opacity: 0.9;
+      }
+
+      .cta-box {
+        margin-top: 22px;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.14);
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-box strong {
+        display: block;
+        font-size: 22px;
+        line-height: 1.1;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        margin-bottom: 10px;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: var(--brand-dark);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+      }
+
+      .progress {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px 20px;
+      }
+
+      .bar {
+        flex: 1;
+        height: 3px;
+        border-radius: 99px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.16);
+      }
+
+      .light .bar { background: rgba(15,23,42,0.08); }
+
+      .fill {
+        height: 100%;
+        width: var(--fill);
+        background: #ffffff;
+      }
+
+      .light .fill { background: var(--brand); }
+
+      .count {
+        font-size: 11px;
+        font-weight: 700;
+        opacity: 0.72;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        background: rgba(255,255,255,0.12);
+        cursor: pointer;
+      }
+
+      .btn:disabled {
+        opacity: 0.42;
+        cursor: default;
+      }
+
+      .dots {
+        display: flex;
+        gap: 8px;
+        margin: 0 6px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.18);
+      }
+
+      .dot.active { background: #ffffff; }
+
+      .notes {
+        padding: 8px 0;
+      }
+
+      .notes h1 {
+        font-size: 42px;
+        margin-top: 0;
+        color: #0b1220;
+      }
+
+      .notes p {
+        margin-top: 14px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #334155;
+        max-width: 62ch;
+      }
+
+      .meta-list {
+        margin-top: 22px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .meta-item {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.58);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .meta-item strong {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #1d4ed8;
+        margin-bottom: 6px;
+      }
+
+      .meta-item span {
+        display: block;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #0f172a;
+      }
+
+      .notes code {
+        padding: 2px 6px;
+        border-radius: 8px;
+        background: rgba(29,78,216,0.08);
+        color: var(--brand-dark);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.92em;
+      }
+
+      @media (max-width: 920px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+
+        .notes {
+          order: -1;
+        }
+
+        .notes h1 {
+          font-size: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div>
+        <div class="phone">
+          <div class="screen">
+            <div class="track" id="track">
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">aluguel mensal · b2b</div>
+                <h1>Aluguel mensal não é só troca de contrato.</h1>
+                <p class="sub">
+                  É uma forma de cortar custos invisíveis que travam caixa, operação e tempo da equipe.
+                </p>
+                <div class="hero-kicker">
+                  <div class="proof">
+                    <strong>7</strong>
+                    <span>custos que normalmente ficam fora da conta inicial, mas pesam no ciclo real da frota</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:7.69%"></div></div>
+                  <div class="count">1/13</div>
+                </div>
+              </section>
+
+              <section class="slide dark grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">onde o caixa vaza</div>
+                <h2>Parte do problema está em custos que ninguém vê na primeira planilha</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Veículo parado</strong>
+                    <span>Manutenção corretiva interrompe agenda, entrega e produtividade.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Gestão de sinistro</strong>
+                    <span>Tempo interno some em tratativa, documentação e exceção.</span>
+                  </div>
+                </div>
+                <div class="proof">
+                  <span>Quando esses dois custos aparecem juntos, a mensalidade deixa de ser a principal conversa.</span>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:15.38%"></div></div>
+                  <div class="count">2/13</div>
+                </div>
+              </section>
+
+              <section class="slide gradient grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">mais custos invisíveis</div>
+                <h2>Também pesam quando a operação precisa de resposta rápida</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Carro reserva</strong>
+                    <span>Sem plano claro, a operação paga pela urgência.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Variação de manutenção</strong>
+                    <span>Cada mês vira surpresa financeira quando não há previsibilidade.</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:23.07%"></div></div>
+                  <div class="count">3/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">custos que a gestão subestima</div>
+                <h2>O prejuízo continua em frentes administrativas e de risco</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Custo de revenda</strong>
+                    <span>Depreciação e saída do ativo raramente entram na decisão com clareza.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Tempo administrativo</strong>
+                    <span>Equipe ocupada com frota deixa de focar no core do negócio.</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:30.76%"></div></div>
+                  <div class="count">4/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">risco que fecha a conta</div>
+                <h2>O risco jurídico completa a conta que quase nunca aparece no início</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Risco jurídico</strong>
+                    <span>Contrato, cobertura e incidente mal geridos geram passivo e ruído.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Leitura prática</strong>
+                    <span>Quando administração, revenda e risco entram na conta, a comparação muda de nível.</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:38.46%"></div></div>
+                  <div class="count">5/13</div>
+                </div>
+              </section>
+
+              <section class="slide dark grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">controle em 5 blocos</div>
+                <h2>Como transformar custo escondido em critério de decisão</h2>
+                <ol class="steps">
+                  <li>
+                    <div class="step-badge">1</div>
+                    <div><strong>Liste os 7 custos</strong><p class="sub">Pare de olhar só a mensalidade aparente.</p></div>
+                  </li>
+                  <li>
+                    <div class="step-badge">2</div>
+                    <div><strong>Classifique por frequência e impacto</strong><p class="sub">Nem tudo pesa igual no caixa.</p></div>
+                  </li>
+                </ol>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:46.15%"></div></div>
+                  <div class="count">6/13</div>
+                </div>
+              </section>
+
+              <section class="slide dark grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">controle em 5 blocos</div>
+                <h2>Com base criada, a comparação deixa de ser achismo</h2>
+                <ol class="steps">
+                  <li>
+                    <div class="step-badge">3</div>
+                    <div><strong>Crie uma linha-base de 90 dias</strong><p class="sub">Sem base real, a discussão vira percepção.</p></div>
+                  </li>
+                  <li>
+                    <div class="step-badge">4</div>
+                    <div><strong>Estruture o contrato certo</strong><p class="sub">Cobertura, uso e SLA precisam refletir a operação.</p></div>
+                  </li>
+                </ol>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:53.84%"></div></div>
+                  <div class="count">7/13</div>
+                </div>
+              </section>
+
+              <section class="slide dark grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">controle em 5 blocos</div>
+                <h2>O último passo é provar que a operação realmente ganhou controle</h2>
+                <ol class="steps">
+                  <li>
+                    <div class="step-badge">5</div>
+                    <div><strong>Monitore disponibilidade e horas poupadas</strong><p class="sub">Esse é o ganho que a diretoria entende.</p></div>
+                  </li>
+                </ol>
+                <div class="proof">
+                  <span>Sem monitoramento, a comparação volta a ser opinião e desgaste interno.</span>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:61.53%"></div></div>
+                  <div class="count">8/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">sinais de que funciona</div>
+                <h2>O modelo está melhorando quando estes indicadores sobem</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Mais disponibilidade</strong>
+                    <span>Menos tempo de veículo parado.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Menos horas internas perdidas</strong>
+                    <span>Administrativo deixa de apagar incêndio.</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:69.23%"></div></div>
+                  <div class="count">9/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">sinais de que funciona</div>
+                <h2>Dois sinais finais mostram se a decisão ficou mais madura</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Mais previsibilidade no caixa</strong>
+                    <span>Menos oscilação por manutenção e exceção.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Menos ruído entre operação e financeiro</strong>
+                    <span>A decisão passa a ser guiada por indicador.</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:76.92%"></div></div>
+                  <div class="count">10/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">erro comum</div>
+                <h2>O que faz empresas errarem na comparação</h2>
+                <div class="metrics">
+                  <div class="metric">
+                    <strong>Olhar só a mensalidade</strong>
+                    <span>Preço isolado esconde indisponibilidade, tempo interno e risco.</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Não medir incidente por veículo</strong>
+                    <span>Sem tempo de resolução, a perda fica invisível.</span>
+                  </div>
+                </div>
+                <p class="sub">Também é erro aceitar contrato genérico. Em muitas operações, a migração mais segura acontece por ondas.</p>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:84.61%"></div></div>
+                  <div class="count">11/13</div>
+                </div>
+              </section>
+
+              <section class="slide light grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">como migrar melhor</div>
+                <h2>Nem sempre a melhor decisão é migrar tudo de uma vez</h2>
+                <div class="proof">
+                  <strong>Ondas menores</strong>
+                  <span>Em operações heterogêneas, a governança costuma nascer de etapas menores com critérios claros.</span>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:92.30%"></div></div>
+                  <div class="count">12/13</div>
+                </div>
+              </section>
+
+              <section class="slide gradient grain">
+                <div class="ig-top">
+                  <div class="ig-meta">
+                    <div class="avatar">D</div>
+                    <div class="handle">Dallas Rent a Car</div>
+                  </div>
+                </div>
+                <div class="eyebrow">cta</div>
+                <h2>Monte sua planilha de custos invisíveis antes da próxima decisão de frota</h2>
+                <p class="sub">
+                  Quando a conta considera tempo, risco e operação, o aluguel mensal deixa de parecer custo e passa a parecer controle.
+                </p>
+                <div class="cta-box">
+                  <strong>Salve este carrossel</strong>
+                  <p>e use os 7 custos como checklist na próxima análise interna.</p>
+                  <div class="cta-btn">enviar para o financeiro</div>
+                </div>
+                <div class="progress">
+                  <div class="bar"><div class="fill" style="--fill:100%"></div></div>
+                  <div class="count">13/13</div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn" id="prev">Anterior</button>
+            <div class="dots" id="dots"></div>
+            <button class="btn" id="next">Próximo</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        <h1>Conversão piloto de blog para carrossel</h1>
+        <p>
+          Este preview converte o artigo <code>aluguel-mensal-custos-invisiveis.md</code>
+          em um carrossel de Instagram com 13 slides, mantendo a tese central e
+          redistribuindo o conteúdo segundo a política nova de <code>layout fit</code>:
+          no máximo 2 blocos empilhados por slide, menos densidade por tela e steps divididos quando o topo pesa mais.
+        </p>
+        <div class="meta-list">
+          <div class="meta-item">
+            <strong>Blog de origem</strong>
+            <span>Aluguel mensal para empresas: 7 custos invisíveis que o gestor elimina</span>
+          </div>
+          <div class="meta-item">
+            <strong>Tese preservada</strong>
+            <span>Aluguel mensal não é só troca de formato financeiro; é um mecanismo para eliminar custos invisíveis de operação.</span>
+          </div>
+          <div class="meta-item">
+            <strong>Formato escolhido</strong>
+            <span><code>instagram-carousel</code> com foco em B2B, decisão financeira e clareza operacional.</span>
+          </div>
+          <div class="meta-item">
+            <strong>Direção visual</strong>
+            <span>Base azul corporativa, tipografia forte e ritmo editorial com contraste alto.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+      const track = document.getElementById("track");
+      const slides = Array.from(track.children);
+      const dotsWrap = document.getElementById("dots");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      let index = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Ir para slide " + (i + 1));
+        dot.style.border = "0";
+        dot.style.cursor = "pointer";
+        dot.addEventListener("click", () => go(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      function sync() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        Array.from(dotsWrap.children).forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+        prev.disabled = index === 0;
+        next.disabled = index === slides.length - 1;
+      }
+
+      function go(i) {
+        index = Math.max(0, Math.min(i, slides.length - 1));
+        sync();
+      }
+
+      prev.addEventListener("click", () => go(index - 1));
+      next.addEventListener("click", () => go(index + 1));
+      sync();
+    </script>
+  </body>
+</html>

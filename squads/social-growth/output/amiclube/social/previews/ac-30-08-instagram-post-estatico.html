@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC-30-08 — Post Estático</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #2a2a2a; display: flex; flex-direction: column;
+  align-items: center; padding: 32px 16px; min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.frame {
+  width: 420px; height: 525px;
+  aspect-ratio: 1080/1350; position: relative; overflow: hidden;
+  background: #1a1a1a;
+}
+
+/* Background image as full canvas */
+.bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: brightness(0.35) saturate(0.7);
+}
+
+/* Scrim — gradient overlay, not opaque card */
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.2) 0%, rgba(26,26,26,0.55) 50%, rgba(26,26,26,0.8) 100%);
+}
+
+/* Content floats over background — no opaque card */
+.content {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 48px; text-align: center; color: #fff;
+}
+
+/* Brand lockup */
+.brand-top {
+  position: absolute; top: 28px; left: 28px; z-index: 3;
+  display: flex; align-items: center; gap: 10px;
+}
+.brand-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #8b6f5c; display: flex; align-items: center;
+  justify-content: center; color: #fff; font-size: 11px; font-weight: 700;
+}
+.brand-name { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+/* Typography hierarchy */
+.eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #D4AF37; margin-bottom: 16px;
+}
+.headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px; font-weight: 700; line-height: 1.15;
+  color: #fff; margin-bottom: 20px; max-width: 360px;
+}
+.divider { width: 40px; height: 1px; background: #D4AF37; margin-bottom: 20px; }
+.body-text {
+  font-size: 14px; line-height: 1.6;
+  color: rgba(255,255,255,0.7); max-width: 340px;
+}
+
+/* CTA — simple, not boxed */
+.cta {
+  margin-top: 24px; font-size: 13px; font-weight: 600;
+  color: #D4AF37; letter-spacing: 0.5px;
+}
+
+/* Brand sign-off */
+.brand-bottom {
+  position: absolute; bottom: 28px; right: 28px; z-index: 3;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+}
+
+/* Compliance */
+.compliance {
+  margin-top: 24px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+  padding: 16px; color: #F5F0EB; font-size: 11px; width: 420px;
+}
+.compliance h4 { font-size: 12px; margin-bottom: 10px; color: #D4AF37; }
+.compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.compliance-item { display: flex; gap: 6px; }
+.compliance-label { opacity: 0.6; }
+
+/* Export mode - scale to 1080x1350 (2.571x from 420x525) */
+body.export-mode{background:#111}
+body.export-mode .frame{width:1080px!important;height:1350px!important}
+body.export-mode .content{padding:150px 120px!important}
+body.export-mode .brand-top{top:70px;left:70px}
+body.export-mode .brand-avatar{width:72px;height:72px;font-size:28px}
+body.export-mode .brand-name{font-size:28px;letter-spacing:5px}
+body.export-mode .eyebrow{font-size:26px;letter-spacing:6.5px;margin-bottom:41px}
+body.export-mode .headline{font-size:82px!important;line-height:1.15!important;margin-bottom:51px;max-width:920px}
+body.export-mode .divider{width:103px;height:2px;margin-bottom:51px}
+body.export-mode .body-text{font-size:36px!important;line-height:1.6!important;max-width:870px}
+body.export-mode .cta{margin-top:62px;font-size:33px;letter-spacing:1px}
+body.export-mode .brand-bottom{bottom:70px;right:70px;font-size:28px;letter-spacing:5px}
+body.export-mode .compliance{width:1080px;padding:41px;border-radius:31px;margin-top:62px}
+body.export-mode .compliance h4{font-size:31px;margin-bottom:26px}
+body.export-mode .compliance-grid{gap:15px}
+body.export-mode .compliance-item{gap:15px}
+</style>
+</head>
+<body>
+<article class="frame" aria-label="AC-30-08 Valor percebido vs valor entregue">
+  <img class="bg" src="../../social/assets/ac-30-08-O-barato-que-vira-custo-de-arrependimento.jpg" alt="Fundo" />
+  <div class="overlay"></div>
+
+  <div class="brand-top">
+    <div class="brand-avatar">A</div>
+    <span class="brand-name">amiclube</span>
+  </div>
+
+  <div class="content">
+    <span class="eyebrow">Valor percebido vs valor entregue</span>
+    <h1 class="headline">O barato que vira custo de arrependimento.</h1>
+    <div class="divider"></div>
+    <p class="body-text">Quando a entrega não sustenta a percepção, a economia inicial vira retrabalho.</p>
+    <p class="cta">Envie "VALOR" no Direct</p>
+  </div>
+
+  <div class="brand-bottom">amiclube</div>
+</article>
+</body>
+</html>

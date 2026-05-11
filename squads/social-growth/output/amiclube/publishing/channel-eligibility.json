@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "client": "amiclube",
+  "generatedAt": "2026-04-27T21:00:00.000Z",
+  "updatedAt": "2026-04-28T01:37:00.000Z",
+  "channels": [
+    {
+      "id": "instagram",
+      "state": "ACTIVE",
+      "eligible": true,
+      "publish_enabled": true,
+      "credentials_valid": true,
+      "credentials": {
+        "access_token_ref": "env://INSTAGRAM_ACCESS_TOKEN",
+        "user_id_ref": "env://INSTAGRAM_USER_ID"
+      },
+      "image_host": {
+        "provider": "imgbb",
+        "api_key_ref": "env://IMGBB_API_KEY"
+      }
+    },
+    {
+      "id": "facebook",
+      "state": "ACTIVE",
+      "eligible": true,
+      "publish_enabled": true,
+      "credentials_valid": true,
+      "credentials": {
+        "access_token_ref": "env://FACEBOOK_ACCESS_TOKEN",
+        "page_id_ref": "env://FACEBOOK_PAGE_ID"
+      },
+      "image_host": {
+        "provider": "imgbb",
+        "api_key_ref": "env://IMGBB_API_KEY"
+      }
+    }
+  ]
+}

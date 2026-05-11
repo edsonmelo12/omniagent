@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amiclube · Otiniel Observa</title>
+  <style>
+    :root {
+      --bg: #f3f6ff;
+      --card: #ffffff;
+      --text: #142033;
+      --muted: #5b6b84;
+      --line: #d8e0f0;
+      --brand: #1f62ff;
+      --brand-strong: #194fcf;
+      --ok: #0c8f57;
+      --warn: #ad6a00;
+      --shadow: 0 10px 26px rgba(16, 36, 82, 0.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Manrope", "Inter", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 8% 0%, #dce7ff 0%, rgba(220,231,255,0) 34%), var(--bg);
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+    .hero {
+      background: linear-gradient(135deg, #1b4db3 0%, #1f62ff 55%, #1f9dff 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 { margin: 0; font-size: 28px; line-height: 1.15; }
+    .hero p { margin: 8px 0 0; font-size: 14px; opacity: 0.95; }
+    .meta { font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .hero .meta { color: rgba(255,255,255,0.85); }
+    .toolbar {
+      margin-top: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .toolbar label { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+    .toolbar select {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+    .kpi small { color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+    .kpi strong { display: block; margin-top: 6px; font-size: 24px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .tabs {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .tab-btn[aria-selected="true"] {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand-strong);
+    }
+    .panel {
+      margin-top: 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+    .panel.active { display: block; }
+    h2 { margin: 0 0 8px; font-size: 18px; }
+    h3 { margin: 16px 0 8px; font-size: 15px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px 6px;
+      vertical-align: top;
+    }
+    th { color: var(--muted); text-transform: uppercase; letter-spacing: .05em; font-size: 11px; }
+    tr:last-child td { border-bottom: none; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin-bottom: 6px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Amiclube · Observation Overview (Otiniel)</h1>
+      <p>Dashboard com 3 abas para leitura de Conteúdo, Aquisição e Conversão com escopo por cliente.</p>
+      <p class="meta">Arquivo canônico: atualizado in-place em <code>output/amiclube/oto/observation-overview.html</code>.</p>
+    </header>
+
+    <section class="toolbar" aria-label="Filtro principal">
+      <label for="clientFilter">Cliente</label>
+      <select id="clientFilter" name="clientFilter">
+        <option value="amiclube" selected>Amiclube</option>
+      </select>
+      <span class="meta">Collection Source: <strong>live_api</strong> (Instagram + Facebook + GA4)</span>
+    </section>
+
+    <div class="grid" aria-label="Resumo executivo">
+      <article class="kpi"><small>Prontidão</small><strong class="ok">READY</strong></article>
+      <article class="kpi"><small>Perfis ativos</small><strong>4</strong></article>
+      <article class="kpi"><small>Fontes no Summary</small><strong>10</strong></article>
+      <article class="kpi"><small>Janela</small><strong class="warn">2026-03-25 a 2026-04-24</strong></article>
+    </div>
+
+    <nav class="tabs" role="tablist" aria-label="Abas principais do dashboard">
+      <button class="tab-btn" role="tab" aria-controls="tab-conteudo" aria-selected="true" data-tab="conteudo">Dashboard 1 - Conteúdo</button>
+      <button class="tab-btn" role="tab" aria-controls="tab-aquisicao" aria-selected="false" data-tab="aquisicao">Dashboard 2 - Aquisição</button>
+      <button class="tab-btn" role="tab" aria-controls="tab-conversao" aria-selected="false" data-tab="conversao">Dashboard 3 - Conversão</button>
+    </nav>
+
+    <section id="tab-conteudo" class="panel active" role="tabpanel" aria-label="Conteúdo">
+      <h2>Dashboard 1 — Conteúdo</h2>
+      <p class="meta">Leitura de presença e conteúdo com base no que foi efetivamente coletado no período.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Ativo/Post</th>
+            <th>Plataforma</th>
+            <th>Formato</th>
+            <th>Tema/Pilar</th>
+            <th>CTA</th>
+            <th>Performance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Snapshot de perfil</td>
+            <td>Instagram</td>
+            <td>Conta / presença</td>
+            <td>Não atribuído</td>
+            <td>Salvar e visitar perfil</td>
+            <td>379 impressões proxy, 379 alcance</td>
+          </tr>
+          <tr>
+            <td>Snapshot de página</td>
+            <td>Facebook</td>
+            <td>Página</td>
+            <td>Não atribuído</td>
+            <td>Seguir e visitar página</td>
+            <td>1.392 followers, 1.392 fans</td>
+          </tr>
+          <tr>
+            <td>Snapshot de tráfego</td>
+            <td>Site</td>
+            <td>Analytics agregado</td>
+            <td>Não atribuído</td>
+            <td>Visitar site</td>
+            <td>71 sessões, 46 usuários engajados, 5 conversões</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Notas de evidência</h3>
+      <ul>
+        <li>Instagram agora coleta live após separar chamadas de métricas e usar `metric_type=total_value` quando exigido.</li>
+        <li>Facebook agora tem profile dedicado e coleta live de página pública.</li>
+        <li>Atribuição por ativo/pilar ainda não veio do bundle atual; leitura fica no nível de presença e canal.</li>
+      </ul>
+    </section>
+
+    <section id="tab-aquisicao" class="panel" role="tabpanel" aria-label="Aquisição">
+      <h2>Dashboard 2 — Aquisição</h2>
+      <p class="meta">Base agregada do site vinda de coleta live do GA4.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Métrica</th>
+            <th>Valor</th>
+            <th>Fonte</th>
+            <th>Observação</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Sessões</td><td>71</td><td>GA4</td><td>Janela agregada do site</td><td>live_api</td></tr>
+          <tr><td>Usuários engajados</td><td>46</td><td>GA4</td><td>Base de engajamento</td><td>live_api</td></tr>
+          <tr><td>Tempo de engajamento</td><td>2201s</td><td>GA4</td><td>Valor absoluto do período</td><td>live_api</td></tr>
+          <tr><td>Key events</td><td>5</td><td>GA4</td><td>Eventos relevantes agregados</td><td>live_api</td></tr>
+          <tr><td>Conversões</td><td>5</td><td>GA4</td><td>Fechamento do período</td><td>live_api</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="tab-conversao" class="panel" role="tabpanel" aria-label="Conversão">
+      <h2>Dashboard 3 — Conversão</h2>
+      <p class="meta">Leitura de fundo de funil a partir da trilha business bootstrap disponível.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Estágio</th>
+            <th>Volume</th>
+            <th>Origem predominante</th>
+            <th>Taxa de avanço</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Lead</td><td>18</td><td>Business bootstrap</td><td>100%</td><td>Coleta validada</td></tr>
+          <tr><td>Meeting</td><td>4</td><td>Business bootstrap</td><td>22.2%</td><td>Parcial</td></tr>
+          <tr><td>Opportunity</td><td>2</td><td>Business bootstrap</td><td>50.0% (sobre meetings)</td><td>Parcial</td></tr>
+          <tr><td>Proposal request</td><td>1</td><td>Business bootstrap</td><td>50.0% (sobre opportunities)</td><td>Sinal comercial</td></tr>
+        </tbody>
+      </table>
+      <h3>Notas operacionais</h3>
+      <ul>
+        <li>O funil está apto para leitura pelo Atos sem exposição de dados sensíveis.</li>
+        <li>Sinais qualitativos permanecem agregados por categoria.</li>
+        <li>Facebook saiu do estado "somente confirmado" e passou para coleta live canônica no Otiniel.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+      var panels = {
+        conteudo: document.getElementById('tab-conteudo'),
+        aquisicao: document.getElementById('tab-aquisicao'),
+        conversao: document.getElementById('tab-conversao')
+      };
+
+      function activate(tabKey) {
+        buttons.forEach(function (btn) {
+          var active = btn.getAttribute('data-tab') === tabKey;
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        Object.keys(panels).forEach(function (key) {
+          if (key === tabKey) {
+            panels[key].classList.add('active');
+          } else {
+            panels[key].classList.remove('active');
+          }
+        });
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activate(btn.getAttribute('data-tab'));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

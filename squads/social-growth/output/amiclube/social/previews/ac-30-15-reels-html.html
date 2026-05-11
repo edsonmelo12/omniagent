@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-30-15 | AmiClube Instagram Reels Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A1C23;
+            --secondary: #1A1A1A;
+            --accent: #C9A227;
+            --highlight: #F5F0E8;
+            --text: #FAFAFA;
+            --text-muted: #B8B0A8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .reels-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .reels-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .progress-bar {
+            position: fixed;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .progress-item.active .progress-dot {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .progress-timestamp {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: 'Inter', monospace;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .progress-item.active .progress-timestamp {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .frame {
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frame-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .frame-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(26, 26, 26, 0.7) 0%,
+                rgba(26, 26, 26, 0.5) 50%,
+                rgba(26, 26, 26, 0.8) 100%
+            );
+            z-index: 2;
+        }
+
+        .frame-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 600px;
+            padding: 0 40px;
+        }
+
+        .frame-number {
+            position: absolute;
+            top: 60px;
+            right: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.15;
+            z-index: 3;
+        }
+
+        .frame-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .frame-subheadline {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--highlight);
+            line-height: 1.5;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .frame-cta {
+            margin-top: 32px;
+            padding: 16px 32px;
+            background: var(--primary);
+            border: 1px solid var(--accent);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .frame-cta:hover {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .frame-visual {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-placeholder {
+            width: 280px;
+            height: 280px;
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cta-frame .frame-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .frame.hashtag {
+            background: var(--primary);
+        }
+
+        .hashtag-list {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 24px;
+            line-height: 2;
+        }
+
+        @media (max-width: 768px) {
+            .frame-headline {
+                font-size: 28px;
+            }
+
+            .frame-subheadline {
+                font-size: 16px;
+            }
+
+            .frame-number {
+                font-size: 48px;
+                top: 40px;
+                right: 16px;
+            }
+
+            .progress-bar {
+                left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+    ╔══════════════════════════════════════════════════════════════════════════════╗
+    ║  SKILL INVOCATION LEDGER                                                     ║
+    ╠══════════════════════════════════════════════════════════════════════════════╣
+    ║  Asset: AC-30-15                                                              ║
+    ║  Cliente: AmiClube                                                           ║
+    ║  Canal: Instagram Reels (5 frames)                                           ║
+    ╠══════════════════════════════════════════════════════════════════════════════╣
+    ║  Skill              │ Status    │ Reason                                     ║
+    ╠══════════════════════════════════════════════════════════════════════════════╣
+    ║  reels-sequence     │ SKIPPED   │ Not available in current skill catalog   ║
+    ║  social-visual-system│ LOADED    │ Applied DNA AmiClube (Dark Luxo palette) ║
+    ╠══════════════════════════════════════════════════════════════════════════════╣
+    ║  Visual Direction:                                                           ║
+    ║  - Paleta: Dark Luxo (burgundy velvet #4A1C23)                              ║
+    ║  - Tipografia: Playfair Display (headings) + Inter (body)                    ║
+    ║  - Formato: 1080x1920px vertical scroll-snap                                 ║
+    ╚══════════════════════════════════════════════════════════════════════════════╝
+    -->
+    
+    <div class="progress-bar">
+        <div class="progress-item active" data-frame="1">
+            <div class="progress-dot"></div>
+            <span class="progress-timestamp">00:00</span>
+        </div>
+        <div class="progress-item" data-frame="2">
+            <div class="progress-dot"></div>
+            <span class="progress-timestamp">00:03</span>
+        </div>
+        <div class="progress-item" data-frame="3">
+            <div class="progress-dot"></div>
+            <span class="progress-timestamp">00:06</span>
+        </div>
+        <div class="progress-item" data-frame="4">
+            <div class="progress-dot"></div>
+            <span class="progress-timestamp">00:09</span>
+        </div>
+        <div class="progress-item" data-frame="5">
+            <div class="progress-dot"></div>
+            <span class="progress-timestamp">00:12</span>
+        </div>
+    </div>
+
+    <div class="reels-container" id="reelsContainer">
+        
+        <!-- Frame 1: Ambiente vazio -->
+        <div class="frame" data-frame="1">
+            <div class="frame-visual">
+                <div class="visual-placeholder">
+                    [Imagem: Ambiente vazio, sem vida]<br>
+                    Photo placeholder 1080x1920
+                </div>
+            </div>
+            <div class="frame-overlay"></div>
+            <span class="frame-number">01</span>
+            <div class="frame-content">
+                <h1 class="frame-headline">O espaço que pede por algo especial...</h1>
+                <p class="frame-subheadline">Um ambiente sem personalidade espera pela peça certa.</p>
+            </div>
+        </div>
+
+        <!-- Frame 2: 1 amigurumi -->
+        <div class="frame" data-frame="2">
+            <div class="frame-visual">
+                <div class="visual-placeholder">
+                    [Imagem: Ambiente com 1 amigurumi pequeno]<br>
+                    Photo placeholder 1080x1920
+                </div>
+            </div>
+            <div class="frame-overlay"></div>
+            <span class="frame-number">02</span>
+            <div class="frame-content">
+                <h1 class="frame-headline">...recebe uma presença que troca o clima.</h1>
+                <p class="frame-subheadline">Uma única peça transforma a energia do espaço.</p>
+            </div>
+        </div>
+
+        <!-- Frame 3: 3 amigurumis -->
+        <div class="frame" data-frame="3">
+            <div class="frame-visual">
+                <div class="visual-placeholder">
+                    [Imagem: Ambiente com 3 amigurumis em destaque]<br>
+                    Photo placeholder 1080x1920
+                </div>
+            </div>
+            <div class="frame-overlay"></div>
+            <span class="frame-number">03</span>
+            <div class="frame-content">
+                <h1 class="frame-headline">A curadoria certa transforma ordinário em autoral.</h1>
+                <p class="frame-subheadline">Mais do que decorating — é criar identidade.</p>
+            </div>
+        </div>
+
+        <!-- Frame 4: Close da composição -->
+        <div class="frame" data-frame="4">
+            <div class="frame-visual">
+                <div class="visual-placeholder">
+                    [Imagem: Close da composição completa]<br>
+                    Photo placeholder 1080x1920
+                </div>
+            </div>
+            <div class="frame-overlay"></div>
+            <span class="frame-number">04</span>
+            <div class="frame-content">
+                <h1 class="frame-headline">Este é o efeito de escolher pela ocasião, não só pelo visual.</h1>
+                <p class="frame-subheadline">A diferença entre comprar e investir em significado.</p>
+            </div>
+        </div>
+
+        <!-- Frame 5: CTA -->
+        <div class="frame cta-frame" data-frame="5">
+            <div class="frame-visual">
+                <div class="visual-placeholder">
+                    [Imagem: CTA com peça em destaque]<br>
+                    Photo placeholder 1080x1920
+                </div>
+            </div>
+            <div class="frame-overlay"></div>
+            <span class="frame-number">05</span>
+            <div class="frame-content">
+                <span class="cta-badge">Transformação</span>
+                <h1 class="frame-headline">Quer essa transformação no seu espaço?</h1>
+                <p class="frame-subheadline">Direct para proposta personalizada.</p>
+                <button class="frame-cta">FALAR NO DIRECT</button>
+                <div class="hashtag-list">
+                    #AmiClube #TransformacaoAmbiental #DecoracaoAutoral #AmigurumiDecor
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('reelsContainer');
+        const progressItems = document.querySelectorAll('.progress-item');
+        const frames = document.querySelectorAll('.frame');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const frameIndex = entry.target.dataset.frame;
+                    
+                    progressItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.dataset.frame === frameIndex) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        frames.forEach(frame => observer.observe(frame));
+
+        let isScrolling = false;
+        
+        container.addEventListener('wheel', (e) => {
+            if (!isScrolling) {
+                isScrolling = true;
+                if (e.deltaY > 0) {
+                    container.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+                }
+                setTimeout(() => { isScrolling = false; }, 800);
+            }
+        });
+
+        let touchStartY = 0;
+        container.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        container.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    container.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

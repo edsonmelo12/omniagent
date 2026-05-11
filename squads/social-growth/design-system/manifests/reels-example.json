@@ -1,0 +1,50 @@
+{
+  "asset_id": "AC-30-DS-REELS",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "motion-social",
+  "format": "reels-sequence",
+  "title": "7 Sinais de um Amigurumi Confiável",
+  "deck_label": "reels",
+  "topic": "Segurança",
+  "footer": "@amiclube",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "SEGURANÇA",
+      "title": "7 PERGUNTAS PARA AVALIAR UM AMIGURUMI",
+      "body": "Você confia no amigurumi que vai comprar?",
+      "textVariant": "dark",
+      "background": { "type": "solid", "color": "#0D0D0D" }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PERGUNTA 1",
+      "title": "O enchimento é firme?",
+      "body": "Amassou e voltou? Isso é qualidade.",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": { "type": "solid", "color": "#1A1A1A" }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PERGUNTA 7",
+      "title": "O artesão responde perguntas?",
+      "body": "Quem não mostra como faz, pode estar escondendo algo.",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": { "type": "solid", "color": "#1A1A1A" }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "SALVE ESTE REELS",
+      "body": "amiclube.com.br",
+      "textVariant": "dark",
+      "background": { "type": "gradient", "from": "#0D0D0D", "to": "#1A1A1A" }
+    }
+  ]
+}

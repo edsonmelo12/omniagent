@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} · {{brand}}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=Playfair+Display:wght@700;800&display=swap');
+    {{tokensCss}}
+    {{styleCss}}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      min-height: 100vh;
+      background: #f4f1ea;
+      color: var(--style-text-body);
+      font-family: var(--style-body-font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .doc-frame {
+      width: 420px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+      overflow: hidden;
+    }
+
+    .doc-header {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-bottom: 1px solid #e8e8e8;
+      font-size: 11px;
+      font-weight: 700;
+      color: #333;
+      font-family: var(--style-body-font);
+    }
+
+    .doc-header .avatar {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--style-accent);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 10px; font-weight: 700;
+    }
+
+    .carousel-viewport {
+      width: 420px;
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+      background: var(--style-bg);
+    }
+
+    .carousel-track {
+      height: 100%;
+      display: flex;
+      transform: translateX(0);
+      transition: transform 260ms ease;
+    }
+
+    .slide {
+      min-width: 420px;
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      background: var(--style-bg);
+      padding: 0 36px;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute; inset: 0; z-index: 0;
+      opacity: var(--style-noise-opacity);
+      background-image:
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,0.9) 0 1px, transparent 1px),
+        radial-gradient(circle at 75% 54%, rgba(255,255,255,0.72) 0 1px, transparent 1px);
+      background-size: 13px 13px, 19px 19px;
+      pointer-events: none;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(circle at center, transparent 28%, rgba(0,0,0,var(--style-vignette-opacity)) 100%);
+      pointer-events: none;
+    }
+
+    .header-zone,
+    .content-creative,
+    .page-indicator { position: relative; z-index: 2; }
+
+    .header-zone {
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 20px 28px 0;
+      color: var(--style-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 8px;
+      font-weight: 800;
+    }
+
+    .brand-mark { color: var(--style-accent); }
+
+    .content-creative {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .content-creative.center { align-items: center; text-align: center; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; width: fit-content;
+      color: var(--style-accent);
+      background: var(--style-accent-soft);
+      border: 1px solid var(--style-border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      color: var(--style-text-heading);
+      font-family: var(--style-heading-font);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.3px;
+    }
+
+    .heading {
+      color: var(--style-text-heading);
+      font-family: var(--style-heading-font);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .body-text, .subtitle {
+      max-width: 340px;
+      color: var(--style-text-body);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .proof-card {
+      width: 100%;
+      padding: 14px;
+      border-left: 3px solid var(--style-accent);
+      background: var(--style-surface);
+      border-radius: 0;
+    }
+
+    .cta-block {
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--style-border);
+      color: var(--style-text-heading);
+      background: var(--style-accent-soft);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .divider {
+      width: 50px; height: 2px;
+      background: var(--style-accent);
+    }
+
+    .page-indicator {
+      position: absolute; bottom: 16px; right: 24px;
+      color: var(--style-text-muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .ig-dots {
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .ig-dots button {
+      width: 5px; height: 5px;
+      border: 0; border-radius: 999px;
+      background: #c9c9c9;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .ig-dots button.active { background: #0a66c2; }
+
+    body.export-mode {
+      width: 1200px; height: 1200px;
+      min-height: auto; overflow: hidden;
+      padding: 0; background: #fff;
+      display: block;
+    }
+
+    body.export-mode .doc-frame {
+      width: 1200px;
+      border-radius: 0; box-shadow: none;
+    }
+
+    body.export-mode .doc-header,
+    body.export-mode .ig-dots { display: none !important; }
+
+    body.export-mode .carousel-viewport {
+      width: 1200px; height: 1200px;
+    }
+
+    body.export-mode .carousel-track {
+      height: 1200px;
+      transition: none !important;
+    }
+
+    body.export-mode .slide {
+      min-width: 1200px; height: 1200px;
+      padding: 0 100px;
+    }
+
+    body.export-mode .header-zone { display: none !important; }
+    body.export-mode .page-indicator { display: none !important; }
+    body.export-mode .title { font-size: 56px; }
+    body.export-mode .heading { font-size: 48px; }
+    body.export-mode .body-text,
+    body.export-mode .subtitle { max-width: 860px; font-size: 28px; }
+    body.export-mode .eyebrow { font-size: 18px; padding: 12px 24px; }
+    body.export-mode .proof-card { padding: 32px; border-left-width: 6px; }
+    body.export-mode .divider { width: 120px; height: 4px; }
+    body.export-mode .cta-block { padding: 16px 32px; font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="doc-frame">
+    <div class="doc-header">
+      <div class="avatar">{{brandInitial}}</div>
+      <span>{{brand}}</span>
+    </div>
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+        {{slidesHtml}}
+      </div>
+    </div>
+    <div class="ig-dots" id="carouselDots">{{dotsHtml}}</div>
+  </div>
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const dots = [...document.querySelectorAll('#carouselDots button')];
+    let current = 0;
+    function showSlide(index) {
+      current = Math.max(0, Math.min(index, dots.length - 1));
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, idx) => dot.classList.toggle('active', idx === current));
+    }
+    dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') showSlide(current + 1);
+      if (e.key === 'ArrowLeft') showSlide(current - 1);
+    });
+  </script>
+</body>
+</html>

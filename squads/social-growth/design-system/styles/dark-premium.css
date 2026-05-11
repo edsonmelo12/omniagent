@@ -1,0 +1,18 @@
+:root {
+  --style-name: "dark-premium";
+  --style-bg: #0d0d0d;
+  --style-bg-alt: #171717;
+  --style-surface: rgba(255, 255, 255, 0.07);
+  --style-surface-strong: rgba(255, 255, 255, 0.12);
+  --style-text-heading: #f5f0df;
+  --style-text-body: #d7d2c2;
+  --style-text-muted: #a9a28f;
+  --style-accent: #d4af37;
+  --style-accent-soft: rgba(212, 175, 55, 0.18);
+  --style-border: rgba(212, 175, 55, 0.34);
+  --style-heading-font: "Playfair Display", Georgia, serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.045;
+  --style-vignette-opacity: 0.64;
+  --style-gradient: radial-gradient(circle at 22% 12%, rgba(212, 175, 55, 0.2), transparent 34%), linear-gradient(145deg, #0d0d0d 0%, #171717 52%, #080808 100%);
+}

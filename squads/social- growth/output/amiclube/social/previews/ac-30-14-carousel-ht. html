@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt- BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-30-14 | Carrossel Instagram — Qual peça combina com cada ocasião?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           Skill Invocation Ledger
+           ============================================================
+           | Skill                | Utilização                    |
+           |---------------------|-------------------------------|
+           | instagram-carousel   | Formato carrossel 7 slides     |
+           | social-visual-system| Aplicar DNA AmiClube + Warm Ed. |
+           ============================================================
+           Paleta: Warm Editorial (AmiClube DNA)
+           - Cream: #F5F0E8
+           - Warm: #E8D5C4
+           - Burgundy: #722F37
+           - Terracotta: #C75B39
+           - Deep Brown: #2D2318
+        ============================================================ */
+
+        :root {
+            --cream: #F5F0E8;
+            --warm: #E8D5C4;
+            --burgundy: #722F37;
+            --terracotta: #C75B39;
+            --deep- brown: #2D2318;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #1a1512 0%, #2d2318 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            gap: 1.5rem;
+        }
+
+        .preview-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--warm);
+            opacity: 0.7;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 540px;
+            height: 675px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: calc(100% - 60px);
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            background: var(--cream);
+        }
+
+        .slide.active { opacity: 1; visibility: visible; }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(199,91,57,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(114,47,55,0.06) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .slide-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+        .slide-heading {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .slide-1 .slide-heading { font-size: 2rem; }
+
+        .slide-body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--deep-brown);
+            line-height: 1.6;
+            opacity: 0.85;
+            max-width: 320px;
+        }
+
+        .slide-7 .slide-body { font-size: 0.9rem; }
+
+        .slide-cta {
+            margin-top: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--burgundy);
+            color: var(--cream);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .slide-accent {
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, var(--terracotta), var(--burgundy));
+            border-radius: 2px;
+        }
+
+        .slide-emoji-row { display: flex; gap: 0.75rem; font-size: 1.5rem; margin-bottom: 0.25rem; }
+
+        .nav-controls {
+            width: 100%; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 1rem;
+            background: var(--deep-brown);
+        }
+
+        .nav-arrow {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: transparent; border: none;
+            cursor: pointer; opacity: 0.7;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            color: var(--cream);
+        }
+
+        .nav-arrow:hover { opacity: 1; transform: scale(1.1); }
+        .nav-arrow:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+        .nav-arrow svg { width: 20px; height: 20px; fill: currentColor; }
+
+        .nav-dots { display: flex; align-items: center; gap: 8px; }
+
+        .nav-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(245,240,232,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active { background: var(--terracotta); width: 24px; border-radius: 4px; }
+
+        .frame-counter {
+            position: absolute; top: 12px; right: 12px;
+            padding: 6px 12px;
+            background: rgba(45,35,24,0.85);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.75rem; font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 0.05em;
+            z-index: 10;
+        }
+
+        .duration-timestamp {
+            position: absolute; bottom: 8px; left: 12px;
+            padding: 4px 10px;
+            background: rgba(45,35,24,0.75);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            color: var(--cream);
+            opacity: 0.8;
+            z-index: 10;
+        }
+
+        .info-bar { display: flex; align-items: center; gap: 2rem; margin-top: 0.5rem; }
+
+        .info-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--warm); opacity: 0.6;
+        }
+
+        .info-item span { font-weight: 600; color: var(--cream); opacity: 1; }
+
+        .hashtags {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            color: var(--warm); opacity: 0.4;
+            max-width: 540px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preview-label">Preview — Instagram Carrossel</div>
+
+    <div class="carousel-wrapper">
+        <div class="frame-counter"><span id="frameCounter">1/7</span></div>
+        <div class="duration-timestamp" id="durationStamp">4.0s</div>
+
+        <div class="slides-container">
+            <!-- Slide 1: Capa -->
+            <div class="slide slide-1 active" data-duration="4.0">
+                <div class="slide-content">
+                    <div class="slide-emoji-row">🌟</div>
+                    <h1 class="slide-heading">Você sabe qual amigurumi combina com o seu momento?</h1>
+                    <div class="slide-accent"></div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide slide-2" data-duration="3.0">
+                <div class="slide-content">
+                    <div class="slide-icon">🎁</div>
+                    <h2 class="slide-heading">Presentear alguém especial?</h2>
+                    <p class="slide-body">A peça certa transforma entrega em memória.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide slide-3" data-duration="3.0">
+                <div class="slide-content">
+                    <div class="slide-icon">🏠</div>
+                    <h2 class="slide-heading">Decorar seu espaço?</h2>
+                    <p class="slide-body">O amigurumi ideal adiciona personalidade sem ocupar demais.</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide slide-4" data-duration="3.0">
+                <div class="slide-content">
+                    <div class="slide-icon">👶</div>
+                    <h2 class="slide-heading">Presentear criança?</h2>
+                    <p class="slide-body">Segurança, textura e conexão emocional são o que mais importa.</p>
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide slide-5" data-duration="3.0">
+                <div class="slide-content">
+                    <div class="slide-icon">💼</div>
+                    <h2 class="slide-heading">Presença no escritório?</h2>
+                    <p class="slide-body">Leveza e Profissionalismo podem andar juntos — na peça certa.</p>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide slide-6" data-duration="3.5">
+                <div class="slide-content">
+                    <div class="slide-icon">💡</div>
+                    <h2 class="slide-heading">Cada ocasião pede uma leitura diferente.</h2>
+                    <p class="slide-body">Não existe "o melhor amigurumi". Existe "o melhor para o que você precisa agora".</p>
+                </div>
+            </div>
+
+            <!-- Slide 7: CTA -->
+            <div class="slide slide-7" data-duration="5.0">
+                <div class="slide-content">
+                    <div class="slide-emoji-row">📩🎁</div>
+                    <h2 class="slide-heading">Qual é a sua ocasião?</h2>
+                    <p class="slide-body">Comente aqui que a gente sugere a peça ideal para você.</p>
+                    <div class="slide-cta">Comentar agora</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-arrow prev" id="prevBtn" disabled aria-label="Slide anterior">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div class="nav-dots" id="navDots">
+                <div class="nav-dot active" data-slide="0"></div>
+                <div class="nav-dot" data-slide="1"></div>
+                <div class="nav-dot" data-slide="2"></div>
+                <div class="nav-dot" data-slide="3"></div>
+                <div class="nav-dot" data-slide="4"></div>
+                <div class="nav-dot" data-slide="5"></div>
+                <div class="nav-dot" data-slide="6"></div>
+            </div>
+            <button class="nav-arrow next" id="nextBtn" aria-label="Próximo slide">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="info-bar">
+        <div class="info-item"><span>7</span> slides</div>
+        <div class="info-item"><span>~25s</span> duração total</div>
+        <div class="info-item">Paleta <span>Warm Editorial</span></div>
+    </div>
+
+    <div class="hashtags">#AmiClube #AmigurumiBrasil #AmigurumiArtesanal #PresenteCriativo #DecoracaoComAlma #ArteEmFio #CuradoriaAmigurumi</div>
+
+    <script>
+        (function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const frameCounter = document.getElementById('frameCounter');
+            const durationStamp = document.getElementById('durationStamp');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide(index) {
+                slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+                frameCounter.textContent = (index + 1) + '/' + totalSlides;
+                const duration = slides[index].dataset.duration || '3.0';
+                durationStamp.textContent = duration + 's';
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === totalSlides - 1;
+            }
+
+            function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateSlide(currentSlide); } }
+            function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(currentSlide); } }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            dots.forEach((dot, i) => dot.addEventListener('click', function() { currentSlide = i; updateSlide(currentSlide); }));
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+                else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); } });
+        })();
+    </script>
+
+</body>
+</html>

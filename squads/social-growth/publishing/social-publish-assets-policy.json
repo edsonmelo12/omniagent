@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-23T00:00:00Z",
+  "export_on_social_statuses": [
+    "review",
+    "approved",
+    "ready_to_schedule",
+    "ready_to_export",
+    "ready_to_schedule",
+    "scheduled",
+    "published"
+  ],
+  "enforce_on_social_statuses": [
+    "review",
+    "approved",
+    "ready_to_schedule",
+    "ready_to_export",
+    "ready_to_schedule",
+    "scheduled",
+    "published"
+  ],
+  "type_requirements": {
+    "carrossel": {
+      "min_files": 4,
+      "allowed_export_kinds": ["image_sequence_png"]
+    },
+    "stories": {
+      "min_files": 4,
+      "allowed_export_kinds": ["image_sequence_png"]
+    },
+    "reels": {
+      "min_files": 1,
+      "allowed_export_kinds": ["image_sequence_png", "video_mp4"]
+    },
+    "post": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png"]
+    },
+    "post estático": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png"]
+    },
+    "post oferta": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png"]
+    }
+  }
+}

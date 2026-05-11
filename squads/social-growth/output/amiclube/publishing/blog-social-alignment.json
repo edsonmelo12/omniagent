@@ -1,0 +1,49 @@
+{
+  "version": "1.1.0",
+  "updatedAt": "2026-04-26T00:00:00Z",
+  "coverage_rules": {
+    "required_min_social_per_blog": 3,
+    "target_social_per_blog": 3,
+    "enforce_on_blog_statuses": [
+      "approved",
+      "ready_to_schedule",
+      "scheduled",
+      "published"
+    ]
+  },
+  "social_assets": [
+    { "asset_id": "AC-30-02", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-03", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01", "status": "preview_ready", "channel": "instagram" },
+    { "asset_id": "AC-30-04", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01", "status": "preview_ready", "channel": "facebook" },
+    { "asset_id": "AC-30-06", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-07", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-08", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-10", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-11", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-12", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "facebook" },
+    { "asset_id": "AC-30-14", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-15", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-16", "content_mode": "seasonal_offer", "blog_parent_id": "-", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-17", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01", "status": "preview_ready", "channel": "instagram" },
+    { "asset_id": "AC-30-18", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01", "status": "preview_ready", "channel": "instagram" },
+    { "asset_id": "AC-30-19", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-20", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-21", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-22", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-23", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-24", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-25", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-26", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-27", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "review", "channel": "facebook" },
+    { "asset_id": "AC-30-28", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-29", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-30", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "facebook" },
+    { "asset_id": "AC-30-31", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-32", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-33", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "facebook" },
+    { "asset_id": "AC-30-34", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-01B", "status": "planned", "channel": "facebook" },
+    { "asset_id": "AC-30-35", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "review", "channel": "facebook" },
+    { "asset_id": "AC-30-36", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13", "status": "planned", "channel": "facebook" },
+    { "asset_id": "AC-30-37", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "review", "channel": "facebook" }
+  ]
+}

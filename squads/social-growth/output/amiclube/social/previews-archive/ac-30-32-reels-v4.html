@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-32 v4 — Instagram Reels (4 frames)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #1A1F3C;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .reels-container {
+      width: 100%;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .frame {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      position: relative;
+    }
+
+    .frame.visual {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .frame.content {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px;
+      background: #FAF7F2;
+    }
+
+    .divider {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #E85D4C;
+      z-index: 10;
+    }
+
+    .headline {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #2C2C2C;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #2C2C2C;
+      margin-top: 16px;
+    }
+
+    .timestamp {
+      position: absolute;
+      bottom: 48px;
+      left: 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: #2C2C2C;
+      background: rgba(250, 247, 242, 0.9);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .progress-bars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.3);
+      display: flex;
+      z-index: 100;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 100%;
+      margin: 0 2px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar.filled {
+      background: #E85D4C;
+    }
+
+    .progress-bar:nth-child(1) { margin-left: 0; }
+    .progress-bar:nth-child(4) { margin-right: 0; }
+
+    .logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 24px;
+      color: #1E3A5F;
+    }
+
+    .cta {
+      color: #E85D4C;
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      .headline { font-size: 24px; }
+      .subhead { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bars">
+    <div class="progress-bar filled" id="pb1"></div>
+    <div class="progress-bar" id="pb2"></div>
+    <div class="progress-bar" id="pb3"></div>
+    <div class="progress-bar" id="pb4"></div>
+  </div>
+
+  <div class="reels-container">
+    <!-- Frame 1: Hook -->
+    <div class="frame" data-frame="1">
+      <div class="frame visual">
+        <img src="../blog/assets/AC-30-09B-seguranca-higiene-hero.jpg" alt="Amigurumi" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="frame content">
+        <h1 class="headline">Você sabe se o amigurumi que vai comprar é confiável?</h1>
+        <p class="timestamp">0:00 - 0:03</p>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Frame 2: Contraste -->
+    <div class="frame" data-frame="2">
+      <div class="frame visual">
+        <div style="width:100%;height:100%;display:grid;grid-template-columns:1fr 1fr;background:#1A1F3C;">
+          <div style="background:#3A4A6C;display:flex;align-items:center;justify-content:center;">
+            <span style="color:#F5F5F0;font-size:14px;">Ateliê organizado</span>
+          </div>
+          <div style="background:#D4F03E;display:flex;align-items:center;justify-content:center;">
+            <span style="color:#0D0D0D;font-size:14px;">Peça isolada</span>
+          </div>
+        </div>
+      </div>
+      <div class="frame content">
+        <h2 class="headline">A diferença entre segurança e expectativa está nos detalhes que você vê.</h2>
+        <p class="timestamp">0:03 - 0:07</p>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Frame 3: Prova -->
+    <div class="frame" data-frame="3">
+      <div class="frame visual">
+        <div style="width:100%;height:100%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;background:#FAF7F2;">
+          <div style="background:#E0DDD8;display:flex;align-items:center;justify-content:center;"><span style="color:#2C2C2C;font-size:12px;">Detalhe</span></div>
+          <div style="background:#D4DDD0;display:flex;align-items:center;justify-content:center;"><span style="color:#2C2C2C;font-size:12px;">Textura</span></div>
+          <div style="background:#D5C4B8;display:flex;align-items:center;justify-content:center;"><span style="color:#2C2C2C;font-size:12px;">Materiais</span></div>
+          <div style="background:#C8C8C8;display:flex;align-items:center;justify-content:center;"><span style="color:#2C2C2C;font-size:12px;">Apresentação</span></div>
+        </div>
+      </div>
+      <div class="frame content">
+        <h2 class="headline">Detalhe real. Materiais explicados. Apresentação impecável.</h2>
+        <p class="timestamp">0:07 - 0:12</p>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Frame 4: CTA -->
+    <div class="frame" data-frame="4">
+      <div class="frame visual" style="display:flex;align-items:center;justify-content:center;background:#FAF7F2;">
+        <span class="logo">AmiClube</span>
+      </div>
+      <div class="frame content">
+        <h2 class="headline">Veja as 7 perguntas completas no link da BIO.</h2>
+        <p class="cta">@amiclube</p>
+        <p class="timestamp">0:12 - 0:15</p>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <script>
+    const frames = document.querySelectorAll('.frame');
+    const progressBars = document.querySelectorAll('.progress-bar');
+    let currentFrame = 0;
+    const frameHeight = window.innerHeight;
+
+    function updateProgress() {
+      progressBars.forEach((pb, i) => {
+        pb.classList.toggle('filled', i <= currentFrame);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const newFrame = Math.floor(scrollY / frameHeight);
+      if (newFrame !== currentFrame && newFrame < frames.length) {
+        currentFrame = newFrame;
+        updateProgress();
+      }
+    });
+
+    // Auto-scroll between frames (optional)
+    let autoScrollTimeout;
+    function autoScroll() {
+      clearTimeout(autoScrollTimeout);
+      autoScrollTimeout = setTimeout(() => {
+        if (currentFrame < frames.length - 1) {
+          window.scrollTo(0, (currentFrame + 1) * frameHeight);
+          currentFrame++;
+          updateProgress();
+          if (currentFrame < frames.length - 1) autoScroll();
+        } else {
+          currentFrame = 0;
+          window.scrollTo(0, 0);
+          updateProgress();
+          autoScroll();
+        }
+      }, 4000);
+    }
+
+    // Uncomment below for auto-scroll:
+    // autoScroll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<title>AC-30-21 v4 | Barato x Caro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--slide-w:420px;--slide-h:525px;--warm-cream:#F5F0EA;--warm-peach:#E8D5C4;--warm-sage:#D4DDD0;--warm-brown:#8C6A5E;--accent-red:#C85A48}
+body{background:#e8e2da;display:flex;flex-direction:column;align-items:center;min-height:100vh;font-family:'DM Sans',sans-serif;padding:32px 16px}
+.header{color:#666;text-align:center;margin-bottom:24px}
+.header h1{font-size:18px;margin-bottom:6px}
+.header p{font-size:12px;opacity:0.6}
+
+/* === CAROUSEL === */
+.carousel-container{position:relative;width:var(--slide-w)}
+.carousel-viewport{width:var(--slide-w);height:var(--slide-h);overflow:hidden;position:relative;cursor:grab;user-select:none;border-radius:12px;touch-action:pan-y}
+.carousel-viewport:active{cursor:grabbing}
+.carousel-track{display:flex;height:100%;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+
+/* === SLIDE — 3 ZONES === */
+.slide{
+  min-width:var(--slide-w);
+  height:var(--slide-h);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ZONA TOPO — header-bar + accent-line no topo do slide */
+.header-zone{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:2;
+  padding:24px 36px 0;
+}
+
+/* ZONA MEIO — conteúdo criativo centralizado no meio do slide */
+.slide-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:0 36px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* O conteúdo criativo dentro do slide-content */
+.content-creative{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* === BACKGROUNDS === */
+.slide::before{content:'';position:absolute;inset:0;opacity:0.025;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;z-index:1}
+
+/* Yarn/stitch decorative lines */
+.stitch-deco{position:absolute;z-index:1;pointer-events:none;opacity:0.07}
+.slide[data-bg="cream"] .stitch-deco{stroke:var(--warm-brown)}
+.slide[data-bg="peach"] .stitch-deco{stroke:#6a5a4a}
+.slide[data-bg="sage"] .stitch-deco{stroke:#5a7a5a}
+.slide[data-bg="brown"] .stitch-deco{stroke:rgba(255,255,255,0.5)}
+.slide[data-bg="brown"] .stitch-deco{opacity:0.06}
+
+/* Accent geometric shapes */
+.accent-circle{position:absolute;border-radius:50%;pointer-events:none;z-index:1;opacity:0.06}
+.slide[data-bg="cream"] .accent-circle{border:1px solid var(--warm-brown)}
+.slide[data-bg="peach"] .accent-circle{border:1px solid #7a6a5a}
+.slide[data-bg="sage"] .accent-circle{border:1px solid #5a7a5a}
+.slide[data-bg="brown"] .accent-circle{border:1px solid rgba(255,255,255,0.3);opacity:0.05}
+
+/* Bottom accent line */
+.bottom-accent{position:absolute;bottom:0;left:0;width:60px;height:4px;z-index:3}
+.slide[data-bg="cream"] .bottom-accent{background:var(--warm-brown)}
+.slide[data-bg="peach"] .bottom-accent{background:#7a6a5a}
+.slide[data-bg="sage"] .bottom-accent{background:#5a7a5a}
+.slide[data-bg="brown"] .bottom-accent{background:rgba(255,255,255,0.3)}
+
+/* === TYPOGRAPHY === */
+.accent-line{width:40px;height:3px;margin-bottom:12px;border-radius:2px}
+.slide[data-bg="brown"] .accent-line{background:#fff;opacity:0.6}
+.header-bar{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.header-bar .label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.header-bar .num{font-size:10px;margin-left:auto;font-weight:500;opacity:0.5}
+.headline{font-family:'Playfair Display',serif;font-size:26px;line-height:1.2;font-weight:800;margin-bottom:12px;letter-spacing:-0.3px}
+.headline.lg{font-size:30px;margin-bottom:8px}
+.headline.sm{font-size:20px}
+.body-text{font-size:14px;line-height:1.55}
+.body-text.sm{font-size:13px;line-height:1.5;opacity:0.85}
+.accent-highlight{font-weight:700}
+.sub-text{font-size:15px;max-width:340px;line-height:1.5}
+
+/* === PROGRESS BAR === */
+.progress-bar{position:absolute;bottom:0;left:0;right:0;padding:16px 28px 14px;z-index:10;display:flex;align-items:center;gap:8px}
+.progress-track{flex:1;height:3px;border-radius:2px;overflow:hidden}
+.slide[data-bg="cream"] .progress-track{background:rgba(0,0,0,0.06)}
+.slide[data-bg="peach"] .progress-track{background:rgba(0,0,0,0.06)}
+.slide[data-bg="sage"] .progress-track{background:rgba(0,0,0,0.06)}
+.slide[data-bg="brown"] .progress-track{background:rgba(255,255,255,0.15)}
+.progress-fill{height:100%;border-radius:2px;transition:width 0.3s ease}
+.progress-label{font-size:10px;font-weight:500;opacity:0.4}
+
+/* === SWIPE ARROW (review only) === */
+.swipe-arrow{position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center}
+.slide[data-bg="cream"] .swipe-arrow{background:linear-gradient(to right,transparent,rgba(0,0,0,0.04))}
+.slide[data-bg="peach"] .swipe-arrow{background:linear-gradient(to right,transparent,rgba(0,0,0,0.05))}
+.slide[data-bg="sage"] .swipe-arrow{background:linear-gradient(to right,transparent,rgba(0,0,0,0.05))}
+.slide[data-bg="brown"] .swipe-arrow{background:linear-gradient(to right,transparent,rgba(255,255,255,0.08))}
+
+/* Preview dots */
+.preview-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.preview-dots .dot{width:8px;height:8px;border-radius:50%;transition:all 0.2s;cursor:pointer}
+.controls{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,0.15);background:transparent;color:#666;font-size:18px;cursor:pointer}
+.nav-btn:hover{background:rgba(0,0,0,0.05)}
+
+/* === EXPORT MODE === */
+body.export-mode .swipe-arrow,body.export-mode .progress-label,body.export-mode .preview-dots,body.export-mode .controls,body.export-mode .header{display:none!important}
+body.export-mode .progress-bar{padding:0!important}
+body.export-mode .progress-track{display:none!important}
+body.export-mode .carousel-viewport{border-radius:0}
+body.export-mode{--slide-w:1080px;--slide-h:1350px}
+body.export-mode .carousel-container{width:1080px!important}
+body.export-mode .carousel-viewport{width:1080px!important;height:1350px!important}
+body.export-mode .carousel-track{display:flex;height:1350px!important}
+body.export-mode .slide{min-width:1080px!important;height:1350px!important}
+body.export-mode .header-zone{padding:60px 80px 0}
+body.export-mode .slide-content{padding:0 80px}
+body.export-mode .headline{font-size:67px!important;line-height:1.1!important;margin-bottom:24px!important}
+body.export-mode .headline.lg{font-size:77px!important;margin-bottom:20px!important}
+body.export-mode .headline.sm{font-size:51px!important}
+body.export-mode .body-text{font-size:36px!important;line-height:1.45!important}
+body.export-mode .body-text.sm{font-size:33px!important}
+body.export-mode .sub-text{font-size:39px!important;max-width:820px!important;line-height:1.4!important}
+body.export-mode .accent-line{width:103px!important;height:8px!important;margin-bottom:31px!important;border-radius:5px!important}
+body.export-mode .header-bar .label{font-size:23px!important;letter-spacing:3.9px!important}
+body.export-mode .header-bar .num{font-size:26px!important}
+body.export-mode .accent-highlight{font-weight:700!important}
+body.export-mode .stitch-deco{opacity:0.07!important}
+body.export-mode .accent-circle{opacity:0.06!important}
+body.export-mode .bottom-accent{width:150px;height:10px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>AC-30-21 — Instagram Carousel</h1>
+  <p>1080×1350px · 7 slides · Minimalist Warm · v4</p>
+</div>
+
+<div class="carousel-container">
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track">
+
+      <!-- SLIDE 1: Cover -->
+      <div class="slide" data-bg="cream" style="background-color:var(--warm-cream);color:#fff">
+        <img src="../../social/assets/AC-30-21-barato-ou-caro-a-conta-fecha.jpg" alt="Fundo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0.72) 0%,rgba(26,26,26,0.35) 45%,rgba(26,26,26,0.15) 100%);z-index:1;pointer-events:none"></div>
+        <svg class="stitch-deco" style="top:50px;right:30px" width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="55" fill="none" stroke-width="1"/>
+          <circle cx="65" cy="65" r="40" fill="none" stroke-width="0.6"/>
+          <path d="M65 10 Q100 65 65 120 Q30 65 65 10Z" fill="none" stroke-width="0.7"/>
+        </svg>
+        <div class="accent-circle" style="width:180px;height:180px;bottom:-60px;left:-40px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:rgba(255,255,255,0.55)">AMICLUBE</span><span class="num" style="color:rgba(255,255,255,0.4)">1/7</span></div>
+          <div class="accent-line" style="background:var(--warm-brown)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline lg" style="color:#fff">BARATO OU CARO?<br>A conta fecha?</h1>
+            <p class="sub-text" style="color:rgba(255,255,255,0.85);max-width:320px">Por que dois amigurumis "parecidos" têm preços tão diferentes? 5 critérios para saber se vale o investimento.</p>
+          </div>
+        </div>
+        <div class="bottom-accent"></div>
+        <div class="progress-bar"><div class="progress-track" style="background:rgba(255,255,255,0.2)"><div class="progress-fill" style="width:14.28%;background:var(--warm-brown)"></div></div><span class="progress-label" style="color:rgba(255,255,255,0.4)">1/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide" data-bg="cream" style="background:var(--warm-cream);color:#1A1A1A">
+        <svg class="stitch-deco" style="top:20px;left:-10px" width="160" height="160" viewBox="0 0 160 160">
+          <path d="M0 80 Q40 20 80 80 Q120 140 160 80" fill="none" stroke-width="1.2"/>
+          <path d="M0 60 Q40 0 80 60 Q120 120 160 60" fill="none" stroke-width="0.5"/>
+        </svg>
+        <div class="accent-circle" style="width:140px;height:140px;top:-40px;right:-30px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:#888">AMICLUBE</span><span class="num">2/7</span></div>
+          <div class="accent-line" style="background:var(--accent-red)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline">Preço é número.<br>Valor é conjunto.</h1>
+            <p class="body-text" style="color:#444">Preço é o que você paga. Valor é o que recebe — consistência, atendimento, durabilidade. Para a conta fechar, você precisa de <span class="accent-highlight" style="color:var(--accent-red)">critério</span>, não de intuição.</p>
+          </div>
+        </div>
+        <div class="bottom-accent" style="background:var(--accent-red)"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:28.57%;background:var(--accent-red)"></div></div><span class="progress-label" style="color:rgba(0,0,0,0.3)">2/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide" data-bg="peach" style="background:var(--warm-peach);color:#1A1A1A">
+        <svg class="stitch-deco" style="bottom:50px;right:20px" width="80" height="80" viewBox="0 0 80 80">
+          <rect x="5" y="5" width="70" height="70" rx="8" fill="none" stroke-width="1" transform="rotate(15 40 40)"/>
+          <rect x="15" y="15" width="50" height="50" rx="6" fill="none" stroke-width="0.5" transform="rotate(30 40 40)"/>
+        </svg>
+        <div class="accent-circle" style="width:120px;height:120px;bottom:-30px;left:-20px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:#7a6a5a">AMICLUBE</span><span class="num">3/7</span></div>
+          <div class="accent-line" style="background:var(--warm-brown)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline sm">1. Coerência de Proposta</h1>
+            <p class="body-text" style="color:#4a3f38">A peça conversa com sua ocasião? Decoração, presente ou coleção exigem leituras diferentes. Se não atende ao seu contexto, o <span class="accent-highlight" style="color:var(--warm-brown)">preço baixo é irrelevante</span>.</p>
+          </div>
+        </div>
+        <div class="bottom-accent"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:42.85%;background:var(--warm-brown)"></div></div><span class="progress-label" style="color:rgba(0,0,0,0.3)">3/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide" data-bg="cream" style="background-image:url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg');background-size:cover;background-position:center;background-color:var(--warm-cream);color:#fff">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0.72) 0%,rgba(26,26,26,0.35) 45%,rgba(26,26,26,0.15) 100%);z-index:1;pointer-events:none"></div>
+        <svg class="stitch-deco" style="top:40px;left:40px" width="100" height="100" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke-width="0.5"/>
+          <circle cx="50" cy="50" r="28" fill="none" stroke-width="1"/>
+          <line x1="50" y1="10" x2="50" y2="90" stroke-width="0.4"/>
+          <line x1="10" y1="50" x2="90" y2="50" stroke-width="0.4"/>
+        </svg>
+        <div class="accent-circle" style="width:160px;height:160px;top:-50px;right:-40px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:rgba(255,255,255,0.55)">AMICLUBE</span><span class="num" style="color:rgba(255,255,255,0.4)">4/7</span></div>
+          <div class="accent-line" style="background:var(--warm-brown)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline sm" style="color:#fff">2. Qualidade no Conjunto</h1>
+            <p class="body-text" style="color:rgba(255,255,255,0.8)">Não avalie apenas o objeto. Observe consistência visual, acabamento e padrão de entrega. <span class="accent-highlight" style="color:var(--warm-brown)">Valor é experiência</span> — um amigurumi bem construído se sustenta no tempo.</p>
+          </div>
+        </div>
+        <div class="bottom-accent"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:57.14%;background:var(--warm-brown)"></div></div><span class="progress-label" style="color:rgba(255,255,255,0.4)">4/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 5 -->
+      <div class="slide" data-bg="cream" style="background:var(--warm-cream);color:#1A1A1A">
+        <svg class="stitch-deco" style="top:10px;right:25px" width="110" height="110" viewBox="0 0 110 110">
+          <path d="M55 5 L105 55 L55 105 L5 55Z" fill="none" stroke-width="1"/>
+          <path d="M55 20 L90 55 L55 90 L20 55Z" fill="none" stroke-width="0.5"/>
+        </svg>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:#888">AMICLUBE</span><span class="num">5/7</span></div>
+          <div class="accent-line" style="background:var(--accent-red)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline sm">3. Confiança Comercial</h1>
+            <p class="body-text" style="color:#444">Prazos claros e atendimento responsivo economizam seu recurso mais escasso: <span class="accent-highlight" style="color:var(--accent-red)">tempo</span>. Confiança é um ativo de valor invisível na etiqueta.</p>
+          </div>
+        </div>
+        <div class="bottom-accent" style="background:var(--accent-red)"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:71.42%;background:var(--accent-red)"></div></div><span class="progress-label" style="color:rgba(0,0,0,0.3)">5/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 6 -->
+      <div class="slide" data-bg="sage" style="background:var(--warm-sage);color:#1A1A1A">
+        <svg class="stitch-deco" style="bottom:40px;right:30px" width="100" height="160" viewBox="0 0 100 160">
+          <path d="M10 0 Q50 80 10 160" fill="none" stroke-width="1.2"/>
+          <path d="M90 0 Q50 80 90 160" fill="none" stroke-width="0.6"/>
+          <path d="M50 0 Q50 80 50 160" fill="none" stroke-width="0.4"/>
+        </svg>
+        <div class="accent-circle" style="width:140px;height:140px;top:-40px;left:-30px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:#5a6b55">AMICLUBE</span><span class="num">6/7</span></div>
+          <div class="accent-line" style="background:#5a7a5a"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline sm">4. Durabilidade Percebida</h1>
+            <p class="body-text" style="color:#3a4a3a">Isso define o <span class="accent-highlight" style="color:#5a7a5a">custo real por uso</span>. Um valor mais alto por uma peça que dura décadas é mais econômico que um valor baixo por algo que se desfaz em meses.</p>
+          </div>
+        </div>
+        <div class="bottom-accent"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:85.71%;background:#5a7a5a"></div></div><span class="progress-label" style="color:rgba(0,0,0,0.3)">6/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+      <!-- SLIDE 7 -->
+      <div class="slide" data-bg="cream" style="background:var(--warm-cream);color:#1A1A1A">
+        <svg class="stitch-deco" style="top:30px;left:25px" width="90" height="140" viewBox="0 0 90 140">
+          <path d="M10 0 Q45 70 10 140" fill="none" stroke-width="1"/>
+          <path d="M80 0 Q45 70 80 140" fill="none" stroke-width="0.5"/>
+        </svg>
+        <div class="accent-circle" style="width:130px;height:130px;bottom:-40px;right:-25px"></div>
+        <div class="header-zone">
+          <div class="header-bar"><span class="label" style="color:#888">AMICLUBE</span><span class="num">7/7</span></div>
+          <div class="accent-line" style="background:var(--accent-red)"></div>
+        </div>
+        <div class="slide-content">
+          <div class="content-creative">
+            <h1 class="headline sm">5. Aderência ao Objetivo</h1>
+            <p class="body-text" style="color:#444">A proposta resolve sua necessidade real ou é apenas uma oportunidade estética? <span class="accent-highlight" style="color:var(--accent-red)">Valor depende do seu alvo</span>, não apenas da peça.</p>
+          </div>
+        </div>
+        <div class="bottom-accent" style="background:var(--accent-red)"></div>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:100%;background:var(--accent-red)"></div></div><span class="progress-label" style="color:rgba(0,0,0,0.3)">7/7</span></div>
+        <div class="swipe-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="preview-dots" id="dots"></div>
+<div class="controls">
+  <button class="nav-btn" onclick="prevSlide()">←</button>
+  <button class="nav-btn" onclick="nextSlide()">→</button>
+</div>
+
+<script>
+const TOTAL=7;let current=0;const track=document.getElementById('track');const dotsEl=document.getElementById('dots');
+const SLIDE_W = document.body.classList.contains('export-mode') ? 1080 : 420;
+for(let i=0;i<TOTAL;i++){const d=document.createElement('div');d.className='dot';d.style.background=i===0?'#8C6A5E':'rgba(0,0,0,0.12)';d.onclick=()=>goTo(i);dotsEl.appendChild(d)}
+function goTo(i){if(i<0||i>=TOTAL)return;current=i;track.style.transform='translateX('+(-current*SLIDE_W)+'px)';document.querySelectorAll('.dot').forEach((d,idx)=>{d.style.background=idx===current?'#8C6A5E':'rgba(0,0,0,0.12)';d.style.transform=idx===current?'scale(1.3)':'scale(1)'})}
+function nextSlide(){goTo(current+1)}function prevSlide(){goTo(current-1)}
+const vp=document.getElementById('viewport');let ts=0;
+vp.addEventListener('touchstart',e=>{ts=e.changedTouches[0].screenX},{passive:true});
+vp.addEventListener('touchend',e=>{const diff=ts-e.changedTouches[0].screenX;if(Math.abs(diff)>40){diff>0?nextSlide():prevSlide()}},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextSlide();if(e.key==='ArrowLeft')prevSlide()});
+</script>
+</body>
+</html>

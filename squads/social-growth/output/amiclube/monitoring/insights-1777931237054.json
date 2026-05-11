@@ -1,0 +1,29 @@
+{
+  "collected_at": "2026-05-04T21:47:17.053Z",
+  "client": "amiclube",
+  "period": "last_7_days",
+  "account_metrics": {},
+  "posts": [
+    {
+      "media_id": "17913580023180478",
+      "media_type": "CAROUSEL_ALBUM",
+      "post_url": "https://www.instagram.com/p/DX7pOV5GqlV/",
+      "caption": "Preço baixo pode sair caro quando o critério fica de fora. 😬\n\nAntes de escolher um amigurumi só pel",
+      "published_at": "2026-05-04T21:32:14+0000",
+      "metrics": {}
+    },
+    {
+      "media_id": "17937250560227563",
+      "media_type": "CAROUSEL_ALBUM",
+      "post_url": "https://www.instagram.com/p/DX2fpGZn__D/",
+      "caption": "5 sinais de um amigurumi premium.",
+      "published_at": "2026-05-02T21:32:22+0000",
+      "metrics": {}
+    }
+  ],
+  "summary": {
+    "total_posts": 2,
+    "total_views": 0,
+    "total_engagement": 0
+  }
+}

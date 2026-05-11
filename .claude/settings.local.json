@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "anysite": {
+      "command": "npx",
+      "args": ["-y", "@anysite/mcp"],
+      "env": {
+        "ANYSITE_API_KEY": "REPLACE_WITH_YOUR_ANYSITE_API_KEY",
+        "ANYSITE_ACCOUNT_ID": "REPLACE_WITH_YOUR_ANYSITE_ACCOUNT_ID"
+      }
+    },
+    "open-design": {
+      "command": "/home/edsonrmjunior/.nvm/versions/node/v24.15.0/bin/node",
+      "args": [
+        "/home/edsonrmjunior/Local Sites/omniagent/open-design/apps/daemon/dist/cli.js",
+        "mcp",
+        "--daemon-url",
+        "http://127.0.0.1:41793"
+      ]
+    }
+  }
+}

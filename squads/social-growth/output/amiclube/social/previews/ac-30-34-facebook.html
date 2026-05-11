@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, initial-scale=1.0">
+  <title>Ergonomia e Densidade: Saúde real</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Inter:wght@700;800;900&display=swap');
+    :root { --blue:#234555; --teal:#299d8f; --coral:#dc4c5d; --cream:#f8f3ec; --ink:#241d18; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { width:1200px; height:630px; overflow:hidden; background:#efe5d8; font-family:"DM Sans","Inter",Arial,sans-serif; color:#fff; }
+    body.preview { width:auto; height:auto; min-height:100vh; display:flex; align-items:flex-start; justify-content:center; overflow:auto; padding:24px; background:radial-gradient(circle at top left,#ffffff 0%,#f4ebdf 45%,#e7d7c6 100%); }
+    .card-container { width:1200px; height:630px; position:relative; overflow:hidden; background:linear-gradient(160deg, rgba(35,69,85,.96) 0%, rgba(41,157,143,.74) 58%, rgba(220,76,93,.32) 100%), #231812; padding:48px 54px 42px; display:flex; flex-direction:column; justify-content:space-between; }
+    body.preview .card-container { transform:scale(var(--preview-scale, .8)); transform-origin:top center; border-radius:18px; box-shadow:0 24px 58px rgba(27,18,11,.28); margin-bottom:calc(630px * (var(--preview-scale, .8) - 1)); }
+    .bg-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:.48; filter:saturate(1.08) contrast(1.04); }
+    .overlay { position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,16,13,.82) 0%, rgba(20,16,13,.48) 54%, rgba(20,16,13,.20) 100%); }
+    .grain { position:absolute; inset:0; opacity:.15; background-image:radial-gradient(rgba(255,255,255,.16) 1px, transparent 1px); background-size:8px 8px; mix-blend-mode:overlay; }
+    .content { position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:space-between; }
+    .kicker { display:inline-flex; align-self:flex-start; padding:13px 18px; border-radius:999px; background:rgba(248,243,236,.13); border:1px solid rgba(255,255,255,.20); color:#d6f0ec; font-size:22px; line-height:1; font-weight:900; letter-spacing:.14em; text-transform:uppercase; backdrop-filter:blur(6px); }
+    .copy { max-width:735px; margin-top:22px; }
+    .title { max-width:13ch; font-size:64px; line-height:.95; letter-spacing:-.05em; font-weight:900; text-transform:uppercase; text-shadow:0 3px 16px rgba(0,0,0,.30); text-wrap:balance; }
+    .lead { max-width:30ch; margin-top:18px; font-size:26px; line-height:1.25; font-weight:800; color:rgba(255,255,255,.94); text-shadow:0 1px 10px rgba(0,0,0,.22); }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .chip { padding:10px 14px; border-radius:999px; background:rgba(248,243,236,.14); border:1px solid rgba(255,255,255,.18); font-size:15px; line-height:1; font-weight:900; letter-spacing:.06em; text-transform:uppercase; }
+    .footer { position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; gap:28px; color:rgba(255,255,255,.94); font-size:17px; line-height:1.2; font-weight:900; }
+    .brand { letter-spacing:.08em; text-transform:uppercase; }
+    .note { color:#d6f0ec; font-size:19px; max-width:420px; text-align:right; }
+  </style>
+</head>
+<body>
+  <article class="card-container" aria-label="Ergonomia e Densidade: Saúde real">
+    <img class="bg-image" src="../assets/AC-30-12-attendimento-previsivel-hero.jpg" alt="Composição artesanal AmiClube">
+    <div class="overlay"></div><div class="grain"></div>
+    <div class="content">
+      <div><div class="kicker">ergonomia e densidade</div><div class="copy"><h1 class="title">Saúde real também é escolha.</h1><p class="lead">Densidade, toque e suporte mudam a experiência de uso muito antes do preço entrar na conversa.</p><div class="chips"><span class="chip">ergonomia</span><span class="chip">densidade</span><span class="chip">uso real</span></div></div></div>
+      <div class="footer"><div class="brand">amiclube</div><div class="note">ver guia de ergonomia antes de decidir</div></div>
+    </div>
+  </article>
+  <script>
+    if (new URLSearchParams(location.search).has('preview')) {
+      document.body.classList.add('preview');
+      const fit = () => {
+        const scale = Math.min(window.innerWidth / 1200, window.innerHeight / 630) * 0.94;
+        document.documentElement.style.setProperty('--preview-scale', String(scale));
+      };
+      window.addEventListener('resize', fit);
+      fit();
+    }
+  </script>
+</body>
+</html>

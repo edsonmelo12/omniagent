@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=420, height=525, initial-scale=1.0'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;700&display=swap' rel='stylesheet'>
+    <style>
+        :root {
+            --brand-primary: #8C6A5E;
+            --brand-light: #B49488;
+            --brand-dark: #5D433A;
+            --light-bg: #F9F7F5;
+            --dark-bg: #1C1A19;
+            --light-border: #E8E2DE;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .ig-frame {
+            width: 420px;
+            height: 525px;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .carousel-viewport {
+            width: 420px;
+            height: 525px;
+            overflow: hidden;
+            cursor: grab;
+        }
+        .carousel-track {
+            display: flex;
+            width: calc(420px * 7);
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .slide {
+            width: 420px;
+            height: 525px;
+            flex-shrink: 0;
+            position: relative;
+            padding: 48px 36px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .slide.light { background: var(--light-bg); color: var(--dark-bg); }
+        .slide.dark { background: var(--dark-bg); color: var(--light-bg); }
+        .slide.gradient { 
+            background: linear-gradient(165deg, var(--brand-dark) 0%, var(--brand-primary) 50%, var(--brand-light) 100%); 
+            color: white;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+        .sans { font-family: 'DM Sans', sans-serif; }
+
+        .tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            color: var(--brand-primary);
+        }
+        .slide.dark .tag { color: var(--brand-light); }
+        .slide.gradient .tag { color: rgba(255,255,255,0.7); }
+
+        h2 {
+            font-size: 32px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.55;
+            color: #6B6560;
+        }
+        .slide.dark p { color: #A09B97; }
+        .slide.gradient p { color: rgba(255,255,255,0.85); }
+
+        .progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 28px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        .progress-track {
+            flex: 1;
+            height: 3px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .slide.dark .progress-track { background: rgba(255,255,255,0.12); }
+        .progress-fill {
+            height: 100%;
+            background: var(--brand-primary);
+            border-radius: 2px;
+        }
+        .slide.dark .progress-fill { background: #fff; }
+        .progress-counter {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(0,0,0,0.3);
+        }
+        .slide.dark .progress-counter { color: rgba(255,255,255,0.4); }
+
+        .swipe-arrow {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 48px;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.03));
+        }
+        .slide.dark .swipe-arrow { background: linear-gradient(to right, transparent, rgba(255,255,255,0.04)); }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+        .slide.dark .feature-item { border-bottom-color: rgba(255,255,255,0.1); }
+        .feature-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--brand-primary);
+            min-width: 30px;
+            line-height: 1;
+        }
+        .slide.dark .feature-num { color: var(--brand-light); }
+        .feature-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .feature-content p { font-size: 12px; }
+
+        .cta-button {
+            display: inline-flex;
+            padding: 12px 28px;
+            background: white;
+            color: var(--brand-dark);
+            border-radius: 28px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 24px;
+            text-decoration: none;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class='ig-frame'>
+        <div class='carousel-viewport' id='viewport'>
+            <div class='carousel-track' id='track'>
+                <!-- Slide 1: Hook -->
+                <div class='slide light'>
+                    <div class='tag'>AmiClube Editorial</div>
+                    <h2 class='serif'>Por que dois amigurumis "parecidos" têm preços tão diferentes?</h2>
+                    <p>E como saber qual deles realmente vale o seu investimento estratégico.</p>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 14.28%;'></div></div>
+                        <div class='progress-counter'>1/7</div>
+                    </div>
+                </div>
+                <!-- Slide 2: Context -->
+                <div class='slide dark'>
+                    <div class='tag'>O Critério</div>
+                    <h2 class='serif'>Preço é apenas um dado. Valor é experiência.</h2>
+                    <p>Para a conta fechar, você precisa de critérios claros que vão além da etiqueta. Valor é o conjunto de entregas percebidas.</p>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 28.57%;'></div></div>
+                        <div class='progress-counter'>2/7</div>
+                    </div>
+                </div>
+                <!-- Slide 3: Criterion 1 -->
+                <div class='slide light'>
+                    <div class='tag'>Critério 01</div>
+                    <h2 class='serif'>Coerência de Proposta</h2>
+                    <div class='feature-item'>
+                        <div class='feature-num'>01</div>
+                        <div class='feature-content'>
+                            <p>A peça conversa com a sua ocasião? Decoração premium e presente afetivo exigem leituras diferentes. Sem contexto, o preço é irrelevante.</p>
+                        </div>
+                    </div>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 42.85%;'></div></div>
+                        <div class='progress-counter'>3/7</div>
+                    </div>
+                </div>
+                <!-- Slide 4: Criterion 2 -->
+                <div class='slide dark'>
+                    <div class='tag'>Critério 02</div>
+                    <h2 class='serif'>Qualidade no Conjunto</h2>
+                    <div class='feature-item'>
+                        <div class='feature-num'>02</div>
+                        <div class='feature-content'>
+                            <p>Observe a consistência visual, o acabamento e o padrão de entrega. Não avalie o objeto isolado, mas a experiência completa.</p>
+                        </div>
+                    </div>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 57.14%;'></div></div>
+                        <div class='progress-counter'>4/7</div>
+                    </div>
+                </div>
+                <!-- Slide 5: Criterion 3 -->
+                <div class='slide light'>
+                    <div class='tag'>Critério 03</div>
+                    <h2 class='serif'>Confiança Comercial</h2>
+                    <div class='feature-item'>
+                        <div class='feature-num'>03</div>
+                        <div class='feature-content'>
+                            <p>Prazos claros e atendimento responsivo economizam seu recurso mais escasso: tempo. Confiança é um ativo de alto valor.</p>
+                        </div>
+                    </div>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 71.42%;'></div></div>
+                        <div class='progress-counter'>5/7</div>
+                    </div>
+                </div>
+                <!-- Slide 6: Criterion 4 -->
+                <div class='slide dark'>
+                    <div class='tag'>Critério 04</div>
+                    <h2 class='serif'>Durabilidade Percebida</h2>
+                    <div class='feature-item'>
+                        <div class='feature-num'>04</div>
+                        <div class='feature-content'>
+                            <p>Sinais de conservação e estabilidade definem o custo real por uso ao longo dos anos. Escolha o que permanece.</p>
+                        </div>
+                    </div>
+                    <div class='swipe-arrow'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18l6-6-6-6'/></svg></div>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 85.71%;'></div></div>
+                        <div class='progress-counter'>6/7</div>
+                    </div>
+                </div>
+                <!-- Slide 7: CTA -->
+                <div class='slide gradient'>
+                    <div class='tag'>Aderência ao Objetivo</div>
+                    <h2 class='serif'>A conta fechou?</h2>
+                    <p>O valor depende do seu alvo. Salve este guia para consultar antes de fechar qualquer orçamento.</p>
+                    <a href='#' class='cta-button sans'>GUIA COMPLETO NA BIO</a>
+                    <div class='progress-container'>
+                        <div class='progress-track'><div class='progress-fill' style='width: 100%;'></div></div>
+                        <div class='progress-counter'>7/7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const track = document.getElementById('track');
+        const viewport = document.getElementById('viewport');
+        let currentSlide = 0;
+        viewport.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % 7;
+            track.style.transform = `translateX(-` + (currentSlide * 420) + `px)`;
+        });
+    </script>
+</body>
+</html>

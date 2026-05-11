@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "client": "2026-04-27-171900",
+  "generatedAt": "2026-04-27T21:55:26.476Z",
+  "sourceManifestPath": "squads/social-growth/output/2026-04-27-171900/review/campaign-manifest.json",
+  "exportDir": "squads/social-growth/output/2026-04-27-171900/social/publish",
+  "selectedAssets": 1,
+  "exportedAssets": 1,
+  "exports": [
+    {
+      "asset_id": "AC-30-21",
+      "type": "carrossel",
+      "status": "approved",
+      "source_preview_path": "creative/previews/AC-30-21.html",
+      "export_kind": "image_sequence_png",
+      "selector_used": ".slide",
+      "files": [
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-01.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-02.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-03.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-04.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-05.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-06.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-07.png",
+        "squads/social-growth/output/2026-04-27-171900/social/publish/ac-30-21/ac-30-21-08.png"
+      ]
+    }
+  ],
+  "failures": [],
+  "notes": [
+    "social-publish-assets-policy missing; using default statuses"
+  ]
+}

@@ -1,0 +1,46 @@
+name: "Social Growth Squad Pipeline"
+code: "social-growth"
+description: "Pipeline completo para pesquisa, estratégia, arquitetura editorial de blog, GEO de site, criação, otimização de descoberta, repurpose, direção visual, renderização, revisão, agendamento, publicação WordPress, monitoramento e análise estratégica."
+
+steps:
+  - pipeline/steps/step-000-ceo-orientation.md
+  - pipeline/steps/step-00-intake-sources.md
+  - pipeline/steps/step-00-social-intelligence.md
+  - pipeline/steps/step-01-build-client-record.md
+  - pipeline/steps/step-01b-geo-ai-discoverability.md
+  - pipeline/steps/step-01-research-market.md
+  - pipeline/steps/step-02-strategy-plan.md
+  - pipeline/steps/step-03aa-build-blog-topic-backlog.md
+  - pipeline/steps/step-03ba-build-blog-brief.md
+  - pipeline/steps/step-03bb-build-blog-architecture.md
+  - pipeline/steps/step-03d-create-blog-post.md
+  - pipeline/steps/step-03e-optimize-discovery-content.md
+  - pipeline/steps/step-03f-repurpose-content.md
+  - pipeline/steps/step-03-create-content.md
+  - pipeline/steps/step-03b-create-visual-direction.md
+  - pipeline/steps/step-03c-render-creative.md
+  - pipeline/steps/step-04-review-content.md
+  - pipeline/steps/step-04b-pipeline-compliance-audit.md
+  - pipeline/steps/step-05-approve-schedule.md
+  - pipeline/steps/step-06-schedule-delivery.md
+  - pipeline/steps/step-06b-publish-to-wordpress.md
+  - pipeline/steps/step-06c-publish-social.md
+  - pipeline/steps/step-06d-validate-seo.md
+  - pipeline/steps/step-07-monitor-health.md
+  - pipeline/steps/step-08-action-recommendations.md
+  - pipeline/steps/step-08-atos-analise-estrategica.md
+
+checkpoints:
+  - pipeline/steps/step-05-approve-schedule.md
+  - pipeline/steps/step-06c-publish-social.md
+
+formats:
+  - instagram-feed
+  - instagram-reels
+  - instagram-stories
+  - facebook-post
+  - tiktok-video
+  - pinterest-pin
+  - linkedin-post
+  - linkedin-article
+  - blog-post

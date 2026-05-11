@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-32 — Instagram Reels (4 frames)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark: #0D0D0D;
+      --text-white: #FFFFFF;
+      --accent-red: #DC2626;
+      --accent-gold: #D4AF37;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1a1a1a;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .preview-header h1 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .preview-header p {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .stories-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .frame-wrapper {
+      position: relative;
+      width: 360px;
+      height: 640px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .frame-wrapper:hover {
+      transform: scale(1.02);
+    }
+
+    .frame {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 28px 40px;
+    }
+
+    .frame::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .frame-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* Progress bars at top */
+    .progress-bars {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar.fill {
+      background: #fff;
+    }
+
+    /* Frame styles */
+    .frame-1 .frame-content { justify-content: center; text-align: center; }
+    .frame-2 .frame-content { justify-content: flex-start; }
+    .frame-3 .frame-content { justify-content: flex-start; }
+    .frame-4 .frame-content { justify-content: center; text-align: center; }
+
+    .frame-number {
+      position: absolute;
+      top: 32px;
+      right: 20px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 700;
+    }
+
+    .title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--text-white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .body-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: var(--accent-red);
+      font-weight: 700;
+    }
+
+    .proof {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: rgba(212, 175, 55, 0.12);
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .cta-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+
+    .cta-highlight {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-red);
+      padding: 10px 16px;
+      border: 2px solid var(--accent-red);
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    /* Frame 1 specific */
+    .frame-1 .title { font-size: 26px; }
+    .frame-1 .subtitle { font-size: 17px; }
+
+    /* Frame 2 specific */
+    .frame-2 .title { font-size: 24px; }
+    .frame-2 .body-text { font-size: 16px; }
+
+    /* Frame 3 specific */
+    .frame-3 .title { font-size: 22px; margin-bottom: 12px; }
+
+    /* Frame 4 specific */
+    .frame-4 .cta-text { font-size: 26px; }
+
+    .footer-info {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>AC-30-32 — Instagram Reels (Stories)</h1>
+      <p>4 frames • 1080x1920px • Dark Premium • texture-only</p>
+    </div>
+
+    <div class="stories-wrapper">
+      <!-- Frame 1 -->
+      <div class="frame-wrapper">
+        <div class="frame frame-1">
+          <div class="progress-bars">
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar"></div>
+            <div class="progress-bar"></div>
+            <div class="progress-bar"></div>
+          </div>
+          <span class="frame-number">1/4</span>
+          <div class="frame-content">
+            <div class="title">Este é o teste que nenhuma marca quer fazer ao vivo.</div>
+            <div class="subtitle">Teste de tração: o fio sustenta ou solta?<br>Vamos mostrar.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame 2 -->
+      <div class="frame-wrapper">
+        <div class="frame frame-2">
+          <div class="progress-bars">
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar"></div>
+            <div class="progress-bar"></div>
+          </div>
+          <span class="frame-number">2/4</span>
+          <div class="frame-content">
+            <div class="title">Puxe com força moderada.</div>
+            <div class="body-text">Se o fio cede na primeira tentativa, a qualidade é baixa.</div>
+            <div class="proof">Nossas peças suportam até 3kg de tração.<br>E não é marketing — é estrutura.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame 3 -->
+      <div class="frame-wrapper">
+        <div class="frame frame-3">
+          <div class="progress-bars">
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar"></div>
+          </div>
+          <span class="frame-number">3/4</span>
+          <div class="frame-content">
+            <div class="title">放大 Cada ponto leva 4 capturas internas.</div>
+            <div class="subtitle">Isso significa: mesmo puxando forte, o acabamento segura.</div>
+            <div class="proof" style="margin-top: 16px;">Não é um ponto simples — é estrutural.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame 4 -->
+      <div class="frame-wrapper">
+        <div class="frame frame-4">
+          <div class="progress-bars">
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+            <div class="progress-bar fill"></div>
+          </div>
+          <span class="frame-number">4/4</span>
+          <div class="frame-content">
+            <div class="cta-text">Quer ver o teste completo?</div>
+            <div class="cta-sub">Acompanhe nos stories.</div>
+            <div class="cta-highlight">Comenta "RESISTÊNCIA" para mais demonstrações</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <p>Cada frame representa uma ideia • Progresso visual no topo</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+:root {
+  --style-name: "motion-social";
+  --style-bg: #0d0d0d;
+  --style-bg-alt: #1a1a1a;
+  --style-surface: rgba(212, 175, 55, 0.06);
+  --style-surface-strong: rgba(212, 175, 55, 0.12);
+  --style-text-heading: #ffffff;
+  --style-text-body: #d4d4d4;
+  --style-text-muted: #8a8a8a;
+  --style-accent: #d4af37;
+  --style-accent-soft: color-mix(in srgb, #d4af37 22%, transparent);
+  --style-border: color-mix(in srgb, #d4af37 38%, transparent);
+  --style-heading-font: "Space Grotesk", "DM Sans", sans-serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.04;
+  --style-vignette-opacity: 0.55;
+  --style-gradient: radial-gradient(circle at 25% 15%, rgba(212, 175, 55, 0.12), transparent 35%), linear-gradient(140deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+}
+
+[data-text-variant="dark"] .title,
+[data-text-variant="dark"] .heading {
+  color: #ffffff;
+}
+
+[data-text-variant="dark"] .body-text,
+[data-text-variant="dark"] .subtitle {
+  color: #d4d4d4;
+}
+
+[data-text-variant="dark"] .proof-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 175, 55, 0.2);
+  color: #d4d4d4;
+  font-family: var(--style-heading-font);
+  font-weight: 500;
+}
+
+[data-text-variant="dark"] .cta-block {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 255, 255, 0.03));
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+[data-text-variant="dark"] .divider {
+  background: #d4af37;
+  box-shadow: 0 0 22px color-mix(in srgb, #d4af37 30%, transparent);
+}
+
+[data-text-variant="dark"] .header-zone {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+[data-text-variant="dark"] .brand-mark { color: #d4af37; }
+[data-text-variant="dark"] .footer-zone { color: rgba(255, 255, 255, 0.35); }
+[data-text-variant="dark"] .progress-bar { background: rgba(255, 255, 255, 0.08); }
+[data-text-variant="dark"] .progress-bar span { background: #d4af37; }
+[data-text-variant="dark"] .swipe-arrow { color: rgba(212, 175, 55, 0.5); }

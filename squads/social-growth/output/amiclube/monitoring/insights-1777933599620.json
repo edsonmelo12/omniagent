@@ -1,0 +1,59 @@
+{
+  "collected_at": "2026-05-04T22:26:39.619Z",
+  "client": "amiclube",
+  "period": "last_7_days",
+  "account_metrics": {
+    "follower_count": 13049,
+    "media_count": 266,
+    "reach": 0
+  },
+  "facebook_metrics": {
+    "page_name": "Amiclube - Por Sara Melo",
+    "fan_count": 1391,
+    "talking_about": 1,
+    "checkins": 0,
+    "impressions": 0,
+    "reach": 0,
+    "engaged_users": 0,
+    "views": 0
+  },
+  "posts": [
+    {
+      "media_id": "17913580023180478",
+      "media_type": "CAROUSEL_ALBUM",
+      "post_url": "https://www.instagram.com/p/DX7pOV5GqlV/",
+      "caption": "Preço baixo pode sair caro quando o critério fica de fora. 😬\n\nAntes de escolher um amigurumi só pel",
+      "published_at": "2026-05-04T21:32:14+0000",
+      "metrics": {
+        "views": 118,
+        "reach": 57,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saved": 0,
+        "total_interactions": 0
+      }
+    },
+    {
+      "media_id": "17937250560227563",
+      "media_type": "CAROUSEL_ALBUM",
+      "post_url": "https://www.instagram.com/p/DX2fpGZn__D/",
+      "caption": "5 sinais de um amigurumi premium.",
+      "published_at": "2026-05-02T21:32:22+0000",
+      "metrics": {
+        "views": 788,
+        "reach": 328,
+        "likes": 5,
+        "comments": 0,
+        "shares": 2,
+        "saved": 1,
+        "total_interactions": 8
+      }
+    }
+  ],
+  "summary": {
+    "total_posts": 2,
+    "total_views": 906,
+    "total_engagement": 8
+  }
+}

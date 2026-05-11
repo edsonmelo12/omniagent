@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "description": "Required publishable social copy fields and forbidden backstage/process markers in audience-facing social preview copy.",
+  "required_fields": [
+    "final_caption",
+    "cta",
+    "alt_text"
+  ],
+  "channel_rules": {
+    "instagram": {
+      "hashtags_required": true,
+      "recommended_hashtag_min": 5,
+      "recommended_hashtag_max": 10,
+      "link_rule": "Use link na bio, direct or interaction CTA when a clickable link is unavailable."
+    },
+    "facebook": {
+      "hashtags_required": false,
+      "recommended_hashtag_max": 3,
+      "link_rule": "Use a direct link in the caption when the article/product URL is available."
+    }
+  },
+  "live_publish_vetoes": [
+    "missing_final_caption",
+    "missing_cta",
+    "missing_alt_text",
+    "unaccented_pt_br_copy",
+    "internal_marker_in_visible_copy"
+  ],
+  "forbidden_markers": [
+    {
+      "id": "internal_asset_code",
+      "regex": "\\bac-\\d{2}-\\d{2}\\b",
+      "message": "internal asset code in visible copy"
+    },
+    {
+      "id": "internal_version_tag",
+      "regex": "\\bv\\d+\\b",
+      "message": "internal version tag in visible copy"
+    },
+    {
+      "id": "episode_code",
+      "regex": "epis[oó]dio\\s+ac-\\d{2}-\\d{2}",
+      "message": "episode+code marker in visible copy"
+    },
+    {
+      "id": "thesis_marker",
+      "regex": "tese do blog",
+      "message": "process thesis marker in visible copy"
+    },
+    {
+      "id": "sync_marker",
+      "regex": "sincronizado",
+      "message": "sync/process marker in visible copy"
+    },
+    {
+      "id": "repurpose_test",
+      "regex": "repurpose\\s+test",
+      "message": "test marker in visible copy"
+    },
+    {
+      "id": "skill_prefix",
+      "regex": "\\bskill:\\b",
+      "message": "skill metadata in visible copy"
+    },
+    {
+      "id": "technical_baseline",
+      "regex": "baseline\\s+premium",
+      "message": "technical baseline metadata in visible copy"
+    },
+    {
+      "id": "keyframes_label",
+      "regex": "\\bkeyframes?\\b",
+      "message": "production keyframe label in visible copy"
+    },
+    {
+      "id": "asset_label",
+      "regex": "\\basset:\\b",
+      "message": "asset metadata label in visible copy"
+    },
+    {
+      "id": "tool_name",
+      "regex": "\\b(social-visual-system|instagram-carousel|linkedin-carousel|stories-sequence|social-single-post|creative-director)\\b",
+      "message": "tool/skill name in visible copy"
+    },
+    {
+      "id": "hook_label",
+      "regex": "\\bhook\\b",
+      "message": "hook label in visible copy"
+    },
+    {
+      "id": "cta_label",
+      "regex": "\\bcta\\b",
+      "message": "cta label in visible copy"
+    },
+    {
+      "id": "briefing_phrase_authority",
+      "regex": "\\bautoridade de marca\\b",
+      "message": "briefing phrase in visible copy"
+    },
+    {
+      "id": "briefing_phrase_premium",
+      "regex": "\\bneg[oó]cio premium\\b",
+      "message": "briefing phrase in visible copy"
+    }
+  ]
+}

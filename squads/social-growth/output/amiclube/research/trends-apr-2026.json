@@ -1,0 +1,33 @@
+{
+  "trends": [
+    {
+      "topic": "Amigurumi de Veludo (Chenille)",
+      "strength": "Alta",
+      "context": "Busca por peças táteis e sensoriais para decoração premium."
+    },
+    {
+      "topic": "Precificação Dinâmica para Artesanato",
+      "strength": "Crítica",
+      "context": "Dúvida crescente sobre como embutir custos de IA e marketing no valor final."
+    },
+    {
+      "topic": "Micro-personagens para Acessórios",
+      "strength": "Emergente",
+      "context": "Amigurumis minúsculos para chaveiros de luxo e pingentes."
+    },
+    {
+      "topic": "Sustentabilidade no Enchimento",
+      "strength": "Estável",
+      "context": "Uso de resíduos têxteis e fibras naturais como diferencial de venda."
+    },
+    {
+      "topic": "Storytelling de Processo",
+      "strength": "Alta",
+      "context": "Audiência engajando mais em como a peça é feita do que na peça pronta."
+    }
+  ],
+  "market_gaps": [
+    "Falta de guias para transformar hobby em negócio real (SaaS para artesãs)",
+    "Escassez de conteúdo sobre ergonomia e saúde da artesã (dores nos pulsos/costas)"
+  ]
+}

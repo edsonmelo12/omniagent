@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "{{ISO_DATE}}",
+  "export_on_social_statuses": [
+    "review",
+    "approved",
+    "ready_to_schedule",
+    "scheduled",
+    "published"
+  ],
+  "enforce_on_social_statuses": [
+    "review",
+    "approved",
+    "ready_to_schedule",
+    "scheduled",
+    "published"
+  ],
+  "type_requirements": {
+    "carrossel": {
+      "min_files": 4,
+      "allowed_export_kinds": ["image_sequence_png", "image_sequence_jpeg"]
+    },
+    "stories": {
+      "min_files": 4,
+      "allowed_export_kinds": ["image_sequence_png", "image_sequence_jpeg"]
+    },
+    "reels": {
+      "min_files": 1,
+      "allowed_export_kinds": ["image_sequence_png", "image_sequence_jpeg", "video_mp4"]
+    },
+    "post": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png", "single_image_jpeg", "image_sequence_jpeg"]
+    },
+    "post estático": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png", "single_image_jpeg", "image_sequence_jpeg"]
+    },
+    "post oferta": {
+      "min_files": 1,
+      "allowed_export_kinds": ["single_image_png", "image_sequence_png", "single_image_jpeg", "image_sequence_jpeg"]
+    }
+  }
+}

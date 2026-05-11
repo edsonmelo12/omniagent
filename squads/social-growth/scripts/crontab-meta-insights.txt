@@ -1,0 +1,16 @@
+# Meta Insights Cron Configuration
+# ===============================
+# Run daily at 10:00 BRT (Brasília Time - UTC-3)
+# 
+# To install:
+#   crontab -e
+# Add the line below
+# ===============================
+
+# Meta Insights - Daily collection at 10:00 BRT
+0 10 * * * /home/edsonrmjunior/Local\ Sites/omniagent/squads/social-growth/scripts/run-meta-insights-cron.sh >> /home/edsonrmjunior/Local\ Sites/omniagent/squads/social-growth/logs/meta-insights-cron.log 2>&1
+
+# ===============================
+# Alternative: Weekly report on Monday at 10:00 BRT
+# ===============================
+# 0 10 * * 1 /home/edsonrmjunior/Local\ Sites/omniagent/squads/social-growth/scripts/run-meta-insights-cron.sh --weekly >> /home/edsonrmjunior/Local\ Sites/omniagent/squads/social-growth/logs/meta-insights-weekly.log 2>&1

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-10 | Reputação de marca artesanal · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&display=swap');
+    :root { --ink: #111827; --muted: #6b7280; --accent: #0f766e; --warm: #b45309; --card: #ffffff; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #f4f1ea 0%, #e8e2d6 46%, #ddd5c5 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+    .shield-col { min-width: 0; }
+    .shield-label {
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #8b8b8b;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, .16);
+      border: 1px solid rgba(15, 118, 110, .34);
+      color: #bbf7d0;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+    .frame {
+      width: min(340px, calc(100vw - 32px));
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 15, 10, .12);
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .18);
+    }
+    
+    /* Navegação via teclado: setas ← → */
+    body.preview-mode { overflow: auto; }
+    body.preview-mode .frame { cursor: grab; }
+    body.preview-mode .frame:active { cursor: grabbing; }
+    
+    .carousel { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; background: #0b1017; }
+    .wrapper { display: flex; width: 600%; height: 100%; transition: transform .42s cubic-bezier(.65, 0, .35, 1); }
+    .slide { width: calc(100% / 6); height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #111827; }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../blog/assets/AC-30-09-reputacao-marca-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.14);
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6, 10, 16, .18) 0%, rgba(6, 10, 16, .74) 100%),
+        linear-gradient(115deg, rgba(15, 118, 110, .08) 0%, rgba(180, 83, 9, .18) 100%);
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 34px 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .kicker {
+      color: #f9d2ac;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .title {
+      font-family: "DM Sans", "Inter", sans-serif;
+      font-size: 34px;
+      line-height: .95;
+      letter-spacing: -.04em;
+      font-weight: 800;
+      max-width: 11ch;
+      margin: 12px 0 10px;
+      text-wrap: balance;
+      text-shadow: 0 2px 12px rgba(0,0,0,.24);
+    }
+    .body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.92); max-width: 24ch; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+    .pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      padding: 12px 12px 14px;
+    }
+    .pill .label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .pill .headline {
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      font-family: "DM Sans", "Inter", sans-serif;
+    }
+    .pill .copy {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.92);
+    }
+    .truth-card {
+      background: rgba(255,255,255,.95);
+      color: #1f2937;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 16px 30px rgba(0,0,0,.18);
+    }
+    .truth-kicker {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .truth-title { font-family: "DM Sans", "Inter", sans-serif; font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+    .truth-copy { margin-top: 10px; font-size: 13px; line-height: 1.5; color: #3f3f46; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--warm);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    /* .nav buttons foram removidos do HTML */
+    .carousel { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; background: #0b1017; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .progress {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 4px;
+      background: rgba(255,255,255,.12);
+      z-index: 8;
+    }
+    .progress-fill { height: 100%; width: 16.6666%; background: linear-gradient(90deg, #f59e0b, #dc4c5d); transition: width .25s ease; }
+    @media (max-width: 1240px) { .shield-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body class="preview-mode">
+  <div class="frame">
+    <div class="carousel">
+    <div class="carousel">
+      <!-- .nav buttons removidos: navegação via JS não aparece no screenshot -->
+      <div class="wrapper" id="wrapper">
+        <section class="slide">
+          <div class="bg"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div>
+              <div class="kicker">REPUTA��ÃO</div>
+              <div class="title">FOTO BONITA NÃO BASTA</div>
+              <div class="body">5 sinais para evaluar uma marca artesanal antes de comprar.</div>
+            </div>
+            <div class="split">
+              <div class="pill">
+                <div class="label">PROBLEMA</div>
+                <div class="headline">FOTO<br>BONITA</div>
+                <div class="copy">Não cria reputação real.</div>
+              </div>
+              <div class="truth-card">
+                <div class="truth-kicker">SOLUÇÃO</div>
+                <div class="truth-title">COERÊNCIA OBSERVÁVEL</div>
+                <div class="truth-copy">Vários sinais apontando na mesma direção.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.2);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="truth-card" style="background: rgba(255,255,255,.12); color:#fff; border-color: rgba(255,255,255,.18);">
+              <div class="truth-kicker" style="color:#f9d2ac;">SINAL 1</div>
+              <div class="truth-title" style="font-size:30px; color:#fff;">ACABAMENTO VISÍVEL</div>
+              <div class="truth-copy" style="color:rgba(255,255,255,.92);">A marca mostra detalhe, textura, proximidade. Não só foto heroica.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">verificar close</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.2); opacity:.92;"></div>
+          <div class="overlay" style="background:linear-gradient(180deg, rgba(6,10,16,.16) 0%, rgba(6,10,16,.78) 100%), linear-gradient(120deg, rgba(15,118,110,.10) 0%, rgba(180,83,9,.10) 100%);"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="truth-card">
+              <div class="truth-kicker">SINAL 2</div>
+              <div class="truth-title">CLAREZA COMERCIAL</div>
+              <div class="truth-copy">Prazo, personalização, forma de pedido e contato compreensíveis.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">verificar processo</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.18); opacity:.84;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="truth-card" style="background: rgba(255,255,255,.95);">
+              <div class="truth-kicker">SINAL 3</div>
+              <div class="truth-title">LINGUAGEM COM CRITÉRIO</div>
+              <div class="truth-copy">A marca evita promessas vazias e comunica com sobriedade.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">verificar tom</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.18); opacity:.82;"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="truth-card">
+              <div class="truth-kicker">SINAL 4</div>
+              <div class="truth-title">DEPOIMENTOS ESPECÍFICOS</div>
+              <div class="truth-copy">Relatos sobre foto vs. realidade, apresentação e atendimento.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">verificar provas</div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(10px) saturate(1.02); transform: scale(1.2); opacity:.66;"></div>
+          <div class="overlay" style="background:linear-gradient(180deg, rgba(6,10,16,.12) 0%, rgba(6,10,16,.84) 100%);"></div>
+          <div class="content" style="justify-content:center; align-items:center; text-align:center;">
+            <div class="truth-card" style="max-width: 300px;">
+              <div class="truth-kicker">CHECKLIST</div>
+              <div class="truth-title">7 PERGUNTAS</div>
+              <div class="truth-copy">1. Close visível? 2. Imagens consistentes? 3. Prazo claro? 4. Linguagem com critério? 5. Depoimentos específicos? 6. Apresentação premiums? 7. Conjunto inspira confiança?</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">salvar checklist</div>
+          </div>
+        </section>
+      </div>
+      <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const total = 6;
+    const wrapper = document.getElementById("wrapper");
+    const progress = document.getElementById("progress");
+    function move(delta) {
+      current = (current + delta + total) % total;
+      wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+    }
+    // Navegação via teclado (← →)
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') move(-1);
+      if (e.key === 'ArrowRight') move(1);
+    });
+    // Navegação via drag/swipe
+    let startX = 0;
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mousedown', e => startX = e.clientX);
+    carousel.addEventListener('mouseup', e => {
+      const diff = e.clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+  </script>
+</body>
+</html>

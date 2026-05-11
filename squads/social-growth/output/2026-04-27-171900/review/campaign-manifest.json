@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "client": "2026-04-27-171900",
+  "generatedAt": "2026-04-27T17:19:00-03:00",
+  "assets": {
+    "social": [
+      {
+        "assetId": "AC-30-21",
+        "type": "carrossel",
+        "status": "approved",
+        "canonicalPreviewPath": "creative/previews/AC-30-21.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<title>AC-30-25 v4 | Estética Dark Luxo</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:16px;font-family:'DM Sans',sans-serif}
+
+.carousel-viewport{width:360px;height:450px;overflow:hidden;position:relative;cursor:grab;user-select:none;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.carousel-viewport:active{cursor:grabbing}
+
+.carousel-track{display:flex;height:100%;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform}
+
+.frame{width:360px;height:450px;position:relative;overflow:hidden;flex-shrink:0}
+.frame-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.frame-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.7) 100%)}
+.frame-solid{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:#1A1A1A}
+.frame-gradient-gold{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:linear-gradient(135deg,#1A1A1A 0%,#2a2520 50%,#B48A1D 100%)}
+.frame-texture{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:#1A1A1A}
+.frame-texture::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B48A1D' fill-opacity='0.08'%3E%3Cpath d='M36 34h-2v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4h-2v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4h-2v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4h-2v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z'/%3E%3C/g%3E%3C/svg%3E");opacity:0.5}
+.frame-detail{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background:#1A1A1A}
+.frame-detail::after{content:'';position:absolute;top:20%;right:10%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(180,138,29,0.15) 0%,transparent 70%);filter:blur(20px)}
+
+.frame-content{position:relative;z-index:2;padding:40px 24px;display:flex;flex-direction:column;height:100%;color:#fff}
+.frame-content .mid-section{flex:1;display:flex;flex-direction:column;justify-content:center}
+
+/* Progress bar */
+.progress-bar{position:absolute;top:12px;left:12px;right:12px;z-index:10;display:flex;align-items:center;gap:4px}
+.progress-segment{height:3px;border-radius:2px;overflow:hidden;flex:1;background:rgba(255,255,255,0.3)}
+.progress-fill{height:100%;background:#fff;width:100%;transition:width 0.3s ease}
+
+/* Typography */
+.headline{font-family:'Playfair Display',serif;font-size:28px;line-height:1.15;font-weight:700;margin-bottom:12px}
+.headline.lg{font-size:32px}
+.headline.sm{font-size:22px}
+
+.subhead{font-size:14px;line-height:1.5;opacity:0.85;margin-bottom:12px}
+
+/* Gold accent line */
+.gold-line{width:40px;height:2px;background:#B48A1D;margin:16px 0}
+
+/* CTA frame */
+.frame-cta{text-align:center}
+.cta-btn{display:inline-block;padding:14px 32px;background:#B48A1D;color:#1A1A1A;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;border-radius:4px}
+
+/* Navigation */
+.nav-arrow{position:absolute;right:0;top:0;bottom:0;width:40px;z-index:20;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.2s}
+.nav-arrow:hover{opacity:1}
+.nav-arrow svg{width:20px;height:20px;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+
+/* Dots */
+.frame-dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:10}
+.frame-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s}
+.frame-dot.active{background:#fff;transform:scale(1.3)}
+
+/* Preview controls */
+.preview-controls{position:fixed;top:16px;right:16px;z-index:100;display:flex;gap:8px}
+.preview-btn{background:#fff;color:#111;border:none;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
+
+@media(prefers-reduced-motion){.carousel-track{transition:none}}
+
+/* Export mode - hide UI */
+body.export-mode .nav-arrow,
+body.export-mode .frame-dots,
+body.export-mode .preview-controls{display:none !important}
+body.export-mode .progress-segment{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="preview-controls">
+  <button class="preview-btn" onclick="prevFrame()">← Anterior</button>
+  <button class="preview-btn" onclick="nextFrame()">Próximo →</button>
+</div>
+
+<div class="carousel-viewport" id="viewport">
+  <div class="carousel-track" id="track" style="transform:translateX(0px)">
+
+    <!-- Frame 1: Abertura - hero image -->
+    <div class="frame">
+      <img class="frame-bg" src="../../blog/assets/AC-30-05b-veludo-luxo-hero.jpg" alt="Veludo">
+      <div class="frame-overlay"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section">
+          <div class="headline lg">ESTÉTICA DARK LUXO</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot active"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div></div>
+    </div>
+
+    <!-- Frame 2: Gold gradient accent -->
+    <div class="frame">
+      <div class="frame-gradient-gold"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section">
+          <div class="headline">Por que veludo?</div>
+          <div class="gold-line"></div>
+          <div class="subhead">A escolha que define a percepção de luxo no artesanal.</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot"></div><div class="frame-dot active"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div></div>
+    </div>
+
+    <!-- Frame 3: Texture pattern -->
+    <div class="frame">
+      <div class="frame-texture"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section">
+          <div class="headline sm">Sensação tátil</div>
+          <div class="subhead">O primeiro toque define a memória de qualidade. Veludo grosso cria percepção instantânea de cuidado.</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot active"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div></div>
+    </div>
+
+    <!-- Frame 4: Light detail glow -->
+    <div class="frame">
+      <div class="frame-detail"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section">
+          <div class="headline sm">Brilho sutil</div>
+          <div class="subhead">A luz reflete de forma uniforme, criando um halo de sofisticação sem ser vulgar.</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot active"></div><div class="frame-dot"></div><div class="frame-dot"></div></div>
+    </div>
+
+    <!-- Frame 5: Solid dark -->
+    <div class="frame">
+      <div class="frame-solid"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section">
+          <div class="headline sm">Durabilidade</div>
+          <div class="subhead">Fibras densas mantêm a aparência por mais tempo, mesmo após lavagens.</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot active"></div><div class="frame-dot"></div></div>
+    </div>
+
+    <!-- Frame 6: CTA with Link -->
+    <div class="frame" style="background:#B48A1D">
+      <div class="frame-solid" style="background:#1A1A1A"></div>
+      <div class="progress-bar"><div class="progress-segment"><div class="progress-fill"></div></div></div>
+      <div class="frame-content">
+        <div class="mid-section frame-cta">
+          <div class="headline sm">DESCUBRA O TOQUE</div>
+          <div class="subhead" style="color:rgba(255,255,255,0.9);margin-bottom:20px">O link está na bio — clique para ler o artigo completo.</div>
+          <div class="cta-btn">LINK NA BIO</div>
+        </div>
+      </div>
+      <div class="frame-dots"><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot"></div><div class="frame-dot active"></div></div>
+    </div>
+
+  </div>
+
+  <div class="nav-arrow" id="arrowRight" onclick="nextFrame()">
+    <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+  </div>
+</div>
+
+<script>
+// Frame navigation with keyboard support
+const TOTAL = 6;
+let current = 0;
+const track = document.getElementById('track');
+const VIEWPORT_WIDTH = 360;
+
+function goTo(i) {
+  if (i < 0 || i >= TOTAL) return;
+  current = i;
+  track.style.transform = 'translateX(' + (-current * VIEWPORT_WIDTH) + 'px)';
+  
+  document.querySelectorAll('.frame-dot').forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === current);
+  });
+}
+
+function nextFrame() { goTo(current + 1); }
+function prevFrame() { goTo(current - 1); }
+
+// Touch/swipe support
+let startX = 0, isDragging = false, dragStartX = 0, dragOffset = 0;
+const vp = document.getElementById('viewport');
+
+vp.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  dragStartX = current * VIEWPORT_WIDTH;
+  vp.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  dragOffset = e.clientX - startX;
+  track.style.transition = 'none';
+  track.style.transform = 'translateX(' + (-dragStartX + dragOffset) + 'px)';
+});
+
+document.addEventListener('mouseup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  vp.style.cursor = 'grab';
+  track.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';
+  if (Math.abs(dragOffset) > 50) {
+    dragOffset > 0 ? goTo(current - 1) : goTo(current + 1);
+  } else {
+    goTo(current);
+  }
+  dragOffset = 0;
+});
+
+vp.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  dragStartX = current * VIEWPORT_WIDTH;
+}, {passive: true});
+
+vp.addEventListener('touchmove', (e) => {
+  dragOffset = e.touches[0].clientX - startX;
+  track.style.transition = 'none';
+  track.style.transform = 'translateX(' + (-dragStartX + dragOffset) + 'px)';
+}, {passive: true});
+
+vp.addEventListener('touchend', () => {
+  track.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)';
+  if (Math.abs(dragOffset) > 50) {
+    dragOffset > 0 ? goTo(current - 1) : goTo(current + 1);
+  } else {
+    goTo(current);
+  }
+  dragOffset = 0;
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextFrame();
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevFrame();
+});
+
+// Initialize
+goTo(0);
+</script>
+
+</body>
+</html>

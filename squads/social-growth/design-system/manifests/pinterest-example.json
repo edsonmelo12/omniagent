@@ -1,0 +1,20 @@
+{
+  "asset_id": "AC-30-DS-PIN",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "minimalist-texture",
+  "format": "pinterest-pin",
+  "title": "Guia de Qualidade para Amigurumi",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "GUIA COMPLETO",
+      "title": "Como escolher um amigurumi de qualidade",
+      "body": "7 sinais que todo comprador precisa conhecer antes de comprar.",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#F5F4F0" }
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-30-07 — Instagram Stories (4 frames)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0D0D0D;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 360px;
+        }
+        .header {
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        .stories-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1080/1920;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255,45,149,0.2);
+        }
+        .stories-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+        .frame {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 40px;
+            text-align: center;
+        }
+        .frame-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .frame-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(12px);
+        }
+        .frame-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(26,10,46,0.7) 0%, rgba(13,13,13,0.9) 100%);
+            z-index: 1;
+        }
+        .frame-content {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+        }
+        .frame-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .frame-content p {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .frame-content .highlight {
+            color: #FF2D95;
+            font-weight: 700;
+        }
+        .frame-content .cta-frame {
+            background: linear-gradient(135deg, #F4D03F 0%, #FFD700 50%, #DAA520 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            color: #0D0D0D;
+        }
+        .frame-content .cta-frame h2 {
+            font-size: 38px;
+            color: #0D0D0D;
+        }
+        .frame-content .cta-frame p {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0D0D0D;
+        }
+        .frame-1 .frame-content h2 {
+            font-size: 48px;
+        }
+        .frame-4 .frame-bg {
+            display: none;
+        }
+        .frame-4 .frame-overlay {
+            display: none;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .dot {
+            width: 30px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .dot.active {
+            background: #FF2D95;
+        }
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            gap: 4px;
+            padding: 16px 12px;
+            z-index: 10;
+        }
+        .progress-segment {
+            flex: 1;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-segment.active {
+            background: #FFFFFF;
+        }
+        .progress-segment .fill {
+            height: 100%;
+            background: #FF2D95;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .progress-segment.active .fill {
+            width: 100%;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid #FF2D95;
+            background: transparent;
+            color: #FF2D95;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover {
+            background: #FF2D95;
+            color: #0D0D0D;
+        }
+        .compliance {
+            margin-top: 30px;
+            background: rgba(255,45,149,0.1);
+            border: 1px solid rgba(255,45,149,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            color: #FFFFFF;
+            font-size: 11px;
+        }
+        .compliance h4 {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #FF2D95;
+        }
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .compliance-item {
+            display: flex;
+            gap: 6px;
+        }
+        .compliance-label {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AC-30-07 — Instagram Stories</h1>
+            <p>1080x1920px • 4 Frames • Motion Social</p>
+        </div>
+        
+        <div class="stories-wrapper">
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-segment active"><div class="fill"></div></div>
+                <div class="progress-segment"><div class="fill"></div></div>
+                <div class="progress-segment"><div class="fill"></div></div>
+                <div class="progress-segment"><div class="fill"></div></div>
+            </div>
+            
+            <div class="stories-track" id="track">
+                <!-- Frame 1: Hook -->
+                <div class="frame frame-1">
+                    <div class="frame-bg">
+                        <img src="../../blog/assets/AC-30-05-source-price-tag-pexels.jpg" alt="Background">
+                    </div>
+                    <div class="frame-overlay"></div>
+                    <div class="frame-content">
+                        <h2>Você comprou R$ 35...</h2>
+                        <p>6 meses depois:<br><span class="highlight">costuras abertas</span></p>
+                    </div>
+                </div>
+                
+                <!-- Frame 2: Ponto de Vista -->
+                <div class="frame frame-2">
+                    <div class="frame-bg">
+                        <img src="../../blog/assets/AC-30-05-source-price-tag-pexels.jpg" alt="Background">
+                    </div>
+                    <div class="frame-overlay"></div>
+                    <div class="frame-content">
+                        <h2>A diferença não aparece na foto.</h2>
+                        <p>Aparece no toque, na<brsegurança, na durabilidade</p>
+                    </div>
+                </div>
+                
+                <!-- Frame 3: Prova -->
+                <div class="frame frame-3">
+                    <div class="frame-bg">
+                        <img src="../../blog/assets/AC-30-05-source-price-tag-pexels.jpg" alt="Background">
+                    </div>
+                    <div class="frame-overlay"></div>
+                    <div class="frame-content">
+                        <h2 style="color:#2D6A4F;">Fibra premium</h2>
+                        <p>por dentro E por fora.<br>Travas de segurança.<br><strong>Anos, não meses.</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Frame 4: CTA -->
+                <div class="frame frame-4" style="background: linear-gradient(135deg, #F4D03F 0%, #FFD700 50%, #DAA520 100%);">
+                    <div class="frame-content cta-frame">
+                        <h2>ENVIA "CHECKLIST"</h2>
+                        <p>NO DIRECT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dots" id="dots"></div>
+        
+        <div class="controls">
+            <button class="nav-btn" onclick="prevFrame()">← Anterior</button>
+            <button class="nav-btn" onclick="nextFrame()">Próximo →</button>
+        </div>
+        
+        <div class="compliance">
+            <h4>Render Compliance Card — AC-30-07</h4>
+            <div class="compliance-grid">
+                <div class="compliance-item"><span class="compliance-label">Canvas:</span> 1080x1920px</div>
+                <div class="compliance-item"><span class="compliance-label">Style:</span> Motion Social</div>
+                <div class="compliance-item"><span class="compliance-label">Bg Image:</span> AC-30-05-source-price-tag-pexels.jpg</div>
+                <div class="compliance-item"><span class="compliance-label">Treatment:</span> blur 12px + gradient #1A0A2E→#0D0D0D</div>
+                <div class="compliance-item"><span class="compliance-label">Typography:</span> Poppins Bold/Regular</div>
+                <div class="compliance-item"><span class="compliance-label">Min Font:</span> 38px ✓</div>
+                <div class="compliance-item"><span class="compliance-label">Palette:</span> #0D0D0D #FFFFFF #FF2D95 #F4D03F</div>
+                <div class="compliance-item"><span class="compliance-label">Nav:</span> dots + progress</div>
+                <div class="compliance-item"><span class="compliance-label">Status:</span> <span style="color:#2D6A4F;">ready</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentFrame = 0;
+        const totalFrames = 4;
+        const track = document.getElementById('track');
+        const dotsContainer = document.getElementById('dots');
+        const progressBar = document.getElementById('progressBar');
+        
+        for(let i = 0; i < totalFrames; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToFrame(i);
+            dotsContainer.appendChild(dot);
+        }
+        
+        function updateFrame() {
+            track.style.transform = `translateX(-${currentFrame * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentFrame);
+            });
+            document.querySelectorAll('.progress-segment').forEach((seg, i) => {
+                seg.classList.toggle('active', i <= currentFrame);
+                const fill = seg.querySelector('.fill');
+                if(i < currentFrame) {
+                    fill.style.width = '100%';
+                } else if(i === currentFrame) {
+                    fill.style.width = '0%';
+                    setTimeout(() => fill.style.width = '100%', 50);
+                } else {
+                    fill.style.width = '0%';
+                }
+            });
+        }
+        
+        function nextFrame() {
+            currentFrame = (currentFrame + 1) % totalFrames;
+            updateFrame();
+        }
+        
+        function prevFrame() {
+            currentFrame = (currentFrame - 1 + totalFrames) % totalFrames;
+            updateFrame();
+        }
+        
+        function goToFrame(n) {
+            currentFrame = n;
+            updateFrame();
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowRight' || e.key === 'ArrowDown') nextFrame();
+            if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevFrame();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "asset_id": "ac-30-design-system-demo",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "title": "Demo Design System — Instagram Carousel",
+  "topic": "Marketing digital",
+  "deck_label": "squad visual",
+  "footer": "AmiClube",
+  "style": "dark-premium",
+  "format": "instagram-carousel",
+  "canvas": { "width": 1080, "height": 1350 },
+  "preview": { "width": 420, "height": 525 },
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Nova estrutura",
+      "background": { "type": "solid", "color": "#0D0D0D", "texture": "noise-4" },
+      "title": { "text": "Menos tokens. Mais consistência visual." },
+      "subtitle": { "text": "O Design System transforma briefing criativo em HTML pronto sem o LLM codar layout do zero." }
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ganho 1",
+      "background": { "type": "solid", "color": "#151515" },
+      "heading": { "text": "O agente decide. O engine monta." },
+      "body": { "text": "O Visual Director gera um JSON compacto. O motor aplica template, estilo, tipografia e componentes de forma determinística." }
+    },
+    {
+      "type": "content",
+      "eyebrow": "Ganho 2",
+      "background": { "type": "gradient", "from": "#0D0D0D", "to": "#241F12" },
+      "heading": { "text": "Qualidade previsível em cada lote." },
+      "body": { "text": "O carrossel mantém zonas, espaçamento, export-mode e componentes testados, reduzindo clipping e variação indesejada." }
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Próximo passo",
+      "background": { "type": "solid", "color": "#0A0A0A" },
+      "title": { "text": "Pronto para escalar." },
+      "body": { "text": "Novos presets podem ser criados ou importados sem mexer no pipeline." },
+      "cta": { "text": "Aplicar na próxima run" }
+    }
+  ],
+  "design_tokens": {
+    "accent_color": "#D4AF37",
+    "heading_font": "Playfair Display",
+    "body_font": "DM Sans",
+    "noise_opacity": 0.04
+  },
+  "first_impression": {
+    "image_crop": "not used",
+    "role": "authority",
+    "similarity_risk": "low"
+  }
+}

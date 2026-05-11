@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-32 v2 — Instagram Reels (4 frames)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-purple: #1E1B4B;
+      --text-white: #FFFFFF;
+      --accent-cyan: #06B6D4;
+      --accent-lime: #84CC16;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .preview-header h1 {
+      font-size: 24px;
+      color: #1E1B4B;
+      margin-bottom: 8px;
+    }
+
+    .preview-header p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .preview-meta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: #1E1B4B;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .badge.style {
+      background: #06B6D4;
+    }
+
+    .reels-wrapper {
+      position: relative;
+      width: 405px;
+      height: 720px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .reels-track {
+      display: flex;
+      flex-direction: column;
+      width: 405px;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .frame {
+      width: 405px;
+      height: 720px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      background: var(--bg-purple);
+    }
+
+    .frame::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(30,27,75,0.3) 0%, transparent 30%, transparent 70%, rgba(30,27,75,0.5) 100%);
+      pointer-events: none;
+    }
+
+    .frame-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+    }
+
+    .frame-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .frame-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .frame-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .frame-title.highlight {
+      color: var(--accent-cyan);
+    }
+
+    .frame-body {
+      font-size: 24px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .frame-proof {
+      font-size: 18px;
+      color: var(--accent-lime);
+      font-weight: 700;
+    }
+
+    .frame-cta {
+      font-size: 20px;
+      color: var(--text-white);
+      margin-top: 20px;
+    }
+
+    .frame-cta span {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .progress-bars {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px;
+      width: 405px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .progress-bar {
+      height: 4px;
+      flex: 1;
+      background: rgba(0,0,0,0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    .progress-bar-fill.active {
+      width: 100%;
+    }
+
+    .nav-controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .nav-btn {
+      background: #1E1B4B;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .nav-btn:hover {
+      opacity: 0.8;
+    }
+
+    .nav-btn:disabled {
+      background: #D1D5DB;
+      cursor: not-allowed;
+    }
+
+    .export-info {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: #E5E7EB;
+      border-radius: 8px;
+    }
+
+    .export-info h3 {
+      font-size: 16px;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .export-info p {
+      font-size: 14px;
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>AC-30-32 v2 — Instagram Reels</h1>
+      <p>4 frames • Motion Social • 1080x1920px</p>
+      <div class="preview-meta">
+        <span class="badge">v2</span>
+        <span class="badge style">Motion Social</span>
+        <span class="badge">AC-30-09B</span>
+      </div>
+    </div>
+
+    <div class="progress-bars" id="progressBars">
+      <div class="progress-bar"><div class="progress-bar-fill active"></div></div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+    </div>
+
+    <div class="reels-wrapper">
+      <div class="reels-track" id="track">
+        <!-- Frame 1: Hook -->
+        <div class="frame frame-1">
+          <span class="frame-number">1/4</span>
+          <div class="frame-content">
+            <span class="frame-icon">🔍</span>
+            <h2 class="frame-title">Você saberia<span class="highlight"> testar?</span></h2>
+            <p class="frame-body">(spoiler: 1 de 7)</p>
+          </div>
+        </div>
+
+        <!-- Frame 2: Demo -->
+        <div class="frame frame-2">
+          <span class="frame-number">2/4</span>
+          <div class="frame-content">
+            <span class="frame-icon">✋</span>
+            <h2 class="frame-title">Puxe os<span class="highlight">olhos</span></h2>
+            <p class="frame-body">Se cede = alerta</p>
+            <p class="frame-proof">Nossas peças: 4 capturas</p>
+          </div>
+        </div>
+
+        <!-- Frame 3: Detail -->
+        <div class="frame frame-3">
+          <span class="frame-number">3/4</span>
+          <div class="frame-content">
+            <span class="frame-icon">🔒</span>
+            <h2 class="frame-title highlight">4 capturas<span class="highlight">internas</span></h2>
+            <p class="frame-body">Cada ponto segura</p>
+            <p class="frame-proof">Não é 1 ponto — é estrutural</p>
+          </div>
+        </div>
+
+        <!-- Frame 4: CTA -->
+        <div class="frame frame-4">
+          <span class="frame-number">4/4</span>
+          <div class="frame-content">
+            <span class="frame-icon">📲</span>
+            <h2 class="frame-title">Quer ver<span class="highlight"> o teste?</span></h2>
+            <p class="frame-cta">Comenta <span>PROVA</span></p>
+            <p class="frame-body">+ demonstrações</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevFrame()">← Anterior</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextFrame()">Próximo →</button>
+    </div>
+
+    <div class="export-info">
+      <h3>Export Ready</h3>
+      <p>4 PNGs • 1080x1920px • 2x Retina</p>
+    </div>
+  </div>
+
+  <script>
+    let currentFrame = 0;
+    const totalFrames = 4;
+    const track = document.getElementById('track');
+    const bars = document.querySelectorAll('.progress-bar-fill');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateReels() {
+      track.style.transform = `translateY(-${currentFrame * 720}px)`;
+      
+      bars.forEach((bar, i) => {
+        bar.classList.toggle('active', i <= currentFrame);
+      });
+      
+      prevBtn.disabled = currentFrame === 0;
+      nextBtn.disabled = currentFrame === totalFrames - 1;
+    }
+
+    function prevFrame() {
+      if (currentFrame > 0) {
+        currentFrame--;
+        updateReels();
+      }
+    }
+
+    function nextFrame() {
+      if (currentFrame < totalFrames - 1) {
+        currentFrame++;
+        updateReels();
+      }
+    }
+
+    updateReels();
+  </script>
+</body>
+</html>

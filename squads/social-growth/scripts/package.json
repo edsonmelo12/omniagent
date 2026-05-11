@@ -1,0 +1,12 @@
+{
+  "name": "social-growth-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dashboard:update": "node update-dashboard-data.mjs",
+    "dashboard:serve": "node serve-dashboard.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

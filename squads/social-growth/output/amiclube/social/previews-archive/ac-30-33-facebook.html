@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-33 — Facebook Post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-white: #FFFFFF;
+      --text-navy: #1E3A8A;
+      --accent-green: #16A34A;
+      --accent-gold: #D4AF37;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #e8e8e8;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .preview-header h1 {
+      font-size: 24px;
+      color: #1E3A8A;
+      margin-bottom: 8px;
+    }
+
+    .preview-header p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .post-wrapper {
+      width: 600px;
+      height: 315px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .post {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-white);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 40px;
+    }
+
+    .post-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text-navy);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--text-navy);
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    .body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .check-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .check-icon::after {
+      content: '✓';
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .check-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: var(--text-navy);
+      line-height: 1.4;
+    }
+
+    .check-text strong {
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 2px solid rgba(30, 58, 138, 0.1);
+    }
+
+    .signature {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: var(--text-navy);
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    .footer-info {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>AC-30-33 — Facebook Post</h1>
+      <p>1 frame • 1200x630px • Editorial Magazine • no-image-justified</p>
+    </div>
+
+    <div class="post-wrapper">
+      <div class="post">
+        <div class="post-content">
+          <div class="header">
+            <div class="title">Compromisso de Segurança Artesanal</div>
+            <div class="subtitle">Na AmiClube, não vendemos apenas — vendemos segurança confirmada.</div>
+          </div>
+
+          <div class="body">
+            <div class="checklist-item">
+              <div class="check-icon"></div>
+              <div class="check-text"><strong>Verificação de acabamento</strong> — zeros irregularidades, acabamento limpo</div>
+            </div>
+
+            <div class="checklist-item">
+              <div class="check-icon"></div>
+              <div class="check-text"><strong>Teste de tração</strong> — cada ponto sustenta até 3kg de força</div>
+            </div>
+
+            <div class="checklist-item">
+              <div class="check-icon"></div>
+              <div class="check-text"><strong>Check de materiais</strong> — composição declarada e rastreável</div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div class="signature">E isso não é marketing. É protocolo.</div>
+            <a href="#" class="link">FAQ de Segurança →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <p>Post estático • Layout clean typography-led com ícones de verificação</p>
+    </div>
+  </div>
+</body>
+</html>

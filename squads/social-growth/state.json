@@ -1,0 +1,33 @@
+{
+  "squad": "social-growth",
+  "status": "running",
+  "step": { "current": 4, "total": 26, "label": "step-01-build-client-record" },
+  "agents": [
+    {"id": "atlas-ceo", "name": "Atlas CEO", "icon": "👑", "status": "done", "deliverTo": null, "desk": {"col": 1, "row": 1}},
+    {"id": "researcher", "name": "Researcher", "icon": "🔎", "status": "done", "deliverTo": null, "desk": {"col": 2, "row": 1}},
+    {"id": "strategist", "name": "Strategist", "icon": "🧭", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 1}},
+    {"id": "blog-architect", "name": "Blog Architect", "icon": "🏗️", "status": "idle", "deliverTo": null, "desk": {"col": 1, "row": 2}},
+    {"id": "creator", "name": "Creator", "icon": "✍️", "status": "idle", "deliverTo": null, "desk": {"col": 2, "row": 2}},
+    {"id": "blog-writer", "name": "Blog Writer", "icon": "📝", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 2}},
+    {"id": "discovery-optimizer", "name": "Discovery Optimizer", "icon": "🔍", "status": "idle", "deliverTo": null, "desk": {"col": 1, "row": 3}},
+    {"id": "geo-audit", "name": "Geo Audit", "icon": "🌐", "status": "idle", "deliverTo": null, "desk": {"col": 2, "row": 3}},
+    {"id": "content-repurposer", "name": "Content Repurposer", "icon": "🔁", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 3}},
+    {"id": "visual-director", "name": "Visual Director", "icon": "🎨", "status": "idle", "deliverTo": null, "desk": {"col": 1, "row": 4}},
+    {"id": "creative-renderer", "name": "Creative Renderer", "icon": "🖼️", "status": "idle", "deliverTo": null, "desk": {"col": 2, "row": 4}},
+    {"id": "reviewer", "name": "Reviewer", "icon": "🧪", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 4}},
+    {"id": "pipeline-auditor", "name": "Pipeline Auditor", "icon": "🛡️", "status": "idle", "deliverTo": null, "desk": {"col": 1, "row": 5}},
+    {"id": "wagner-wordpress", "name": "Wagner WordPress", "icon": "📰", "status": "idle", "deliverTo": null, "desk": {"col": 2, "row": 5}},
+    {"id": "scheduler", "name": "Scheduler", "icon": "📅", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 5}},
+    {"id": "monitor", "name": "Monitor", "icon": "📈", "status": "idle", "deliverTo": null, "desk": {"col": 1, "row": 6}},
+    {"id": "intake", "name": "Intake", "icon": "🗂️", "status": "done", "deliverTo": null, "desk": {"col": 2, "row": 6}},
+    {"id": "atos-analista", "name": "Atos Analista", "icon": "📊", "status": "idle", "deliverTo": null, "desk": {"col": 3, "row": 6}}
+  ],
+  "handoff": {
+    "from": "intake",
+    "to": "researcher",
+    "message": "Intake concluído. Fontes do AmiClube compiladas: site, Instagram, Facebook, YouTube, Pinterest. Pronto para pesquisa de inteligência social.",
+    "completedAt": "2026-05-11T01:00:42Z"
+  },
+  "startedAt": "2026-05-10T10:45:00Z",
+  "updatedAt": "2026-05-11T01:01:30Z"
+}

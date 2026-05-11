@@ -1,0 +1,30 @@
+{
+  "squad": "social-growth",
+  "status": "completed",
+  "step": { "current": 22, "total": 22, "label": "review-content" },
+  "agents": [
+    { "id": "researcher", "name": "Researcher", "icon": "🔎", "status": "idle", "deliverTo": null, "desk": { "col": 1, "row": 1 } },
+    { "id": "strategist", "name": "Strategist", "icon": "🧭", "status": "idle", "deliverTo": null, "desk": { "col": 2, "row": 1 } },
+    { "id": "blog-architect", "name": "Blog Architect", "icon": "🏗️", "status": "idle", "deliverTo": null, "desk": { "col": 3, "row": 1 } },
+    { "id": "creator", "name": "Creator", "icon": "✍️", "status": "done", "deliverTo": null, "desk": { "col": 1, "row": 2 } },
+    { "id": "blog-writer", "name": "Blog Writer", "icon": "📝", "status": "idle", "deliverTo": null, "desk": { "col": 2, "row": 2 } },
+    { "id": "discovery-optimizer", "name": "Discovery Optimizer", "icon": "🔍", "status": "idle", "deliverTo": null, "desk": { "col": 3, "row": 2 } },
+    { "id": "geo-audit", "name": "Geo Audit", "icon": "🌐", "status": "idle", "deliverTo": null, "desk": { "col": 1, "row": 3 } },
+    { "id": "content-repurposer", "name": "Content Repurposer", "icon": "🔁", "status": "idle", "deliverTo": null, "desk": { "col": 2, "row": 3 } },
+    { "id": "visual-director", "name": "Visual Director", "icon": "🎨", "status": "done", "deliverTo": null, "desk": { "col": 3, "row": 3 } },
+    { "id": "creative-renderer", "name": "Creative Renderer", "icon": "🖼️", "status": "done", "deliverTo": null, "desk": { "col": 1, "row": 4 } },
+    { "id": "reviewer", "name": "Reviewer", "icon": "🧪", "status": "done", "deliverTo": null, "desk": { "col": 2, "row": 4 } },
+    { "id": "scheduler", "name": "Scheduler", "icon": "📅", "status": "idle", "deliverTo": null, "desk": { "col": 3, "row": 4 } },
+    { "id": "monitor", "name": "Monitor", "icon": "📈", "status": "idle", "deliverTo": null, "desk": { "col": 1, "row": 5 } },
+    { "id": "intake", "name": "Intake", "icon": "🗂️", "status": "done", "deliverTo": null, "desk": { "col": 2, "row": 5 } }
+  ],
+  "handoff": {
+    "from": "creator",
+    "to": "reviewer",
+    "message": "AC-30-08 copy, visual direction, render, e review concluídos",
+    "completedAt": "2026-04-27T17:19:00-03:00"
+  },
+  "startedAt": "2026-04-27T17:19:00-03:00",
+  "completedAt": "2026-04-27T17:19:00-03:00",
+  "updatedAt": "2026-04-27T17:19:00-03:00"
+}

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=420, height=525, initial-scale=1.0'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;700&display=swap' rel='stylesheet'>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            width: 420px; 
+            height: 525px; 
+            background: #0A0A0A; 
+            color: #F5F5F5; 
+            font-family: 'DM Sans', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, #1A1A1A 0%, #0A0A0A 100%);
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 48px 36px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #D4AF37;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .body-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #A0A0A0;
+            max-width: 280px;
+        }
+        .cta-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: auto;
+        }
+        .cta-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #F5F5F5;
+            line-height: 1.4;
+        }
+        .cta-highlight {
+            color: #D4AF37;
+            font-weight: 700;
+            display: block;
+            margin-top: 8px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .brand-footer {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.6;
+        }
+        .logo {
+            width: 24px;
+            height: 24px;
+            background: #D4AF37;
+            border-radius: 50%;
+        }
+        .brand-name {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class='bg-overlay'></div>
+    <div class='content'>
+        <div>
+            <div class='eyebrow'>AmiClube Strategy</div>
+            <h1>Preço vs<br>Valor</h1>
+            <p class='body-text'>O barato que parece economia, mas vira custo de arrependimento. No mercado de amigurumis, a confusão entre preço e valor gera as maiores frustrações.</p>
+        </div>
+        
+        <div class='cta-box'>
+            <p class='cta-text'>Quer decidir com segurança e clareza?</p>
+            <span class='cta-highlight'>Envie "VALOR" no Direct</span>
+        </div>
+
+        <div class='brand-footer'>
+            <div class='logo'></div>
+            <span class='brand-name'>AMICLUBE</span>
+        </div>
+    </div>
+</body>
+</html>

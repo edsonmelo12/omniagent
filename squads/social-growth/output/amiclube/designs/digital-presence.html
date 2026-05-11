@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Presence - AmiClube</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F8F9FA;
+            color: #111827;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 1440px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 32px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 32px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #E5E7EB;
+            margin-bottom: 32px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #E85D04;
+        }
+        
+        .nav-items {
+            display: flex;
+            gap: 24px;
+            color: #6B7280;
+            font-size: 14px;
+        }
+        
+        .nav-items span {
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        
+        .nav-items span:hover {
+            background: #F3F4F6;
+        }
+        
+        .nav-items span.active {
+            color: #E85D04;
+            font-weight: 500;
+        }
+        
+        .client-badge {
+            background: #E85D04;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Title Section */
+        .title-section {
+            margin-bottom: 32px;
+        }
+        
+        .title-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .title-section p {
+            font-size: 16px;
+            color: #6B7280;
+        }
+        
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .metric-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .metric-icon {
+            font-size: 24px;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #6B7280;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+        
+        .metric-change {
+            font-size: 14px;
+            color: #10B981;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .metric-change.negative {
+            color: #EF4444;
+        }
+        
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .chart-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+        
+        /* Line Chart */
+        .line-chart {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            padding: 20px 0;
+        }
+        
+        .line-chart .bar {
+            flex: 1;
+            background: linear-gradient(180deg, #E85D04 0%, #F97316 100%);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+        }
+        
+        .line-chart .bar::after {
+            content: '';
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #9CA3AF;
+        }
+        
+        /* Pie Chart */
+        .pie-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .pie-chart {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #E85D04 0deg 162deg,
+                #F97316 162deg 270deg,
+                #10B981 270deg 324deg,
+                #6B7280 324deg 360deg
+            );
+        }
+        
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #111827;
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        /* Recent Posts */
+        .recent-posts {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .recent-posts h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        
+        .post-card {
+            background: #F9FAFB;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .post-image {
+            height: 100px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+        
+        .post-info {
+            padding: 12px;
+        }
+        
+        .post-title {
+            font-size: 13px;
+            color: #111827;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .post-metrics {
+            font-size: 11px;
+            color: #6B7280;
+            display: flex;
+            gap: 8px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #9CA3AF;
+            font-size: 12px;
+            border-top: 1px solid #E5E7EB;
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">AmiClube</div>
+        <div class="nav-items">
+            <span class="active">Digital Presence</span>
+            <span>Pipeline Flow</span>
+            <span>Assets</span>
+            <span>Schedule</span>
+        </div>
+        <div class="client-badge">AmiClube</div>
+    </div>
+    
+    <div class="container">
+        <div class="title-section">
+            <h1>Digital Presence</h1>
+            <p>Presença digital atual do cliente em todos os canais</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">📸</span>
+                    <span class="metric-label">Instagram</span>
+                </div>
+                <div class="metric-value">12.4K</div>
+                <div class="metric-change">↑ +8.2%</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">📘</span>
+                    <span class="metric-label">Facebook</span>
+                </div>
+                <div class="metric-value">8.7K</div>
+                <div class="metric-change">↑ +3.5%</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">📝</span>
+                    <span class="metric-label">Blog</span>
+                </div>
+                <div class="metric-value">45.2K</div>
+                <div class="metric-change">↑ +12.1%</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">🌐</span>
+                    <span class="metric-label">Website</span>
+                </div>
+                <div class="metric-value">28.9K</div>
+                <div class="metric-change">↑ +5.7%</div>
+            </div>
+        </div>
+        
+        <div class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Crescimento de Seguidores (Últimos 30 dias)</h3>
+                <div class="line-chart">
+                    <div class="bar" style="height: 60%"></div>
+                    <div class="bar" style="height: 65%"></div>
+                    <div class="bar" style="height: 58%"></div>
+                    <div class="bar" style="height: 70%"></div>
+                    <div class="bar" style="height: 75%"></div>
+                    <div class="bar" style="height: 72%"></div>
+                    <div class="bar" style="height: 80%"></div>
+                    <div class="bar" style="height: 78%"></div>
+                    <div class="bar" style="height: 85%"></div>
+                    <div class="bar" style="height: 88%"></div>
+                    <div class="bar" style="height: 82%"></div>
+                    <div class="bar" style="height: 90%"></div>
+                    <div class="bar" style="height: 95%"></div>
+                    <div class="bar" style="height: 92%"></div>
+                    <div class="bar" style="height: 100%"></div>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3 class="chart-title">Fontes de Acesso (Últimos 30 dias)</h3>
+                <div class="pie-container">
+                    <div class="pie-chart"></div>
+                    <div class="pie-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #E85D04"></span>
+                            Orgânico 45%
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #F97316"></span>
+                            Social 30%
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #10B981"></span>
+                            Direto 15%
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #6B7280"></span>
+                            Outros 10%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recent-posts">
+            <h2>Publicações Recentes (Últimas 5)</h2>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image">🧸</div>
+                    <div class="post-info">
+                        <div class="post-title">5 sinais de quality...</div>
+                        <div class="post-metrics">❤️ 234 💬 12</div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">🔍</div>
+                    <div class="post-info">
+                        <div class="post-title">Como escolher...</div>
+                        <div class="post-metrics">❤️ 189 💬 8</div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">💎</div>
+                    <div class="post-info">
+                        <div class="post-title">Veludo é o novo...</div>
+                        <div class="post-metrics">❤️ 312 💬 15</div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">✨</div>
+                    <div class="post-info">
+                        <div class="post-title">Ergonomia e...</div>
+                        <div class="post-metrics">❤️ 156 💬 7</div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image">🎯</div>
+                    <div class="post-info">
+                        <div class="post-title">Checklist de...</div>
+                        <div class="post-metrics">❤️ 278 💬 11</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Social Growth Squad • Digital Presence Interface • Screen 1
+    </div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Carrossel AC-30-25 - Dark Luxo 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@100;300;400&family=Montserrat:wght@100;300&family=Playfair+Display+SC:ital,wght@1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian-black: #0A0A0A;
+            --charcoal-deep: #1A1A1A;
+            --liquid-bronze: #A67C52;
+            --muted-gold: #C5A059;
+            --text-light: #F5F5F5;
+            --grain-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-light);
+        }
+
+        .carousel-container {
+            width: 1080px;
+            height: 1350px;
+            overflow-x: auto;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            min-width: 1080px;
+            height: 1350px;
+            scroll-snap-align: start;
+            position: relative;
+            background-color: var(--obsidian-black);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 80px;
+        }
+
+        /* Efeito de Ruído/Grain */
+        .slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: var(--grain-url);
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Texturas de Fundo Base */
+        .bg-texture {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--obsidian-black) 0%, var(--charcoal-deep) 100%);
+            z-index: 1;
+        }
+
+        .light-leak {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(166, 124, 82, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .light-leak.top-right { top: -200px; right: -200px; }
+        .light-leak.bottom-left { bottom: -200px; left: -200px; }
+
+        /* Tipografia */
+        h1, h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            text-transform: none;
+            line-height: 1.1;
+            z-index: 5;
+        }
+
+        .serif-italic {
+            font-family: 'Playfair Display SC', serif;
+            font-style: italic;
+        }
+
+        p, li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 100;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            z-index: 5;
+        }
+
+        .bronze-detail {
+            color: var(--liquid-bronze);
+        }
+
+        .bronze-line {
+            width: 60px;
+            height: 1px;
+            background-color: var(--liquid-bronze);
+            margin: 20px 0;
+            z-index: 5;
+        }
+
+        /* Estilos Específicos por Slide */
+        
+        /* Slide 1 - Capa */
+        .slide-1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .slide-1 h1 {
+            font-size: 84px;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+        .slide-1 .veludo-word {
+            font-size: 110px;
+            display: block;
+            margin-top: 10px;
+            color: var(--muted-gold);
+            font-family: 'Playfair Display SC', serif;
+            font-style: italic;
+        }
+
+        /* Slides de Transição (2 e 3) */
+        .slide-content-top { margin-bottom: auto; }
+        .slide-content-center { margin: auto 0; }
+        
+        .split-visual {
+            position: absolute;
+            right: 0; top: 0; width: 40%; height: 100%;
+            background: linear-gradient(to left, rgba(10,10,10,0.5), transparent);
+            border-left: 1px solid rgba(166, 124, 82, 0.2);
+            z-index: 3;
+        }
+
+        .slide h2 { font-size: 64px; margin-bottom: 40px; color: var(--liquid-bronze); }
+        .slide p { font-size: 28px; max-width: 600px; }
+
+        /* Slides de Valor (4 e 5) */
+        .glass-box {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-top: 30px;
+            z-index: 5;
+        }
+        .glass-box ul { list-style: none; }
+        .glass-box li { margin-bottom: 25px; font-size: 24px; display: flex; align-items: flex-start; }
+        .glass-box li span { color: var(--liquid-bronze); font-family: 'Cormorant Garamond'; font-size: 32px; margin-right: 20px; font-weight: bold; }
+
+        /* Slide 6 - Avaliação */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            z-index: 5;
+        }
+        .grid-item {
+            border-top: 1px solid rgba(166, 124, 82, 0.3);
+            padding-top: 20px;
+        }
+        .grid-item h3 { font-family: 'Cormorant Garamond'; font-size: 28px; color: var(--liquid-bronze); margin-bottom: 10px; }
+        .grid-item p { font-size: 20px; }
+
+        /* Slide 8 - CTA */
+        .cta-container {
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .amiclube-sig {
+            font-family: 'Playfair Display SC', serif;
+            font-style: italic;
+            font-size: 42px;
+            color: var(--muted-gold);
+            margin-top: 60px;
+            letter-spacing: 0.2em;
+        }
+        .arrow-icon {
+            margin-top: 40px;
+            width: 40px;
+            height: 40px;
+            border-right: 2px solid var(--liquid-bronze);
+            border-bottom: 2px solid var(--liquid-bronze);
+            transform: rotate(-45deg);
+            display: inline-block;
+        }
+
+        /* Branding fixo */
+        .brand-watermark {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-family: 'Inter';
+            font-weight: 100;
+            font-size: 14px;
+            letter-spacing: 0.3em;
+            color: rgba(166, 124, 82, 0.5);
+            z-index: 10;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            font-family: 'Inter';
+            font-weight: 100;
+            font-size: 14px;
+            color: rgba(255,255,255,0.2);
+            z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        
+        <!-- SLIDE 1: CAPA -->
+        <div class="slide slide-1">
+            <div class="bg-texture" style="background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);"></div>
+            <div class="light-leak top-right"></div>
+            <h1>Estética <span class="serif-italic">Dark Luxo</span>: por que o <span class="veludo-word">veludo</span> é o novo padrão?</h1>
+            <div class="bronze-line"></div>
+            <p style="text-transform: uppercase; font-size: 14px; letter-spacing: 0.5em; opacity: 0.7;">Tendências 2026 | Curadoria AmiClube</p>
+            <div class="slide-number">01</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 2: TRANSIÇÃO -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="light-leak bottom-left"></div>
+            <div class="split-visual" style="background: rgba(166, 124, 82, 0.03);"></div>
+            <div class="slide-content-center">
+                <h2>O Luxo Sensorial</h2>
+                <p>Em 2026, o luxo deixou de ser apenas o que se vê.<br><br>Ele passou a ser o que se sente.<br><br>A migração do "luxo visual" para o "luxo sensorial" redefiniu os critérios de escolha na decoração premium.</p>
+            </div>
+            <div class="slide-number">02</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 3: O PROTAGONISMO -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="light-leak top-right"></div>
+            <div class="slide-content-center">
+                <h2>Presença Tátil</h2>
+                <p>O protagonismo do veludo não é uma coincidência estética.<br><br>Ele responde a uma demanda real por profundidade visual e presença tátil. <br><br>Uma peça em veludo não apenas ocupa o espaço; ela altera a percepção do ambiente.</p>
+            </div>
+            <div class="slide-number">03</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 4: VALOR PERCEBIDO -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="slide-content-top">
+                <h2 style="font-size: 54px;">Por que ele eleva o valor percebido?</h2>
+                <div class="glass-box">
+                    <ul>
+                        <li><span>01</span> Profundidade visual: luz e sombra criam leitura de sofisticação.</li>
+                        <li><span>02</span> Apelo sensorial: o toque reforça a sensação de acolhimento.</li>
+                        <li><span>03</span> Ponto focal: a peça atua como âncora de estilo em composições autorais.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide-number">04</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 5: MARCADOR DE CATEGORIA -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="light-leak bottom-left"></div>
+            <div class="slide-content-center">
+                <h2>Marcador de Categoria</h2>
+                <p>Mais que um material, um marcador de categoria.<br><br>O uso estratégico do veludo comunica curadoria criteriosa. <br><br>É o sinal que diferencia itens genéricos de peças pensadas para coleções de alto valor.</p>
+            </div>
+            <div class="slide-number">05</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 6: CRITÉRIOS -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="slide-content-top">
+                <h2>Critérios de Avaliação</h2>
+                <div class="editorial-grid">
+                    <div class="grid-item">
+                        <h3>Coerência</h3>
+                        <p>A peça conversa com a iluminação e paleta do espaço?</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Propósito</h3>
+                        <p>O objetivo é gerar impacto sensorial ou apenas preencher lugar?</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Diferenciação</h3>
+                        <p>Existe assinatura de marca ou é apenas uma variação superficial?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">06</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 7: CONCLUSÃO -->
+        <div class="slide">
+            <div class="bg-texture"></div>
+            <div class="light-leak top-right" style="opacity: 0.15;"></div>
+            <div class="slide-content-center">
+                <h2>Decisão Inteligente</h2>
+                <p>Tendência forte exige curadoria madura.<br><br>O ganho real não vem da "moda", mas da aderência ao seu contexto de uso.<br><br>O luxo em 2026 é uma decisão inteligente, não um impulso visual.</p>
+            </div>
+            <div class="slide-number">07</div>
+            <div class="brand-watermark">AMICLUBE</div>
+        </div>
+
+        <!-- SLIDE 8: CTA -->
+        <div class="slide slide-1">
+            <div class="bg-texture" style="background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);"></div>
+            <div class="cta-container">
+                <h2 style="font-size: 54px; color: var(--text-light);">Sua coleção está pronta para o <span class="serif-italic">novo luxo</span>?</h2>
+                <p style="margin: 40px auto; font-weight: 300;">Solicite uma curadoria personalizada AmiClube. Receba uma seleção orientada por uso, ambiente e proposta de valor.</p>
+                <div class="amiclube-sig">AMICLUBE</div>
+                <div class="arrow-icon"></div>
+                <p style="margin-top: 30px; font-size: 16px; letter-spacing: 0.2em; color: var(--liquid-bronze);">DIRECT</p>
+            </div>
+            <div class="slide-number">08</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

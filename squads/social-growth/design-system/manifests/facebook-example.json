@@ -1,0 +1,20 @@
+{
+  "asset_id": "AC-30-DS-FB",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "authentic-rough",
+  "format": "facebook-post",
+  "title": "Amigurumi com segurança é na AmiClube",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "VOCÊ SABIA?",
+      "title": "Nem todo amigurumi é seguro",
+      "body": "Aprenda a identificar materiais de qualidade antes de comprar.",
+      "textVariant": "dark",
+      "background": { "type": "solid", "color": "#F3EFE8" }
+    }
+  ]
+}

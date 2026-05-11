@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-02 · 5 Sinais de um Amigurumi Premium</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&family=Playfair+Display:wght@800&display=swap');
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --accent: #b45309;
+      --teal: #0f766e;
+      --gold: #D4AF37;
+      --cream: #fff8f0;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ffffff 0%, #f5efe7 46%, #e7d8c8 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    /* Shield metadata — never part of export */
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 14px; }
+    .shield-col { min-width: 0; }
+    .shield-label { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #8b8b8b; font-weight: 800; margin-bottom: 4px; }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 4px 9px; border-radius: 999px;
+      background: rgba(180, 83, 9, .16);
+      border: 1px solid rgba(180, 83, 9, .34);
+      color: #fed7aa; font-size: 11px; font-weight: 800; letter-spacing: .03em;
+    }
+
+    /* Frame */
+    .frame {
+      width: min(360px, calc(100vw - 32px));
+      aspect-ratio: 1080 / 1350;
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 15, 10, .12);
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .18);
+    }
+
+    /* Carousel */
+    .carousel { width: 100%; height: 100%; position: relative; overflow: hidden; background: #0b1017; }
+    .wrapper { display: flex; width: 700%; height: 100%; transition: transform .42s cubic-bezier(.65, 0, .35, 1); }
+    .slide { width: calc(100% / 7); height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #111827; }
+
+    /* Background + overlay */
+    .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.14); }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6, 10, 16, .18) 0%, rgba(6, 10, 16, .72) 100%),
+                  linear-gradient(115deg, rgba(15, 118, 110, .08) 0%, rgba(180, 83, 9, .18) 100%);
+    }
+
+    /* Content layout — conteúdo principal sempre no centro */
+    .content {
+      position: relative; z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 34px 30px 28px;
+      color: #fff;
+    }
+
+    /* Brand/kicker: absoluto no topo — fora do fluxo central */
+    .brand-group {
+      position: absolute;
+      top: 34px; left: 30px; right: 30px;
+    }
+    .brand { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; opacity: .5; margin-bottom: 12px; }
+    .kicker { color: #f9d2ac; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+
+    /* Content block: centro natural */
+    .content-block {
+      width: 100%;
+    }
+
+    /* Pills: absoluto no rodapé — fora do fluxo central */
+    .pill-row {
+      position: absolute;
+      bottom: 28px; left: 30px; right: 30px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 32px; line-height: .95; letter-spacing: -.03em;
+      max-width: 11ch; margin: 12px 0 10px;
+      text-wrap: balance; text-shadow: 0 2px 12px rgba(0,0,0,.24);
+    }
+    .title span { color: var(--gold); font-style: italic; }
+    .body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.92); max-width: 24ch; }
+
+    /* Pills styling */
+    .pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 6px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+
+    /* Check card (inner slides) */
+    .check-card {
+      background: rgba(255,255,255,.96);
+      color: #1f2937;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 16px 30px rgba(0,0,0,.18);
+    }
+    .check-kicker { font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+    .check-number { font-size: 36px; font-weight: 800; color: var(--gold); letter-spacing: -.04em; }
+    .check-title { font-size: 22px; line-height: 1; font-weight: 800; letter-spacing: -.04em; margin-top: 8px; }
+    .check-copy { margin-top: 10px; font-size: 13px; line-height: 1.5; color: #3f3f46; }
+
+    /* CTA */
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px; border-radius: 14px;
+      background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+      width: fit-content;
+      margin-top: 18px;
+    }
+
+    /* Progress bar */
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.12); z-index: 8; }
+    .progress-fill { height: 100%; width: 14.2857%; background: linear-gradient(90deg, var(--accent), #dc4c5d); transition: width .25s ease; }
+  </style>
+</head>
+<body>
+
+  <!-- Metadata Shield -->
+  <header class="shield">
+    <div class="shield-row">
+      <div class="shield-col">
+        <div class="shield-label">Título</div>
+        <div class="shield-value">5 Sinais de um Amigurumi Premium</div>
+      </div>
+      <div class="shield-col">
+        <div class="shield-label">Tipo</div>
+        <div class="shield-value">Instagram Carrossel</div>
+      </div>
+      <div class="shield-col">
+        <div class="shield-label">Canal</div>
+        <div class="shield-value">Instagram</div>
+      </div>
+      <div class="shield-col">
+        <div class="shield-label">Artigo-Pai</div>
+        <div class="shield-value">AC-30-01</div>
+      </div>
+      <div class="shield-col">
+        <div class="shield-label">Objetivo</div>
+        <div class="shield-value"><span class="badge">Descoberta</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Carousel Frame -->
+  <div class="frame">
+    <div class="carousel">
+      <div class="wrapper" id="wrapper">
+
+        <!-- Slide 1: Cover -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg');"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="brand">AmiClub</div>
+              <div class="kicker">CHECKLIST</div>
+            </div>
+            <div class="content-block">
+              <div class="title">5 SINAIS DE <span>AMIGURUMI</span> PREMIUM</div>
+              <div class="body">Você sabe identificar um de verdade?</div>
+            </div>
+            <div class="pill-row">
+              <div class="pill">1/7</div>
+              <div class="pill">qualidade</div>
+              <div class="pill">decisão</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2: Sinal 1 — Densidade -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">SINAL 1 DE 5</div>
+            </div>
+            <div class="content-block">
+              <div class="check-card">
+                <div class="check-number">01</div>
+                <div class="check-title">Densidade Constante</div>
+                <div class="check-copy">Aperte suavemente. Um premium não deforma e não deixa o enchimento aparecer entre os pontos.</div>
+              </div>
+            </div>
+            <div class="pill-row"><div class="pill">2/7</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 3: Sinal 2 — Acabamento -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">SINAL 2 DE 5</div>
+            </div>
+            <div class="content-block">
+              <div class="check-card">
+                <div class="check-number">02</div>
+                <div class="check-title">Acabamento Uniforme</div>
+                <div class="check-copy">Linhas regulares, sem pontos saltados e acabamento limpo em toda a peça.</div>
+              </div>
+            </div>
+            <div class="pill-row"><div class="pill">3/7</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 4: Sinal 3 — Detalhes -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">SINAL 3 DE 5</div>
+            </div>
+            <div class="content-block">
+              <div class="check-card">
+                <div class="check-number">03</div>
+                <div class="check-title">Detalhes Bem Fixados</div>
+                <div class="check-copy">Olhos bem presos, costuras invisíveis e partes bem fixadas sem folgas.</div>
+              </div>
+            </div>
+            <div class="pill-row"><div class="pill">4/7</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Sinal 4 — Textura -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">SINAL 4 DE 5</div>
+            </div>
+            <div class="content-block">
+              <div class="check-card">
+                <div class="check-number">04</div>
+                <div class="check-title">Textura Agradável</div>
+                <div class="check-copy">Fofinho ao toque, pelagem uniforme e sem danos visíveis no fio.</div>
+              </div>
+            </div>
+            <div class="pill-row"><div class="pill">5/7</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 6: Sinal 5 — Postura -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">SINAL 5 DE 5</div>
+            </div>
+            <div class="content-block">
+              <div class="check-card">
+                <div class="check-number">05</div>
+                <div class="check-title">Postura do Artesão</div>
+                <div class="check-copy">Transparência no processo, prazo claro e origem visível. Sem empolgação vazia.</div>
+              </div>
+            </div>
+            <div class="pill-row"><div class="pill">6/7</div></div>
+          </div>
+        </section>
+
+        <!-- Slide 7: Checklist + CTA -->
+        <section class="slide">
+          <div class="bg" style="background-image: url('../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg'); filter: blur(10px) saturate(1.02); transform: scale(1.2);"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div class="brand-group">
+              <div class="kicker">FECHAMENTO</div>
+            </div>
+            <div class="content-block" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+              <div class="check-card">
+                <div class="check-title">SALVE ESTE CHECKLIST</div>
+                <div class="check-copy">Use esses 5 critérios na sua próxima avaliação. Qualidade entra na conta. Preço fecha a decisão.</div>
+              </div>
+              <div class="cta">link na bio</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const total = 7;
+    const wrapper = document.getElementById("wrapper");
+    const progress = document.getElementById("progress");
+
+    function move(delta) {
+      current = (current + delta + total) % total;
+      wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') move(-1);
+      if (e.key === 'ArrowRight') move(1);
+    });
+
+    let startX = 0;
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mousedown', e => startX = e.clientX);
+    carousel.addEventListener('mouseup', e => {
+      const diff = e.clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+  </script>
+</body>
+</html>

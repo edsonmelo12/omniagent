@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Social Growth Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary: #0C5CAB; --secondary: #0A4A8A; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --surface: #09090B; --surface-elevated: #121216; --text: #FAFAFA; --text-muted: #A1A1AA; --border: rgba(255, 255, 255, 0.08); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--surface); color: var(--text); min-height: 100vh; display: flex; }
+    .sidebar { width: 240px; background: var(--surface-elevated); border-right: 1px solid var(--border); padding: 24px 16px; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+    .sidebar-logo { display: flex; align-items: center; gap: 12px; padding: 0 8px 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .sidebar-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .sidebar-logo-text { font-weight: 600; font-size: 16px; }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.15s ease; }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.04); color: var(--text); }
+    .nav-item.active { background: var(--primary); color: white; }
+    .nav-icon { width: 20px; height: 20px; opacity: 0.8; }
+    .main { flex: 1; margin-left: 240px; padding: 24px 32px; background: var(--surface); min-height: 100vh; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .header-title { font-size: 24px; font-weight: 600; }
+    .settings-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .settings-section { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .section-title { font-size: 16px; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .setting-item:last-child { border-bottom: none; }
+    .setting-label { font-size: 14px; }
+    .setting-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .setting-value { font-size: 14px; color: var(--text-muted); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s ease; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-secondary { background: var(--surface-elevated); color: var(--text); border: 1px solid var(--border); }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-input { width: 100%; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; font-family: inherit; }
+    .form-input:focus { outline: none; border-color: var(--primary); }
+    .client-list { margin-top: 16px; }
+    .client-item { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--surface); border-radius: 8px; margin-bottom: 8px; }
+    .client-info { display: flex; align-items: center; gap: 12px; }
+    .client-avatar { width: 36px; height: 36px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; }
+    .client-name { font-weight: 500; }
+    .client-status { font-size: 12px; color: var(--success); }
+    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 16px; } .settings-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">SG</div>
+      <span class="sidebar-logo-text">Social Growth</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        Overview
+      </a>
+      <a href="campaigns.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+        Campaigns
+      </a>
+      <a href="schedule.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Schedule
+      </a>
+      <a href="monitor.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Monitor
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+        Analytics
+      </a>
+      <a href="settings.html" class="nav-item active" style="margin-top: auto;">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h1 class="header-title">Settings</h1>
+    </header>
+
+    <div class="settings-grid">
+      <div class="settings-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Clientes
+        </h2>
+        <div class="client-list">
+          <div class="client-item">
+            <div class="client-info">
+              <div class="client-avatar">AC</div>
+              <div>
+                <div class="client-name">AmiClube</div>
+                <div class="client-status">Ativo</div>
+              </div>
+            </div>
+          </div>
+          <div class="client-item">
+            <div class="client-info">
+              <div class="client-avatar">PM</div>
+              <div>
+                <div class="client-name">Portal de Mídias</div>
+                <div class="client-status" style="color: var(--text-muted);">Pendente</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          Preferências do Usuário
+        </h2>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Nome</div>
+            <div class="setting-desc">Edson</div>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Idioma</div>
+            <div class="setting-desc">Português (Brasil)</div>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Fuso Horário</div>
+            <div class="setting-desc">America/Sao_Paulo (GMT-3)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Configurações da Squad
+        </h2>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Frequência de Monitor</div>
+            <div class="setting-desc">A cada 15 minutos</div>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Notificações</div>
+            <div class="setting-desc">Alertas críticos via Slack</div>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Grace Window</div>
+            <div class="setting-desc">90 minutos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          API Keys & Integrações
+        </h2>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Facebook Graph API</div>
+            <div class="setting-desc">Conectado</div>
+          </div>
+          <span style="color: var(--success);">✓</span>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">Instagram API</div>
+            <div class="setting-desc">Pendente</div>
+          </div>
+          <span style="color: var(--warning);">!</span>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-label">WordPress REST API</div>
+            <div class="setting-desc">Conectado</div>
+          </div>
+          <span style="color: var(--success);">✓</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

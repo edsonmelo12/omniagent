@@ -1,0 +1,79 @@
+:root {
+  --style-name: "editorial-myth";
+  --style-bg: #F7F3EE;
+  --style-bg-alt: #1A1918;
+  --style-surface: rgba(0, 0, 0, 0.05);
+  --style-surface-strong: rgba(0, 0, 0, 0.12);
+  --style-text-heading: #1A1918;
+  --style-text-body: #1A1918;
+  --style-text-muted: #8C6A5E;
+  --style-accent: #C45C1F;
+  --style-accent-soft: color-mix(in srgb, #C45C1F 22%, transparent);
+  --style-border: color-mix(in srgb, #C45C1F 42%, transparent);
+  --style-heading-font: "Playfair Display", Georgia, serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.025;
+  --style-vignette-opacity: 0.08;
+  --style-gradient: linear-gradient(165deg, #8C6A5E 0%, #C45C1F 50%, #D9A85A 100%);
+}
+
+[data-text-variant="dark"] .eyebrow {
+  color: #D9A85A;
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.15);
+}
+
+[data-text-variant="dark"] .title,
+[data-text-variant="dark"] .heading {
+  color: #fff;
+}
+
+[data-text-variant="dark"] .body-text,
+[data-text-variant="dark"] .subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-text-variant="dark"] .proof-card {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: var(--style-heading-font);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+[data-text-variant="dark"] .cta-block {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+}
+
+[data-text-variant="dark"] .divider {
+  background: #D9A85A;
+  box-shadow: 0 0 22px color-mix(in srgb, #D9A85A 40%, transparent);
+}
+
+[data-text-variant="dark"] .header-zone {
+  color: rgba(255,255,255,0.5);
+}
+
+[data-text-variant="dark"] .brand-mark {
+  color: #D9A85A;
+}
+
+[data-text-variant="dark"] .footer-zone {
+  color: rgba(255,255,255,0.4);
+}
+
+[data-text-variant="dark"] .progress-bar {
+  background: rgba(255,255,255,0.10);
+}
+
+[data-text-variant="dark"] .progress-bar span {
+  background: #fff;
+}
+
+[data-text-variant="dark"] .swipe-arrow {
+  color: rgba(255,255,255,0.35);
+}

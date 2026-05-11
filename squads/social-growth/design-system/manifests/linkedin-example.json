@@ -1,0 +1,49 @@
+{
+  "asset_id": "AC-30-DS-LI",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "linkedin-carousel",
+  "title": "O Mercado de Amigurumi no Brasil",
+  "deck_label": "mercado",
+  "topic": "Tendências",
+  "footer": "AmiClube",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "TENDÊNCIAS",
+      "title": "O MERCADO DE AMIGURUMI CRESCEU 40%",
+      "body": "Um dos segmentos que mais cresce no artesanato brasileiro.",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#F5F0E8" }
+    },
+    {
+      "type": "content",
+      "eyebrow": "DADOS",
+      "heading": "40% de crescimento anual",
+      "body": "O interesse por amigurumi cresceu 40% no Brasil segundo dados de busca.",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#E8D5C4" }
+    },
+    {
+      "type": "content",
+      "eyebrow": "OPORTUNIDADE",
+      "heading": "Diferenciação é a chave",
+      "body": "Quem investe em qualidade e segurança se destaca nesse mercado aquecido.",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#F5F0E8" }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "QUER SABER MAIS?",
+      "body": "Acompanhe nosso conteúdo sobre o mercado de amigurumi.",
+      "cta": "Seguir AmiClube",
+      "textVariant": "light",
+      "background": { "type": "solid", "color": "#F5F0E8" }
+    }
+  ]
+}

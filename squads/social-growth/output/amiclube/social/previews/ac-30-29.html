@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC-30-29 | Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#f7efe3;--sand:#d8bfa5;--terra:#b66a45;--coffee:#3b2a22;--sage:#8a9a7b;--warm:#fff8ef;--dark:#2f211a;--preview-h:min(64vh,620px,calc(100vh - 124px))}
+body{min-height:100vh;background:#211812;color:var(--warm);font-family:"DM Sans",system-ui,sans-serif;display:grid;place-items:start center;padding:18px 16px}
+.shell{display:grid;gap:14px;justify-items:center}
+.preview-controls{display:flex;gap:10px;align-items:center;background:rgba(255,248,239,.08);border:1px solid rgba(255,248,239,.16);border-radius:999px;padding:10px 12px;box-shadow:0 18px 50px rgba(0,0,0,.24)}
+.preview-controls button{border:0;border-radius:999px;background:var(--cream);color:var(--coffee);font:700 13px/1 "DM Sans";padding:11px 16px;cursor:pointer}
+.preview-controls button:hover{background:#fff}
+.counter{min-width:86px;text-align:center;color:rgba(255,248,239,.78);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.viewport{height:var(--preview-h);width:calc(var(--preview-h) * 9 / 16);max-width:calc(100vw - 40px);overflow:hidden;border-radius:22px;background:#120d0a;box-shadow:0 28px 72px rgba(0,0,0,.42);position:relative}
+.track{height:100%;display:flex;transition:transform .36s cubic-bezier(.22,.9,.28,1);will-change:transform}
+.story{width:100%;height:100%;flex:0 0 100%;position:relative;overflow:hidden;background:var(--dark)}
+.artboard{width:1080px;height:1920px;position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:var(--dark)}
+.bg{position:absolute;inset:0;background-image:var(--image);background-size:cover;background-position:var(--crop);filter:saturate(1.04) contrast(1.02)}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(47,33,26,var(--top)) 0%,rgba(47,33,26,var(--mid)) 48%,rgba(47,33,26,var(--bottom)) 100%),radial-gradient(circle at 30% 22%,rgba(247,239,227,.16),transparent 30%),radial-gradient(circle at 77% 78%,rgba(182,106,69,.20),transparent 34%)}
+.grain{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(circle at 20% 18%,rgba(255,248,239,.28) 0 1px,transparent 1px),radial-gradient(circle at 70% 82%,rgba(255,248,239,.22) 0 1px,transparent 1px);background-size:34px 34px,46px 46px;mix-blend-mode:soft-light}
+.content{position:absolute;inset:220px 96px 200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:2}
+.panel{width:100%;border:1px solid rgba(255,248,239,.22);background:rgba(59,42,34,.43);box-shadow:0 28px 90px rgba(47,33,26,.28);backdrop-filter:blur(10px);border-radius:48px;padding:72px 58px}
+.kicker{display:inline-block;color:var(--sand);font-size:44px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:34px}
+.headline{color:var(--warm);font-size:106px;line-height:.98;font-weight:800;letter-spacing:-.055em;text-wrap:balance}
+.body{color:var(--warm);font-size:60px;line-height:1.2;font-weight:700;letter-spacing:-.035em;text-wrap:balance}
+.options{display:flex;justify-content:center;gap:28px;margin-top:58px;width:100%}
+.option,.chip,.cta{border-radius:999px;background:var(--cream);color:var(--coffee);box-shadow:0 18px 42px rgba(47,33,26,.26);font-weight:800}
+.option{font-size:66px;line-height:1;padding:30px 58px;min-width:292px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-top:44px}
+.chip{font-size:46px;padding:18px 30px;background:rgba(247,239,227,.92)}
+.cta{display:inline-flex;align-items:center;justify-content:center;margin-top:46px;font-size:60px;line-height:1.08;padding:30px 52px;background:var(--terra);color:var(--warm)}
+.accent{position:absolute;left:92px;right:92px;bottom:176px;height:2px;background:linear-gradient(90deg,transparent,var(--sand),transparent);opacity:.64}
+.progress{position:absolute;left:96px;right:96px;top:86px;display:flex;gap:16px;z-index:3}
+.bar{height:9px;flex:1;border-radius:99px;background:rgba(255,248,239,.28);overflow:hidden}.bar span{display:block;height:100%;width:0;background:var(--cream);border-radius:inherit}.story:nth-child(1) .bar:nth-child(1) span,.story:nth-child(2) .bar:nth-child(-n+2) span,.story:nth-child(3) .bar span{width:100%}
+.dots{display:flex;gap:8px}.dot{width:9px;height:9px;border-radius:999px;background:rgba(255,248,239,.32)}.dot.active{background:var(--cream);transform:scale(1.35)}
+body.export{display:block;padding:0;background:transparent}.export .shell{display:block}.export .preview-controls,.export .dots,.export .progress{display:none}.export .viewport{width:1080px;height:1920px;border-radius:0;box-shadow:none}.export .artboard{transform:none!important}.export .track{transition:none}.export .story{border-radius:0}
+@media (prefers-reduced-motion:reduce){.track{transition:none}}
+</style>
+</head>
+<body>
+<main class="shell" aria-label="Preview navegável AC-30-29">
+  <div class="preview-controls" aria-label="Controles externos do preview">
+    <button type="button" onclick="prevFrame()">Anterior</button>
+    <div class="counter" id="counter">1 / 3</div>
+    <button type="button" onclick="nextFrame()">Próximo</button>
+  </div>
+  <section class="viewport" id="viewport">
+    <div class="track" id="track">
+      <article class="story" aria-label="Frame 1">
+        <div class="artboard" style="--image:url('../../blog/assets/AC-30-13B-home-office-hero.jpg');--crop:50% 52%;--top:.40;--mid:.50;--bottom:.58">
+          <div class="bg"></div><div class="grain"></div>
+          <div class="progress"><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div></div>
+          <div class="content"><div class="panel"><span class="kicker">Enquete</span><h1 class="headline">Qual estilo combina mais?</h1><div class="options"><div class="option">Mesa</div><div class="option">Estante</div></div></div></div>
+          <div class="accent"></div>
+        </div>
+      </article>
+      <article class="story" aria-label="Frame 2">
+        <div class="artboard" style="--image:url('../../blog/assets/AC-30-13B-home-office-hero.jpg');--crop:58% 50%;--top:.44;--mid:.53;--bottom:.62">
+          <div class="bg"></div><div class="grain"></div>
+          <div class="progress"><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div></div>
+          <div class="content"><div class="panel"><p class="body">O artigo mostra onde cada opção funciona melhor: mesa, estante ou fundo de câmera.</p><div class="chips"><span class="chip">mesa</span><span class="chip">estante</span><span class="chip">fundo de câmera</span></div></div></div>
+          <div class="accent"></div>
+        </div>
+      </article>
+      <article class="story" aria-label="Frame 3">
+        <div class="artboard" style="--image:url('../../blog/assets/AC-30-13B-home-office-hero.jpg');--crop:44% 54%;--top:.52;--mid:.62;--bottom:.70">
+          <div class="bg"></div><div class="grain"></div>
+          <div class="progress"><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div></div>
+          <div class="content"><div class="panel"><span class="kicker">Você decide</span><h1 class="headline">Vote!</h1><div class="cta">Mande a opção no Direct</div></div></div>
+          <div class="accent"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <div class="dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+</main>
+<script>
+const total=3;let current=0;const params=new URLSearchParams(location.search);const track=document.getElementById('track');const counter=document.getElementById('counter');const dots=[...document.querySelectorAll('.dot')];const boards=[...document.querySelectorAll('.artboard')];
+if(params.get('export')==='1')document.body.classList.add('export');
+function scaleBoards(){const vp=document.getElementById('viewport');const s=Math.min(vp.clientWidth/1080,vp.clientHeight/1920);boards.forEach(b=>{b.style.transform=`scale(${s})`;});}
+function goTo(index){current=(index+total)%total;track.style.transform=`translateX(${-current*100}%)`;if(counter)counter.textContent=`${current+1} / ${total}`;dots.forEach((d,i)=>d.classList.toggle('active',i===current));}
+function nextFrame(){goTo(current+1)}function prevFrame(){goTo(current-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextFrame();if(e.key==='ArrowLeft')prevFrame();});
+window.addEventListener('resize',scaleBoards);scaleBoards();goTo(params.get('export')==='1'?Number(params.get('frame')||1)-1:0);
+</script>
+</body>
+</html>

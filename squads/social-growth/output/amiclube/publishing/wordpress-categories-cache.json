@@ -1,0 +1,101 @@
+{
+  "updatedAt": "2026-04-23T00:11:57.788Z",
+  "client": "amiclube",
+  "mode": "ensure",
+  "wordpressUrl": "https://amiclube.com.br",
+  "policy": {
+    "enabled": true,
+    "allow_create": true,
+    "max_total_categories": 12,
+    "max_new_categories_per_run": 2,
+    "fallback_category_name": "Blog",
+    "core_categories": [
+      "Blog",
+      "Escolha e Ergonomia",
+      "Preço, Valor e Tendências",
+      "Confiança e Reputação",
+      "Compra e Conversão"
+    ],
+    "allowed_new_categories": [
+      "Blog",
+      "Escolha e Ergonomia",
+      "Preço, Valor e Tendências",
+      "Confiança e Reputação",
+      "Compra e Conversão"
+    ],
+    "blocked_name_patterns": [
+      "^\\s*$",
+      "^uncategorized$",
+      "^sem categoria$",
+      "^nova categoria.*$",
+      ".{80,}"
+    ],
+    "alias_map": {
+      "ergonomia": "Escolha e Ergonomia",
+      "escolha": "Escolha e Ergonomia",
+      "preco e valor": "Preço, Valor e Tendências",
+      "preço e valor": "Preço, Valor e Tendências",
+      "tendencias": "Preço, Valor e Tendências",
+      "tendências": "Preço, Valor e Tendências",
+      "reputacao": "Confiança e Reputação",
+      "reputação": "Confiança e Reputação",
+      "conversao": "Compra e Conversão",
+      "conversão": "Compra e Conversão"
+    },
+    "asset_category_map": {
+      "AC-30-01": "Escolha e Ergonomia",
+      "AC-30-01B": "Escolha e Ergonomia",
+      "AC-30-05": "Preço, Valor e Tendências",
+      "AC-30-05B": "Preço, Valor e Tendências",
+      "AC-30-09": "Confiança e Reputação",
+      "AC-30-09B": "Confiança e Reputação",
+      "AC-30-13": "Compra e Conversão",
+      "AC-30-13B": "Compra e Conversão"
+    }
+  },
+  "stats": {
+    "total": 6,
+    "createdThisRun": 0
+  },
+  "categories": [
+    {
+      "id": 5,
+      "name": "Blog",
+      "slug": "blog",
+      "count": 74
+    },
+    {
+      "id": 276,
+      "name": "Compra e Conversão",
+      "slug": "compra-e-conversao",
+      "count": 0
+    },
+    {
+      "id": 275,
+      "name": "Confiança e Reputação",
+      "slug": "confianca-e-reputacao",
+      "count": 0
+    },
+    {
+      "id": 273,
+      "name": "Escolha e Ergonomia",
+      "slug": "escolha-e-ergonomia",
+      "count": 0
+    },
+    {
+      "id": 274,
+      "name": "Preço, Valor e Tendências",
+      "slug": "preco-valor-e-tendencias",
+      "count": 0
+    },
+    {
+      "id": 1,
+      "name": "Uncategorized",
+      "slug": "uncategorized",
+      "count": 0
+    }
+  ],
+  "created": [],
+  "warnings": [],
+  "notes": []
+}

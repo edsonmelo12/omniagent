@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} · {{brand}}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" />
+  <style>
+    {{tokensCss}}
+    {{styleCss}}
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex; flex-direction: column;
+      align-items: center; min-height: 100vh;
+      font-family: var(--style-body-font);
+      color: var(--style-text-body);
+    }
+
+    .frame {
+      width: var(--ds-preview-w); height: var(--ds-preview-h);
+      position: relative; overflow: hidden;
+      background: var(--style-bg-alt);
+    }
+
+    .bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      {{bgFilterCss}}
+    }
+
+    .overlay {
+      position: absolute; inset: 0;
+      background: {{bgOverlay}};
+    }
+
+    .brand-top {
+      position: absolute; top: 24px; left: 28px; z-index: 3;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .brand-marker {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--style-accent); display: flex; align-items: center;
+      justify-content: center; color: #fff; font-size: 11px; font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+
+    .content {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 60px 48px; text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--style-accent);
+      margin-bottom: 16px;
+    }
+
+    .headline {
+      font-family: var(--style-heading-font);
+      font-size: var(--ds-font-hero);
+      font-weight: 700; line-height: 1.15;
+      color: #fff; margin-bottom: 16px; max-width: 360px;
+    }
+
+    .divider {
+      width: 40px; height: 1px; background: var(--style-accent);
+      margin-bottom: 16px;
+    }
+
+    .body-text {
+      font-size: var(--ds-font-body);
+      line-height: 1.6; color: rgba(255,255,255,0.7);
+      max-width: 340px;
+    }
+
+    .cta {
+      margin-top: 20px; font-size: 13px; font-weight: 600;
+      color: var(--style-accent); letter-spacing: 0.5px;
+    }
+
+    .brand-bottom {
+      position: absolute; bottom: 24px; right: 28px; z-index: 3;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+    }
+
+    body.export-mode {
+      background: var(--style-bg-alt);
+    }
+
+    body.export-mode .frame {
+      width: var(--ds-export-w) !important;
+      height: var(--ds-export-h) !important;
+    }
+
+    body.export-mode .brand-top,
+    body.export-mode .brand-bottom { display: none !important; }
+
+    body.export-mode .content { padding: 150px 120px !important; }
+    body.export-mode .eyebrow { font-size: 26px !important; letter-spacing: 6.5px !important; margin-bottom: 41px !important; }
+    body.export-mode .headline { font-size: var(--ds-export-font-hero) !important; line-height: 1.15 !important; margin-bottom: 41px !important; max-width: 920px !important; }
+    body.export-mode .divider { width: 103px !important; height: 2px !important; margin-bottom: 41px !important; }
+    body.export-mode .body-text { font-size: var(--ds-export-font-body) !important; line-height: 1.6 !important; max-width: 870px !important; }
+    body.export-mode .cta { margin-top: 52px !important; font-size: 33px !important; letter-spacing: 1px !important; }
+  </style>
+</head>
+<body>
+  <article class="frame">
+    {{#if bgSrc}}<img class="bg" src="{{bgSrc}}" alt="" />{{/if}}
+    <div class="overlay"></div>
+
+    <div class="brand-top">
+      <div class="brand-marker">{{brandInitial}}</div>
+      <span class="brand-name">{{brand}}</span>
+    </div>
+
+    <div class="content">
+      {{#if eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/if}}
+      {{#if headline}}<h1 class="headline">{{headline}}</h1>{{/if}}
+      {{#if showDivider}}<div class="divider"></div>{{/if}}
+      {{#if body}}<p class="body-text">{{body}}</p>{{/if}}
+      {{#if cta}}<p class="cta">{{cta}}</p>{{/if}}
+    </div>
+
+    <div class="brand-bottom">{{brand}}</div>
+  </article>
+</body>
+</html>

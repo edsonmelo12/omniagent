@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f2f5; display: flex; flex-direction: column; align-items: center; padding: 40px; font-family: 'DM Sans', sans-serif; }
+        .ig-frame { width: 420px; background: #fff; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; border: 1px solid #dbdbdb; position: relative; }
+        .carousel-viewport { width: 420px; height: 525px; overflow-x: auto; scroll-snap-type: x mandatory; display: flex; scrollbar-width: none; scroll-behavior: smooth; }
+        .carousel-viewport::-webkit-scrollbar { display: none; }
+        .slide { min-width: 420px; height: 525px; scroll-snap-align: start; position: relative; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .sans { font-family: 'DM Sans', sans-serif; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: rgba(255,255,255,0.8); border: none; border-radius: 50%; cursor: pointer; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #333; }
+        .nav-btn:hover { background: #fff; }
+        .nav-left { left: 10px; }
+        .nav-right { right: 10px; }
+        .info-panel { margin-top: 20px; width: 420px; background: #fff; padding: 15px; border-radius: 8px; font-size: 13px; color: #666; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="ig-frame">
+        <button class="nav-btn nav-left" onclick="document.querySelector('.carousel-viewport').scrollBy({left: -420, behavior: 'smooth'})">←</button>
+        <button class="nav-btn nav-right" onclick="document.querySelector('.carousel-viewport').scrollBy({left: 420, behavior: 'smooth'})">→</button>
+        <div class="carousel-viewport">
+            
+    <div class="slide" id="slide-0" style="background:#FAFAF9;color:#1C1917;">
+        
+        <div style="text-align:center;padding:0 36px;">
+            <span style="font-size:10px;font-weight:600;letter-spacing:2px;color:#D4A373;margin-bottom:16px;display:block;">AMIGURUMI PARA INICIANTES</span>
+            <h1 class="serif" style="font-size:32px;margin-bottom:20px;line-height:1.1;">7 Erros que detonam seu Amigurumi</h1>
+            <p class="sans" style="font-size:14px;color:#8A8580;">(e como consertar hoje mesmo)</p>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(0,0,0,0.06));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:14.285714285714285%;background:#D4A373;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(0,0,0,0.3);font-weight:500;">1/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-1" style="background:#1C1917;color:#fff;">
+        
+        <div style="padding:0 36px 52px;">
+            <h2 class="serif" style="font-size:28px;margin-bottom:24px;">Por que não ficou como o da foto?</h2>
+            <div style="background:rgba(255,255,255,0.05);padding:24px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);">
+                <p class="sans" style="font-size:15px;line-height:1.6;">A frustração de terminar uma peça e sentir que algo está "estranho" é o maior motivo de desistência. <br/><br/><strong>Não é falta de talento, é ajuste de processo.</strong></p>
+            </div>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:28.57142857142857%;background:#fff;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:500;">2/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-2" style="background:#FAFAF9;color:#1C1917;">
+        
+        <div style="padding:0 36px 52px;">
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid #E7E5E4;">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#D4A373;min-width:34px;line-height:1;">01</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Materiais Errados</span><br/><span class="sans" style="font-size:13px;color:#8A8580;">Fios escuros ou peludos dificultam a leitura dos pontos. Use fios claros e agulha compatível.</span></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#D4A373;min-width:34px;line-height:1;">02</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Tensão Irregular</span><br/><span class="sans" style="font-size:13px;color:#8A8580;">Manter o ritmo constante evita que a peça deforme ou fique com buracos visíveis.</span></div>
+            </div>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(0,0,0,0.06));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:42.857142857142854%;background:#D4A373;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(0,0,0,0.3);font-weight:500;">3/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-3" style="background:#1C1917;color:#fff;">
+        
+        <div style="padding:0 36px 52px;">
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#E9EDC9;min-width:34px;line-height:1;">03</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Enchimento Incorreto</span><br/><span class="sans" style="font-size:13px;color:rgba(255,255,255,0.6);">Enchimento demais abre os pontos; de menos deixa a peça murcha. Encha em camadas pequenas.</span></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#E9EDC9;min-width:34px;line-height:1;">04</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Pular a Contagem</span><br/><span class="sans" style="font-size:13px;color:rgba(255,255,255,0.6);">Use sempre marcadores de carreira. Um ponto a menos muda todo o formato final.</span></div>
+            </div>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:57.14285714285714%;background:#fff;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:500;">4/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-4" style="background:#FAFAF9;color:#1C1917;">
+        
+        <div style="padding:0 36px 52px;">
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid #E7E5E4;">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#D4A373;min-width:34px;line-height:1;">05</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Costura sem Alinhamento</span><br/><span class="sans" style="font-size:13px;color:#8A8580;">Alfinete as partes antes de costurar para garantir simetria em todos os ângulos.</span></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#D4A373;min-width:34px;line-height:1;">06</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Acabamento Apressado</span><br/><span class="sans" style="font-size:13px;color:#8A8580;">Reserve um tempo apenas para arremates e bordados. É o detalhe que traz o profissionalismo.</span></div>
+            </div>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(0,0,0,0.06));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:71.42857142857143%;background:#D4A373;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(0,0,0,0.3);font-weight:500;">5/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-5" style="background:#1C1917;color:#fff;">
+        
+        <div style="padding:0 36px 52px;">
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
+                <span class="serif" style="font-size:26px;font-weight:300;color:#E9EDC9;min-width:34px;line-height:1;">07</span>
+                <div><span class="sans" style="font-size:15px;font-weight:600;">Comparação Injusta</span><br/><span class="sans" style="font-size:13px;color:rgba(255,255,255,0.6);">Compare sua peça de hoje com a de ontem, não com quem faz há anos. Consistência vence pressa.</span></div>
+            </div>
+            <div style="margin-top:24px;background:rgba(255,255,255,0.05);padding:16px;border-radius:12px;border:1px dashed rgba(255,255,255,0.2);">
+                <p class="sans" style="font-size:13px;font-weight:600;margin-bottom:8px;">CHECKLIST RÁPIDO:</p>
+                <p class="sans" style="font-size:12px;line-height:1.4;">✓ Tensão Uniforme | ✓ Enchimento em camadas | ✓ Simetria alfinetada</p>
+            </div>
+        </div>
+    
+        
+    <div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:85.71428571428571%;background:#fff;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:500;">6/7</span>
+    </div>
+    </div>
+    <div class="slide" id="slide-6" style="background:linear-gradient(165deg, #A98467 0%, #D4A373 50%, #E9EDC9 100%);color:#fff;">
+        
+        <div style="text-align:center;padding:0 36px;">
+            <span class="sans" style="display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,0.6);margin-bottom:16px;">ESTRATÉGIA COMPLETA</span>
+            <h2 class="serif" style="font-size:30px;color:#fff;margin-bottom:32px;line-height:1.2;">Pronta para evoluir seu crochê agora?</h2>
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:#FAFAF9;color:#A98467;font-weight:700;font-size:14px;border-radius:28px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+                BAIXAR CHECKLIST GRATUITO
+            </div>
+            <p class="sans" style="margin-top:24px;font-size:11px;color:rgba(255,255,255,0.5);">Link na bio da @amiclube</p>
+        </div>
+    
+        
+        
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:100.0%;background:#fff;border-radius:2px;"></div>
+        </div>
+        <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:500;">7/7</span>
+    </div>
+    </div>
+        </div>
+    </div>
+    <div class="info-panel">
+        <strong>Visualizador de Carrossel:</strong> Use as setas nas laterais ou arraste os slides para navegar. <br/>
+        Total de 7 slides desenvolvidos com o Visual System do AmiClube.
+    </div>
+</body>
+</html>

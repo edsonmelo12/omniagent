@@ -1,0 +1,19 @@
+displayName,icon,path,role,execution
+Atlas CEO,👑,./agents/atlas-ceo.agent.md,Orquestrador estrategico e consultor do squad,subagent
+Researcher,🔎,./agents/researcher.agent.md,Pesquisa de mercado e benchmarks,subagent
+Strategist,🧭,./agents/strategist.agent.md,Planejamento editorial e crescimento,subagent
+Blog Architect,🏗️,./agents/blog-architect.agent.md,Arquitetura editorial de blog,subagent
+Creator,✍️,./agents/creator.agent.md,Criação de posts e variações por plataforma,subagent
+Blog Writer,📝,./agents/blog-writer.agent.md,Redação de blog e SEO,subagent
+Discovery Optimizer,🔍,./agents/discovery-optimizer.agent.md,Otimização de SEO/GEO/LLM,subagent
+Geo Audit,🌐,./agents/geo-audit.agent.md,Avaliação GEO de site e entidade,subagent
+Content Repurposer,🔁,./agents/content-repurposer.agent.md,Repurpose de blog para social,subagent
+Visual Director,🎨,./agents/visual-director.agent.md,Direção visual e briefings de arte para criativos sociais,subagent
+Creative Renderer,🖼️,./agents/creative-renderer.agent.md,Renderização da arte final em HTML e exportação de assets,subagent
+Reviewer,🧪,./agents/reviewer.agent.md,Revisão e controle de qualidade,subagent
+Pipeline Auditor,🛡️,./agents/pipeline-auditor.agent.md,Auditoria de conformidade da pipeline antes de aprovação,subagent
+Wagner WordPress,📰,./agents/wagner-wordpress.agent.md,Publicação e validação WordPress,subagent
+Scheduler,📅,./agents/scheduler.agent.md,Organização de agenda e plano de publicacao,subagent
+Monitor,📈,./agents/monitor.agent.md,Monitoramento de saude e performance,subagent
+Intake,🗂️,./agents/intake.agent.md,Ingestão de links e documentos do cliente,subagent
+Atos Analista,📊,./agents/atos-analista.agent.md,Análise estratégica e vereditos de decisão,subagent

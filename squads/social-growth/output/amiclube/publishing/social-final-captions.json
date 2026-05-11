@@ -1,0 +1,237 @@
+{
+  "version": "1.0.0",
+  "client": "amiclube",
+  "updatedAt": "2026-05-08T00:03:17.153Z",
+  "captionPolicy": {
+    "emojiPolicy": "moderado",
+    "instagramHashtagRange": "5-10",
+    "facebookHashtagRange": "0-3",
+    "ptBrDiacriticsRequired": true
+  },
+  "captions": [
+    {
+      "asset_id": "AC-30-03",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "Preço baixo pode sair caro quando o critério fica de fora. 😬",
+      "final_caption": "Preço baixo pode sair caro quando o critério fica de fora. 😬\n\nAntes de escolher um amigurumi só pelo valor, observe:\n✅ Acabamento\n✅ Segurança dos materiais\n✅ Firmeza dos pontos\n✅ Reputação de quem produz\n\nUma peça artesanal premium precisa encantar, mas também precisa durar. ✨\n\n👆 Clique no link da bio e leia o artigo completo!\nSalve para consultar antes da próxima compra.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumi",
+        "amigurumibrasil",
+        "comprainteligente",
+        "artesanatopremium",
+        "decoracaoafetiva",
+        "presentescriativos"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel educativo da AmiClube explicando por que preço baixo não deve ser o único critério ao escolher amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-17",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "Qualidade vem antes do preço quando a escolha precisa durar. ✅",
+      "final_caption": "Qualidade vem antes do preço quando a escolha precisa durar. ✅\n\nAntes de fechar uma compra, observe sinais que mostram cuidado real:\n\n✅ Densidade constante\n✅ Fios bem escolhidos\n✅ Junções limpas\n✅ Trava segura\n✅ Base estruturada\n\n——\n\nEsses detalhes ajudam a diferenciar uma peça bonita de uma peça realmente bem-feita.\n\n👆 Clique no link da bio e leia o artigo completo!\nSalve este checklist para sua próxima escolha.\n\nQuer uma curadoria personalizada? Envie \"CURADORIA\" no direct.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumi",
+        "amigurumipremium",
+        "checklistdecompra",
+        "artesanatopremium",
+        "comprainteligente",
+        "qualidadeartesanal"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Checklist visual com cinco sinais para avaliar a qualidade de um amigurumi premium antes da compra."
+    },
+    {
+      "asset_id": "AC-30-19",
+      "channel": "instagram",
+      "format": "post",
+      "first_line_hook": "Conforto também é critério de qualidade no artesanal. 🧵",
+      "final_caption": "Conforto também é critério de qualidade no artesanal. 🧵\n\nNo amigurumi, ergonomia não é um detalhe técnico distante. É o que ajuda a peça a funcionar melhor no:\n\n✅ Toque macio e seguro\n✅ Uso diário\n✅ Decoração que dura\n✅ Experiência de quem recebe\n\n——\n\n👆 Clique no link da bio e leia o artigo completo!\nSalve para lembrar desse critério na próxima escolha.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumi",
+        "ergonomia",
+        "artesanatopremium",
+        "decoracaoafetiva",
+        "comprainteligente",
+        "feitoamao"
+      ],
+      "link_target": "https://amiclube.com.br/ergonomia-e-cuidados-ao-escolher-amigurumi",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Post da AmiClube sobre conforto no toque e ergonomia como critérios para escolher amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-20",
+      "channel": "instagram",
+      "format": "stories",
+      "first_line_hook": "De 1 a 5: quanto conforto essa peça transmite? 📊",
+      "final_caption": "De 1 a 5: quanto conforto essa peça transmite? 📊\n\n✅ Use a escala dos stories para avaliar:\n- Toque\n- Densidade\n- Segurança\n- Acabamento\n\n——\n\n👆 Responda nos stories ou chame no direct para uma curadoria mais segura.",
+      "cta": "👆 Responda nos stories ou chame no direct!",
+      "hashtags": [],
+      "link_target": "https://amiclube.com.br/ergonomia-e-cuidados-ao-escolher-amigurumi",
+      "link_strategy": "story_interaction",
+      "alt_text": "Sequência de stories da AmiClube com escala de conforto para avaliar amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-07",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "O barato sai caro quando a escolha ignora o contexto. ⚖️",
+      "final_caption": "O barato sai caro quando a escolha ignora o contexto. ⚖️\n\nPreço sem critério não mede qualidade, segurança ou durabilidade. Para avaliar melhor, olhe para:\n\n✅ Proposta\n✅ Confiança\n✅ Acabamento\n✅ Uso real da peça\n\n——\n\nSe a compra é para presentear,decorar oucolecionar, esses detalhes mudam tudo.\n👆 Clique no link da bio e leia o artigo completo!\nComente \"QUERO ANÁLISE\" se quiser ajuda para comparar uma proposta.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "precoevalor",
+        "amigurumi",
+        "artesanatopremium",
+        "comprainteligente",
+        "feitoamao",
+        "presentescriativos"
+      ],
+      "link_target": "https://amiclube.com.br/como-precificar-amigurumi-estrategias",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Sequência visual da AmiClube explicando quando o barato pode sair caro na compra de amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-34",
+      "channel": "facebook",
+      "format": "post",
+      "first_line_hook": "Ergonomia também importa na escolha de uma peça artesanal. 💪",
+      "final_caption": "Ergonomia também importa na escolha de uma peça artesanal. 💪\n\nQuando falamos de amigurumi, é comum pensar primeiro em estética. Mas conforto no toque, densidade, acabamento e segurança dos materiais também influenciam a experiência final.\n\n✅ Toque macio e seguro\n✅ Densidade adequada\n✅ Acabamento profissional\n✅ Materiais seguros\n\n——\n\nUma peça bonita chama atenção. Uma peça bem pensada permanece e funciona melhor no uso.\n\n👆 Clique e leia o artigo completo!",
+      "cta": "👆 Clique e leia o artigo completo!",
+      "hashtags": [],
+      "link_target": "https://amiclube.com.br/ergonomia-e-cuidados-ao-escolher-amigurumi",
+      "link_strategy": "facebook_caption_link_optional",
+      "alt_text": "Post horizontal da AmiClube sobre ergonomia, densidade e conforto em amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-18",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "Nem todo amigurumi bonito é premium. 🎯",
+      "final_caption": "Nem todo amigurumi bonito é premium. 🎯\n\nTamanho, preço alto ou aparência chamativa não definem qualidade sozinhos. O que realmente pesa é a combinação entre:\n\n✅ Acabamento\n✅ Materiais\n✅ Estrutura\n✅ Segurança\n✅ Consistência\n\n——\n\nUse este carrossel para separar mito de critério antes de comprar.\n\n👆 Clique no link da bio e leia o artigo completo!\nCompartilhe com quem está pesquisando amigurumi agora.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumipremium",
+        "amigurumibrasil",
+        "qualidadeartesanal",
+        "comprainteligente",
+        "artesanatopremium",
+        "presentesafetivos"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel da AmiClube comparando mitos e critérios reais para identificar amigurumi premium."
+    },
+    {
+      "asset_id": "AC-30-08",
+      "channel": "instagram",
+      "format": "post",
+      "first_line_hook": "Valor percebido só importa quando a entrega sustenta a promessa. 📦",
+      "final_caption": "Valor percebido só importa quando a entrega sustenta a promessa. 📦\n\nA foto pode encantar, mas a decisão precisa considerar:\n\n✅ Acabamento\n✅ Segurança comercial\n✅ Suporte\n✅ Materiais\n✅ Adequação ao objetivo\n\n——\n\nQuando a entrega não acompanha a promessa, o preço baixo vira custo de arrependimento.\n\n👆 Clique no link da bio e leia o artigo completo!\nQuer decidir com mais clareza? Envie \"VALOR\" no direct.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "valorpercebido",
+        "valorentregue",
+        "amigurumi",
+        "comprainteligente",
+        "artesanatopremium",
+        "decisaodecompra"
+      ],
+      "link_target": "https://amiclube.com.br/como-precificar-amigurumi-estrategias",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Post da AmiClube sobre diferença entre valor percebido e valor entregue na compra de amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-07",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "O barato sai caro quando a escolha ignora o contexto.",
+      "final_caption": "O barato sai caro quando a escolha ignora o contexto.\n\nPreço sem critério não mede qualidade, segurança ou durabilidade. Para avaliar melhor, olhe para proposta, confiança, acabamento e uso real da peça.\n\nSe a compra é para presentear, decorar ou colecionar, esses detalhes mudam tudo.\n\nComente \"QUERO ANÁLISE\" se quiser ajuda para comparar uma proposta.\n\nLeia o artigo completo no link da bio.",
+      "cta": "Comente \"QUERO ANÁLISE\" se quiser ajuda para comparar uma proposta.",
+      "hashtags": [
+        "precoevalor",
+        "amigurumi",
+        "artesanatopremium",
+        "comprainteligente",
+        "feitoamao",
+        "presentescriativos"
+      ],
+      "link_target": "https://amiclube.com.br/como-precificar-amigurumi-estrategias",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Sequência visual da AmiClube explicando quando o barato pode sair caro na compra de amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-06",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "Mito ou verdade: preço baixo é sempre bom negócio? 🤔",
+      "final_caption": "Mito ou verdade: preço baixo é sempre bom negócio? 🤔\n\nNo amigurumi, a mesma pergunta gera respostas diferentes dependendo do critério usado. Algumas crenças comuns falham quando você olha por dentro da proposta.\n\n🧵 Salve este carrossel e use como filtro na próxima compra.\n\n👉 Veja o guia completo no link da bio!",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumi",
+        "comprainteligente",
+        "precoevalor",
+        "artesanatopremium",
+        "mitosedicas",
+        "presentesafetivos"
+      ],
+      "link_target": "https://amiclube.com.br/como-precificar-amigurumi-estrategias",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel educativo da AmiClube desmascarando mitos e verdades sobre preço baixo em amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-31",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "7 perguntas que mostram se um amigurumi é confiável",
+      "final_caption": "7 perguntas que mostram se um amigurumi é confiável 🧵\n\nAntes de comprar, faça essas perguntinhas:\n\n✅ A peça é mostrada em detalhe real?\n✅ A marca explica materiais e uso?\n✅ A apresentação sugere cuidado?\n✅ O atendimento transmite tranquilidade?\n✅ O portfólio é consistente?\n✅ Os relatos são específicos?\n✅ A experiência parece previsível?\n\n——\n\nQuanto mais \"sim\", menos suposição. Essa é a base mais segura para comprar.\n\n👆 Clique no link da bio e leia o artigo completo!\nSalve para consultar antes da próxima escolha.",
+      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "hashtags": [
+        "amigurumi",
+        "comprainteligente",
+        "segurançadacompra",
+        "artesanatopremium",
+        "presentesafetivos"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel da AmiClube com 7 perguntas para avaliar confiabilidade de amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-32",
+      "channel": "instagram",
+      "format": "reels",
+      "first_line_hook": "Você sabe se o amigurumi que vai comprar é confiável? 🤔",
+      "final_caption": "Você sabe se o amigurumi que vai comprar é confiável? 🤔\n\nSão produtos que parecem fofos. Mas e a segurança? A marca mostra cuidado OU mostra só fofura?\n\nSão 7 perguntas que revelam se vale a pena comprar:\n\n1️⃣ Mostra a peça em detalhe real?\n2️⃣ Explica materiais e uso?\n3️⃣ A apresentação é limpa?\n4️⃣ O atendimento responde com clareza?\n5️⃣ O portfólio é consistente?\n6️⃣ Os relatos são específicos?\n7️⃣ A experiência parece previsível?\n\n——\n\n👆 Veja as 7 perguntas completas no link da bio!",
+      "cta": "👆 Veja as 7 perguntas completas no link da bio!",
+      "hashtags": [
+        "amigurumi",
+        "comprainteligente",
+        "segurançadacompra",
+        "artesanatopremium",
+        "reels"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "reels_mention",
+      "alt_text": "Reels da AmiClube com teste de confiabilidade para compra de amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-33",
+      "channel": "facebook",
+      "format": "post",
+      "first_line_hook": "7 sinais de que o amigurumi que você está escolhendo é seguro. 👀",
+      "final_caption": "7 sinais de que o amigurumi que você está escolhendo é seguro. 👀\n\nAntes de fechar a compra, observe esses pontos:\n\n✅ Detalhe real da peça\n✅ Materiais e uso explicados\n✅ Apresentação limpa e honesta\n✅ Atendimento que responde rápido\n✅ Portfólio consistente\n✅ Relatos específicos de clientes\n✅ Experiência que parece previsível\n\n——\n\nCada \"sim\" reduz a chance de frustração. Salve para consultar antes de comprar.\n\n👆 Clique e leia o artigo completo!",
+      "cta": "👆 Clique e leia o artigo completo!",
+      "hashtags": [],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "facebook_caption_link_optional",
+      "alt_text": "Post do Facebook da AmiClube com sinais de segurança para avaliar amigurumi artesanal."
+    }
+  ]
+}

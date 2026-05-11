@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-17 | Checklist: qualidade antes do preço · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;700;800&family=Playfair+Display:wght@800&display=swap');
+    :root { --ink:#111827; --muted:#6b7280; --accent:#b45309; --teal:#0f766e; --card:#ffffff; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ffffff 0%, #f5efe7 46%, #e7d8c8 100%);
+      font-family: "DM Sans", "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+    .shield {
+      width: min(1200px, 100%);
+      background: rgba(15, 17, 20, .96);
+      color: #e5e7eb;
+      border: 1px solid #28231f;
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 36px rgba(18, 12, 9, .18);
+    }
+    .shield-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px 14px; }
+    .shield-col { min-width: 0; }
+    .shield-label { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: #8b8b8b; font-weight: 800; margin-bottom: 4px; }
+    .shield-value { font-size: 12px; line-height: 1.35; font-weight: 700; color: #fff; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 4px 9px; border-radius: 999px;
+      background: rgba(180, 83, 9, .16);
+      border: 1px solid rgba(180, 83, 9, .34);
+      color: #fed7aa; font-size: 11px; font-weight: 800; letter-spacing: .03em;
+    }
+    .frame {
+      width: min(340px, calc(100vw - 32px));
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 15, 10, .12);
+      box-shadow: 0 24px 48px rgba(18, 12, 9, .18);
+    }
+    /* .mock-header foi removido do HTML */
+    .carousel { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; background: #0b1017; }
+    .wrapper { display: flex; width: 700%; height: 100%; transition: transform .42s cubic-bezier(.65, 0, .35, 1); }
+    .slide { width: calc(100% / 7); height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #111827; }
+    .bg {
+      position: absolute; inset: 0;
+      background-image: url('../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg');
+      background-size: cover; background-position: center;
+      transform: scale(1.14);
+    }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6, 10, 16, .18) 0%, rgba(6, 10, 16, .78) 100%),
+                  linear-gradient(115deg, rgba(15, 118, 110, .08) 0%, rgba(180, 83, 9, .18) 100%);
+    }
+    .content {
+      position: relative; z-index: 2; height: 100%;
+      padding: 34px 30px 28px; display: flex; flex-direction: column; justify-content: space-between; color: #fff;
+    }
+    .kicker { color: #f9d2ac; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: 34px; line-height: .95; letter-spacing: -.03em;
+      max-width: 11ch; margin: 12px 0 10px; text-wrap: balance; text-shadow: 0 2px 12px rgba(0,0,0,.24);
+    }
+    .body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.92); max-width: 24ch; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16);
+      font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .check-card {
+      background: rgba(255,255,255,.96); color: #1f2937; border-radius: 18px; padding: 16px;
+      border: 1px solid rgba(255,255,255,.2); box-shadow: 0 16px 30px rgba(0,0,0,.18);
+    }
+    .check-kicker { font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .check-title { font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+    .check-copy { margin-top: 10px; font-size: 13px; line-height: 1.5; color: #3f3f46; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px; border-radius: 14px;
+      background: var(--accent); color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; width: fit-content;
+    }
+    /* .nav buttons foram removidos do HTML */
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.12); z-index: 8; }
+    .progress-fill { height: 100%; width: 14.2857%; background: linear-gradient(90deg, #f59e0b, #dc4c5d); transition: width .25s ease; }
+    @media (max-width: 1240px) { .shield-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body>
+  <header class="shield">
+    <div class="shield-row">
+      <div class="shield-col"><div class="shield-label">Título do Post</div><div class="shield-value">Checklist: qualidade antes do preço</div></div>
+      <div class="shield-col"><div class="shield-label">Tipo</div><div class="shield-value">Instagram Carrossel</div></div>
+      <div class="shield-col"><div class="shield-label">Canal</div><div class="shield-value">Instagram</div></div>
+      <div class="shield-col"><div class="shield-label">Artigo-Pai</div><div class="shield-value">AC-30-01</div></div>
+      <div class="shield-col"><div class="shield-label">Objetivo</div><div class="shield-value"><span class="badge">Descoberta</span></div></div>
+    </div>
+  </header>
+
+  <div class="frame">
+    <!-- mock_header removido -->
+    <div class="carousel">
+      <!-- Navegação via teclado ← → -->
+      <div class="wrapper" id="wrapper">
+        <section class="slide">
+          <div class="bg"></div>
+          <div class="overlay"></div>
+          <div class="content">
+            <div>
+              <div class="kicker">CHECKLIST</div>
+              <div class="title">QUALIDADE ANTES DO PREÇO</div>
+              <div class="body">Salve este checklist para revisar o que realmente muda a decisão.</div>
+            </div>
+            <div class="pill-row">
+              <div class="pill">1/7</div><div class="pill">qualidade</div><div class="pill">prioridade</div>
+            </div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">1. ACABAMENTO</div>
+              <div class="check-title">LINHAS LIMPAS E LEITURA COERENTE</div>
+              <div class="check-copy">O acabamento revela cuidado antes mesmo de qualquer explicação comercial.</div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">2/7</div><div class="pill">acabamento</div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">2. PROPÓSITO</div>
+              <div class="check-title">A PEÇA PRECISA TER FUNÇÃO CLARA</div>
+              <div class="check-copy">Presente, decoração ou coleção: o contexto muda a percepção de valor.</div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">3/7</div><div class="pill">propósito</div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">3. CONFIANÇA</div>
+              <div class="check-title">A MARCA PRECISA TRANSMITIR CONSISTÊNCIA</div>
+              <div class="check-copy">Respostas claras e sinais consistentes reduzem atrito na compra.</div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">4/7</div><div class="pill">confiança</div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(9px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">4. CUIDADO</div>
+              <div class="check-title">DURABILIDADE E MANUTENÇÃO CONTAM</div>
+              <div class="check-copy">Quando o cuidado é visível, o valor percebido sobe de forma natural.</div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">5/7</div><div class="pill">cuidado</div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(8px) saturate(1.02); transform: scale(1.18);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">5. COERÊNCIA</div>
+              <div class="check-title">PROMESSA E ENTREGA PRECISAM CASAR</div>
+              <div class="check-copy">A compra melhora quando o que se vê combina com o que se recebe.</div>
+            </div>
+            <div class="pill-row" style="margin-top:18px;"><div class="pill">6/7</div><div class="pill">coerência</div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="bg" style="filter: blur(10px) saturate(1.02); transform: scale(1.2);"></div>
+          <div class="overlay"></div>
+          <div class="content" style="justify-content:center;">
+            <div class="check-card">
+              <div class="check-kicker">FECHAMENTO</div>
+              <div class="check-title">SE PASSA NESTES PONTOS, VALE REVISAR</div>
+              <div class="check-copy">Preço entra na conta. Qualidade fecha a decisão.</div>
+            </div>
+            <div class="cta" style="margin-top:18px;">salvar checklist</div>
+          </div>
+        </section>
+      </div>
+      <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    </div>
+  </div>
+  <script>
+    let current = 0;
+    const total = 7;
+    const wrapper = document.getElementById("wrapper");
+    const progress = document.getElementById("progress");
+    function move(delta) {
+      current = (current + delta + total) % total;
+      wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') move(-1);
+      if (e.key === 'ArrowRight') move(1);
+    });
+    let startX = 0;
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mousedown', e => startX = e.clientX);
+    carousel.addEventListener('mouseup', e => {
+      const diff = e.clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) move(diff > 0 ? -1 : 1);
+    });
+  </script>
+</body>
+</html>

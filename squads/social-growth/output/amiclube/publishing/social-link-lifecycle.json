@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-23T00:00:00Z",
+  "enforce_on_social_statuses": [
+    "review",
+    "approved",
+    "ready_to_schedule",
+    "scheduled",
+    "published"
+  ],
+  "enforce_on_content_modes": [
+    "blog_derivative"
+  ],
+  "public_url_fields": [
+    "publicUrl",
+    "publishedUrl",
+    "wordpressPublicUrl",
+    "liveUrl",
+    "permalink"
+  ],
+  "states": {
+    "pre_publicacao": "sem URL pública; manter CTA alternativo e label de indisponível",
+    "revisao_interna": "usar preview canônico interno como destino ativo",
+    "publicado": "usar URL pública final do artigo"
+  }
+}

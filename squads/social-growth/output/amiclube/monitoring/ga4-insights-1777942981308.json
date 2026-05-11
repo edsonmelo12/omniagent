@@ -1,0 +1,99 @@
+{
+  "collected_at": "2026-05-05T01:03:01.308Z",
+  "client": "amiclube",
+  "period": "last_7_days",
+  "overview": {
+    "total_users": 12,
+    "sessions": 12,
+    "pageviews": 22,
+    "bounce_rate": 0.16666666666666666,
+    "avg_engagement_time": 95.63424116666665
+  },
+  "top_pages": [
+    {
+      "path": "/A76051162I",
+      "pageviews": 4,
+      "avg_engagement_time": 220.58075
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/cassio-em-amigurumi-passo-a-passo/H75987918L",
+      "pageviews": 3,
+      "avg_engagement_time": 301.886636
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/ceb-em-amigurumi-passo-a-passo/A76051162I",
+      "pageviews": 3,
+      "avg_engagement_time": 8.196349
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/pica-pau-em-amigurumi-passo-a-passo/A79557197C",
+      "pageviews": 3,
+      "avg_engagement_time": 13.284753
+    },
+    {
+      "path": "/A75909163K",
+      "pageviews": 2,
+      "avg_engagement_time": 70.018558
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/magali-em-amigurumi-passo-a-passo/P75923952K",
+      "pageviews": 2,
+      "avg_engagement_time": 92.589426
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/monica-em-amigurumi-passo-a-passo/A75909163K",
+      "pageviews": 2,
+      "avg_engagement_time": 183.5158585
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/ceb-cas-em-amigurumi-passo-a-passo/J76163738W",
+      "pageviews": 1,
+      "avg_engagement_time": 26.443806
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/pe-de-pano-em-amigurumi-passo-a-passo/L81132497E",
+      "pageviews": 1,
+      "avg_engagement_time": 0
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/pic-ped-em-amigurumi-passo-a-passo/H81241039O",
+      "pageviews": 1,
+      "avg_engagement_time": 17.901448
+    }
+  ],
+  "traffic_sources": [
+    {
+      "source": "google",
+      "medium": "organic",
+      "sessions": 8,
+      "users": 8
+    },
+    {
+      "source": "(direct)",
+      "medium": "(none)",
+      "sessions": 3,
+      "users": 3
+    },
+    {
+      "source": "IGShopping",
+      "medium": "Social",
+      "sessions": 1,
+      "users": 1
+    }
+  ],
+  "devices": [
+    {
+      "device": "mobile",
+      "users": 11,
+      "sessions": 11
+    },
+    {
+      "device": "desktop",
+      "users": 1,
+      "sessions": 1
+    }
+  ],
+  "realtime": {
+    "active_users": 0
+  }
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC-30-31 — Instagram Carrossel (7 slides)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-offwhite: #FAFAF8;
+      --text-navy: #1E3A8A;
+      --accent-gold: #D4AF37;
+      --alert-red: #9B2C2C;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .preview-header h1 {
+      font-size: 24px;
+      color: #1E3A8A;
+      margin-bottom: 8px;
+    }
+
+    .preview-header p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 540px;
+      height: 675px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(540px * 7);
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide {
+      width: 540px;
+      height: 675px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 36px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .slide-1 .slide-content { justify-content: center; text-align: center; }
+    .slide-2, .slide-3, .slide-4, .slide-5 { justify-content: flex-start; }
+    .slide-6 .slide-content { justify-content: center; text-align: center; }
+    .slide-7 .slide-content { justify-content: center; text-align: center; }
+
+    .slide-number {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 12px;
+      color: rgba(30, 58, 138, 0.4);
+      font-weight: 700;
+    }
+
+    .title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      color: var(--text-navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      color: var(--text-navy);
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    .body-text {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      color: var(--text-navy);
+      line-height: 1.6;
+    }
+
+    .proof {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    .alert {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--alert-red);
+      font-weight: 700;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(155, 44, 44, 0.08);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .cta-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-navy);
+      margin-bottom: 12px;
+    }
+
+    .cta-contact {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: var(--text-navy);
+      opacity: 0.7;
+    }
+
+    .icon-large {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+
+    .slide-5 .list-item {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      color: var(--text-navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .slide-5 .list-item::before {
+      content: '●';
+      color: var(--accent-gold);
+      font-size: 10px;
+      margin-top: 8px;
+    }
+
+    /* Progress dots */
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(30, 58, 138, 0.2);
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--text-navy);
+      transform: scale(1.2);
+    }
+
+    /* Navigation arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: var(--text-navy);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .nav-arrow:hover { opacity: 1; }
+    .nav-arrow.prev { left: 16px; }
+    .nav-arrow.next { right: 16px; }
+    .nav-arrow.hidden { display: none; }
+
+    /* Slide 1 */
+    .slide-1 .title { font-size: 32px; }
+    .slide-1 .subtitle { font-size: 18px; }
+
+    /* Slide 2-4 */
+    .slide-2 .title, .slide-3 .title, .slide-4 .title { font-size: 28px; }
+    .slide-2 .body-text, .slide-3 .body-text, .slide-4 .body-text { font-size: 18px; }
+
+    /* Slide 5 */
+    .slide-5 .title { font-size: 26px; margin-bottom: 20px; }
+
+    /* Slide 6 */
+    .slide-6 .title { font-size: 28px; }
+
+    /* Slide 7 */
+    .slide-7 .cta-text { font-size: 28px; }
+
+    /* Footer info */
+    .footer-info {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>AC-30-31 — Instagram Carrossel</h1>
+      <p>7 slides • 1080x1350px • Editorial Magazine • texture-only</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="nav-arrow prev" onclick="prevSlide()">‹</button>
+      <button class="nav-arrow next" onclick="nextSlide()">›</button>
+      
+      <div class="carousel-track" id="track">
+        <!-- Slide 1 -->
+        <div class="slide slide-1">
+          <span class="slide-number">1/7</span>
+          <div class="slide-content">
+            <div class="icon-large">🔍</div>
+            <div class="title">Você saberia testar a segurança do seu amigurumi?</div>
+            <div class="subtitle">Antes de comprar qualquer peça, estes 3 testes podem evitar problemas sérios.<br>E o melhor: você pode fazer em casa.</div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-2">
+          <span class="slide-number">2/7</span>
+          <div class="slide-content">
+            <div class="title">Teste 1: Puxe levemente os olhos da peça.</div>
+            <div class="body-text">Se cede na primeira tentativa, o acabamento é frágil.</div>
+            <div class="proof">Na AmiClube, cada olho leva 4 capturas internas — e isso não é marketing, é estrutura.</div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-3">
+          <span class="slide-number">3/7</span>
+          <div class="slide-content">
+            <div class="title">Teste 2: Observe a linha de costura.</div>
+            <div class="body-text">Se aparecem fios aparentes ou pontos desalinhados, a qualidade é baixa.</div>
+            <div class="proof">Todas as peças AmiClube usam costura reforçada por dentro — o acabamento que você não vê define a segurança que você sente.</div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide slide-4">
+          <span class="slide-number">4/7</span>
+          <div class="slide-content">
+            <div class="title">Teste 3: Verifique as etiquetas e certificações.</div>
+            <div class="body-text">Peças seguras têm origem rastreável e composição declarada.</div>
+            <div class="alert">Peça ao vendedor a procedência dos materiais. Uma resposta vaga é um sinal de alerta.</div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide slide-5">
+          <span class="slide-number">5/7</span>
+          <div class="slide-content">
+            <div class="title">Por que estes testes importam:</div>
+            <div class="list-item">Importações barato pulam checagens de segurança.</div>
+            <div class="list-item">O enchimento pode conter materiais perigosos não declarados.</div>
+            <div class="list-item">Seu filho merece peças verificadas — não peças sorteadas.</div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide slide-6">
+          <span class="slide-number">6/7</span>
+          <div class="slide-content">
+            <div class="title">Quer passar estes testes com os olhos fechados?</div>
+            <div class="body-text">Nossas peças são 100% verificadas antes de sair da oficina.</div>
+            <div class="proof">Cada item vem com protocolo de segurança declarado.</div>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide slide-7">
+          <span class="slide-number">7/7</span>
+          <div class="slide-content">
+            <div class="cta-text">Ainda em dúvida?</div>
+            <div class="subtitle">Manda uma mensagem no direct — mandamos fotos do teste de tração da peça que você gosta.</div>
+            <div class="cta-contact">@juliana.amiclube | Link na bio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-dots" id="dots"></div>
+
+    <div class="footer-info">
+      <p>Desktop: use as setas ou clique nas bordas • Mobile: swipe horizontal</p>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 7;
+    const track = document.getElementById('track');
+    const dotsContainer = document.getElementById('dots');
+    const prevBtn = document.querySelector('.nav-arrow.prev');
+    const nextBtn = document.querySelector('.nav-arrow.next');
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateSlide() {
+      track.style.transform = `translateX(-${currentSlide * 540}px)`;
+      
+      // Update dots
+      document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+
+      // Update arrows
+      prevBtn.classList.toggle('hidden', currentSlide === 0);
+      nextBtn.classList.toggle('hidden', currentSlide === totalSlides - 1);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlide();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    const wrapper = document.querySelector('.carousel-wrapper');
+    
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
