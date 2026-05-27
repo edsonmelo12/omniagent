@@ -34,6 +34,7 @@ Load these files before executing:
 - `squads/social-growth/pipeline/steps/step-05-approve-schedule.md` — downstream checkpoint contract
 - `squads/social-growth/pipeline/data/skill-invocation-gate.md` — mandatory skill evidence rules
 - `squads/social-growth/pipeline/data/pipeline-integrity-gate.md` — anti-self-approval, evidence parity and version-regression rules
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist used to verify brief/render/export parity
 - Delivery-policy files for the selected `audit_mode` only:
   - `visual-production-gate.md` and `visual-evidence-contract.md` for `asset_audit`, `batch_audit` and `incident_audit` involving visual assets
   - `pipeline-incident-trace-template.md` for `incident_audit` or when `requires_incident_trace=yes`
@@ -60,11 +61,12 @@ Load these files before executing:
 12. Verify active version state before hub/manifest updates. A newer approved version cannot be replaced by an older or unversioned artifact without explicit user request and Incident Trace.
 13. Verify claim parity: VDC/RCC/Review statements about images, navigation, mocks, dimensions, CTA/link and publication readiness must match DOM/export evidence.
 14. Verify that the user has not been asked to approve, schedule or publish before this audit, except when `quick_preflight` is checking an already-approved cron/publishing window.
-15. Determine whether Incident Trace is required using the packet and `pipeline-incident-trace-template.md` trigger conditions.
-16. If Incident Trace is required, write it to `squads/social-growth/output/{client}/review/incident-trace-{asset-or-batch-id}-{short-defect}.md` before returning a non-blocking verdict.
-17. Emit one verdict: `PASS`, `PASS_WITH_WARNINGS`, `BLOCKED`, or `INVALID`.
-18. Write the report to `squads/social-growth/output/{client}/review/pipeline-compliance-{asset-or-batch-id}.md`.
-19. If verdict is `BLOCKED` or `INVALID`, route the work back to the exact failed upstream step.
+15. Verify that the canonical generation contract is complete for the delivery and matches the evidence bundle.
+16. Determine whether Incident Trace is required using the packet and `pipeline-incident-trace-template.md` trigger conditions.
+17. If Incident Trace is required, write it to `squads/social-growth/output/{client}/review/incident-trace-{asset-or-batch-id}-{short-defect}.md` before returning a non-blocking verdict.
+18. Emit one verdict: `PASS`, `PASS_WITH_WARNINGS`, `BLOCKED`, or `INVALID`.
+19. Write the report to `squads/social-growth/output/{client}/review/pipeline-compliance-{asset-or-batch-id}.md`.
+20. If verdict is `BLOCKED` or `INVALID`, route the work back to the exact failed upstream step.
 
 ### Mode-Specific Minimum Gates
 

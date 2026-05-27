@@ -55,3 +55,42 @@
 [data-text-variant="dark"] .progress-bar { background: rgba(255, 255, 255, 0.08); }
 [data-text-variant="dark"] .progress-bar span { background: #d4af37; }
 [data-text-variant="dark"] .swipe-arrow { color: rgba(212, 175, 55, 0.5); }
+
+[data-text-variant="light"] .title,
+[data-text-variant="light"] .heading {
+  color: #151515;
+}
+
+[data-text-variant="light"] .body-text,
+[data-text-variant="light"] .subtitle {
+  color: #3d322c;
+}
+
+[data-text-variant="light"] .proof-card {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(24, 20, 19, 0.14);
+  color: #3d322c;
+  font-family: var(--style-heading-font);
+  font-weight: 500;
+}
+
+[data-text-variant="light"] .cta-block {
+  color: #151515;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(168, 109, 73, 0.08));
+  border-color: rgba(24, 20, 19, 0.14);
+}
+
+[data-text-variant="light"] .divider {
+  background: #8f5d40;
+  box-shadow: 0 0 18px color-mix(in srgb, #8f5d40 22%, transparent);
+}
+
+[data-text-variant="light"] .header-zone {
+  color: rgba(24, 20, 19, 0.44);
+}
+
+[data-text-variant="light"] .brand-mark { color: #151515; }
+[data-text-variant="light"] .footer-zone { color: rgba(24, 20, 19, 0.55); }
+[data-text-variant="light"] .progress-bar { background: rgba(24, 20, 19, 0.10); }
+[data-text-variant="light"] .progress-bar span { background: #8f5d40; }
+[data-text-variant="light"] .swipe-arrow { color: rgba(24, 20, 19, 0.42); }

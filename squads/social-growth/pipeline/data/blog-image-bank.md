@@ -1,10 +1,10 @@
 # Blog Image Bank
 
-Cada artigo de blog deve ser publicado com um mini banco de 3-5 imagens que alimentam tanto o artigo quanto os posts sociais derivados.
+Quando a pesquisa de imagens estiver ativa, cada artigo de blog deve ser publicado com um mini banco de 3-5 imagens que alimentam tanto o artigo quanto os posts sociais derivados. Quando a pesquisa for adiada, o banco pode ser criado sob demanda antes da publicação ou da etapa visual.
 
 ## Regra
 
-- **3-5 imagens obrigatórias** por artigo de blog
+- **3-5 imagens obrigatórias** quando a pesquisa de imagens estiver ativa
 - **Free/public sources** por padrão (Pexels, Unsplash, Wikimedia Commons, CC0)
 - **Paid stock** apenas com aprovação explícita fora do fluxo padrão
 - **Licença verificada** antes de incluir no banco
@@ -52,15 +52,24 @@ O banco de imagens é um JSON salvo em `output/{client}/blog/assets/{asset_id}-i
 
 | Passo | Quem | O que faz |
 |-------|------|-----------|
-| Blog escrita (Step 03D) | Blog Writer | Coleta 3-5 imagens, gera `{asset_id}-images.json` |
+| Blog escrita (Step 03D) | Blog Writer | Coleta 3-5 imagens quando image research está ativa, gera `{asset_id}-images.json` |
 | Blog publicação | Blog Writer | Salva uma como hero do artigo, as demais no banco |
-| Direção visual (Step 03B) | Visual Director | Lê `{parent_asset_id}-images.json` e aloca 1 imagem DIFERENTE para cada derivado social |
-| Render (Step 03C) | Creative Renderer | Usa a imagem alocada no VDC como background |
+| Direção visual (Step 03B) | Visual Director | Lê `{parent_asset_id}-images.json` e aloca imagem para **slide 1 (capa)** apenas |
+| Render (Step 03C) | Creative Renderer | Aplica imagem alocada no VDC **somente no slide 1**; slides 2+ usam Design System |
+
+## Regra de Imagem Única por Derivado
+
+- **Imagem do banco alimenta exclusivamente o slide 1 (capa)** do asset derivado.
+- **Slides 2+** usam criatividade do Design System: texturas, gradientes, padrões, composições tipográficas — **sem repetir** a imagem do slide 1.
+- **Rationale:** o primeiro frame carrega a imagem de autoridade/prova do artigo; os demais carregam ritmo visual via design tokens.
+- **Exceção:** crop variation Justified — a mesma imagem do banco pode aparecer em slides 2+ SE o crop/ponto focal for radicalmente diferente E declarado no VDC com justificativa explícita.
 
 ## Regras de Alocação
 
-1. **1 imagem por derivado social** — cada post derivado recebe uma imagem diferente do banco.
-2. **Hero image é reservada** para o blog ou para a capa do carrossel — não deve ser reusada em múltiplos derivados.
-3. **Cross-article permitido** — imagens de artigos irmãos podem ser usadas com justificativa no VDC.
-4. **Crop variation válida** — a mesma imagem pode servir múltiplos derivados SE o crop/ponto focal mudar significativamente (ex: AC-30-29 usa 3 crops da mesma imagem).
-5. **Esgotou o banco?** — justificar no VDC com `no-more-images: true` e usar `texture-only` como fallback ou nova curadoria.
+1. **1 imagem por derivado social** — cada post derivado recebe **1 imagem do banco** para o slide 1 (capa).
+2. **Hero image é reservada** para o blog ou para a capa (slide 1) — não deve ser reusada em múltiplos derivados sem crop variationjustified.
+3. **Slides 2+ não usam imagem do banco** — usam Design System. Repetir imagem de banco em slides 2+ sem justificativa de crop variation é veto.
+4. **Cross-article permitido** — imagens de artigos irmãos podem ser usadas com justificativa no VDC.
+5. **Crop variation Justified** — a mesma imagem pode aparecer em slides 2+ SE o crop/ponto focal mudar significativamente E for declarada no VDC com justificativa explícita.
+6. **Esgotou o banco?** — justificar no VDC com `no-more-images: true` e usar `texture-only` como fallback ou nova curadoria.
+7. **Alternar imagens entre derivados** — derivados diferentes do mesmo artigo devem receber imagens diferentes do banco para garantir first impression diversity.

@@ -4,6 +4,8 @@ This gate is mandatory for every social visual asset before it can move from vis
 
 The goal is to remove surprise from the creative process. Every asset must declare the design decisions that affect readability, campaign-hub review, export fidelity and final visual quality.
 
+The canonical single checklist for the whole flow lives in `pipeline/data/generation-contract.md`. Use this gate to enforce the VDC/RCC evidence behind that checklist.
+
 ## Gate Principle
 
 No social visual asset may advance unless the responsible agent has explicitly declared and validated:
@@ -11,15 +13,20 @@ No social visual asset may advance unless the responsible agent has explicitly d
 - client creative DNA acceptance;
 - final canvas;
 - campaign-hub preview behavior;
+- **post-preview HTML generated and caption verified;**
 - visual skill;
 - selected visual style;
 - baseline/reference;
+- NotebookLM prototype reference, when used;
 - first impression diversity;
 - background image decision;
+- background treatment by slide, including slide 1 and slides 2+;
 - typography family and minimum font size;
+- typography hierarchy by level, including title, body, caption and CTA;
 - color system;
 - navigation behavior;
 - export validation method.
+- regenerated preview HTML and exported PNGs whenever the asset uses a new background image or crop;
 
 Missing decisions are blockers, not suggestions.
 
@@ -62,6 +69,7 @@ The Visual Director must include one completed decision card per asset.
 - **Selected Style**: [exact name from Visual Styles Library]
 - **Client DNA Acceptance**: [allowed | conditional + justification | blocked + explicit user approval path]
 - **Baseline / Reference**: [approved asset path or explicit `not available` + reason]
+- **NLM Prototype Reference**: [not used | path/link + useful elements + discarded elements]
 - **Composition Logic**: [image-led | typography-led | mixed]
 - **Recent Assets Checked**: [last 3 client assets, or `not available` + reason]
 - **Opening Image / Crop**: [image path, crop, focal point, or `not used`]
@@ -71,7 +79,10 @@ The Visual Director must include one completed decision card per asset.
 - **Continuity Justification**: [required if similarity risk is medium/high]
 - **Background Image Decision**: [background-image | texture-only | no-image-justified]
 - **Background Image Source**: [existing asset path, external URL/license, or `not used`]
+- **Background Image Slids Scope**: [slide-1-only | crop-variation-justified + declaration]
 - **Image Treatment**: [crop, blur, overlay, opacity, focal point]
+- **Contrast Strategy (slide 1)**: [dark-overlay | light-overlay | gradient-mask | zone-isolation | no-overlay-justified]
+- **Text Legibility on Image**: [legible | borderline | fails] + justification if borderline/fails
 - **Typography**: [family, weights, title/body/caption sizes]
 - **Minimum Font Size**: [px on final canvas]
 - **Palette**: [hex values and roles]
@@ -79,15 +90,21 @@ The Visual Director must include one completed decision card per asset.
 - **Navigation / Interaction**: [required controls by format]
 - **Export Expectation**: [PNG/JPEG count, exact dimensions]
 - **Validation Method**: [how renderer/reviewer should verify]
+- **Post-Preview Generated**: [yes/no/pending] — URL do HTML + data de geração
+- **Caption Sourced From**: [social-final-captions.json | inline] — tracking da origem do caption
+- **Caption Integrity**: [match | desync | pending] — compara caption no post-preview com social-final-captions.json
 ```
 
 ### Image Decision Rules
 
-1. If the asset is derived from a blog post, first check `output/{client}/blog/assets/` for related imagery.
-2. If a related image exists, default to `background-image` unless it conflicts with the content strategy.
-3. If no image is used, the decision must be `texture-only` or `no-image-justified` with a clear reason.
-4. `no-image-justified` is valid only when the visual concept intentionally depends on text, icons, diagrams or pure typographic contrast.
-5. Generic image use is not allowed. The image must support the post thesis, not merely decorate the frame.
+1. **Slide 1 (capa) ONLY** — imagem do blog image bank é alocada exclusivamente no slide 1. Slides 2+ devem usar Design System (texturas, gradientes, padrões, composições tipográficas).
+2. Reutilizar a imagem do banco em slides 2+ é permitido SOMENTE com crop variationjustified e declaração explícita no VDC.
+3. Se o asset é derivado de blog, verificar `output/{client}/blog/assets/{parent_asset_id}-images.json` e alocar 1 imagem para o slide 1.
+4. Se nenhuma imagem é usada, a decisão deve ser `texture-only` ou `no-image-justified` com razão clara.
+5. `no-image-justified` é válido apenas quando o conceito visual depende intencionalmente de texto, ícones, diagramas ou contraste tipográfico puro.
+6. **Contraste texto vs. imagem** — slide 1 com background-image deve declarar estratégia de contraste: `dark-overlay`, `light-overlay`, `gradient-mask`, `zone-isolation` ou `no-overlay-justified`. Se o overlay compromete legibilidade, justificar explicitamente.
+7. Uso genérico de imagem não é permitido. A imagem deve suportar a tese do post, não apenas decorar o frame.
+8. Slides 2+ must not inherit a default flat background without an explicit design-system treatment. They must declare `texture-only`, `gradient` or `solid`, and the exported result must show visible variation or a documented reason for continuity.
 
 ### First Impression Diversity Rules
 
@@ -105,12 +122,19 @@ The Creative Renderer must include one completed render compliance card per asse
 ### Render Compliance Card — [asset_id]
 
 - **Decision Card Found**: [yes/no]
+- **NLM Prototype Used**: [not used | reference_only + path/link]
+- **Prototype Elements Preserved**: [sequence | hierarchy | mood | CTA | composition | none]
+- **Prototype Elements Discarded**: [watermark | typography | claims | format | generic styling | other]
 - **Final Canvas Rendered**: [width x height px]
 - **Campaign-Hub Preview Implemented**: [yes/no + behavior]
 - **Visual Skill Behavior**: [pass/fail + notes]
 - **Background Decision Implemented**: [background-image | texture-only | no-image-justified]
 - **Background Source Implemented**: [path/source or `not used`]
 - **Image Treatment Implemented**: [crop/overlay/blur/etc.]
+- **Image Bank Applied to**: [slide 1 only | crop-variation-justified + slides where]
+- **Slides 2+ Background**: [Design System — no image bank reuse | exception declared]
+- **Contrast Strategy Implemented**: [pass/fail] + notes
+- **Text Legibility Check**: [pass/fail] — texto legível em canvas final
 - **Opening Frame Implemented**: [image/crop/focal point/treatment]
 - **First Impression Difference Preserved**: [yes/no + notes]
 - **Typography Implemented**: [family/weights/sizes]
@@ -118,6 +142,9 @@ The Creative Renderer must include one completed render compliance card per asse
 - **Navigation Check**: [pass/fail + controls]
 - **Export Paths**: [HTML and final image paths]
 - **Export Dimension Check**: [command/tool/manual note]
+- **Post-Preview Generated**: [yes/no/pending] + URL
+- **Caption Source Confirmed**: [social-final-captions.json | inline]
+- **Caption Integrity Check**: [match | desync | pending] —比对 com social-final-captions.json
 - **Status**: [ready | blocked]
 ```
 
@@ -130,6 +157,12 @@ The Creative Renderer must include one completed render compliance card per asse
 - `linkedin-carousel`: document-style sequence, no Instagram UI, no fake app chrome, restrained navigation in preview only.
 - `social-single-post`: one frame only. Any multi-frame content must be rerouted before render.
 - `pinterest-pin`: vertical save-oriented layout, no carousel controls, high scanability.
+
+### Typography Readability Rules
+
+1. The VDC and RCC must declare at least title, body, caption and CTA sizes when text is present.
+2. Secondary body or caption copy must be legible at final export size without zooming.
+3. If a slide needs to compress below the declared minimum font size, shorten the copy or reflow the composition instead of reducing the type.
 
 ### Mock/Chrome And Navigation Rules
 
@@ -172,6 +205,8 @@ Required review checks:
 - Navigation works for multi-frame assets.
 - Export dimensions are verified before publication/export status is granted.
 - Campaign-hub preview can be reviewed comfortably without clipping core content.
+- If the background image or crop changed in a regeneration cycle, the hub must point to the regenerated preview/PNG artifacts, not the prior version.
+- If a NotebookLM prototype was used, the Reviewer must verify that it stayed reference-only and did not bypass VDC, RCC, export validation or source validation.
 
 ## Veto Conditions
 
@@ -194,7 +229,13 @@ Reject and redo if any are true:
 15. The preview HTML content, copy, CTA or branding does not match the published PNGs.
 16. The brief prohibits mocks or fake publication previews and the DOM/export includes platform chrome.
 17. The brief prohibits navigation arrows and the DOM/export includes visible arrows or previous/next buttons inside the reviewable/exported art surface.
+18. A regenerated post changed image/background but the hub or review modal still points to the older preview/PNG version.
 18. RCC/Review claims photography, background image, image rotation or specific dimensions without matching DOM/export evidence.
+19. **Slides 2+ reutilizam imagem do banco** sem justificativa de crop variationjustified declarada no VDC.
+20. **Contrast Strategy ausente ou ilegível** — slide 1 com background-image sem estratégia de contraste declarada OU com `Text Legibility: fails`.
+21. **Design System ignorado em slides 2+** — slides usam imagem que não é do banco E não usam tokens do Design System (textura, gradiente, padrão, composição tipográfica).
+22. **NotebookLM prototype treated as final art** — prototype PDF/image is used directly for publication or hub approval without canonical VDC/RCC/render/review evidence.
+23. **Prototype limitations not declared** — NLM reference used but watermark, unsupported claims, format issues or discarded elements are missing from VDC/RCC.
 
 ## Stage 4 — HTML-PNG Sync Gate
 

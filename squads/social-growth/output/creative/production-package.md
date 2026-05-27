@@ -69,7 +69,7 @@ The section below reflects the current cycle example. For another client, regene
 - Product image: yes
 - Support visual: close-up of the offer, package or product detail
 - Goal: show that the value is bigger than the surface item
-- Source search note: may be derived from the repurpose package when long-form content is in scope; keep the free/public source search note attached.
+- Source search note: may be derived from the repurpose package when long-form content is in scope; keep the free/public source search note attached when image research is active.
 
 ### 3. Organização vende mais do que improviso
 - Asset type: checklist card
@@ -91,7 +91,7 @@ The section below reflects the current cycle example. For another client, regene
 - Product image: yes
 - Support visual: hands, materials, finishing, detail
 - Goal: make the making process increase perceived value
-- Source search note: keep source class, source notes and license notes in the render handoff.
+- Source search note: keep source class, source notes and license notes in the render handoff when image research is active.
 
 ### 6. O erro que faz você vender menos
 - Asset type: comparison card

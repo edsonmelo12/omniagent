@@ -13,7 +13,7 @@ It defines the minimum editorial standard for long-form blog content regardless 
 - Every blog piece must record a family ledger entry before final drafting.
 - Every blog piece must declare a word-count target based on function, not on habit.
 - Every blog piece must define a featured-image direction that reinforces the thesis.
-- Every blog piece must define a featured-image selection rationale that justifies why the image won the criteria.
+- Featured-image selection rationale is required only when image research is active for the cycle.
 - Every published HTML must render the featured image successfully.
 - Every published HTML must use final Portuguese orthography, with accents normalized.
 - Every blog piece must have ≥30% of sentences containing a transition word (adição, contraste, causa, ordem, ênfase, exemplificação).

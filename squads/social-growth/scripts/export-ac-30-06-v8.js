@@ -1,10 +1,9 @@
-const { chromium } = require('playwright');
-const { fileURLToPath } = require('url');
-const { dirname } = require('path');
-const { readFileSync } = require('fs');
+import { chromium } from 'playwright';
+import { fileURLToPath } from 'url';
+import { readFileSync } from 'fs';
 
-const HTML_PATH = fileURLToPath(new URL('../output/amiclube/social/previews/ac-30-06-v8.html', __filename));
-const OUTPUT_DIR = fileURLToPath(new URL('../output/amiclube/social/publish/ac-30-06-v8', __filename));
+const HTML_PATH = fileURLToPath(new URL('../output/amiclube/social/previews/ac-30-06-v8.html', import.meta.url));
+const OUTPUT_DIR = fileURLToPath(new URL('../output/amiclube/social/publish/ac-30-06', import.meta.url));
 const TOTAL_SLIDES = 7;
 const VIEW_W = 420;
 const VIEW_H = 525;

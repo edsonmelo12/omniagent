@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "updatedAt": "2026-04-26T00:00:00Z",
+  "updatedAt": "2026-05-13T00:00:00Z",
   "coverage_rules": {
     "required_min_social_per_blog": 3,
     "target_social_per_blog": 3,
@@ -18,7 +18,7 @@
     { "asset_id": "AC-30-06", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "review", "channel": "instagram" },
     { "asset_id": "AC-30-07", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "review", "channel": "instagram" },
     { "asset_id": "AC-30-08", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05", "status": "planned", "channel": "instagram" },
-    { "asset_id": "AC-30-10", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "review", "channel": "instagram" },
+    { "asset_id": "AC-30-10", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "preview_ready", "channel": "instagram", "version": "v4", "pipeline_compliance": "passed" },
     { "asset_id": "AC-30-11", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09", "status": "review", "channel": "instagram" },
     { "asset_id": "AC-30-12", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "facebook" },
     { "asset_id": "AC-30-14", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13", "status": "planned", "channel": "instagram" },
@@ -36,7 +36,7 @@
     { "asset_id": "AC-30-26", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "review", "channel": "instagram" },
     { "asset_id": "AC-30-27", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-05B", "status": "review", "channel": "facebook" },
     { "asset_id": "AC-30-28", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "instagram" },
-    { "asset_id": "AC-30-29", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "instagram" },
+    { "asset_id": "AC-30-29", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "approved", "channel": "instagram" },
     { "asset_id": "AC-30-30", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-13B", "status": "planned", "channel": "facebook" },
     { "asset_id": "AC-30-31", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "instagram" },
     { "asset_id": "AC-30-32", "content_mode": "blog_derivative", "blog_parent_id": "AC-30-09B", "status": "planned", "channel": "instagram" },

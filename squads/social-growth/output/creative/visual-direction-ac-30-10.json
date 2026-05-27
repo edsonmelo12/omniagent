@@ -1,0 +1,110 @@
+{
+  "asset_id": "AC-30-10",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "instagram-carousel",
+  "title": "Reputação de marca artesanal: 5 sinais para avaliar",
+  "deck_label": "reputação",
+  "topic": "Reputação Visual",
+  "footer": "@amiclube",
+  "design_tokens": {
+    "body_color": "#1A1918",
+    "accent_color": "#C45C1F",
+    "heading_font": "Playfair Display",
+    "body_font": "DM Sans"
+  },
+  "hide_swipe_arrow": false,
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "REPUTAÇÃO VISUAL",
+      "title": "FOTO BONITA NÃO BASTA",
+      "body": "5 sinais para avaliar uma marca artesanal antes de comprar.",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/AC-30-09-campanha-como-avaliar-reputação-de-marca-artesanal/instagram-carousel/instagram carousel-como-avaliar-reputacao-de-v1.webp",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      },
+      "contrast_strategy": "dark-overlay",
+      "text_legibility": "legible"
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "SINAL 1",
+      "title": "ACABAMENTO VISÍVEL",
+      "body": "A marca mostra detalhe, textura, proximidade. Não só foto heroica distante.",
+      "textVariant": "light",
+      "background": {
+        "type": "texture-pattern",
+        "color": "#F7F3EE",
+        "from": "#F7F3EE",
+        "to": "#efe4d8",
+        "texture": "noise"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "SINAL 2",
+      "title": "CLAREZA COMERCIAL",
+      "body": "Prazo, personalização, forma de pedido e contato — tudo compreensível sem esforço.",
+      "textVariant": "dark",
+      "background": {
+        "type": "texture-pattern",
+        "color": "#1A1918",
+        "from": "#1A1918",
+        "to": "#2d2318",
+        "texture": "noise"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "SINAL 3",
+      "title": "LINGUAGEM COM CRITÉRIO",
+      "body": "A marca evita promessas vazias e comunica com sobriedade — não só entusiasmo.",
+      "textVariant": "light",
+      "background": {
+        "type": "texture-pattern",
+        "color": "#F7F3EE",
+        "from": "#F7F3EE",
+        "to": "#ede3d6",
+        "texture": "noise"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "SINAL 4",
+      "title": "DEPOIMENTOS ESPECÍFICOS",
+      "body": "Relatos sobre foto vs. realidade, apresentação e atendimento — provas concretas, não elogios genéricos.",
+      "textVariant": "dark",
+      "background": {
+        "type": "texture-pattern",
+        "color": "#1A1918",
+        "from": "#1A1918",
+        "to": "#2d2318",
+        "texture": "noise"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "SINAL 5",
+      "title": "CONSISTÊNCIA DO CONJUNTO",
+      "body": "1. Close visível? 2. Imagens consistentes? 3. Prazo claro? 4. Linguagem com critério? 5. Depoimentos específicos? 6. Apresentação premium? 7. O conjunto inspira confiança?",
+      "cta": "Quer saber mais? O link está na bio.",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#8C6A5E",
+        "to": "#C45C1F"
+      }
+    }
+  ]
+}

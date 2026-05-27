@@ -1,0 +1,119 @@
+{
+  "presets": {
+    "premium-editorial": {
+      "role": "autoridade editorial",
+      "best_for": ["facebook-post", "social-single-post"],
+      "signals": ["headline serifada", "corpo sans", "CTA em pill", "contraste alto"]
+    },
+    "editorial-magazine": {
+      "role": "editorial explicativo",
+      "best_for": ["instagram-carousel", "linkedin-carousel"],
+      "signals": ["progressão clara", "blocos de informação", "ritmo de leitura"]
+    },
+    "motion-social": {
+      "role": "ritmo e retenção",
+      "best_for": ["reels-sequence", "stories-sequence"],
+      "signals": ["primeiro frame forte", "sequência curta", "CTA rápido"]
+    },
+    "paper-bulletin": {
+      "role": "participação editorial",
+      "best_for": ["stories-sequence"],
+      "signals": ["cartões de escolha", "pílulas orgânicas", "papel quente", "ritmo de votação"]
+    },
+    "archdigest-editorial": {
+      "role": "editorial residencial premium",
+      "best_for": ["stories-sequence", "social-single-post"],
+      "signals": ["papel quente", "serifa elegante", "contraste suave", "acabamento de revista"]
+    },
+    "minimalist-texture": {
+      "role": "clareza e foco",
+      "best_for": ["pinterest-pin", "social-single-post"],
+      "signals": ["poucos elementos", "respiro", "hierarquia rígida"]
+    },
+    "authentic-rough": {
+      "role": "prova social e bastidor",
+      "best_for": ["instagram-carousel", "facebook-post"],
+      "signals": ["textura orgânica", "tom humano", "baixa polidez"]
+    },
+    "high-energy-cyber": {
+      "role": "urgência e impacto",
+      "best_for": ["stories-sequence", "reels-sequence"],
+      "signals": ["alto contraste", "tipografia forte", "cortes rápidos"]
+    },
+    "editorial-myth": {
+      "role": "quebra de crença",
+      "best_for": ["instagram-carousel", "facebook-post"],
+      "signals": ["gancho provocativo", "prova em camadas", "tom analítico"]
+    },
+    "dark-premium": {
+      "role": "luxo e sofisticação",
+      "best_for": ["facebook-post", "pinterest-pin", "social-single-post"],
+      "signals": ["fundo escuro", "acentos quentes", "acabamento refinado"]
+    }
+  },
+  "formats": {
+    "facebook-post": {
+      "template": "facebook-post",
+      "canvas": { "width": 1200, "height": 630 },
+      "default_style": "premium-editorial",
+      "mode": "single",
+      "slots": ["eyebrow", "title", "body", "listHtml", "cta", "footerNote", "background"],
+      "rules": ["single_frame", "headline_curta", "cta_em_pill", "lista_opcional"],
+      "notes": "Útil para autoridade, reputação e posts com leitura rápida."
+    },
+    "social-single-post": {
+      "template": "social-single-post",
+      "canvas": { "width": 1080, "height": 1350 },
+      "default_style": "premium-editorial",
+      "mode": "single",
+      "slots": ["eyebrow", "headline", "body", "listHtml", "cta", "footerNote", "background"],
+      "rules": ["single_frame", "headline_serifada", "cta_curta", "lista_opcional"],
+      "notes": "Bom para posts estáticos premium e peças de conversão com respiro."
+    },
+    "instagram-carousel": {
+      "template": "instagram-carousel",
+      "canvas": { "width": 1080, "height": 1350 },
+      "default_style": "editorial-magazine",
+      "mode": "multi",
+      "slide_plan": ["cover", "content", "content", "content", "recap", "cta"],
+      "rules": ["slide_1_gancho", "uma_ideia_por_slide", "fechamento_com_acao"],
+      "notes": "Estrutura educativa e progressiva."
+    },
+    "linkedin-carousel": {
+      "template": "linkedin-carousel",
+      "canvas": { "width": 1080, "height": 1350 },
+      "default_style": "editorial-magazine",
+      "mode": "multi",
+      "slide_plan": ["cover", "point", "point", "proof", "cta"],
+      "rules": ["clareza", "autoridade", "densidade_controlada"],
+      "notes": "Melhor para raciocínio profissional e prova argumentativa."
+    },
+    "reels-sequence": {
+      "template": "reels-sequence",
+      "canvas": { "width": 1080, "height": 1920 },
+      "default_style": "motion-social",
+      "mode": "multi",
+      "slide_plan": ["cover", "beat", "beat", "beat", "cta"],
+      "rules": ["imagem_apenas_no_primeiro_frame", "texto_curto", "ritmo_alto"],
+      "notes": "Primeiro frame é capa visual; os demais priorizam retenção."
+    },
+    "stories-sequence": {
+      "template": "stories-sequence",
+      "canvas": { "width": 1080, "height": 1920 },
+      "default_style": "high-energy-cyber",
+      "mode": "multi",
+      "slide_plan": ["hook", "proof", "cta"],
+      "rules": ["vertical", "escaneavel", "ação_rápida"],
+      "notes": "Sequência curta, direta e com CTA imediato."
+    },
+    "pinterest-pin": {
+      "template": "pinterest-pin",
+      "canvas": { "width": 1080, "height": 1350 },
+      "default_style": "minimalist-texture",
+      "mode": "single",
+      "slots": ["eyebrow", "title", "body", "cta", "background"],
+      "rules": ["vertical", "legibilidade", "respiro"],
+      "notes": "Mais afim de descoberta e salvamento do que de conversão imediata."
+    }
+  }
+}

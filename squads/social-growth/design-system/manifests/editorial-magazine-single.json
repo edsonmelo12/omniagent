@@ -1,0 +1,29 @@
+{
+  "asset_id": "example-editorial-magazine-single",
+  "client": "Template",
+  "brand": "MARCA",
+  "style": "editorial-magazine",
+  "format": "social-single-post",
+  "title": "Template — Editorial Magazine Post Estático",
+  "deck_label": "post",
+  "topic": "Tema do Post",
+  "footer": "@marca",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DICA RÁPIDA",
+      "title": "Título principal que chama atenção",
+      "body": "Descrição direta do valor entregue. Seja objetivo e convincente.",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - Social Growth Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0C5CAB;
+      --secondary: #0A4A8A;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --surface: #09090B;
+      --surface-elevated: #121216;
+      --text: #FAFAFA;
+      --text-muted: #A1A1AA;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: var(--surface-elevated);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+      backdrop-filter: blur(12px);
+    }
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 8px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .sidebar-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .sidebar-logo-text { font-weight: 600; font-size: 16px; }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.04); color: var(--text); }
+    .nav-item.active { background: var(--primary); color: white; }
+    .nav-icon { width: 20px; height: 20px; opacity: 0.8; }
+
+    .main {
+      flex: 1;
+      margin-left: 240px;
+      padding: 24px 32px;
+      background: var(--surface);
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .header-title { font-size: 24px; font-weight: 600; }
+    .header-subtitle { color: var(--text-muted); font-size: 14px; margin-top: 6px; max-width: 72ch; line-height: 1.55; }
+
+    .hero-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, rgba(12, 92, 171, 0.18), rgba(18, 18, 22, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .chart-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(12, 92, 171, 0.14);
+      color: #8ec0ff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .chart-title { font-size: 24px; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .chart-subtitle { color: var(--text-muted); font-size: 14px; line-height: 1.55; max-width: 72ch; }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+
+    .hero-link:hover { border-color: var(--primary); }
+
+    .catalog-section { margin-bottom: 32px; }
+    .catalog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .chart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(12, 92, 171, 0.16);
+      color: #8ec0ff;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(142, 192, 255, 0.18);
+      white-space: nowrap;
+    }
+    .catalog-body { width: 100%; display: block; }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .catalog-summary {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    .catalog-summary-card,
+    .catalog-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .catalog-summary-card { padding: 16px 18px; }
+    .catalog-summary-label { display: block; color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .catalog-summary-value { font-size: 22px; font-weight: 700; line-height: 1.05; }
+    .catalog-summary-note { margin-top: 8px; color: var(--text-muted); font-size: 12px; line-height: 1.45; }
+    .catalog-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      position: relative;
+    }
+    .catalog-card-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .catalog-card-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(12, 92, 171, 0.18), rgba(255, 255, 255, 0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #8ec0ff;
+    }
+    .catalog-index {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(9, 9, 11, 0.86);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .catalog-card-title { font-size: 16px; font-weight: 700; line-height: 1.25; }
+    .catalog-card-id { font-size: 12px; color: var(--text-muted); font-family: ui-monospace, SFMono-Regular, monospace; }
+    .catalog-card-description {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .catalog-card-meta,
+    .catalog-featured-chips,
+    .catalog-mini-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .catalog-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .catalog-product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      color: #8ec0ff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .catalog-product-link:hover { text-decoration: underline; }
+    .catalog-empty {
+      padding: 24px;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      color: var(--text-muted);
+      text-align: center;
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 1200px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) {
+      .sidebar { position: static; width: 100%; height: auto; }
+      .main { margin-left: 0; }
+      .hero-card { flex-direction: column; align-items: flex-start; }
+      .catalog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">SG</div>
+      <span class="sidebar-logo-text">Social Growth</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="chat.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5m8-2c0 4.418-4.03 8-9 8a9.98 9.98 0 01-3-.45L3 20l1.43-3.73A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        Chat da squad
+      </a>
+      <a href="index.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        Overview
+      </a>
+      <a href="campaigns.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+        Campaigns
+      </a>
+      <a href="articles.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"></path></svg>
+        Artigo
+      </a>
+      <a href="schedule.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Schedule
+      </a>
+      <a href="monitor.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Monitor
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+        Analytics
+      </a>
+      <a href="products.html" class="nav-item active">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a1 1 0 00-1 1v8a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1zm-4 0V5a2 2 0 10-4 0v2m-4 0V5a2 2 0 114 0v2"></path></svg>
+        Produtos
+      </a>
+      <a href="settings.html" class="nav-item" style="margin-top: auto;">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <div>
+        <h1 class="header-title">Produtos</h1>
+        <p class="header-subtitle">Catálogo separado do overview para facilitar navegação, leitura dos cards e manutenção da vitrine comercial.</p>
+      </div>
+      <a class="hero-link" href="index.html">Voltar ao Overview</a>
+    </header>
+
+    <section class="hero-card">
+      <div>
+        <div class="chart-kicker">Instagram Commerce</div>
+        <h2 class="chart-title">Vitrine completa de produtos</h2>
+        <p class="chart-subtitle">Aqui ficam os produtos do catálogo com imagem, preço, disponibilidade, descrição e link de vendas. O overview segue focado em operação.</p>
+      </div>
+      <a class="hero-link" href="index.html">Abrir painel operacional</a>
+    </section>
+
+    <section class="catalog-section">
+      <div class="catalog-header">
+        <div>
+          <div class="chart-kicker">Catálogo</div>
+          <h2 class="chart-title">Catálogo de Produtos</h2>
+          <p class="chart-subtitle" data-catalog-subtitle>Produtos mapeados para conteúdo, marcação e conversão.</p>
+        </div>
+        <div class="chart-badge" data-catalog-badge>--</div>
+      </div>
+      <div class="catalog-body" data-catalog></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script>
+    function renderCatalog(catalog) {
+      const container = document.querySelector('[data-catalog]');
+      if (!container) return;
+
+      const products = Array.isArray(catalog?.products) ? catalog.products : [];
+      const badge = document.querySelector('[data-catalog-badge]');
+      const subtitle = document.querySelector('[data-catalog-subtitle]');
+
+      if (!products.length) {
+        if (badge) badge.textContent = '--';
+        if (subtitle) subtitle.textContent = 'Nenhum catálogo carregado no momento.';
+        container.innerHTML = '<div class="catalog-empty">Sem catálogo conectado.</div>';
+        return;
+      }
+
+      if (badge) badge.textContent = `${products.length} produtos`;
+      if (subtitle) {
+        subtitle.textContent = `Catálogo Instagram ID ${catalog?.catalogId || 'n/d'} · fonte ${catalog?.sourceFile || 'seed'}.`;
+      }
+
+      const topTheme = Array.isArray(catalog?.topThemes) && catalog.topThemes.length > 0 ? catalog.topThemes[0] : null;
+      const makeInitials = (name) => String(name || '')
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 3)
+        .map((part) => part[0])
+        .join('')
+        .toUpperCase();
+
+      const summaryHtml = `
+        <div class="catalog-summary">
+          <div class="catalog-summary-card">
+            <span class="catalog-summary-label">Itens ativos</span>
+            <div class="catalog-summary-value">${products.length}</div>
+            <div class="catalog-summary-note">Produtos mapeados para o Instagram</div>
+          </div>
+          <div class="catalog-summary-card">
+            <span class="catalog-summary-label">Catálogo</span>
+            <div class="catalog-summary-value">${catalog?.catalogId || 'n/d'}</div>
+            <div class="catalog-summary-note">ID de integração</div>
+          </div>
+          <div class="catalog-summary-card">
+            <span class="catalog-summary-label">Tema em destaque</span>
+            <div class="catalog-summary-value">${topTheme?.theme || 'n/d'}</div>
+            <div class="catalog-summary-note">${topTheme ? `${topTheme.count} ocorrência(s)` : 'Sem contagem'}</div>
+          </div>
+        </div>
+      `;
+
+      const cardsHtml = products.map((product, index) => {
+        const themeChips = Array.isArray(product.related_content_themes) ? product.related_content_themes : [];
+        const imageUrl = String(product.image_url || product.product_image_url || '').trim();
+        const salesUrl = String(product.sales_url || product.hotmart_url || '').trim();
+        const price = String(product.price || product.product_price || '').trim();
+        const availability = String(product.availability || product.product_availability || '').trim();
+        const description = String(product.description || product.product_description || '').trim();
+        return `
+          <article class="catalog-card">
+            ${imageUrl ? `<img class="catalog-card-image" src="${imageUrl}" alt="${product.name}" loading="lazy" />` : `<div class="catalog-card-placeholder">${makeInitials(product.name)}</div>`}
+            <div class="catalog-index">#${String(index + 1).padStart(2, '0')}</div>
+            <div class="catalog-card-title">${product.name}</div>
+            <div class="catalog-card-id">${product.id}</div>
+            ${(price || availability) ? `<div class="catalog-card-meta">${price ? `<span class="catalog-chip">${price}</span>` : ''}${availability ? `<span class="catalog-chip">${availability}</span>` : ''}</div>` : ''}
+            ${description ? `<div class="catalog-card-description">${description}</div>` : ''}
+            ${themeChips.length ? `<div class="catalog-card-meta">${themeChips.map((theme) => `<span class="catalog-chip">${theme}</span>`).join('')}</div>` : ''}
+            ${salesUrl ? `<a class="catalog-product-link" href="${salesUrl}" target="_blank" rel="noreferrer">Abrir página de vendas</a>` : ''}
+          </article>
+        `;
+      }).join('');
+
+      container.innerHTML = summaryHtml + `<div class="catalog-grid">${cardsHtml}</div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = window.__DASHBOARD_DATA__ || null;
+      if (data) renderCatalog(data.catalog);
+    });
+  </script>
+</body>
+</html>

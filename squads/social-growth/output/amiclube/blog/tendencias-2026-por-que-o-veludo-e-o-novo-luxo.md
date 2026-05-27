@@ -307,7 +307,7 @@ Quando essa tendência é aplicada com curadoria, ela fortalece posicionamento, 
 - Visual concept: macro de textura de veludo com luz lateral suave, comunicando luxo sensorial e profundidade visual.
 - Format: blog-hero-16x9 (1600x900)
 - Alt text: Close-up de textura de veludo premium em tons sofisticados, representando o novo luxo sensorial em 2026.
-- Implementation note: usar `assets/AC-30-05b-veludo-luxo-hero.jpg` no topo do preview.
+- Implementation note: usar `imagens/ac-30-05b-campanha-tendências-2026_-por-que-o-veludo-e-o-novo-luxo/blog/blog-tendencias-2026-por-que-v1.webp` no topo do preview.
 - Source class: free/public stock (Pexels)
 
 ## Featured Image Source Search

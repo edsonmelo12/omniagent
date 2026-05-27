@@ -1,0 +1,85 @@
+{
+  "asset_id": "AC-30-15",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "dark-premium",
+  "format": "reels-sequence",
+  "title": "Transformação visual de ambientação",
+  "deck_label": "transformação",
+  "topic": "Antes e depois",
+  "footer": "@amiclube",
+  "design_tokens": {
+    "accent_color": "#C9A227"
+  },
+  "channel": "Instagram",
+  "objective": "Conversão",
+  "cta": "Direct para proposta personalizada",
+  "caption": "✨ TRANSFORMAÇÃO VISUAL DE AMBIENTAÇÃO\n\nUm espaço sem personalidade vs. um espaço com alma amigurumi.\n\n🏠 O ambiente que esperava por algo especial...\n...ganha uma presença que troca completamente o clima.\n\n🎨 A curadoria certa transforma o ordinário em autoral.\nCada peça no lugar certo, cada ocasião com a leitura certa.\n\n💬 Quer essa transformação no seu espaço?\nManda DIRETO no direct que a gente cria uma proposta personalizada para você.",
+  "hashtags": ["#AmiClube", "#TransformacaoAmbiental", "#DecoracaoAutoral", "#AmigurumiDecor", "#AntesEDepois", "#AmbienteTransformado", "#CuradoriaDePresente", "#PresenteComSignificado", "#DesignDeInteriores", "#AmigurumiBrasil"],
+  "exported_images": [],
+  "images": [
+    "../../blog/imagens/AC-30-13-campanha-guia-de-compra-inteligente-de-amigurumi/instagram-reels/instagram reels-guia-de-compra-inteligente-v1.png"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "AMBIENTAÇÃO",
+      "title": "O espaço que pede por algo especial…",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/AC-30-13-campanha-guia-de-compra-inteligente-de-amigurumi/instagram-reels/instagram reels-guia-de-compra-inteligente-v1.png",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.55)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "TRANSIÇÃO",
+      "title": "…recebe uma presença que troca o clima.",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "solid",
+        "color": "#0d0d0d"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "RESULTADO",
+      "title": "A curadoria certa transforma ordinário em autoral.",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "solid",
+        "color": "#171717"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "DETALHE",
+      "title": "Este é o efeito de escolher pela ocasião, não só pelo visual.",
+      "body": "",
+      "textVariant": "dark",
+      "background": {
+        "type": "solid",
+        "color": "#0d0d0d"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "QUER O SEU?",
+      "title": "Quer essa transformação no seu espaço?",
+      "body": "Direct para proposta personalizada.",
+      "cta": "Enviar Direct",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#4A1C23",
+        "to": "#1A1A1A"
+      }
+    }
+  ]
+}

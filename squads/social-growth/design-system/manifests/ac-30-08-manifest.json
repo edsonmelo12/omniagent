@@ -1,0 +1,35 @@
+{
+  "asset_id": "AC-30-08",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "social-single-post",
+  "title": "O barato que vira custo de arrependimento",
+  "deck_label": "post",
+  "topic": "Valor Percebido vs Valor Entregue",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Conversão",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "VALOR PERCEBIDO vs VALOR ENTREGUE",
+      "title": "O barato que vira custo de arrependimento.",
+      "body": "Quando a entrega não sustenta a percepção, a economia inicial vira retrabalho.",
+      "cta": "Envie VALOR no Direct",
+      "showDivider": true,
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/assets/AC-30-05-preco-valor-hero.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    }
+  ]
+}

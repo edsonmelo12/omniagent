@@ -18,6 +18,7 @@ Load these files before executing:
 - `squads/social-growth/output/blog/blog-brief.md` — canonical brief when present
 - `squads/social-growth/output/blog/blog-post.md` — approved discovery-optimized blog when present
 - `squads/social-growth/output/repurposing/content-repurpose.md` — approved repurpose package when present
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist for publishable caption and routing fields
 - `squads/social-growth/pipeline/data/tone-of-voice.md` — tone options for the client
 - `squads/social-growth/pipeline/data/output-examples.md` — quality reference
 - `squads/social-growth/pipeline/data/skill-invocation-gate.md` — mandatory skill invocation evidence for social generation
@@ -43,7 +44,7 @@ Load these files before executing:
 4. Draft each piece as `hook -> proof -> explanation -> CTA`.
 5. Adapt the same idea to platform-native structure.
 6. Keep language aligned with the approved tone and visual context.
-7. Carry forward the approved blog word-count target, featured-image direction and source rationale as constraints that downstream assets must not contradict.
+7. Carry forward the approved blog word-count target and featured-image direction as constraints that downstream assets must not contradict; source rationale only when image research is active.
 8. Preserve the brief's family ledger entry and proof freshness gate when the social idea came from long-form blog work.
 9. Avoid generic placeholders; every slide or frame needs a specific job.
 10. Assemble a production-ready package for review.
@@ -52,6 +53,7 @@ Load these files before executing:
 13. Do not emit briefing markers in the final copy. The publishable text must not show `Hook`, `CTA`, `autoridade de marca`, `negocio premium` or similar internal notes.
 14. Add a `Skill Invocation Ledger` proving which skills were loaded and which concrete copy decisions came from them.
 15. For every social asset, include a publishable caption contract: `asset_id`, `channel`, `format`, `final_caption`, `cta`, `hashtags`, `link_target`, `link_strategy`, and `alt_text`.
+16. Ensure the production package can satisfy `generation-contract.md` before handoff: identity, routing, creative decision, caption/link and export/proof fields must be derivable from this output.
 
 ## Output Format
 

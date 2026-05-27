@@ -1,0 +1,39 @@
+{
+  "asset_id": "example-editorial-magazine-facebook",
+  "client": "Template",
+  "brand": "MARCA",
+  "style": "editorial-magazine",
+  "format": "facebook-post",
+  "title": "Template — Editorial Magazine Facebook",
+  "deck_label": "artigo",
+  "topic": "Tema do Post",
+  "footer": "@marca",
+  "design_tokens": {
+    "accent_color": "#722F37",
+    "title_color": "#2D2318",
+    "body_color": "#5C4033",
+    "muted_color": "#8B7355",
+    "heading_font": "Playfair Display",
+    "body_font": "DM Sans",
+    "noise_opacity": "0.025"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "LEIA NO BLOG",
+      "title": "Título atraente para o post do Facebook",
+      "body": "Descrição curta que explica o valor do conteúdo. Gera curiosidade para o clique.",
+      "cta": "Link na descrição",
+      "showDivider": true,
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.45)"
+      }
+    }
+  ]
+}

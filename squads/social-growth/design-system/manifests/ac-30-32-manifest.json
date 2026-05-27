@@ -1,0 +1,79 @@
+{
+  "asset_id": "AC-30-32",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "dark-premium",
+  "format": "reels-sequence",
+  "title": "AC-30-32 Reels v7 — AmiClube",
+  "deck_label": "reels",
+  "topic": "Confiança",
+  "footer": "@amiclube",
+  "first_impression": {
+    "role": "hero",
+    "opening_image": "blog/imagens/ac-30-08B/AC-30-32-instagram-reels.webp",
+    "difference_from_recent": "image-led vs. typography-only/pattern recentes"
+  },
+  "design_tokens": {
+    "accent_color": "#D4A844",
+    "title_color": "#FFFFFF",
+    "body_color": "rgba(255,255,255,0.8)",
+    "muted_color": "rgba(255,255,255,0.5)",
+    "heading_font": "Playfair Display",
+    "body_font": "DM Sans",
+    "noise_opacity": "0.03"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "SEGURANÇA",
+      "title": "Você sabe se o amigurumi que vai comprar é confiável?",
+      "body": "Produtos afetivos despertam confiança em segundos. Mas no artesanal premium, essa ordem precisa ser invertida.",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "text_legibility": "legible",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/ac-30-08B/AC-30-32-instagram-reels.webp",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.35)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PROVA 1-3",
+      "title": "1. Mostra a peça em detalhe real?",
+      "body": "2. Explica materiais e uso?\n3. A apresentação é limpa?",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#3D1A2A"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PROVA 4-6",
+      "title": "4. O atendimento responde com clareza?",
+      "body": "5. O portfólio é consistente?\n6. Os relatos são específicos?",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#3D1A2A"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "7 perguntas completas no link da BIO",
+      "body": "",
+      "cta": "@amiclube",
+      "textVariant": "light",
+      "background": {
+        "type": "gradient",
+        "from": "#3D1A2A",
+        "to": "#2E1420"
+      }
+    }
+  ]
+}

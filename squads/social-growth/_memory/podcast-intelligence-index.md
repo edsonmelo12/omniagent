@@ -8,20 +8,22 @@
 
 ## Episódios analisados
 
-| Data | Fonte | Episódio | Cliente(s) | Insight Principal | Decisão | Validado por |
-|------|-------|-----------|------------|-------------------|---------|-------------|
-| 2026-05-08 | Hotmart Cast | #192 Giulia Nardini | amiclube | Consistência + dados > intuição — repetir o que funciona | ACEITO → H-001 reforçado | Edson |
-| 2026-05-08 | Hotmart Cast | #192 Giulia Nardini | amiclube | Storytelling por canal — mesmo tema com narrativa própria | ACEITO → Storytelling map sugerido | Edson |
-| 2026-05-08 | Hotmart Cast | Millena Nóbrega | amiclube | Frequência + consistência > post bonito; IA como apoio, não substituição | ACEITO → H-002 reforçado | Edson |
-| 2026-05-08 | Hotmart Cast | Verônica Motta (VeveFit) | amiclube | Consistência diária supera formatos virais esporádicos | ARQUIVADO | Edson |
-| 2026-05-08 | Hotmart Cast | Carol Costa (Carol das Plantas) | amiclube | Conteúdo técnico regular + autêntico = comunidade sem viralização | ACEITO → H-003 reforçado | Edson |
-| 2026-05-08 | Hotmart Cast | Ana Jannuzzi #186 | amiclube | Escuta ativa + entrega honesta = comunidade que confia | ACEITO → DNA AmiClube confirmado | Edson |
-| 2026-05-08 | Hotmart Cast | Pedro Aredes | amiclube | Low ticket como porta de entrada para ofertas maiores | NOVO → H-005 (não validado) | Edson |
-| 2026-05-08 | Hotmart Cast | Valter Azevedo #66 + Cátia Damasceno | amiclube | Objeções do público como estratégia de conteúdo | NOVO → H-006 aceito | Edson |
-| 2026-05-08 | Hotmart Cast | Como PROGRAMAR sua MENTE para a RIQUEZA? | amiclube | Transcrição YouTube: visão + programação mental + provas financeiras | EM ANÁLISE | Script |
-| 2026-05-08 | Hotmart Cast | Largou tudo. Faturou R$1 milhão. | amiclube | Transcrição YouTube: prova + mindset de visão + case R$1M | ARQUIVADO | Script |
-| 2026-05-08 | Hotmart Cast | O SEGREDO Por Trás das VENDAS de Produtos Digitais | amiclube | Transcrição YouTube: lançamento + ofertas + conversão | EM ANÁLISE | Script |
-| 2026-05-08 | Hotmart Cast | Joba (YouTube) | amiclube | YouTube como plataforma de autoridade para nichos técnicos | GAP → Arquivado para pós-campanha | Edson |
+| Data | Fonte | Episódio | Strategy Name | Cliente(s) | Insight Principal | Decisão | Validado por |
+|------|-------|-----------|---------------|------------|-------------------|---------|-------------|
+| 2026-05-08 | Hotmart Cast | #192 Giulia Nardini | Critério de Compra | amiclube | Consistência + dados > intuição — repetir o que funciona | ACEITO → H-001 reforçado | Edson |
+| 2026-05-08 | Hotmart Cast | #192 Giulia Nardini | Storytelling por Canal | amiclube | Storytelling por canal — mesmo tema com narrativa própria | ACEITO → Storytelling map sugerido | Edson |
+| 2026-05-08 | Hotmart Cast | Millena Nóbrega | Frequência que Consiste | amiclube | Frequência + consistência > post bonito; IA como apoio, não substituição | ACEITO → H-002 reforçado | Edson |
+| 2026-05-08 | Hotmart Cast | Verônica Motta (VeveFit) | Consistência Diária | amiclube | Consistência diária supera formatos virais esporádicos | ARQUIVADO | Edson |
+| 2026-05-08 | Hotmart Cast | Carol Costa (Carol das Plantas) | Conteúdo Técnico com Autenticidade | amiclube | Conteúdo técnico regular + autêntico = comunidade sem viralização | ACEITO → H-003 reforçado | Edson |
+| 2026-05-08 | Hotmart Cast | Ana Jannuzzi #186 | Escuta Ativa que Gera Confiança | amiclube | Escuta ativa + entrega honesta = comunidade que confia | ACEITO → DNA AmiClube confirmado | Edson |
+| 2026-05-08 | Hotmart Cast | Pedro Aredes | Curadoria Acessível | amiclube | Low ticket como porta de entrada para ofertas maiores | NOVO → H-005 (não validado) | Edson |
+| 2026-05-08 | Hotmart Cast | Valter Azevedo #66 + Cátia Damasceno | Objeções do Público | amiclube | Objeções do público como estratégia de conteúdo | NOVO → H-006 aceito | Edson |
+| 2026-05-08 | Hotmart Cast | Como PROGRAMAR sua MENTE para a RIQUEZA? | Visão e Programação Mental | amiclube | Transcrição YouTube: visão + programação mental + provas financeiras | EM ANÁLISE | Script |
+| 2026-05-08 | Hotmart Cast | Largou tudo. Faturou R$1 milhão. | Prova de Visão | amiclube | Transcrição YouTube: prova + mindset de visão + case R$1M | ARQUIVADO | Script |
+| 2026-05-08 | Hotmart Cast | O SEGREDO Por Trás das VENDAS de Produtos Digitais | Oferta e Conversão | amiclube | Transcrição YouTube: lançamento + ofertas + conversão | EM ANÁLISE | Script |
+| 2026-05-08 | Hotmart Cast | Joba (YouTube) | Autoridade em Nichos Técnicos | amiclube | YouTube como plataforma de autoridade para nichos técnicos | GAP → Arquivado para pós-campanha | Edson |
+| 2026-05-21 | DigitalCast | Os Segredos do Algoritmo Do Instagram | Instagram como Rede de Conversa | any-client | Instagram como rede de conversa + retenção como sinal principal | ACEITO → regra de gancho e retenção | Atlas |
+| 2026-05-21 | Kiwicast | Eles Faturaram R$3 Milhões No Digital No Orgânico | Funil Orgânico do Direct | any-client | Funil orgânico feed -> stories -> direct; relacionamento como conversão | ACEITO → funil orgânico padrão | Atlas |
 
 ---
 
@@ -44,6 +46,9 @@
 | YouTube como canal de autoridade | Alta | Arquivado | Pós-campanha |
 | Cadência diária em Stories (7x/semana) | Média | Condicional | Só se Sara confirmar capacidade |
 | Storytelling map por ativo | Alta | Backlog | Projeto pontual após ciclo |
+| Instagram como rede de conversa, não vitrine | Alta | Novo | Imediato |
+| Gancho baseado em pergunta real + retenção | Alta | Novo | Imediato |
+| Funil orgânico por canal: feed -> stories -> direct | Alta | Novo | Imediato |
 
 ---
 

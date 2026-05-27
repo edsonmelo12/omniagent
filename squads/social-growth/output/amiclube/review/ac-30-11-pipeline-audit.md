@@ -21,7 +21,8 @@
 | RCC | ac-30-11-rcc-v1.md | PASS |
 | Review APPROVE | ac-30-11-review-v1.md | PASS |
 | PNGs (4) | ac-30-11-01.png a 04.png | PASS |
-| HTML preview | ac-30-11-reels-reputacao.html | PASS |
+| Preview manifest | ac-30-11-post-preview-manifest.json | PASS |
+| HTML preview | ac-30-11-post-preview.html | PASS |
 
 ### 3. VDC Compliance
 | Campo | Presente | Status |

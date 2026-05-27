@@ -5,7 +5,7 @@
 - **Asset ID:** AC-30-11
 - **Channel / Format:** Instagram Reels (4 frames)
 - **Canvas Final:** 1080 x 1920 px
-- **Preview canônico:** `social/previews/ac-30-11-reels-reputacao.html`
+- **Preview canônico:** `social/previews/ac-30-11-post-preview.html`
 - **Blog Parent:** AC-30-09 — Reputação de marca artesanal
 
 ## Decisão Visual
@@ -13,7 +13,7 @@
 - **Visual Skill:** reels-sequence
 - **Style Selected:** Editorial Magazine + Proof Layer
 - **Client DNA Acceptance:** allowed — estilo editorial premium alinhado com DNA AmiClube (quente, humano, artesanal)
-- **Image Decision:** background-image — usar imagem hero do blog AC-30-09 em todos os frames
+- **Image Decision:** background-image — usar imagem hero do blog AC-30-09 somente no cover; frames 2-4 com fundos DS sólidos/gradiente
 - **First Impression Role:** proof-led (destaque de bastidor/curadoria)
 - **Similarity Risk:** LOW — formato Reels diferente de posts/carrosséis recentes
 - **Typography:** DM Sans 800 (headlines), DM Sans 500/700 (body), Playfair Display para destaque
@@ -27,13 +27,13 @@
 | 1 | Cover: "REPUTAÇÃO = COERÊNCIA" | Gancho |
 | 2 | Sinal 1 + 2 (Acabamento + Clareza comercial) | Prova 1 |
 | 3 | Sinal 3 + 4 (Linguagem + Depoimentos) | Prova 2 |
-| 4 | Sinal 5 + Checklist + "SALVE" + CTA | Fechamento |
+| 4 | Sinal 5 + checklist + CTA | Fechamento |
 
 ## Background Image Decision
 
 - **Background Image:** background-image
-- **Background Image Source:** `blog/assets/AC-30-09-reputacao-marca-hero.jpg`
-- **Image Treatment:** scale(1.14), cover, overlay gradient para legibilidade
+- **Background Image Source:** `blog/imagens/AC-30-09-campanha-como-avaliar-reputação-de-marca-artesanal/instagram-reels/instagram reels-como-avaliar-reputacao-de-v1.webp`
+- **Image Treatment:** cover + overlay gradient no cover; frames 2-4 sem imagem, com fundos DS consistentes
 
 ## First Impression Diversity
 
@@ -67,3 +67,7 @@
 3. **Rotação de imagem:** background image com scale(1.14) para variety
 4. **Sem setas de navegação:** nav buttons foram removidos da arte
 5. **Sem mocks:** mock_header foi removido
+
+## Preview Manifest
+
+- `output/amiclube/social/previews/ac-30-11-post-preview-manifest.json`

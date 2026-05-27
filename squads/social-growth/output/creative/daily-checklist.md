@@ -12,7 +12,7 @@ Cycle: current cycle
 - Confirm the CTA and the visual hierarchy.
 - Confirm the batch passes the [Creative Validation Checklist](validation-checklist.md).
 - Confirm the source class if the day needs external imagery.
-- Confirm the free/public source search note, candidate types and selection rationale if external imagery is used.
+- Confirm the free/public source search note, candidate types and selection rationale if external imagery is used and image research is active.
 
 ## Build Checklist
 

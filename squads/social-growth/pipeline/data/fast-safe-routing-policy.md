@@ -86,3 +86,4 @@ Escalar automaticamente para rota mais completa se qualquer item for verdadeiro:
 4. altera agenda, publicação, manifest, hub ou memória;
 5. existe defeito pós-aprovação;
 6. falta evidência para manter fast-track.
+7. a regeneração alterou imagem/fundo e o preview/PNG/hub ainda aponta para a versão anterior.

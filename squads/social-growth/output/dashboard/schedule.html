@@ -70,6 +70,10 @@
       <span class="sidebar-logo-text">Social Growth</span>
     </div>
     <nav class="sidebar-nav">
+      <a href="chat.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5m8-2c0 4.418-4.03 8-9 8a9.98 9.98 0 01-3-.45L3 20l1.43-3.73A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        Chat da squad
+      </a>
       <a href="index.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
         Overview
@@ -77,6 +81,10 @@
       <a href="campaigns.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
         Campaigns
+      </a>
+      <a href="articles.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"></path></svg>
+        Artigo
       </a>
       <a href="schedule.html" class="nav-item active">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -89,6 +97,10 @@
       <a href="analytics.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
         Analytics
+      </a>
+      <a href="products.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a1 1 0 00-1 1v8a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1zm-4 0V5a2 2 0 10-4 0v2m-4 0V5a2 2 0 114 0v2"></path></svg>
+        Produtos
       </a>
       <a href="settings.html" class="nav-item" style="margin-top: auto;">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -154,64 +166,52 @@
     </div>
   </main>
 
+  <script src="data.js"></script>
   <script>
-    async function loadData() {
-      // Fallback data
-      const fallbackData = { queue: [], blogsScheduled: 0 };
-      
-      try {
-        const response = await fetch('data.json');
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        var data = await response.json();
-      } catch (error) {
-        console.error('Erro ao carregar dados:', error);
-        data = fallbackData;
+    function loadData() {
+      return window.__DASHBOARD_DATA__ || { queue: [], metrics: {}, blogsScheduled: 0 };
+    }
+
+    function renderSchedule() {
+      const data = loadData();
+      const queue = Array.isArray(data.queue) ? data.queue : [];
+      const scheduled = queue.filter(q => q.status === 'scheduled');
+      const published = queue.filter(q => q.status === 'published' || q.status === 'Aprovado');
+
+      document.getElementById('scheduledCount').textContent = scheduled.length;
+      document.getElementById('publishedCount').textContent = published.length;
+      document.getElementById('next7Days').textContent = scheduled.length;
+      document.getElementById('thisMonth').textContent = data.blogsScheduled || 0;
+
+      const upcomingGrid = document.getElementById('upcomingGrid');
+      if (scheduled.length > 0) {
+        upcomingGrid.innerHTML = scheduled.slice(0, 6).map(item => `
+          <div class="upcoming-card">
+            <div class="upcoming-date">${item.publish_at}</div>
+            <div class="upcoming-title">${item.asset_id}</div>
+            <span class="channel-badge ${item.channel}">${item.channel}</span>
+          </div>
+        `).join('');
+      } else {
+        upcomingGrid.innerHTML = '<div class="empty-state">Nenhum evento agendado</div>';
       }
-        
-        const scheduled = (data.queue || []).filter(q => q.status === 'scheduled');
-        const published = (data.queue || []).filter(q => q.status === 'published');
-        
-        document.getElementById('scheduledCount').textContent = scheduled.length;
-        document.getElementById('publishedCount').textContent = published.length;
-        document.getElementById('next7Days').textContent = scheduled.length;
-        document.getElementById('thisMonth').textContent = data.blogsScheduled || 0;
-        
-        // Upcoming events
-        const upcomingGrid = document.getElementById('upcomingGrid');
-        if (scheduled.length > 0) {
-          upcomingGrid.innerHTML = scheduled.slice(0, 6).map(item => `
-            <div class="upcoming-card">
-              <div class="upcoming-date">${item.publish_at}</div>
-              <div class="upcoming-title">${item.asset_id}</div>
-              <span class="channel-badge ${item.channel}">${item.channel}</span>
-            </div>
-          `).join('');
-        } else {
-          upcomingGrid.innerHTML = '<div class="empty-state">Nenhum evento agendado</div>';
-        }
-        
-        // Schedule table
-        const tableBody = document.getElementById('scheduleTableBody');
-        if (data.queue && data.queue.length > 0) {
-          tableBody.innerHTML = data.queue.map(item => `
-            <tr>
-              <td><strong>${item.asset_id}</strong></td>
-              <td><span class="channel-badge ${item.channel}">${item.channel}</span></td>
-              <td>${item.publish_at}</td>
-              <td><span class="status-pill ${item.status}">${item.status === 'published' ? 'Publicado' : item.status === 'scheduled' ? 'Agendado' : item.status}</span></td>
-            </tr>
-          `).join('');
-        } else {
-          tableBody.innerHTML = '<tr><td colspan="4" class="empty-state">Nenhum item na fila</td></tr>';
-        }
-      } catch (error) {
-        console.error('Erro ao carregar dados:', error);
-        document.getElementById('upcomingGrid').innerHTML = '<div class="empty-state">Erro ao carregar dados: ' + error.message + '</div>';
-        document.getElementById('scheduleTableBody').innerHTML = '<tr><td colspan="4" class="empty-state">Erro ao carregar dados</td></tr>';
+
+      const tableBody = document.getElementById('scheduleTableBody');
+      if (queue.length > 0) {
+        tableBody.innerHTML = queue.map(item => `
+          <tr>
+            <td><strong>${item.asset_id}</strong></td>
+            <td><span class="channel-badge ${item.channel}">${item.channel}</span></td>
+            <td>${item.publish_at}</td>
+            <td><span class="status-pill ${item.status}">${item.status === 'published' || item.status === 'Aprovado' ? 'Publicado' : item.status === 'scheduled' ? 'Agendado' : item.status}</span></td>
+          </tr>
+        `).join('');
+      } else {
+        tableBody.innerHTML = '<tr><td colspan="4" class="empty-state">Nenhum item na fila</td></tr>';
       }
     }
-    
-    loadData();
+
+    renderSchedule();
   </script>
 </body>
 </html>

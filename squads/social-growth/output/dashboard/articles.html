@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artigos - Social Growth Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary: #0C5CAB; --secondary: #0A4A8A; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; --surface: #09090B; --surface-elevated: #121216; --text: #FAFAFA; --text-muted: #A1A1AA; --border: rgba(255, 255, 255, 0.08); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--surface); color: var(--text); min-height: 100vh; display: flex; }
+    body.modal-open { overflow: hidden; }
+    .sidebar { width: 240px; background: var(--surface-elevated); border-right: 1px solid var(--border); padding: 24px 16px; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+    .sidebar-logo { display: flex; align-items: center; gap: 12px; padding: 0 8px 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .sidebar-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .sidebar-logo-text { font-weight: 600; font-size: 16px; }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.15s ease; }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.04); color: var(--text); }
+    .nav-item.active { background: var(--primary); color: white; }
+    .nav-icon { width: 20px; height: 20px; opacity: 0.8; }
+    .main { flex: 1; margin-left: 240px; padding: 24px 32px; background: var(--surface); min-height: 100vh; }
+    .header-title { font-size: 24px; font-weight: 600; }
+    .page-subtitle { margin-top: 8px; color: var(--text-muted); font-size: 14px; line-height: 1.55; max-width: 72ch; }
+    .toolbar { display: grid; grid-template-columns: 2fr repeat(2, minmax(150px, 1fr)) auto; gap: 12px; margin: 24px 0 20px; padding: 16px; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; }
+    .toolbar-group { display: flex; flex-direction: column; gap: 6px; }
+    .toolbar-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700; }
+    .toolbar-input, .toolbar-select { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); padding: 11px 14px; font: inherit; font-size: 14px; }
+    .toolbar-input:focus, .toolbar-select:focus { outline: none; border-color: var(--primary); }
+    .toolbar-actions { display: flex; align-items: end; gap: 10px; }
+    .section-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 18px; padding: 20px; margin-bottom: 24px; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+    .section-head-title { font-size: 20px; font-weight: 700; line-height: 1.1; }
+    .section-head-note { margin-top: 8px; color: var(--text-muted); font-size: 14px; line-height: 1.55; max-width: 80ch; }
+    .section-badge { display: inline-flex; align-items: center; padding: 8px 12px; border-radius: 999px; background: rgba(12, 92, 171, 0.16); color: #8ec0ff; font-size: 12px; font-weight: 700; border: 1px solid rgba(142, 192, 255, 0.18); white-space: nowrap; }
+    .articles-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .article-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
+    .article-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .article-title { font-size: 16px; font-weight: 700; line-height: 1.25; }
+    .article-id { margin-top: 4px; color: var(--text-muted); font-size: 12px; font-family: monospace; }
+    .article-summary { display: grid; gap: 10px; padding: 14px; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .article-summary-note { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+    .briefing-chip { display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font-size: 11px; font-weight: 600; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+    .status-pill.published { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status-pill.scheduled { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+    .status-pill.draft { background: rgba(161, 161, 171, 0.15); color: var(--text-muted); }
+    .status-pill.review { background: rgba(12, 92, 171, 0.15); color: var(--primary); }
+    .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .card-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+    .link-chip { display: inline-flex; align-items: center; gap: 6px; padding: 9px 11px; border-radius: 10px; text-decoration: none; color: var(--text); border: 1px solid var(--border); background: rgba(255,255,255,0.03); font-size: 12px; font-weight: 600; cursor: pointer; }
+    .link-chip:hover { border-color: var(--primary); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.15s ease; }
+    .btn-outline { background: rgba(255,255,255,0.04); color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--primary); color: #fff; background: rgba(12, 92, 171, 0.15); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--secondary); }
+    .empty-state { text-align: center; padding: 48px; color: var(--text-muted); grid-column: 1 / -1; }
+    @media (max-width: 1200px) { .articles-grid { grid-template-columns: repeat(1, 1fr); } }
+    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 16px; } .toolbar { grid-template-columns: 1fr; } .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">SG</div>
+      <span class="sidebar-logo-text">Social Growth</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="chat.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5m8-2c0 4.418-4.03 8-9 8a9.98 9.98 0 01-3-.45L3 20l1.43-3.73A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        Chat da squad
+      </a>
+      <a href="index.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        Overview
+      </a>
+      <a href="campaigns.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+        Campaigns
+      </a>
+      <a href="articles.html" class="nav-item active">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"></path></svg>
+        Artigo
+      </a>
+      <a href="schedule.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Schedule
+      </a>
+      <a href="monitor.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Monitor
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+        Analytics
+      </a>
+      <a href="products.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a1 1 0 00-1 1v8a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1zm-4 0V5a2 2 0 10-4 0v2m-4 0V5a2 2 0 114 0v2"></path></svg>
+        Produtos
+      </a>
+      <a href="settings.html" class="nav-item" style="margin-top: auto;">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div>
+      <h1 class="header-title">Artigos</h1>
+      <p class="page-subtitle">Lista dos artigos que já aparecem na visão de campanhas, com briefing baixável em Markdown para planejamento e produção de peças derivadas.</p>
+    </div>
+
+    <section class="toolbar" aria-label="Filtros de artigos">
+      <div class="toolbar-group">
+        <label class="toolbar-label" for="searchInput">Buscar</label>
+        <input id="searchInput" class="toolbar-input" type="search" placeholder="Asset, título, tema ou briefing">
+      </div>
+      <div class="toolbar-group">
+        <label class="toolbar-label" for="statusFilter">Status</label>
+        <select id="statusFilter" class="toolbar-select">
+          <option value="all">Todos</option>
+          <option value="published">Publicado</option>
+          <option value="scheduled">Agendado</option>
+          <option value="review">Em revisão</option>
+          <option value="draft">Rascunho</option>
+        </select>
+      </div>
+      <div class="toolbar-group">
+        <label class="toolbar-label" for="campaignFilter">Campanha</label>
+        <select id="campaignFilter" class="toolbar-select">
+          <option value="active">Campanha ativa</option>
+          <option value="all">Todas</option>
+          <option value="archived">Arquivadas</option>
+        </select>
+      </div>
+      <div class="toolbar-actions">
+        <button id="clearFilters" class="btn btn-outline" type="button">Limpar</button>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-head-title">Artigos com briefing</div>
+          <div class="section-head-note">Cada card mostra a visão do artigo e o botão para baixar o briefing de planejamento em Markdown.</div>
+        </div>
+        <div class="section-badge" id="articlesCount">0 artigo(s)</div>
+      </div>
+      <div class="articles-grid" id="articlesGrid"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="campaigns-data.js"></script>
+  <script src="articles-data.js"></script>
+  <script src="article-briefings.js"></script>
+  <script>
+    var currentClient = (window.__DASHBOARD_DATA__ && window.__DASHBOARD_DATA__.client) || 'amiclube';
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, '&#96;');
+    }
+
+    function escapeJsString(value) {
+      return String(value || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+    }
+
+    function normalizeText(value) {
+      return String(value || '').toLowerCase().trim();
+    }
+
+    function loadData() {
+      return window.__BLOG_ARTICLES_DATA__ || { client: currentClient, clients: [{ id: currentClient, name: 'AmiClube' }], campaigns: [{ id: 'active', label: 'Campanha ativa', status: 'active' }], items: [] };
+    }
+
+    function getAvailableCampaigns() {
+      var data = loadData();
+      return Array.isArray(data.campaigns) ? data.campaigns.map(function (campaign) {
+        return { id: normalizeText(campaign.id || campaign.campaignId || campaign.slug), label: String(campaign.label || campaign.name || campaign.id || 'Campanha'), status: normalizeText(campaign.status || 'active') };
+      }).filter(function (campaign) { return !!campaign.id; }) : [];
+    }
+
+    function getActiveCampaignId() {
+      var campaigns = getAvailableCampaigns();
+      var activeCampaign = campaigns.find(function (campaign) { return campaign.status === 'active' && campaign.id; });
+      return activeCampaign ? activeCampaign.id : (campaigns.length ? campaigns[0].id : 'active');
+    }
+
+    function getCampaignLabelById(campaignId) {
+      var normalizedId = normalizeText(campaignId);
+      if (!normalizedId) return 'Ciclo atual';
+      var campaigns = getAvailableCampaigns();
+      var match = campaigns.find(function (campaign) { return campaign.id === normalizedId; });
+      return match ? String(match.label || normalizedId) : normalizedId;
+    }
+
+    function matchesCampaignSelection(itemCampaignId, selection) {
+      var normalizedCampaignId = normalizeText(itemCampaignId);
+      var normalizedSelection = normalizeText(selection || 'active');
+      var activeCampaignId = getActiveCampaignId();
+      if (normalizedSelection === 'all') return true;
+      if (normalizedSelection === 'active') return normalizedCampaignId === activeCampaignId;
+      if (normalizedSelection === 'archived') return normalizedCampaignId && normalizedCampaignId !== activeCampaignId;
+      return normalizedCampaignId === normalizedSelection;
+    }
+
+    function getArticleBriefing(item) {
+      var assetId = String(item && item.assetId || '').toUpperCase();
+      var sourceBriefing = item && item.briefing ? item.briefing : null;
+      var overrideBriefing = window.__BLOG_ARTICLE_BRIEFINGS__ && window.__BLOG_ARTICLE_BRIEFINGS__[assetId] ? window.__BLOG_ARTICLE_BRIEFINGS__[assetId] : null;
+      return sourceBriefing || overrideBriefing || null;
+    }
+
+    function getBriefingPaletteEntries(briefing) {
+      if (!briefing || !briefing.palette) return [];
+      return Object.keys(briefing.palette).map(function (key) { return { key: key, value: briefing.palette[key] }; }).filter(function (entry) { return entry.value !== undefined && entry.value !== null && String(entry.value).trim() !== ''; });
+    }
+
+    function getArticleItems() {
+      var items = window.__BLOG_ARTICLES_DATA__ && Array.isArray(window.__BLOG_ARTICLES_DATA__.items) ? window.__BLOG_ARTICLES_DATA__.items : [];
+      var activeCampaignId = getActiveCampaignId();
+      return items.map(function (item) {
+        if (!item) return item;
+        if (item.campaignId || item.campaign_id) return item;
+        return Object.assign({}, item, { campaignId: activeCampaignId });
+      });
+    }
+
+    function getStatusLabel(status) {
+      var value = String(status || '').toLowerCase().trim();
+      if (value === 'published' || value === 'publicado' || value === 'publicada' || value === 'publicados') return 'published';
+      if (value === 'scheduled' || value === 'agendado' || value === 'agendada' || value === 'agendados') return 'scheduled';
+      if (value === 'review' || value.indexOf('revis') !== -1 || value.indexOf('preview') !== -1) return 'review';
+      return 'draft';
+    }
+
+    function getStatusText(status) {
+      var value = String(status || '').toLowerCase().trim();
+      if (value === 'published' || value === 'publicado' || value === 'publicada' || value === 'publicados') return 'Publicado';
+      if (value === 'scheduled' || value === 'agendado' || value === 'agendada' || value === 'agendados') return 'Agendado';
+      if (value === 'review' || value.indexOf('revis') !== -1 || value.indexOf('preview') !== -1) return 'Em revisão';
+      return 'Rascunho';
+    }
+
+    function matchesSearch(haystack, query) {
+      if (!query) return true;
+      return normalizeText(haystack).indexOf(query) !== -1;
+    }
+
+    function getArticleSearchText(item) {
+      var briefing = getArticleBriefing(item) || {};
+      var socialBriefs = Array.isArray(briefing.socialBriefs) ? briefing.socialBriefs : [];
+      var socialText = socialBriefs.map(function (entry) {
+        var framesText = Array.isArray(entry.frames) ? entry.frames.map(function (frame) { return [frame.head, frame.hook, frame.cta, frame.imagePrompt].join(' '); }).join(' ') : '';
+        return [entry.assetId, entry.channel, entry.format, entry.head, entry.hook, entry.supportingText, entry.cta, entry.imagePrompt, framesText].join(' ');
+      }).join(' ');
+      return [item.assetId, item.title, item.objective, item.wpCategory, item.weekLabel, item.status, briefing.client, briefing.campaignTitle, briefing.articleTitle, briefing.targetAudience, briefing.brandVoice, briefing.style, briefing.visualDirection, briefing.articlePromise, briefing.articleAngle, socialText].join(' ');
+    }
+
+    function getArticleBriefingSummary(item) {
+      var briefing = getArticleBriefing(item);
+      if (!briefing) return null;
+      return {
+        lead: briefing.articlePromise || briefing.visualDirection || briefing.interpretation || 'Briefing disponível.',
+        targetAudience: briefing.targetAudience || '-',
+        style: briefing.style || '-',
+        suggestedElements: Array.isArray(briefing.suggestedElements) ? briefing.suggestedElements : [],
+        elementsToAvoid: Array.isArray(briefing.elementsToAvoid) ? briefing.elementsToAvoid : [],
+        socialBriefs: Array.isArray(briefing.socialBriefs) ? briefing.socialBriefs : [],
+      };
+    }
+
+    function buildArticleBriefingText(item) {
+      var briefing = getArticleBriefing(item) || {};
+      var socialBriefs = Array.isArray(briefing.socialBriefs) ? briefing.socialBriefs : [];
+      var lines = [
+        '# Briefing de Planejamento — ' + String(item.title || briefing.articleTitle || item.assetId || 'Artigo'),
+        '',
+        '## 1. Contexto',
+        '- Cliente: ' + String(briefing.client || item.client || currentClient || '-'),
+        '- Artigo: ' + String(briefing.articleTitle || item.title || item.plannedTitle || '-'),
+        '- Asset ID: ' + String(item.assetId || '-'),
+        '- Objetivo: ' + String(briefing.objective || item.objective || '-'),
+        '- Público: ' + String(briefing.targetAudience || '-'),
+        '- Tom de voz: ' + String(briefing.brandVoice || '-'),
+        '- Estilo visual: ' + String(briefing.style || '-'),
+        '',
+        '## 2. Direção Estratégica',
+        '- Promessa do artigo: ' + String(briefing.articlePromise || '-'),
+        '- Ângulo editorial: ' + String(briefing.articleAngle || '-'),
+        '- Interpretação: ' + String(briefing.interpretation || '-'),
+        '- Direção visual: ' + String(briefing.visualDirection || '-'),
+      ];
+
+      var paletteEntries = getBriefingPaletteEntries(briefing);
+      if (paletteEntries.length) {
+        lines.push('', '## 3. Paleta');
+        paletteEntries.forEach(function (entry) {
+          lines.push('- ' + String(entry.key) + ': ' + String(entry.value));
+        });
+      }
+
+      if (briefing.blogHeroPrompt) {
+        lines.push('', '## 4. Hero do Blog', '', '- Prompt: ' + String(briefing.blogHeroPrompt));
+      }
+
+      if (Array.isArray(briefing.suggestedElements) && briefing.suggestedElements.length) {
+        lines.push('', '## 5. Elementos Sugeridos');
+        briefing.suggestedElements.forEach(function (text) { lines.push('- ' + String(text)); });
+      }
+
+      if (Array.isArray(briefing.elementsToAvoid) && briefing.elementsToAvoid.length) {
+        lines.push('', '## 6. Evitar');
+        briefing.elementsToAvoid.forEach(function (text) { lines.push('- ' + String(text)); });
+      }
+
+      if (socialBriefs.length) {
+        lines.push('', '## 7. Derivados Sociais');
+        socialBriefs.forEach(function (entry) {
+          lines.push('', '### ' + String(entry.assetId || 'Peça') + ' — ' + String(entry.channel || 'Canal'));
+          lines.push('- Formato: ' + String(entry.format || '-'));
+          if (entry.head) lines.push('- Head: ' + String(entry.head));
+          if (entry.hook) lines.push('- Hook: ' + String(entry.hook));
+          if (entry.supportingText) lines.push('- Texto de apoio: ' + String(entry.supportingText));
+          if (entry.cta) lines.push('- Chamada: ' + String(entry.cta));
+          if (entry.compositionNotes) lines.push('- Composição: ' + String(entry.compositionNotes));
+          if (entry.safeAreaNotes) lines.push('- Safe area: ' + String(entry.safeAreaNotes));
+          if (entry.imagePrompt) lines.push('- Prompt de imagem: ' + String(entry.imagePrompt));
+          if (Array.isArray(entry.frames) && entry.frames.length) {
+            lines.push('', '#### Frames');
+            entry.frames.forEach(function (frame) {
+              lines.push('- Frame ' + String(frame.frame || '-') + ':');
+              if (frame.head) lines.push('  - Head: ' + String(frame.head));
+              if (frame.hook) lines.push('  - Hook: ' + String(frame.hook));
+              if (frame.cta) lines.push('  - Chamada: ' + String(frame.cta));
+              if (frame.compositionNotes) lines.push('  - Composição: ' + String(frame.compositionNotes));
+              if (frame.safeAreaNotes) lines.push('  - Safe area: ' + String(frame.safeAreaNotes));
+              if (frame.imagePrompt) lines.push('  - Prompt de imagem: ' + String(frame.imagePrompt));
+            });
+          }
+        });
+      }
+
+      lines.push('', '## 8. Compatibilidade');
+      if (briefing.campaignTitle) lines.push('- Campanha: ' + String(briefing.campaignTitle));
+      if (briefing.visualDirection) lines.push('- Direção: ' + String(briefing.visualDirection));
+      if (briefing.interpretation) lines.push('- Interpretação: ' + String(briefing.interpretation));
+      if (briefing.targetAudience) lines.push('- Público: ' + String(briefing.targetAudience));
+      if (briefing.style) lines.push('- Estilo: ' + String(briefing.style));
+
+      return lines.join('\n');
+    }
+
+    function downloadArticleBriefing(assetId) {
+      var key = String(assetId || '').toUpperCase();
+      var item = getArticleItems().find(function (entry) { return String(entry.assetId || '').toUpperCase() === key; });
+      if (!item) return;
+      var content = buildArticleBriefingText(item);
+      var blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = key + '-briefing.md';
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 0);
+    }
+
+    function filterArticleItems(items, filters) {
+      return items.filter(function (item) {
+        if (filters.client !== 'all' && normalizeText(item.client || item.clientId || currentClient) !== filters.client) return false;
+        if (!matchesCampaignSelection(item.campaignId || item.campaign_id || getActiveCampaignId(), filters.campaign)) return false;
+        if (filters.status !== 'all' && getStatusLabel(item.status) !== filters.status) return false;
+        if (!matchesSearch(getArticleSearchText(item), filters.search)) return false;
+        return true;
+      });
+    }
+
+    function getFilterState() {
+      return {
+        search: normalizeText(document.getElementById('searchInput') && document.getElementById('searchInput').value),
+        client: 'all',
+        campaign: document.getElementById('campaignFilter') ? document.getElementById('campaignFilter').value : 'active',
+        status: document.getElementById('statusFilter') ? document.getElementById('statusFilter').value : 'all',
+      };
+    }
+
+    function renderArticles() {
+      var data = loadData();
+      var articles = getArticleItems();
+      var filteredArticles = filterArticleItems(articles, getFilterState());
+      var articlesContainer = document.getElementById('articlesGrid');
+      document.getElementById('articlesCount').textContent = filteredArticles.length + ' artigo(s)';
+
+      if (filteredArticles.length === 0) {
+        articlesContainer.innerHTML = '<div class="empty-state">Nenhum artigo encontrado com os filtros atuais.</div>';
+        return;
+      }
+
+      articlesContainer.innerHTML = filteredArticles.map(function (item) {
+        var statusClass = getStatusLabel(item.status);
+        var briefing = getArticleBriefingSummary(item);
+        var chips = [];
+        if (item.weekLabel) chips.push('<span class="briefing-chip">' + escapeHtml(item.weekLabel) + '</span>');
+        if (item.wpCategory) chips.push('<span class="briefing-chip">' + escapeHtml(item.wpCategory) + '</span>');
+        if (item.campaignId) chips.push('<span class="briefing-chip">' + escapeHtml(getCampaignLabelById(item.campaignId)) + '</span>');
+        chips.push('<span class="briefing-chip">' + escapeHtml(String(item.objective || '-')) + '</span>');
+
+        var links = [];
+        if (item.previewHtml) links.push('<a class="link-chip" href="' + escapeAttr(item.previewHtml) + '" target="_blank" rel="noreferrer">Abrir preview</a>');
+        if (item.articleUrl) links.push('<a class="link-chip" href="' + escapeAttr(item.articleUrl) + '" target="_blank" rel="noreferrer">Abrir artigo</a>');
+        links.push('<button class="link-chip" type="button" onclick="downloadArticleBriefing(\'' + escapeJsString(String(item.assetId || '')) + '\')">Baixar briefing</button>');
+
+        return [
+          '<article class="article-card">',
+          '<div class="article-card-header">',
+          '<div>',
+          '<div class="article-title">' + escapeHtml(item.title) + '</div>',
+          '<div class="article-id">' + escapeHtml(item.assetId) + '</div>',
+          '</div>',
+          '<span class="status-pill ' + statusClass + '">' + getStatusText(item.status) + '</span>',
+          '</div>',
+          '<div class="article-summary">',
+          '<div class="article-summary-note">' + escapeHtml(briefing ? briefing.lead : 'Briefing disponível para baixar no botão abaixo.') + '</div>',
+          '<div class="article-meta">' + chips.join('') + '</div>',
+          '</div>',
+          '<div class="card-links">' + links.join('') + '</div>',
+          '</article>'
+        ].join('');
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var searchInput = document.getElementById('searchInput');
+      var statusFilter = document.getElementById('statusFilter');
+      var campaignFilter = document.getElementById('campaignFilter');
+      var clearFilters = document.getElementById('clearFilters');
+
+      [searchInput, statusFilter, campaignFilter].forEach(function (el) {
+        if (!el) return;
+        el.addEventListener('input', renderArticles);
+        el.addEventListener('change', renderArticles);
+      });
+
+      if (clearFilters) {
+        clearFilters.addEventListener('click', function () {
+          if (searchInput) searchInput.value = '';
+          if (statusFilter) statusFilter.value = 'all';
+          if (campaignFilter) campaignFilter.value = 'active';
+          renderArticles();
+        });
+      }
+
+      renderArticles();
+    });
+  </script>
+</body>
+</html>

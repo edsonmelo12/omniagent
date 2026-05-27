@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título principal que chama atenção · MARCA</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" />
+  <style>
+    :root {
+  --ds-preview-w: 420px;
+  --ds-preview-h: 525px;
+  --ds-export-w: 1080px;
+  --ds-export-h: 1350px;
+  --ds-scale: 2.5714285714;
+
+  --ds-space-1: 8px;
+  --ds-space-2: 16px;
+  --ds-space-3: 24px;
+  --ds-space-4: 32px;
+  --ds-space-5: 40px;
+  --ds-space-6: 48px;
+  --ds-space-7: 56px;
+  --ds-space-8: 64px;
+
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 16px;
+  --ds-radius-lg: 24px;
+  --ds-shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --ds-shadow-text: 0 3px 16px rgba(0, 0, 0, 0.28);
+
+  --ds-font-hero: 34px;
+  --ds-font-heading: 26px;
+  --ds-font-body: 19px;
+  --ds-font-caption: 13px;
+  --ds-export-font-hero: 82px;
+  --ds-export-font-heading: 62px;
+  --ds-export-font-body: 40px;
+  --ds-export-font-caption: 28px;
+
+  --ds-content-pad-x: 36px;
+  --ds-export-content-pad-x: 80px;
+}
+
+    :root {
+  --style-name: "editorial-magazine";
+  --style-bg: #F5F0E8;
+  --style-bg-alt: #E8D5C4;
+  --style-surface: rgba(255, 255, 255, 0.07);
+  --style-surface-strong: rgba(255, 255, 255, 0.12);
+  --style-text-heading: #2D2318;
+  --style-text-body: #5C4033;
+  --style-text-muted: #8B7355;
+  --style-accent: #722F37;
+  --style-accent-soft: color-mix(in srgb, #722F37 22%, transparent);
+  --style-border: color-mix(in srgb, #722F37 42%, transparent);
+  --style-heading-font: "Playfair Display", Georgia, serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.025;
+  --style-vignette-opacity: 0.18;
+  --style-gradient: radial-gradient(circle at 22% 12%, color-mix(in srgb, #722F37 20%, transparent), transparent 34%), linear-gradient(145deg, #F5F0E8 0%, #E8D5C4 58%, #F5F0E8 100%);
+}
+
+
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex; flex-direction: column;
+      align-items: center; min-height: 100vh;
+      font-family: var(--style-body-font);
+      color: var(--style-text-body);
+    }
+
+    .frame {
+      width: var(--ds-preview-w); height: var(--ds-preview-h);
+      position: relative; overflow: hidden;
+      background: var(--style-bg-alt);
+    }
+
+    .bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      
+    }
+
+    .overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.52);
+    }
+
+    .brand-top {
+      position: absolute; top: 24px; left: 28px; z-index: 3;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .brand-marker {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--style-accent); display: flex; align-items: center;
+      justify-content: center; color: #fff; font-size: 11px; font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+
+    .content {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: space-between; align-items: stretch;
+      padding: 44px 48px 42px; text-align: left;
+    }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--style-accent);
+      margin-bottom: 16px;
+    }
+
+    .headline {
+      font-family: var(--style-heading-font);
+      font-size: 58px;
+      font-weight: 800; line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: #fff; margin-bottom: 12px; max-width: 11ch;
+    }
+
+    .divider {
+      width: 120px; height: 4px; background: var(--style-accent);
+      margin-bottom: 16px;
+    }
+
+    .body-text {
+      font-size: 18px;
+      line-height: 1.52; color: rgba(255,255,255,0.88);
+      max-width: 29ch;
+    }
+
+    .cta {
+      margin-top: 2px; padding: 13px 20px; width: fit-content;
+      border-radius: 999px; border: 1px solid var(--style-border);
+      background: linear-gradient(135deg, var(--style-accent-soft), rgba(255,255,255,0.04));
+      color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+      width: 100%;
+      max-width: 70%;
+      margin-top: 8px;
+    }
+
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; font-weight: 700; line-height: 1.35;
+      padding: 10px 12px; border-radius: 12px;
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(4px);
+      color: #fff;
+    }
+
+    .feature-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--style-accent); flex-shrink: 0; margin-top: 6px;
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--style-accent) 20%, transparent);
+    }
+
+    .bottom-row {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+      margin-top: auto;
+    }
+
+    .footer-note {
+      color: var(--style-text-muted); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .brand-bottom {
+      position: absolute; bottom: 24px; right: 28px; z-index: 3;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+    }
+
+    body.export-mode {
+      background: var(--style-bg-alt);
+    }
+
+    body.export-mode .frame {
+      width: var(--ds-export-w) !important;
+      height: var(--ds-export-h) !important;
+    }
+
+    body.export-mode .brand-top,
+    body.export-mode .brand-bottom { display: none !important; }
+
+    body.export-mode .content { padding: 44px 48px 42px !important; }
+    body.export-mode .eyebrow { font-size: 12px !important; letter-spacing: 6.5px !important; margin-bottom: 16px !important; }
+    body.export-mode .headline { font-size: 58px !important; line-height: 0.92 !important; margin-bottom: 12px !important; max-width: 11ch !important; }
+    body.export-mode .divider { width: 120px !important; height: 4px !important; margin-bottom: 16px !important; }
+    body.export-mode .body-text { font-size: 18px !important; line-height: 1.52 !important; max-width: 29ch !important; }
+    body.export-mode .cta { margin-top: 2px !important; font-size: 13px !important; letter-spacing: 1px !important; }
+    body.export-mode .feature-list { max-width: 70% !important; }
+    body.export-mode .feature-item { font-size: 15px !important; }
+  </style>
+</head>
+<body>
+  <article class="frame">
+    
+    <div class="overlay"></div>
+
+    <div class="brand-top">
+      <div class="brand-marker">M</div>
+      <span class="brand-name">MARCA</span>
+    </div>
+
+    <div class="content">
+      <div class="top">
+        <span class="eyebrow">DICA RÁPIDA</span>
+        <h1 class="headline">Título principal que chama atenção</h1>
+        <p class="body-text">Descrição direta do valor entregue. Seja objetivo e convincente.</p>
+        
+      </div>
+      <div class="bottom-row">
+        <div>
+          
+          
+        </div>
+        <div class="footer-note">MARCA</div>
+      </div>
+    </div>
+
+    <div class="brand-bottom">MARCA</div>
+  </article>
+</body>
+</html>

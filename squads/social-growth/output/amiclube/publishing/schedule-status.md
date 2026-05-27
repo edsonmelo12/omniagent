@@ -13,12 +13,12 @@
 |------|-------|------|---------|----------|
 | 02/05 18:30 | AC-30-02 | Instagram | Carrossel | AC-30-01 |
 | 03/05 10:00 | AC-30-04 | Facebook | Post publicado | AC-30-01 |
-| 04/05 18:30 | AC-30-03 | Instagram | Carrossel | AC-30-01 |
-| 05/05 18:30 | AC-30-19 | Instagram | Post | AC-30-01B |
-| 06/05 10:00 | AC-30-34 | Facebook | Post | AC-30-01B |
-| 06/05 18:30 | AC-30-20 | Instagram | Stories | AC-30-01B |
-| 07/05 18:30 | AC-30-17 | Instagram | Carrossel | AC-30-01 |
-| 08/05 18:30 | AC-30-18 | Instagram | Carrossel | AC-30-01 |
+| 04/05 18:30 | AC-30-03 | ✅ published — https://www.instagram.com/p/DYhU74cj32w/ | Carrossel | AC-30-01 |
+| 05/05 18:30 | AC-30-19 | 🗑️ removed — publicado fora do padrão da squad | Post | AC-30-01B |
+| 06/05 10:00 | AC-30-34 | ✅ published — https://facebook.com/106701834627196/posts/1287816556795594 | Post | AC-30-01B |
+| 06/05 18:30 | AC-30-20 | ✅ published — https://www.instagram.com/p/DYDdLZckwHx/ | Stories | AC-30-01B |
+| 07/05 18:30 | AC-30-17 | ✅ published — https://www.instagram.com/p/DYDc5bSE9qn/ | Carrossel | AC-30-01 |
+| 08/05 18:30 | AC-30-18 | ✅ published — https://www.instagram.com/p/DYGBV6Qk5Al/ | Carrossel | AC-30-01 |
 
 ## Blogs Semana 2 — Pendentes (a publicar)
 
@@ -31,9 +31,9 @@
 
 | Data | Asset | Canal | Formato | Blog Pai |
 |------|-------|------|---------|----------|
-| 10/05 18:30 | AC-30-06 | Instagram | Carrossel | AC-30-05 |
-| 11/05 18:30 | AC-30-07 | Instagram | Carrossel estático | AC-30-05 |
-| 12/05 18:30 | AC-30-08 | Instagram | Post | AC-30-05 |
+| 10/05 18:30 | AC-30-06 | ✅ published — https://www.instagram.com/p/DYLQjWBkk3U/ | Carrossel | AC-30-05 |
+| 11/05 18:30 | AC-30-07 | ✅ published — https://www.instagram.com/p/DYNqkZXj3Ui/ | Carrossel estático | AC-30-05 |
+| 12/05 18:30 | AC-30-08 | ✅ published — https://www.instagram.com/p/DYQPWjOk3lg/ | Post | AC-30-05 |
 
 ## Blogs Semana 3 — Preview Pronto (a agendar no WP)
 

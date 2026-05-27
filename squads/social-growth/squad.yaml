@@ -20,6 +20,7 @@ skills:
   - content-trend-researcher
   - content-repurposing
   - copywriting
+  - notebooklm
   - seo-2025-expert
   - write-seo-geo-content
   - creative-director
@@ -57,6 +58,8 @@ data:
   - pipeline/data/fast-safe-routing-policy.md
   - pipeline/data/visual-styles.md
   - pipeline/data/visual-production-gate.md
+  - pipeline/data/nlm-visual-prototype.md
+  - pipeline/data/nlm-visual-prototype-prompts.md
   - pipeline/data/visual-evidence-contract.md
   - pipeline/data/skill-invocation-gate.md
   - pipeline/data/pipeline-incident-trace-template.md
@@ -95,3 +98,4 @@ pipeline:
   file: pipeline/pipeline.yaml
   checkpoints:
     - pipeline/steps/step-05-approve-schedule.md
+    - pipeline/steps/step-10-approve-strategy-decisions.md

@@ -1,0 +1,66 @@
+{
+  "campaign": {
+    "title": "Tendências 2026: Por que o veludo é o novo luxo",
+    "objective": "Gerar tráfego para o blog",
+    "niche": "amigurumi",
+    "targetAudience": "artesãs acima de 25 anos",
+    "channels": [
+      "Blog",
+      "Instagram Carousel",
+      "Instagram Reels",
+      "Facebook Post",
+      "LinkedIn"
+    ],
+    "style": "realista",
+    "description": ""
+  },
+  "briefing": {
+    "interpretation": "The strategy highlights the 2026 trend of 'chenille' or velvet-style yarns in amigurumi as a high-end luxury material. By placing the artisanal toy in sophisticated, texture-rich environments, we position it as a premium collectible to drive blog traffic.",
+    "identifiedProduct": "Handmade crochet Charmander amigurumi with visible knit yarn texture and soft fiber flame.",
+    "visualDirection": "The 'realista' aesthetic focuses on high-fidelity textures of velvet fabrics, professional studio lighting, and tangible depth of field while preserving the toy's handcrafted yarn integrity.",
+    "suggestedElements": [
+      "deep emerald green velvet drapery",
+      "gold-accented sewing tools",
+      "premium velvet yarn skeins",
+      "minimalist marble surface"
+    ],
+    "elementsToAvoid": [
+      "realistic skin",
+      "CGI creatures",
+      "animated eyes",
+      "text on labels"
+    ],
+    "channelRecommendations": [
+      {
+        "channel": "Blog",
+        "recommendation": "Main header image showcasing the amigurumi in a high-fashion interior setting.",
+        "format": "16:9",
+        "prompt": "Professional horizontal header photography of the exact **SUBJECT & STYLE: A handmade crochet toy amigurumi of the Pokémon Charmander. It must look like a physical, handcrafted yarn object, not a CGI model or a realistic animal. EXACT SHAPE: The figure features an oversized, slightly elongated head with a subtle snout. The body is plump and pear-shaped. Limbs are stubby: conical arms point outwards and downwards, while thick, rounded legs end in flat-bottomed feet. A long, tapering tail curves upwards from the base of the spine. MATERIAL TEXTURE: The entire surface exhibits a visible knit yarn texture consisting of tight, uniform single-crochet stitches in rounds. The belly and tail-underside patches are separate crocheted pieces stitched on. The flame at the tip of the tail has a soft, frayed, or brushed-out fiber texture. KEY FEATURES: Eyes: Large, vertical-oval eyes made from layered embroidery or felt, featuring black, Azure Blue, and white highlights. Face: Two tiny black horizontal lines for nostrils and a wide, thin black line for a simple, closed mouth. Tail Flame: A tuft of unspun or brushed yarn fibers creating a wispy flame effect. Claws: Three small, rounded Pure White nubs on each foot. COLORS: Primary Body: Vivid Clementine Orange. Belly & Tail Underside: Pale Buttermilk Yellow. Tail Flame: A gradient blend of Fire Red, Tangerine Orange, and Lemon Yellow. Eye Details: Black, Azure Blue, and Pure White. COMPOSITION: Full body view from multiple angles (front, side, and back) against a stark white background to highlight the silhouette and craftsmanship.**, placed on a luxurious emerald velvet armchair, soft natural light from a window, realistic high-end room background, 8k resolution."
+      },
+      {
+        "channel": "Instagram Carousel",
+        "recommendation": "A series of close-ups focusing on the tactile contrast between the yarn and luxury velvet.",
+        "format": "4:5",
+        "prompt": "Macro toy photography of the exact **[FINGERPRINT]**, being touched by gentle hands with manicured nails, resting on a plush velvet texture, 'Tendências 2026' luxury aesthetic, soft studio lighting, pastel bokeh background, extremely detailed yarn stitches."
+      },
+      {
+        "channel": "Instagram Reels",
+        "recommendation": "Vertical center-framed shot for a 'reveal' or 'unboxing' feel.",
+        "format": "9:16",
+        "prompt": "Dynamic vertical shot of the exact **[FINGERPRINT]** inside a premium gift box lined with black velvet, soft warm lighting, shallow depth of field, high-end artisanal product presentation, vibrant colors."
+      },
+      {
+        "channel": "Facebook Post",
+        "recommendation": "Clean, engaging shot emphasizing the 'gift' or 'luxury purchase' aspect.",
+        "format": "1:1",
+        "prompt": "Square product shot of the exact **[FINGERPRINT]** next to an elegant blank white price tag tied with a velvet ribbon, set on a clean marble surface, professional studio setup, soft shadows, luxury retail vibe."
+      },
+      {
+        "channel": "LinkedIn",
+        "recommendation": "Professional workshop setting highlighting the business of amigurumi trends.",
+        "format": "4:5",
+        "prompt": "Wide professional shot of the exact **[FINGERPRINT]** on a designer's desk surrounded by velvet fabric swatches and color palettes, highlighting 2026 design trends, soft natural lighting, realistic professional atmosphere."
+      }
+    ]
+  }
+}

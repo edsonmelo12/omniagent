@@ -55,6 +55,7 @@ Use this DNA as the default creative frame for the brand and its organic batches
 - Backstage
 - Educational
 - Organic image-led
+- Bulletin / choice-led
 
 ## CTA Style
 
@@ -90,4 +91,3 @@ Use this DNA as the default creative frame for the brand and its organic batches
 - Official site: https://amiclube.com.br
 - Public social presence: Instagram, Facebook, Pinterest, YouTube
 - Product and education focus: amigurumi and artisan support
-

@@ -5,8 +5,8 @@ Cycle: current cycle
 Purpose: define the default free-source class by post type so the system can decide faster and with less risk.
 Niche rule: when external imagery is used, prefer assets that show the signals from the client's niche table before falling back to neutral imagery.
 Blog rule: when the asset is for a blog post, prefer a suggestive visual by default and use imagery only when it improves clarity, proof, scanability or editorial authority.
-Blog sourcing rule: when external imagery is needed for a blog asset, document a free/public source search note with candidate types, license notes and the selection rationale before production.
-The handoff should always include source class, source search note and selection rationale.
+Blog sourcing rule: when external imagery is needed for a blog asset and image research is active, document a free/public source search note with candidate types, license notes and the selection rationale before production.
+The handoff should include source class, source search note and selection rationale only when external imagery is actually being researched.
 
 ## Decision Matrix
 
@@ -37,7 +37,7 @@ The handoff should always include source class, source search note and selection
 - If a sourced image is needed, prefer `nicho_direto` or `nicho_adjacent` over neutral stock.
 - Never upgrade an adjacent craft into the wrong craft: a visually specific neighboring niche is a rejection, not a compromise.
 - For blog posts, do not use a generic image just to satisfy a template. The article must justify the asset.
-- For blog posts, include the source search note and rationale in the visual direction before render starts.
+- For blog posts, include the source search note and rationale in the visual direction before render starts when image research is active.
 
 ## Allowed Source Classes
 

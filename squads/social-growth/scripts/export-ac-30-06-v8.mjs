@@ -1,9 +1,9 @@
 import { chromium } from 'playwright';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { readFileSync } from 'fs';
 
 const HTML_PATH = fileURLToPath(new URL('../output/amiclube/social/previews/ac-30-06-v8.html', import.meta.url));
-const OUTPUT_DIR = fileURLToPath(new URL('../output/amiclube/social/publish/ac-30-06-v8', import.meta.url));
+const OUTPUT_DIR = fileURLToPath(new URL('../output/amiclube/social/publish/ac-30-06', import.meta.url));
 const TOTAL_SLIDES = 7;
 const VIEW_W = 420;
 const VIEW_H = 525;
@@ -16,10 +16,7 @@ const SCALE = 1080 / 420; // = 2.5714...
     deviceScaleFactor: SCALE,
   });
 
-  const htmlContent = await Deno.readTextFile(HTML_PATH).catch(() => {
-    const fs = await import('fs');
-    return fs.readFileSync(HTML_PATH, 'utf-8');
-  });
+  const htmlContent = readFileSync(HTML_PATH, 'utf-8');
   await page.setContent(htmlContent, { waitUntil: 'networkidle' });
   await page.waitForTimeout(3000); // Wait for Google Fonts
 

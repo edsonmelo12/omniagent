@@ -20,6 +20,7 @@ Load these files before executing:
 - `_opensquad/core/best-practices/linkedin-post.md` — LinkedIn structure
 - `_opensquad/core/best-practices/instagram-feed.md` — feed and carousel structure
 - `_opensquad/core/best-practices/instagram-reels.md` — Reel structure
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist for derivative social outputs
 
 ## Instructions
 
@@ -33,6 +34,7 @@ Load these files before executing:
 7. Respect the blog's thesis, and do not introduce a channel package that contradicts the approved length or featured-image direction of the source article.
 8. Strip internal labels from final copy. The published text must not expose `Hook`, `CTA`, `autoridade de marca`, `negocio premium` or other backstage annotations.
 9. For each derivative social asset, include `asset_id`, `channel`, `format`, `final_caption`, `cta`, `hashtags`, `link_target`, `link_strategy`, and `alt_text`.
+10. Ensure the derivative package can satisfy `generation-contract.md` downstream without guessing the missing routing or export data.
 
 ## Output Format
 

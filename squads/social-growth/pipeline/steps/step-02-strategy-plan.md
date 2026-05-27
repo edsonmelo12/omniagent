@@ -12,6 +12,12 @@ outputFile: squads/social-growth/output/strategy/content-plan.md
 
 Load these files before executing:
 - `squads/social-growth/output/research/market-intel.md` — research insights from the previous step
+- `squads/social-growth/pipeline/data/campaign-planning-gate.md` — mandatory campaign planning gate before strategy
+- `squads/social-growth/pipeline/data/campaign-planning-pack.md` — completed planning dossier before strategy
+- `squads/social-growth/pipeline/data/video-intelligence-decision-protocol.md` — required decision chain for video intelligence usage
+- `squads/social-growth/output/{client}/strategy/next-cycle-briefing.md` — starting point when a transition briefing exists
+- `squads/social-growth/pipeline/data/youtube-intelligence-consolidated-brief-template.md` — canonical wrapper for video intelligence when available
+- `squads/social-growth/pipeline/data/youtube-intelligence-client-adaptation-template.md` — client-specific adaptation layer for video intelligence
 - `squads/social-growth/output/context/geo-discoverability-summary.md` — site-level GEO and AI discoverability summary when available
 - database market research record — client-specific market synthesis and opportunities
 - `squads/social-growth/output/context/social-intelligence-summary.md` — public and confirmed social signals
@@ -25,16 +31,20 @@ Load these files before executing:
 
 ### Process
 1. Convert research findings into 2-4 strategic objectives.
-2. Use the social intelligence summary to prioritize the strongest channels, formats and content gaps.
-3. Consult `strategy_library_strategies` before drafting the plan.
-4. Rank the persisted strategies against the current client, objective and funnel stage.
-5. Select the primary strategy and, when relevant, the secondary or plan B strategy that will actually be used.
-6. Define content pillars, platform roles and cadence.
-7. Decide which topics should stay in social, which should become blog content and which should become recurring authority assets.
-8. Map each platform to a purpose in the funnel.
-9. Specify the success metrics that will be monitored.
-10. Produce a 2-4 week content plan that the creator can execute.
-11. Record the selected strategy keys and fit rationale in the output so the client brief can persist them later.
+2. Complete the mandatory campaign planning gate first: previous campaigns, engagement, market context, trend signals and proof gaps.
+3. Read the completed campaign planning pack and treat it as the strategic summary of the previous cycle.
+4. Apply the video intelligence decision protocol before selecting the primary strategy.
+5. Use the social intelligence summary to prioritize the strongest channels, formats and content gaps.
+6. Consult `strategy_library_strategies` before drafting the plan.
+7. Rank the persisted strategies against the current client, objective and funnel stage.
+8. Select the primary strategy and, when relevant, the secondary or plan B strategy that will actually be used.
+9. Define content pillars, platform roles and cadence.
+10. Decide which topics should stay in social, which should become blog content and which should become recurring authority assets.
+11. Map each platform to a purpose in the funnel.
+12. Specify the success metrics that will be monitored.
+13. When video intelligence exists, read the consolidated brief and adapt it to the current client before finalizing the plan.
+14. Produce a 2-4 week content plan that the creator can execute.
+15. Record the selected strategy keys and fit rationale in the output so the client brief can persist them later.
 
 ## Output Format
 
@@ -107,7 +117,10 @@ Load these files before executing:
 
 Reject and redo if ANY are true:
 1. The strategy is not tied to measurable objectives.
-2. The plan asks for a cadence the team cannot execute.
+2. The campaign planning gate was not completed.
+3. The campaign planning pack was not completed.
+4. The plan asks for a cadence the team cannot execute.
+4. The video intelligence decision protocol was not applied.
 
 ## Quality Criteria
 

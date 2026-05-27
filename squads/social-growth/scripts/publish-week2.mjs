@@ -21,7 +21,7 @@ function curlUpload(filePath) {
       "-s", "-X", "POST",
       `${WP_URL}/wp-json/wp/v2/media`,
       "-H", `Authorization: Basic ${AUTH}`,
-      "-F", `file=@${filePath};filename=${filename};type=image/jpeg`,
+      "-F", `file=@${filePath};filename=${filename};type=${mimeTypeFor(filePath)}`,
     ]);
     let out = "";
     proc.stdout.on("data", d => out += d);
@@ -55,6 +55,16 @@ function api(endpoint, data) {
     if (json) req.write(json);
     req.end();
   });
+}
+
+function mimeTypeFor(filePath) {
+  switch (path.extname(filePath).toLowerCase()) {
+    case ".webp": return "image/webp";
+    case ".png": return "image/png";
+    case ".jpg":
+    case ".jpeg": return "image/jpeg";
+    default: return "application/octet-stream";
+  }
 }
 
 async function publishPost(postData, existingPostId) {
@@ -102,6 +112,7 @@ async function publishPost(postData, existingPostId) {
 }
 
 const ASSETS = "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/amiclube/blog/assets";
+const BLOG_IMAGES = "/home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/amiclube/blog/imagens/ac-30-05b-campanha-tendências-2026_-por-que-o-veludo-e-o-novo-luxo";
 
 const posts = [
   {
@@ -166,7 +177,7 @@ const posts = [
     date: "2026-05-06T08:00:00",
     date_gmt: "2026-05-06T11:00:00",
     categories: [CATEGORY_MAP["Preço, Valor e Tendências"]],
-    imagePath: path.join(ASSETS, "AC-30-05b-veludo-luxo-hero.jpg"),
+    imagePath: path.join(BLOG_IMAGES, "blog", "blog-tendencias-2026-por-que-v1.webp"),
     focuskw: "amigurumi de veludo luxo",
     seoTitle: "Amigurumi de veludo luxo: guia 2026 | AmiClube",
     metadesc: "Descubra por que o amigurumi de veludo luxo virou referência em 2026 e como avaliar valor percebido, contexto de uso e diferenciação antes de comprar.",

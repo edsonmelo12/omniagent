@@ -45,6 +45,36 @@ Edson identificou três fontes de inteligência estratégica no mercado digital 
 1. **YouTube como canal de autoridade** — nichos técnicos funcionam bem com vídeo longo evergreen
 2. **Cadência diária em Stories** — Verônica Motta (70k clientes) validou consistência > viralização
 3. **Storytelling por canal** — mesmo tema com narrativa própria por formato (Millena Nóbrega)
+4. **Instagram como rede de conversa** — ganchos baseados em pergunta real e retenção nas primeiras unidades de conteúdo são sinais-chave para distribuição
+5. **Funil orgânico por canal** — feed atrai, stories aquece e direct converte quando o conteúdo cria identificação e relacionamento
+
+### Modelo de extração canônico
+
+- `_memory/podcast-intelligence-extraction-model.md` — schema padrão para transformar episódio em estratégia acionável
+- `_memory/podcast-intelligence-report-template.md` — template final de relatório reutilizável por qualquer cliente
+- `_memory/podcast-intelligence-strategy-taxonomy.md` — taxonomia para nomear estrategias com proveniencia e mecanismo
+- `_memory/podcast-intelligence-strategy-catalog.md` — catálogo vivo das estratégias já nomeadas
+- `_memory/podcast-intelligence-strategy-map.md` — mapa-mãe por tipo de estratégia para roteamento e leitura rápida
+- `_memory/podcast-intelligence-operating-guide.md` — guia end-to-end do processo de análise e roteamento
+- Leitura obrigatória antes de qualquer nova análise de podcast/YouTube
+- Regra: se o episódio não fechar tese, mecanismo, tática e decisão, o insight ainda não está pronto
+- Regra de uso: a extração é client-agnostic; a leitura final é sempre adaptada ao cliente-alvo do ciclo
+
+### Roteamento por competência
+
+- **Ponto de entrada:** `Atlas CEO`
+- **Regra:** Atlas recebe o vídeo, identifica o tema dominante e distribui a leitura para o agente especialista certo antes de consolidar a visão final.
+- `_memory/podcast-intelligence-handoff-template.md` — template único para o repasse inicial e o retorno do especialista
+- **Regra de fricção mínima:** se o contexto for suficiente para avançar, o processo entrega pronto e registra suposições; perguntas só entram quando bloqueiam a competência ou o roteamento.
+- **Distribuição sugerida:**
+  - `Discovery Optimizer` -> algoritmo, distribuição, alcance, mecânica de plataforma
+  - `Researcher` -> mercado, audiência, benchmark, sinais externos
+  - `Strategist` -> mix, cadência, pilares, implicação editorial
+  - `Creator` -> tradução do insight em execução
+  - `Reviewer` -> qualidade, risco, aderência final
+  - `Atos Analista` -> validação pós-ciclo e aprendizagem por resultado
+- **Regra de ambiguidade:** se o tema cruzar mais de uma competência, Atlas roteia primeiro para o agente mais específico e deixa o estrategista para a síntese final.
+- **Regra de pergunta:** perguntar só o necessário para destravar o próximo passo; nunca usar pergunta como substituto de decisão.
 
 ---
 

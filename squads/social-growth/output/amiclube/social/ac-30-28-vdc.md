@@ -37,10 +37,11 @@ O blog AC-30-13B aborda como peças artesanais (amigurumis) podem agregar presen
 
 | Decisão | Detalhe |
 |---------|--------|
-| Fonte da Imagem | Blog hero image: `assets/AC-30-13B-home-office-hero.jpg` |
+| Fonte da Imagem | **Nova:** `blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-carousel/instagram carousel-investimento-em-decoracao-artesanal-v1.webp` |
 | Tratamiento | Background com overlay escuro (70% opacidade) para legibilidade do texto |
 | Posição | Full-bleed background |
-| Justificativa | A imagem do blog comunica a tese (acolhimento, ambiente, curadoria) visualmente. Usar textura纯 ou sem imagem enfraqueceria a proposição. |
+| Justificativa | Imagem nova otimizada para Instagram. Communica acolhimento, ambiente e curadoria de forma visualmente mais impactante para o feed. Substitui a imagem original do blog para melhor performance no Instagram. |
+| Regeneration | ✅ Sim — atualização de imagem base para melhor adequação ao canal |
 
 ## First Impression Diversity
 
@@ -164,8 +165,10 @@ O segredo está na curadoria: a peça certa, no lugar certo, na proporção cert
 
 ## Metadata
 
-- **VDC Version:** 1.0.0
+- **VDC Version:** 1.1.0
 - **Created:** 2026-05-04
+- **Updated:** 2026-05-13 (regeneration)
 - **Created by:** Atlas CEO (orquestração)
-- **Status:** Pronto para Renderização
+- **Status:** Regeneration in Progress
+- **Change Log:** Imagem base atualizada para nova versão otimizada para Instagram
 - **Next:** Creative Renderer → Reviewer → Pipeline Auditor

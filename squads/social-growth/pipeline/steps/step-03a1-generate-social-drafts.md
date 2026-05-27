@@ -16,6 +16,7 @@ Load these files before executing:
 - `squads/social-growth/output/amiclube/review/campaign-manifest.json` — asset metadata and blogParentId
 - `squads/social-growth/output/amiclube/blog/*-draft.md` — blog drafts for article reference
 - `squads/social-growth/output/strategy/content-plan.md` — strategic direction
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist for caption, link and export fields
 - `_opensquad/core/best-practices/article-to-post-linking.md` — linking policy
 - `_opensquad/core/best-practices/copywriting.md` — copy rules
 
@@ -30,6 +31,7 @@ Load these files before executing:
    - Generate a complete social draft `.md` file
 3. Write each draft to: `squads/social-growth/output/{client}/social/drafts/{asset-id}.md`
 4. Update `social-publish-assets.json` with the `sourceDraft` path for each asset.
+5. Make sure each draft can satisfy `generation-contract.md` later in the flow: asset identity, caption, link strategy, final canvas and export proof must be derivable from the draft.
 
 ### Draft Format
 
@@ -75,6 +77,7 @@ visual_version: v1
 - Each social post gets ONE draft file — no shared drafts
 - Caption must be platform-adapted (character limits, line breaks, hashtag count)
 - Link requirement must be specified per the article-to-post-linking policy
+- Drafts should already carry enough signal to complete the generation contract downstream.
 - `visual_version` tracks the preview HTML version (v1, v2, v3...)
 - `article_url` starts as `null`; filled when the article is published on WordPress
 

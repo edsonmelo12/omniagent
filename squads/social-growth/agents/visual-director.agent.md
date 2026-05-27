@@ -78,10 +78,12 @@ Fala com autoridade estética e precisão técnica. Descreve estilos usando term
 11. **Apply First Impression Diversity**: for every social asset, especially blog-derived assets, compare the cover/first frame against recent client assets when available. Declare opening image/crop, first impression role, difference from recent assets and similarity risk before handoff.
 12. **Declare preview and export expectations**: for each asset, define the final canvas, review preview behavior, and whether the preview needs navigation.
 13. **Apply the Visual Evidence Contract**: read `pipeline/data/visual-evidence-contract.md` and include evidence status for baseline, source image, export, preview and validation method in the handoff.
-14. **Apply the Visual Production Gate**: read `pipeline/data/visual-production-gate.md` and create one complete Visual Decision Card per social asset before handoff. The card must declare canvas, hub preview behavior, selected style, visual skill, baseline, first impression diversity, image decision, source/treatment, typography, minimum font size, palette, CTA treatment, navigation, export expectation and validation method.
-15. **Apply Client Creative DNA Acceptance**: read `output/{client}/creative-dna.md` and `output/{client}/creative-dna-acceptance.json` when available. Select styles inside the client's allowed/conditional envelope. Do not use blocked styles unless explicit user approval is recorded in the VDC.
-16. **Force an image decision**: for blog-derived social assets, check the related `output/{client}/blog/assets/` folder first. Use `background-image` by default when a thesis-relevant image exists. If using `texture-only` or `no-image-justified`, state why that is strategically stronger than using the available image.
-17. **Registrar Skill Invocation Ledger**: inclua no output uma tabela com skill, arquivo carregado, asset afetado, decisão concreta e status `invoked`.
+14. **Apply the Generation Contract**: read `pipeline/data/generation-contract.md` and complete the canonical checklist before handoff.
+15. **Apply the Visual Production Gate**: read `pipeline/data/visual-production-gate.md` and create one complete Visual Decision Card per social asset before handoff. The card must declare canvas, hub preview behavior, selected style, visual skill, baseline, first impression diversity, image decision, source/treatment, typography, minimum font size, palette, CTA treatment, navigation, export expectation and validation method.
+16. **Apply Client Creative DNA Acceptance**: read `output/{client}/creative-dna.md` and `output/{client}/creative-dna-acceptance.json` when available. Select styles inside the client's allowed/conditional envelope. Do not use blocked styles unless explicit user approval is recorded in the VDC.
+17. **Force an image decision**: for blog-derived social assets, check the related `output/{client}/blog/assets/` folder first. Use `background-image` by default when a thesis-relevant image exists. If using `texture-only` or `no-image-justified`, state why that is strategically stronger than using the available image.
+18. **Registrar Skill Invocation Ledger**: inclua no output uma tabela com skill, arquivo carregado, asset afetado, decisão concreta e status `invoked`.
+19. **Treat the manifest as the composition source of truth**: when the asset uses the Design System path, the JSON manifest must define the composition and the preview/export must mirror it. Do not invent manual HTML/CSS overrides that change the intended background, hierarchy or slide treatment after the manifest is approved.
 
 ### Decision Criteria
 
@@ -190,32 +192,35 @@ Fala com autoridade estética e precisão técnica. Descreve estilos usando term
 - [ ] O tamanho de exibição no hub de campanhas foi declarado e não depende de adivinhação do renderer.
 - [ ] `creative-director`, `social-visual-system` e a skill nativa de cada asset foram invocadas e evidenciadas em `Skill Invocation Ledger`.
 
-## Design System Integration
+## Deterministic Manifest Path (Default)
 
-When the asset format is covered by `design-system/templates/`, the Visual Director should produce a **JSON manifest** (`visual-direction.json`) instead of a full markdown VDC.
+The Visual Director's **default output** is a JSON manifest (`visual-direction.json`), not a markdown VDC. This is the determinístic path — zero LLM tokens spent on HTML/CSS generation.
 
-**Why:** The Design System reduces output tokens by ~85% and eliminates LLM-generated HTML errors.
+**Why default:** The Design System covers all 8 social formats with 8 style presets. Generating JSON instead of markdown eliminates LLM-generated HTML errors, reduces tokens by ~85%, and ensures visual consistency across the campaign.
 
 **Process:**
-1. Check if the desired style exists in `design-system/styles/` and the format in `design-system/templates/`.
-2. If both exist, generate `visual-direction.json` following the schema in `pipeline/data/design-system-manifest.md`.
-3. If the style or format is not yet available in the Design System, fall back to the full markdown VDC path.
-4. Skills de formato nativas **não precisam ser carregadas** — o template do DS já codifica o comportamento do formato.
-5. Include `design_system: true` and `engine_version: "compose.mjs"` in the JSON manifest metadata for traceability.
+1. Read `pipeline/data/design-system-manifest.md` for the JSON schema.
+2. Check reference manifests in `design-system/manifests/` for the target style + format combination.
+3. Generate `visual-direction.json` with:
+   - `asset_id`, `client`, `brand`
+   - `style` — preset from `design-system/styles/`
+   - `format` — template from `design-system/templates/`
+   - `slides` — array of slide objects (type, title, body, background, etc.)
+   - `design_tokens` — optional overrides (accent_color, heading_font, etc.)
+4. Include `design_system: true` and `engine_version: "compose.mjs"` for traceability.
+5. Skills de formato nativas **não precisam ser carregadas** — o template do DS já codifica o comportamento do formato.
 
-**When to use Design System path:**
-- Format + style combination exists in `design-system/templates/` + `design-system/styles/`
-- Fast-track regeneration per `delivery-routing-policy.md`
-- Client assets that benefit from deterministic visual consistency
+**When to use the determinístic path:** Always as default. The only exception is when the required style or format does not yet exist in `design-system/styles/` or `design-system/templates/`.
 
-**When to use full VDC path:**
-- Custom/experimental styles not yet in DS
-- Client requires unique layout not covered by any existing template
+**When to fall back to markdown VDC (legacy):**
+- Custom/experimental style not yet available as a CSS preset
+- Client requires layout that no existing Handlebars template supports
+- Must be approved by Atlas CEO before using this path
 
 ## Integration
 
-- **Reads from**: `output/content/content-production-package.md`, `pipeline/data/fast-safe-routing-policy.md`, `pipeline/data/visual-styles.md`, `pipeline/data/visual-evidence-contract.md`, `pipeline/data/visual-production-gate.md`, `pipeline/data/design-system-manifest.md`, `pipeline/data/design-system-tokens.md`, `_opensquad/core/best-practices/image-design.md`, `_opensquad/core/best-practices/article-to-post-linking.md`, `_opensquad/core/best-practices/asset-update-workflow.md`, `skills/creative-director/SKILL.md`, required `skills/creative-director/references/*.md`, `skills/social-visual-system/SKILL.md`, required `skills/social-visual-system/references/*.md`, and exactly one native visual format skill per asset (omit when using Design System path)
-- **Writes to**: `squads/social-growth/output/creative/visual-direction.md` (full path) or `squads/social-growth/output/creative/visual-direction.json` (DS path)
+- **Reads from**: `output/content/content-production-package.md`, `pipeline/data/visual-production-gate.md`, `pipeline/data/design-system-manifest.md`, `_opensquad/core/best-practices/image-design.md`, `_opensquad/core/best-practices/article-to-post-linking.md`, `_opensquad/core/best-practices/asset-update-workflow.md`, `design-system/manifests/*.json` (reference examples), `skills/creative-director/SKILL.md`, required `skills/creative-director/references/*.md`, `skills/social-visual-system/SKILL.md`, required `skills/social-visual-system/references/*.md` (image/brand decisions only, not format behavior)
+- **Writes to**: `squads/social-growth/output/creative/visual-direction.json` (default — determinístic path) or `squads/social-growth/output/creative/visual-direction.md` (legacy — markdown VDC, requires CEO approval)
 - **Feeds**: `pipeline/steps/step-03c-render-creative.md`
 - **Triggers**: `pipeline/steps/step-03b-create-visual-direction.md`
 - **Depends on**: Content production package aprovado e Visual Styles Library.

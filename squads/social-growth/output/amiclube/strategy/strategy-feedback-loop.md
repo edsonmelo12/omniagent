@@ -47,6 +47,20 @@
 
 ## Hard Rules Applied
 
-1. `kill` nao usado neste ciclo.
-2. Confianca `media` ou `baixa` nao gerou descarte definitivo.
-3. Toda decisao relevante ficou em `scale`, `optimize`, `retest` ou `pause`.
+1. `kill` não usado neste ciclo.
+2. Confiança `media` ou `baixa` não gerou descarte definitivo.
+3. Toda decisão relevante ficou em `scale`, `optimize`, `retest` ou `pause`.
+
+## Post-Campaign Analysis Flow
+
+1. Ler os ativos da campanha anterior e agrupá-los por canal.
+2. Separar o que funcionou, o que ficou fraco e o que ainda é dúvida.
+3. Traduzir cada aprendizado em tese, mecanismo e decisão.
+4. Atualizar o ledger com `scale`, `optimize`, `retest`, `pause` ou `archive`.
+5. Definir o briefing da nova campanha com tese central, objeção principal, prova principal e CTA.
+6. Levar para a nova campanha somente os aprendizados que mudam pauta, formato, canal ou CTA.
+
+## Next Cycle Entry Point
+
+- Checklist canônico para abrir novo ciclo: `squads/social-growth/output/amiclube/strategy/next-cycle-analysis-checklist.md`
+- Regra: antes de criar a nova pauta, a squad deve passar por esse checklist e só então gerar o briefing do próximo ciclo.

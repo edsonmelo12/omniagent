@@ -22,6 +22,8 @@ const clientDir = path.join(root, "squads", "social-growth", "output", client);
 const reviewDir = path.join(clientDir, "review");
 const hubPath = path.join(reviewDir, "campaign-hub.html");
 const manifestPath = path.join(reviewDir, "campaign-manifest.json");
+const publishAssetsPath = path.join(clientDir, "publishing", "social-publish-assets.json");
+const captionsPath = path.join(clientDir, "publishing", "social-final-captions.json");
 const blogDir = path.join(clientDir, "blog");
 const socialDir = path.join(clientDir, "social");
 const reviewPath = path.join(reviewDir, "content-review.md");
@@ -45,6 +47,24 @@ const stripHtml = (value) => String(value || "").replace(/<[^>]+>/g, " ").replac
 const normalizeId = (value) => String(value || "").trim().toUpperCase();
 const normalizeStatus = (value) => String(value || "").trim() || "Planejado";
 const isHttpUrl = (value) => /^https?:\/\//i.test(String(value || "").trim());
+
+const resolveBriefingHref = (clientDir, parentId) => {
+  const normalizedParentId = normalizeId(parentId);
+  if (!normalizedParentId || normalizedParentId === "-") return null;
+
+  const candidates = [
+    path.join(clientDir, "ai-studio", `${normalizedParentId}-briefing.md`),
+    path.join(clientDir, "ai-studio", normalizedParentId, `${normalizedParentId}-briefing.md`),
+  ];
+
+  for (const absolutePath of candidates) {
+    if (fs.existsSync(absolutePath)) {
+      return relFromHub(absolutePath);
+    }
+  }
+
+  return null;
+};
 
 const readJsonFile = (filePath, fallback) => {
   if (!fs.existsSync(filePath)) return fallback;
@@ -203,6 +223,131 @@ const readCategoryMap = () => {
   const map = new Map();
   for (const [key, value] of Object.entries(src)) {
     map.set(normalizeId(key), String(value || "").trim());
+  }
+  return map;
+};
+
+const readPublishAssetsMap = () => {
+  const data = readJsonFile(publishAssetsPath, { exports: [] });
+  const map = new Map();
+  for (const item of Array.isArray(data?.exports) ? data.exports : []) {
+    const id = normalizeId(item?.asset_id);
+    if (!id) continue;
+    map.set(id, {
+      status: String(item?.status || "").trim(),
+      sourcePreviewPath: String(item?.source_preview_path || "").trim(),
+      exportKind: String(item?.export_kind || "").trim(),
+      selectorUsed: String(item?.selector_used || "").trim(),
+      files: Array.isArray(item?.files) ? item.files.filter(Boolean) : [],
+    });
+  }
+  return map;
+};
+
+function readDraftCaptionFallback(assetId) {
+  const draftDir = path.join(clientDir, "social", "drafts");
+  const previewDir = path.join(clientDir, "social", "previews");
+  const stripHtmlTags = (value) => String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  if (!fs.existsSync(draftDir)) {
+    return readPreviewCaptionFallback(assetId, previewDir, stripHtmlTags);
+  }
+
+  const target = normalizeId(assetId).toLowerCase();
+  const draftFile = fs.readdirSync(draftDir).find((name) => {
+    const lower = name.toLowerCase();
+    return lower.startsWith(target) && lower.endsWith(".md");
+  });
+  if (!draftFile) {
+    return { finalCaption: "", cta: "", hashtags: [] };
+  }
+
+  const content = fs.readFileSync(path.join(draftDir, draftFile), "utf8");
+  const lines = content.split(/\r?\n/);
+  const start = lines.findIndex((line) => /^##\s+Caption\b/i.test(line));
+  if (start < 0) {
+    return { finalCaption: "", cta: "", hashtags: [] };
+  }
+
+  const captionLines = [];
+  const hashtags = [];
+  let inCaption = false;
+  for (let i = start + 1; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (/^---\s*$/.test(line) || /^##\s+Visual Brief\b/i.test(line)) break;
+    if (!inCaption && !line.trim()) continue;
+    inCaption = true;
+    const trimmed = line.trim();
+    if (!trimmed) {
+      captionLines.push("");
+      continue;
+    }
+    if (/^#\S/.test(trimmed)) {
+      hashtags.push(...trimmed.split(/\s+/).filter((token) => token.startsWith("#")));
+      continue;
+    }
+    captionLines.push(trimmed);
+  }
+
+  const finalCaption = captionLines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  const cta = (() => {
+    const nonEmpty = captionLines.map((line) => line.trim()).filter(Boolean);
+    return nonEmpty.length > 0 ? nonEmpty[nonEmpty.length - 1] : "";
+  })();
+  if (finalCaption) return { finalCaption, cta, hashtags };
+  return readPreviewCaptionFallback(assetId, previewDir, stripHtmlTags);
+}
+
+function readPreviewCaptionFallback(assetId, previewDir, stripHtmlTags) {
+  if (!fs.existsSync(previewDir)) {
+    return { finalCaption: "", cta: "", hashtags: [] };
+  }
+
+  const target = normalizeId(assetId).toLowerCase();
+  const candidates = fs.readdirSync(previewDir)
+    .filter((name) => name.toLowerCase().startsWith(target) && name.toLowerCase().endsWith(".html"))
+    .sort((a, b) => {
+      const score = (name) => {
+        const lower = name.toLowerCase();
+        if (lower.includes("caption")) return 0;
+        if (lower.includes("post-preview")) return 1;
+        return 2;
+      };
+      return score(a) - score(b) || a.localeCompare(b);
+    });
+
+  for (const file of candidates) {
+    const html = fs.readFileSync(path.join(previewDir, file), "utf8");
+    const textMatch = html.match(/<(?:div|p|section|article)[^>]*class="[^"]*(?:caption-text|body-text|body)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|p|section|article)>/i);
+    const text = textMatch ? stripHtmlTags(textMatch[1]) : "";
+    const hashtagMatch = html.match(/<(?:div|p|section|article)[^>]*class="[^"]*(?:hashtags|hashtags-row|chips)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|p|section|article)>/i);
+    const hashtags = hashtagMatch
+      ? Array.from(new Set((stripHtmlTags(hashtagMatch[1]).match(/#\S+/g) || []).map((tag) => tag.trim()).filter(Boolean)))
+      : [];
+    if (text) {
+      return { finalCaption: text, cta: "", hashtags };
+    }
+  }
+
+  return { finalCaption: "", cta: "", hashtags: [] };
+}
+
+const readCaptionMap = () => {
+  const data = readJsonFile(captionsPath, { captions: [] });
+  const map = new Map();
+  for (const item of Array.isArray(data?.captions) ? data.captions : []) {
+    const id = normalizeId(item?.asset_id);
+    if (!id) continue;
+    const draftFallback = readDraftCaptionFallback(id);
+    map.set(id, {
+      channel: String(item?.channel || "").trim(),
+      format: String(item?.format || "").trim(),
+      finalCaption: String(item?.final_caption || draftFallback.finalCaption || "").trim(),
+      cta: String(item?.cta || draftFallback.cta || "").trim(),
+      linkTarget: String(item?.link_target || "").trim(),
+      linkStrategy: String(item?.link_strategy || "").trim(),
+      hashtags: Array.isArray(item?.hashtags) && item.hashtags.length > 0 ? item.hashtags.filter(Boolean) : draftFallback.hashtags,
+      altText: String(item?.alt_text || "").trim(),
+    });
   }
   return map;
 };
@@ -423,6 +568,7 @@ const syncEntriesWithCanonicalDir = (entries, dir, group, allowedIds = null) => 
       ...previous,
       ...discoveredItem,
       title,
+      plannedTitle: previous?.plannedTitle || "",
       status: previous?.status || discoveredItem.status,
       titleSource: plannedTitle ? "planned-pauta" : discoveredItem.source,
       canonicalPreviewPath: previous?.canonicalPreviewPath || discoveredItem.canonicalPreviewPath,
@@ -445,9 +591,15 @@ const mergePlannedEntries = (entries, plannedEntries) => {
     if (!key) continue;
     const previous = byKey.get(key);
     byKey.set(key, {
-      ...previous,
       ...planned,
+      ...previous,
+      plannedTitle: previous?.plannedTitle || planned.plannedTitle || planned.title || previous?.title || "",
+      title: previous?.title || planned.title || planned.plannedTitle || "",
+      status: previous?.status || planned.status,
       canonicalPreviewPath: previous?.canonicalPreviewPath || planned.canonicalPreviewPath || "",
+      source: previous?.source || planned.source,
+      titleSource: previous?.titleSource || planned.titleSource,
+      updatedAt: previous?.updatedAt || planned.updatedAt,
     });
   }
   return Array.from(byKey.values()).sort((a, b) => String(a.assetId || "").localeCompare(String(b.assetId || "")));
@@ -471,11 +623,13 @@ const resolveArticleDestination = (entry, group, blogById) => {
 
   const mode = String(entry?.contentMode || "").trim().toLowerCase();
   const parentId = normalizeId(entry?.blogParentId || "");
+  const briefingHref = resolveBriefingHref(clientDir, parentId);
   if (mode !== "blog_derivative" || !parentId || parentId === "-") {
     return {
       articleLinkState: "nao_aplicavel",
       articleLinkLabel: "não aplicável",
       articleLinkHref: null,
+      briefingHref: null,
     };
   }
 
@@ -485,6 +639,7 @@ const resolveArticleDestination = (entry, group, blogById) => {
       articleLinkState: "pre_publicacao",
       articleLinkLabel: "pré-publicação (artigo ainda não criado)",
       articleLinkHref: null,
+      briefingHref,
     };
   }
 
@@ -496,6 +651,7 @@ const resolveArticleDestination = (entry, group, blogById) => {
         articleLinkState: "publicado",
         articleLinkLabel: "URL pública ativa",
         articleLinkHref: candidate,
+        briefingHref,
       };
     }
   }
@@ -508,6 +664,7 @@ const resolveArticleDestination = (entry, group, blogById) => {
         articleLinkState: "revisao_interna",
         articleLinkLabel: "preview interno ativo",
         articleLinkHref: relFromHub(absolutePreviewPath),
+        briefingHref,
       };
     }
   }
@@ -516,6 +673,7 @@ const resolveArticleDestination = (entry, group, blogById) => {
     articleLinkState: "pre_publicacao",
     articleLinkLabel: "pré-publicação (aguardando preview)",
     articleLinkHref: null,
+    briefingHref,
   };
 };
 
@@ -526,15 +684,18 @@ const prettyTitle = (file) =>
     .replace(/\s+/g, " ")
     .replace(/\b\w/g, (m) => m.toUpperCase());
 
-const buildCards = (entries, group, ownerLabels, maps, blogById) =>
+const buildCards = (entries, group, ownerLabels, maps, blogById, publishMap, captionMap) =>
   entries.map((entry) => {
     const canonicalPath = entry.canonicalPreviewPath || "";
     const resolvedPath = canonicalPath ? absoluteFromClient(canonicalPath) : null;
-    const exists = resolvedPath ? fs.existsSync(resolvedPath) : false;
+    const canonicalExists = resolvedPath ? fs.existsSync(resolvedPath) : false;
+    const socialPublish = group === "social" ? (publishMap.get(normalizeId(entry.assetId)) || null) : null;
+    const socialCaption = group === "social" ? (captionMap.get(normalizeId(entry.assetId)) || null) : null;
+    const reviewModalPath = group === "social" ? path.join(reviewDir, `${normalizeId(entry.assetId).toLowerCase()}-review-modal.html`) : null;
+    const reviewPath = group === "social" ? path.join(reviewDir, `review-${normalizeId(entry.assetId).toLowerCase()}.html`) : null;
+    const reviewModalExists = reviewModalPath ? fs.existsSync(reviewModalPath) : false;
+    const reviewExists = reviewModalExists || (reviewPath ? fs.existsSync(reviewPath) : false);
     const sourceStatus = normalizeStatus(entry.status || "Planejado");
-    const displayStatus = exists ? sourceStatus : "planejado (preview pendente)";
-    const ownerStatus = exists ? sourceStatus : "Planejado";
-    const phaseOwner = resolvePhaseOwner(group, ownerStatus, ownerLabels);
     const channelKey = normalizeChannelKey(entry.channel);
     const channelPolicy = channelKey ? maps.channelEligibility.byId.get(channelKey) : null;
     const channelState = channelPolicy?.state || maps.channelEligibility.defaultState;
@@ -550,8 +711,16 @@ const buildCards = (entries, group, ownerLabels, maps, blogById) =>
     );
     const articleDestination = resolveArticleDestination(entry, group, blogById);
 
+    const href = group === "social"
+      ? (reviewModalExists ? relFromHub(reviewModalPath) : (reviewExists ? relFromHub(reviewPath) : (canonicalExists ? relFromHub(resolvedPath) : null)))
+      : (canonicalExists ? relFromHub(resolvedPath) : null);
+    const exists = href ? fs.existsSync(path.resolve(reviewDir, href)) : false;
+    const displayStatus = exists ? sourceStatus : "planejado (preview pendente)";
+    const ownerStatus = exists ? sourceStatus : "Planejado";
+    const phaseOwner = resolvePhaseOwner(group, ownerStatus, ownerLabels);
+
     return {
-      href: exists ? relFromHub(resolvedPath) : null,
+      href,
       id: normalizeId(entry.assetId || "ASSET"),
       week: entry.weekLabel || "Ciclo",
       title: entry.plannedTitle || entry.title || prettyTitle(canonicalPath || entry.assetId || "asset"),
@@ -570,6 +739,15 @@ const buildCards = (entries, group, ownerLabels, maps, blogById) =>
       articleLinkState: articleDestination.articleLinkState,
       articleLinkLabel: articleDestination.articleLinkLabel,
       articleLinkHref: articleDestination.articleLinkHref,
+      briefingHref: group === "blog" ? resolveBriefingHref(clientDir, entry.assetId) : (articleDestination.briefingHref || null),
+      publishStatus: socialPublish?.status || "",
+      publishFiles: socialPublish?.files || [],
+      publishKind: socialPublish?.exportKind || "",
+      publishSourcePreview: socialPublish?.sourcePreviewPath || "",
+      captionSnippet: socialCaption?.finalCaption || "",
+      captionCta: socialCaption?.cta || "",
+      captionLinkTarget: socialCaption?.linkTarget || "",
+      captionHashtags: socialCaption?.hashtags || [],
     };
   });
 
@@ -593,6 +771,8 @@ const maps = {
   schedule: readScheduleMap(),
   channelEligibility: readChannelEligibility(),
 };
+const publishMap = readPublishAssetsMap();
+const captionMap = readCaptionMap();
 
 const manifest = loadManifest();
 const backlogPlan = parseBacklogPlan();
@@ -632,8 +812,8 @@ for (const blog of manifest.assets.blog) {
   if (!id) continue;
   blogById.set(id, blog);
 }
-const blogCards = buildCards(blogEntriesForHub, "blog", phaseOwnerLabels, maps, blogById);
-const socialCards = buildCards(manifest.assets.social, "social", phaseOwnerLabels, maps, blogById);
+const blogCards = buildCards(blogEntriesForHub, "blog", phaseOwnerLabels, maps, blogById, publishMap, captionMap);
+const socialCards = buildCards(manifest.assets.social, "social", phaseOwnerLabels, maps, blogById, publishMap, captionMap);
 const socialPublishableCards = socialCards.filter((card) => card.productionReady);
 const socialExpansionCards = socialCards.filter((card) => !card.productionReady);
 
@@ -675,14 +855,24 @@ const renderMetadata = (card) => {
     ["Data alvo", card.targetDate],
   ];
 
+  if (card.channel !== "Blog") {
+    rows.push(
+      ["Publicação", card.publishStatus || "-"],
+      ["Exportação", card.publishKind || "-"],
+      ["PNG", card.publishFiles?.length ? `${card.publishFiles.length} arquivos` : "-"],
+      ["Legenda", card.captionCta || (card.captionSnippet ? `${card.captionSnippet.slice(0, 80)}${card.captionSnippet.length > 80 ? "…" : ""}` : "-")],
+    );
+  }
+
   return rows
     .map(([label, value]) => `<div class=\"kv\"><span class=\"k\">${htmlEscape(label)}:</span> <span class=\"v\">${htmlEscape(value)}</span></div>`)
     .join("\n");
 };
 
 const cardMarkup = (card) => {
+  const previewLabel = card.channel === "Blog" ? "Abrir preview" : "Abrir revisão";
   const previewLinkMarkup = card.href
-    ? `<a class="card-preview-link" href="${htmlEscape(card.href)}" target="_blank">Abrir preview</a>`
+    ? `<a class="card-preview-link" href="${htmlEscape(card.href)}" target="_blank">${htmlEscape(previewLabel)}</a>`
     : `<span class="card-preview-link disabled">Preview indisponível</span>`;
   const articleLinkMarkup = card.channel === "Blog"
     ? ""
@@ -695,6 +885,7 @@ const cardMarkup = (card) => {
   <div class="id">${htmlEscape(card.id)} · ${htmlEscape(card.week)}</div>
   <div class="title">${htmlEscape(card.title)}</div>
   <div class="sub">Status: ${htmlEscape(card.status)}</div>
+  ${card.channel !== "Blog" && card.captionSnippet ? `<div class="caption-snippet">${htmlEscape(card.captionSnippet.slice(0, 120))}${card.captionSnippet.length > 120 ? "…" : ""}</div>` : ""}
   <div class="meta-grid">
     ${renderMetadata(card)}
   </div>
@@ -764,6 +955,7 @@ const html = `<!DOCTYPE html>
     
     .card-id{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between;text-transform:uppercase}
     .card-title{font-size:1.1rem;font-weight:700;margin-bottom:14px;color:var(--text)}
+    .caption-snippet{font-size:0.9rem;color:var(--muted);margin:-4px 0 14px;line-height:1.45}
     
     .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
     .tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;background:#f8fafc;color:var(--muted);border:1px solid var(--card-border)}
@@ -776,6 +968,8 @@ const html = `<!DOCTYPE html>
     .btn-primary:hover{background:var(--accent)}
     .btn-outline{background:#fff;color:var(--text);border:1px solid var(--line)}
     .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-ai{background:#7c3aed;color:#fff;border:1px solid #7c3aed}
+    .btn-ai:hover{background:#6d28d9;border-color:#6d28d9;color:#fff}
 
     /* Modal System */
     .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.8);display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px);padding:40px}
@@ -821,6 +1015,7 @@ const html = `<!DOCTYPE html>
               </div>
               <div class="card-actions">
                 ${blog.href ? `<button onclick="openModal('${htmlEscape(blog.href)}', '${htmlEscape(blog.title)}')" class="btn btn-primary">Revisar Artigo</button>` : `<span class="btn btn-outline disabled">Aguardando Draft</span>`}
+                ${blog.briefingHref ? `<a href="${htmlEscape(blog.briefingHref)}" target="_blank" class="btn btn-ai">🤖 AI Studio</a>` : ""}
                 ${blog.href ? `<a href="${htmlEscape(blog.href)}" target="_blank" class="btn btn-outline" style="flex:0; padding:10px 15px">↗</a>` : ""}
               </div>
             </div>

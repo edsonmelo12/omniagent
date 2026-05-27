@@ -53,6 +53,24 @@ Esta biblioteca define os padrões estéticos que o Visual Director deve escolhe
 - **Canvas**: 1080×1350. Preview 420×525.
 - **Engine**: `compose.mjs` com `textVariant` + `truthCard` por slide.
 
+## 8. Paper Bulletin (Participação & Escolha)
+- **Mood**: Tátil, convidativo, de decisão rápida.
+- **Background**: Papel quente (`#F7F0E6`) com areia e bordas suaves, como um mural editorial.
+- **Tipografia**: DM Sans em caixa alta para ganchos; corpo limpo e pesado o suficiente para mobile.
+- **Cores de Destaque**: `#8E5B47` (marrom queimado), `#D4A373` (areia quente), `#FFF8EF` (papel claro).
+- **Elementos**: cartões de escolha, pills orgânicas, blocos adesivos, borda sutil, sombra de papel e CTA em selo.
+- **Canvas**: 1080×1920 para Stories. Preview 420×525.
+- **Engine**: `compose.mjs` com `choice_pills` e blocos de texto em cartão.
+
+## 9. AD Editorial (Residencial Premium)
+- **Mood**: Editorial, sofisticado, muito legível.
+- **Background**: Papel quente com gradiente creme e sombra orgânica, evocando revista de interiores.
+- **Tipografia**: Serifada clássica para títulos (Playfair Display) + Sans limpa para suporte.
+- **Cores de Destaque**: `#A86D49` (bronze), `#181413` (preto editorial), `#F5EFE6` (creme).
+- **Elementos**: moldura discreta, pill de baixo contraste, cards translúcidos e progressão limpa.
+- **Canvas**: 1080×1920 para Stories. Preview 420×525.
+- **Engine**: `compose.mjs` com contraste por `textVariant` e cartões suaves para frames editoriais.
+
 ---
 
 ### Regra de Ouro para o Visual Director:

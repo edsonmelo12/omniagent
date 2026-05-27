@@ -8,11 +8,12 @@ PASS — ready for publication
 | Gate | Evidência | Status |
 |------|-----------|--------|
 | VDC | `visual-decision-cards/ac-30-11-vdc-v1.md` | PASS |
-| Preview HTML | `social/previews/ac-30-11-reels-reputacao.html` | PASS |
+| Preview Manifest | `social/previews/ac-30-11-post-preview-manifest.json` | PASS |
+| Preview HTML | `social/previews/ac-30-11-post-preview.html` | PASS |
 | Export final | `social/publish/ac-30-11/ac-30-11-01.png` a `ac-30-11-04.png` | PASS |
 | Dimensão | 1080x1920 verificado | PASS |
 | Texto pt-BR | Acentos verificados (reputação, confiança, critérios, específicas) | PASS |
-| Imagem | Background image do blog AC-30-09 implementada | PASS |
+| Imagem | Background image do pacote Instagram Reels implementada no cover; frames 2-4 usam fundos DS | PASS |
 | DNA Acceptance | Editorial Magazine + Proof Layer allowed | PASS |
 
 ## Design System Compliance
@@ -21,7 +22,7 @@ PASS — ready for publication
 |-----------|--------|
 | Alinhamento vertical (space-between) | PASS |
 | Fontes estilizadas (DM Sans 800, Playfair Display) | PASS |
-| Rotação de imagem (scale, blur, opacity) | PASS |
+| Fundo do cover com overlay; frames 2-4 em DS sólido/gradiente | PASS |
 | Sem setas de navegação dentro da arte | PASS ✅ |
 | Sem mocks de interface | PASS ✅ |
 
@@ -29,10 +30,10 @@ PASS — ready for publication
 
 | Frame | Conteúdo | Validação |
 |-------|----------|-----------|
-| 1 | Cover: "REPUTAÇÃO = COERÊNCIA" + card | PASS |
+| 1 | Cover: "REPUTAÇÃO = COERÊNCIA" | PASS |
 | 2 | Sinais 1-2 (Acabamento + Clareza) | PASS |
 | 3 | Sinais 3-4 (Linguagem + Depoimentos) | PASS |
-| 4 | Sinal 5 + "SALVAR" CTA | PASS |
+| 4 | Sinal 5 + CTA de fechamento | PASS |
 
 ## Skill Invocation Ledger
 
@@ -45,15 +46,15 @@ PASS — ready for publication
 
 - **Canvas:** 1080×1920 px
 - **Frames:** 4
-- **Background:** Imagem do blog com transform scale, blur e overlay gradient
-- **Progress bar:** Presente (para preview, removível via CSS para export)
+- **Background:** Imagem do pacote Instagram Reels no cover; frames 2-4 com fundos sólidos/gradiente do DS
+- **Progress bar:** Presente no preview; removível via CSS no export
 
 ## Correções Aplicadas
 
 - **Mock header:** Removido (`.mock_header removido`)
 - **Nav buttons:** Removidos (`.nav buttons removidos`)
-- **Progress bar:** Mantido para navegação no preview; pode ser ocultado no export via CSS
+- **Progress bar:** Mantido para navegação no preview; ocultável no export via CSS
 
 ## Notas
 
-O progress bar no topo é elemento de UX para navegação no preview, não faz parte da arte final. Pode ser ocultado via `display: none` no export se necessário.
+O progress bar no preview é elemento de UX para navegação; não faz parte da arte final.

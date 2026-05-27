@@ -27,6 +27,7 @@ resultado máximo é `pipeline_degraded`, nunca `pipeline_pass`.
 | **Edit de copy** sem mudança visual | Fast-track | Creator → Reviewer → Pipeline Auditor | Approved Reviewer + Compliance PASS |
 | **Edit visual** (cor, fonte, layout) | Fast-track | Creative Renderer → Reviewer → Pipeline Auditor | RCC + Approved Reviewer + Compliance PASS |
 | **Asset novo** em campanha existente com baseline aprovado | Pipeline completa | Visual Director → Creative Renderer → Reviewer → Pipeline Auditor | VDC (com baseline declarado) + RCC + Approved Reviewer + Compliance PASS |
+| **Protótipo NLM** para explorar visual antes de produção | Optional prototype | Atlas → Creator → NotebookLM → Visual Director | NLM Prototype Handoff; referência apenas; VDC/RCC/Review ainda obrigatórios |
 | **Publicação/fila sem alteração visual/copy** | Quick preflight | Scheduler → Pipeline Auditor (`quick_preflight`) | Queue/monitor OK + captions finais + dry-run/validador + checkpoint |
 | **Correção pós-aprovação ou defeito reportado** | Incident audit | Executor responsável → Reviewer → Pipeline Auditor (`incident_audit`) | Incident Trace + mitigação operacional + Compliance PASS |
 | **Consulta, status, agenda ou lista** | Quick status | Atlas | `state-summary.md`; sem alteração de arquivos |
@@ -61,6 +62,8 @@ As seguintes situações são VETO obrigatório e impedem o asset de avançar:
 10. Rebaixar hub/manifest de versão aprovada mais nova para artefato antigo ou sem versão → VETO
 11. Atualizar hub/manifest antes de export final e validação de dimensões quando a entrega declara publish-ready → VETO
 12. Claims de VDC/RCC/Review contradizem DOM, preview ou PNG final → VETO
+13. Protótipo NotebookLM usado como arte final, sem VDC/RCC/Reviewer/Pipeline Auditor → VETO
+14. Protótipo NotebookLM com marca d'água, promessa sem fonte ou formato errado tratado como publish-ready → VETO
 
 ## Regra Anti-Atalho
 

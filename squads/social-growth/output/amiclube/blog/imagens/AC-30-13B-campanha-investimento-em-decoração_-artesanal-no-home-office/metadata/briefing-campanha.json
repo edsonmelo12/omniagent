@@ -1,0 +1,70 @@
+{
+  "campaign": {
+    "title": "Investimento em Decoração: Artesanal no Home Office",
+    "objective": "Gerar tráfego para o blog",
+    "niche": "amigurumi, crochê",
+    "targetAudience": "mães, acima de 25 anos",
+    "channels": [
+      "Blog",
+      "Instagram Carousel",
+      "Instagram Reels",
+      "Facebook Post",
+      "LinkedIn"
+    ],
+    "style": "criativo",
+    "description": ""
+  },
+  "briefing": {
+    "interpretation": "This campaign positions the amigurumi as a premium decorative asset that bridges the gap between professional productivity and artisanal comfort. The strategy focuses on showcasing the product as a sophisticated 'investment' piece for modern home office aesthetics to drive high-intent traffic to the blog.",
+    "identifiedProduct": "A high quality artisanal marketing product (handcrafted amigurumi toy).",
+    "visualDirection": "The 'criativo' style will be expressed through an artistic juxtaposition of corporate tech elements like tablets or keyboards with the soft, organic textures of yarn and crochet tools.",
+    "suggestedElements": [
+      "modern minimalist desk",
+      "potted succulent",
+      "designer stationery",
+      "wooden crochet hooks",
+      "soft yarn skeins",
+      "laptop keyboard"
+    ],
+    "elementsToAvoid": [
+      "realistic skin",
+      "scary eyes",
+      "distorted proportions",
+      "messy cables",
+      "harsh neon lighting",
+      "cinematic monster filters"
+    ],
+    "channelRecommendations": [
+      {
+        "channel": "Blog",
+        "recommendation": "Main header image showcasing the product as a professional desk companion.",
+        "format": "16:9",
+        "prompt": "Stunning horizontal header photography of the exact A high quality artisanal marketing product, centered on a light-colored wooden desk next to a sleek laptop and a designer coffee mug, reflecting 'Investimento em Decoração: Artesanal no Home Office', soft natural lighting, high resolution, professional product shot."
+      },
+      {
+        "channel": "Instagram Carousel",
+        "recommendation": "Macro-focused shots highlighting texture and craftsmanship details.",
+        "format": "4:5",
+        "prompt": "Professional toy photography of the exact A high quality artisanal marketing product, placed next to a blank elegant pricing tag on a tidy workstation, high quality yarn texture, soft studio lighting, macro lens, 8k, pastel bokeh background."
+      },
+      {
+        "channel": "Instagram Reels",
+        "recommendation": "Vertical framing capturing the product within an aspirational workspace lifestyle.",
+        "format": "9:16",
+        "prompt": "Dynamic vertical shot of the exact A high quality artisanal marketing product being held by gentle hands over a organized home office desk, vibrant colors, soft lighting, depth of field, 8k, professional interior design aesthetic."
+      },
+      {
+        "channel": "Facebook Post",
+        "recommendation": "Wider shot emphasizing the cozy atmosphere of a decorated home office.",
+        "format": "1200x630",
+        "prompt": "Professional wide shot of the exact A high quality artisanal marketing product sitting on a floating shelf above a creative workspace, surrounded by art books and yarn, clean shadows, soft studio lighting, high resolution."
+      },
+      {
+        "channel": "LinkedIn",
+        "recommendation": "Clean, sophisticated composition emphasizing workplace wellness and high-end decor.",
+        "format": "1.91:1",
+        "prompt": "Sophisticated photography of the exact A high quality artisanal marketing product on a minimalist white desk, symbolizing artisanal investment in professional environments, high-end finish, soft pastel bokeh background, professional studio lighting."
+      }
+    ]
+  }
+}

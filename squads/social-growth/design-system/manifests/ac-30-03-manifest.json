@@ -1,0 +1,69 @@
+{
+  "asset_id": "AC-30-03",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "reels-sequence",
+  "title": "Focar só no Preço é o Erro #1",
+  "deck_label": "reels",
+  "topic": "Erro Comum: Preço vs Valor",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Educacional",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "ERRO COMUM",
+      "title": "Focar só no PREÇO é o erro #1",
+      "body": "Quem compra só por valor, quase sempre se arrepende.",
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/assets/AC-30-01-escolher-com-criterio-hero.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "CONCEITO",
+      "title": "PREÇO ≠ QUALIDADE",
+      "body": "Um amigurumi de R$ 200 pode ter mais valor que um de R$ 500. O que transforma isso em verdade são os critérios de avaliação.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "CRITÉRIOS",
+      "title": "3 Filtros de Qualidade",
+      "body": "Acabamento\nMaterial\nSegurança dos pontos",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "COMPARTILHE COM QUEM COMPARA PREÇO",
+      "body": "Às vezes, a melhor decisão começa com uma pergunta.",
+      "cta": "link na bio",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

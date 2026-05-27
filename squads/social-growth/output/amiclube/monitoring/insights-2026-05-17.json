@@ -1,0 +1,34 @@
+{
+  "collected_at": "2026-05-17T18:00:00.000Z",
+  "client": "amiclube",
+  "period": "last_30_days",
+  "instagram_metrics": {
+    "followers": 13015,
+    "media_count": 274,
+    "followers_change": -38,
+    "media_change": 10
+  },
+  "facebook_metrics": {
+    "fan_count": 1390,
+    "talking_about": 2,
+    "fan_change": -1
+  },
+  "recent_posts": [
+    {"date": "2026-05-14", "likes": 2, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-13", "likes": 4, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-12", "likes": 0, "comments": 0, "type": "post"},
+    {"date": "2026-05-11", "likes": 0, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-10", "likes": 3, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-08", "likes": 2, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-07", "likes": 3, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-07", "likes": 1, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-05", "likes": 2, "comments": 0, "type": "carrossel"},
+    {"date": "2026-05-02", "likes": 5, "comments": 0, "type": "carrossel"}
+  ],
+  "summary": {
+    "total_likes_30d": 17,
+    "total_comments_30d": 0,
+    "avg_likes_per_post": 1.7,
+    "engagement_rate": 0.013
+  }
+}

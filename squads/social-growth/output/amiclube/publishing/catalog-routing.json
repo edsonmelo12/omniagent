@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "defaults": {
+    "overrideAllowed": true,
+    "selectionMode": "recommended"
+  },
+  "asset_routes": {
+    "AC-30-29": {
+      "recommended_product_id": "5801407299912174",
+      "selected_product_id": "5801407299912174",
+      "override_allowed": true,
+      "reason": "Tema de home office e estilo visual; Mickey funciona como peça decorativa ampla e é o fallback principal aprovado.",
+      "alternatives": [
+        {
+          "product_id": "5659533284131287",
+          "label": "Minnie"
+        }
+      ]
+    }
+  },
+  "product_fallbacks": {
+    "COMBO Cebolinha + Cascão - Receita de Amigurumi": "5161071753945001",
+    "COMBO Pica Pau + Pé de Pano - Receita de Amigurumi": "9659621224111848",
+    "Pica-Pau - Receita de Amigurumi": "9659621224111848",
+    "COMBO Mickey + Minnie - Receita de Amigurumi": "5801407299912174"
+  }
+}

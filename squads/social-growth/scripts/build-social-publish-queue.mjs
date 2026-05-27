@@ -56,6 +56,8 @@ const captionsPath = path.join(publishingDir, "social-final-captions.json");
 const eligibilityPath = path.join(publishingDir, "channel-eligibility.json");
 const manifestPath = path.join(clientDir, "review", "campaign-manifest.json");
 const outputPath = path.join(publishingDir, "social-publish-queue.json");
+const catalogSnapshotPath = path.join(root, "squads", "social-growth", "output", "dashboard", "instagram-commerce-catalog.json");
+const catalogRoutingPath = path.join(publishingDir, "catalog-routing.json");
 
 const mustExist = [schedulePath, exportsPath, eligibilityPath];
 const missing = mustExist.filter((file) => !fs.existsSync(file));
@@ -80,6 +82,71 @@ const readJson = (file, fallback = null) => {
   } catch {
     return fallback;
   }
+};
+
+const normalizeKey = (value) => String(value || "").trim().toLowerCase();
+
+const catalogSnapshot = readJson(catalogSnapshotPath, null);
+const catalogRouting = readJson(catalogRoutingPath, { defaults: {}, asset_routes: {}, product_fallbacks: {} });
+const catalogProducts = Array.isArray(catalogSnapshot?.products) ? catalogSnapshot.products : [];
+const catalogProductById = new Map(catalogProducts.map((product) => [normalizeKey(product.id), product]));
+const catalogProductByName = new Map(catalogProducts.map((product) => [normalizeKey(product.name), product]));
+
+const resolveCatalogProduct = (input) => {
+  if (!input) return null;
+  if (typeof input === "string") {
+    return catalogProductById.get(normalizeKey(input)) || catalogProductByName.get(normalizeKey(input)) || null;
+  }
+  if (typeof input === "object") {
+    const byId = catalogProductById.get(normalizeKey(input.product_id || input.recommended_product_id || input.selected_product_id));
+    if (byId) return byId;
+    const byName = catalogProductByName.get(normalizeKey(input.product_name || input.recommended_product_name || input.selected_product_name));
+    if (byName) return byName;
+  }
+  return null;
+};
+
+const getCatalogRouteForAsset = (assetId) => {
+  const direct = catalogRouting.asset_routes?.[assetId] || catalogRouting.asset_routes?.[normalizeKey(assetId)] || null;
+  if (direct) return direct;
+  return null;
+};
+
+const getCatalogFallbackProductId = (productName) => {
+  const fallback = catalogRouting.product_fallbacks?.[productName] || catalogRouting.product_fallbacks?.[normalizeKey(productName)] || null;
+  return typeof fallback === "string" ? fallback : null;
+};
+
+const buildCatalogSelection = (assetId, row) => {
+  const route = getCatalogRouteForAsset(assetId);
+  const fallbackProductId = getCatalogFallbackProductId(route?.selected_product_name || route?.recommended_product_name || row?.title || row?.plannedTitle || "");
+  const recommendedCandidate = resolveCatalogProduct(route?.recommended_product_id || route?.recommended_product_name || fallbackProductId);
+  const selectedCandidate = resolveCatalogProduct(route?.selected_product_id || route?.selected_product_name) || recommendedCandidate || resolveCatalogProduct(fallbackProductId);
+  const alternatives = Array.isArray(route?.alternatives)
+    ? route.alternatives.map((alt) => {
+        const product = resolveCatalogProduct(alt?.product_id || alt?.product_name);
+        return product
+          ? {
+              product_id: product.id,
+              product_name: product.name,
+              label: alt?.label || product.name,
+              sales_url: product.sales_url || product.hotmart_url || null,
+            }
+          : null;
+      }).filter(Boolean)
+    : [];
+
+  return {
+    recommended_product_id: recommendedCandidate?.id || null,
+    recommended_product_name: recommendedCandidate?.name || null,
+    selected_product_id: selectedCandidate?.id || null,
+    selected_product_name: selectedCandidate?.name || null,
+    selected_product_sales_url: selectedCandidate?.sales_url || selectedCandidate?.hotmart_url || null,
+    product_override_allowed: route?.override_allowed !== false,
+    product_selection_mode: route?.selectionMode || catalogRouting.defaults?.selectionMode || "recommended",
+    product_selection_reason: route?.reason || null,
+    product_alternatives: alternatives,
+  };
 };
 
 const scheduleText = fs.readFileSync(schedulePath, "utf8");
@@ -159,6 +226,7 @@ const captionById = new Map(captionsRows.map((row) => [normalizeId(row.asset_id)
 
 const captionFieldsFor = (assetId) => {
   const row = captionById.get(assetId);
+  const catalogSelection = buildCatalogSelection(assetId, row);
   if (!row) {
     return {
       first_line_hook: null,
@@ -168,6 +236,7 @@ const captionFieldsFor = (assetId) => {
       link_target: null,
       link_strategy: null,
       alt_text: null,
+      ...catalogSelection,
     };
   }
   return {
@@ -178,6 +247,7 @@ const captionFieldsFor = (assetId) => {
     link_target: row.link_target || null,
     link_strategy: row.link_strategy || null,
     alt_text: row.alt_text || null,
+    ...catalogSelection,
   };
 };
 

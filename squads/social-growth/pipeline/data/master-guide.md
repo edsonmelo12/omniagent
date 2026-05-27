@@ -15,23 +15,14 @@ When the cycle is client-facing, the consolidated report should be saved as `out
 
 ## Core Flow
 
-1. Intake sources
-2. Build the client record
-3. Add market context, presence digital and audience hypotheses
-4. Create strategy
-5. Optionally produce a commercial proposal after the checkpoint, presentation-first
-6. Build blog architecture when long-form content is in scope
-7. Produce content only after research, strategy and blog architecture are closed
-8. Optimize discovery content
-9. Repurpose into native social assets
-10. Review quality
-11. Audit pipeline compliance
-12. Approve schedule
-13. Publish
-14. Monitor
-15. Adjust the next cycle
+Use the canonical sequence docs instead of restating the pipeline here:
 
-This flow is governed by the [Campaign State Machine](campaign-state-machine.md) and [Stage Contracts](stage-contracts.md).
+- [Campaign State Machine](campaign-state-machine.md)
+- [Stage Contracts](stage-contracts.md)
+- [blog-content-flow.md](blog-content-flow.md)
+- [campaign-transition-workflow.md](campaign-transition-workflow.md)
+
+The only rule at this level is: do not start downstream work before the upstream record, research and strategy state are in place.
 
 ## Who Owns What
 
@@ -54,38 +45,30 @@ Client credentials must live in an external secrets backend and be resolved thro
 
 ## Global Blog Standards
 
-The universal policy for all blog output lives in [blog-policy.md](blog-policy.md). The rules below are the operational summary that every client must follow.
+The universal policy for all blog output lives in [blog-policy.md](blog-policy.md). If long-form content is in scope, use [blog-content-flow.md](blog-content-flow.md) as the working sequence.
 
-- Blog length is decided by function, not by client.
-- The featured image must reinforce the post thesis, not the client category.
-- The featured image must be selected by explicit thesis/topic criteria, not category convenience.
-- Visual sourcing must be free or public by default; paid stock is not the standard path.
-- Avoid generic stock imagery unless the topic genuinely benefits from a literal scene.
-- Prefer original or topic-specific visuals when the article is conceptual, strategic or proof-led.
-- Use `BlogPosting` only when the visible article supports editorial content.
-- Use `FAQPage` only when the FAQ is present in the visible article.
-- Use `Organization` and `WebSite` for entity pages, not for generic blog posts.
-- Schema must follow the visible content; never add markup to compensate for missing substance.
-- The article must prove a point, not only explain a topic.
-- A post that feels inevitable for the theme is better than one that feels generic for the market.
+The high-level rules remain simple:
+
+- blog length is decided by function, not by client;
+- the featured image must reinforce the post thesis, not the category;
+- visual sourcing is free/public by default;
+- the article must prove a point, not only explain a topic.
 
 ## Blog Skill Dynamics
 
-The blog flow uses skills in sequence, and each skill has a different job:
+Use the skill sequence only as needed and keep it tied to the canonical blog flow:
 
-1. `content-trend-researcher` validates the angle, information gain, and anti-repetition path before drafting.
-2. `copywriting` locks the reader, promise, objection, hook strategy, and CTA direction before body writing starts.
-3. `write-seo-geo-content` turns the approved brief into a family-specific article with search, proof, and extractability discipline.
-4. `seo-2025-expert` tightens retrieval, entity clarity, source framing, and GEO/AI visibility without flattening the chosen structure.
-5. `review` validates length, proof, hook quality, featured image selection criteria, and anti-repetition before publication.
+1. `content-trend-researcher`
+2. `copywriting`
+3. `write-seo-geo-content`
+4. `seo-2025-expert`
+5. `review`
 
 Important:
-- Optimization may improve headings, but it must not normalize every article into the same skeleton.
-- The writer must preserve the selected section arc from the architecture step.
-- The reviewer must reject output that reads like a repeated mold even if the copy itself is technically correct.
-- The reviewer must reject output if the featured image is generic, mismatched or selected by convenience instead of criteria.
-- A family label is not permission to use a prose template. Every final article must be authored from the brief, architecture, and proof context for that specific client and topic.
-- Scripted article generators are not part of the valid blog flow. They may only support rendering or packaging after the final copy already exists.
+- do not flatten every article into the same skeleton;
+- preserve the selected section arc;
+- reject generic featured images or convenience picks;
+- scripted generators are not part of the valid writing flow.
 
 ## What to Open First
 
@@ -113,6 +96,8 @@ Important:
 ## Social Visual Production Gate
 
 Every social visual asset must pass `visual-production-gate.md` before it can move between visual direction, rendering, review and export.
+
+Every social visual asset must also satisfy the canonical generation checklist in `generation-contract.md`.
 
 - Visual Director must create a Visual Decision Card for each social asset.
 - Creative Renderer must create a Render Compliance Card for each rendered social asset.

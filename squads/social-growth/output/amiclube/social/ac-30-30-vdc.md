@@ -36,8 +36,8 @@ O blog AC-30-13B aborda como peças artesanais podem agregar presença e identid
 
 | Decisão | Detalhe |
 |---------|--------|
-| Fonte da Imagem | Blog hero image |
-| Tratamiento | Background com overlay escuro |
+| Fonte da Imagem | `blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/facebook-post/facebook post-investimento-em-decoracao-artesanal-v1.webp` |
+| Tratamento | Background com overlay escuro |
 | Posição | Full-bleed background |
 
 ## First Impression Diversity

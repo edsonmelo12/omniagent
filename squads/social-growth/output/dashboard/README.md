@@ -9,14 +9,16 @@ Dashboard interativa para monitoramento da squad de crescimento social.
 ```
 output/dashboard/
 ├── index.html    # Página principal da dashboard (multi-cliente)
-├── data.json     # Dados dinâmicos (gerado automaticamente)
+├── chat.html     # Chat operacional da squad com fallback local
+├── products.html  # Catálogo de produtos em página dedicada
+├── data.js       # Dados dinâmicos injetados no browser
 └── README.md     # Este arquivo
 ```
 
-## Multi-Cliente
+## Fonte de Dados
 
-A dashboard é now no diretório raiz de output, não mais em uma pasta específica de cliente. Para suportar múltiplos clientes:
-- O script lê os dados de `output/{cliente}/publishing/social-publish-monitor.md`
+- A dashboard lê `output/amiclube/publishing/social-publish-queue.json`
+- O `data.js` é regenerado automaticamente pelo script de atualização
 - Atualmente configurado para `amiclube`
 
 ## Como Usar
@@ -26,6 +28,21 @@ A dashboard é now no diretório raiz de output, não mais em uma pasta específ
 Abra o arquivo `index.html` no navegador:
 - Via arquivo: `file:///home/edsonrmjunior/Local Sites/omniagent/squads/social-growth/output/amiclube/dashboard/index.html`
 - Via servidor: `http://localhost:8080` (se tiver um servidor HTTP rodando)
+
+Abra o arquivo `products.html` para ver o catálogo completo de produtos em uma página dedicada.
+
+Abra `chat.html` para usar o terminal operacional da squad. Para respostas via API local, inicie o servidor Node:
+
+```bash
+cd /home/edsonrmjunior/Local Sites/omniagent/squads/social-growth
+node scripts/serve-dashboard.mjs
+```
+
+Com o servidor rodando, o chat fica integrado mesmo se `chat.html` for aberto por `file://`, porque a página tenta conectar em `http://localhost:8080/api/chat`. Se o servidor não estiver ativo, o chat usa apenas o fallback local do browser.
+
+Endpoints disponíveis no servidor:
+- `GET /api/chat/context` retorna o contexto consolidado dos artefatos do dashboard.
+- `POST /api/chat` recebe `{ "prompt": "..." }` e responde no contrato operacional do chat.
 
 ### Atualizar Dados
 
@@ -53,16 +70,16 @@ Para atualizar automaticamente, adicione ao seu fluxo de publicação:
 
 O script extrai automaticamente:
 - **Métricas da fila**: Total, publicados, agendados, bloqueados
-- **Queue items**: Próximos 10 ativos com status
+- **Queue items**: Todos os itens da fila com status
 - **Última atualização**: Timestamp UTC
 
-Fonte: `output/amiclube/publishing/social-publish-monitor.md`
+Fonte: `output/amiclube/publishing/social-publish-queue.json`
 
 ## Customização
 
 ### Alterar Cliente
 
-Edite `data.json` ou modifique o script para extrair de outros clientes.
+Edite `data.js` ou modifique o script para extrair de outros clientes.
 
 ### Adicionar Métricas
 

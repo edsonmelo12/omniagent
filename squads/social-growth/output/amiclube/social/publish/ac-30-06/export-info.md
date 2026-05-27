@@ -22,4 +22,4 @@
 - ac-30-06-07.png (Slide 7)
 
 ## Export command
-Use: node scripts/export-ac-30-06.mjs
+Use: node scripts/export-ac-30-06-v8.js

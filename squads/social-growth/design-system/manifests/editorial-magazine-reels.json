@@ -1,0 +1,63 @@
+{
+  "asset_id": "example-editorial-magazine-reels",
+  "client": "Template",
+  "brand": "MARCA",
+  "style": "editorial-magazine",
+  "format": "reels-sequence",
+  "title": "Template — Editorial Magazine Reels",
+  "deck_label": "reels",
+  "topic": "Tema do Reels",
+  "footer": "@marca",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "VOCÊ SABIA?",
+      "title": "Pergunta gancho que para o scroll",
+      "body": "Contexto rápido que introduz o tema",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "FATO 1",
+      "title": "Primeira informação relevante",
+      "body": "Uma ideia por frame. Seja direto e visual.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "FATO 2",
+      "title": "Segunda informação",
+      "body": "Mantenha o ritmo alternando entre claro e escuro.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "title": "Salve para ver depois",
+      "body": "Compartilhe com quem precisa saber disso",
+      "textVariant": "light",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "asset_id": "AC-30-36",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-myth",
+  "format": "social-single-post",
+  "title": "Guia rápido: Como fechar seu pedido",
+  "channel": "facebook",
+  "objective": "Conversão",
+  "slides": [
+    {
+      "type": "content",
+      "textVariant": "light",
+      "align": "center",
+      "eyebrow": "guia rápido",
+      "title": "Como fechar seu pedido com confiança",
+      "body": "Atendimento claro, peça certa, contexto ideal.\nReduza o atrito e aumente a confiança na sua escolha.",
+      "showDivider": true,
+      "cta": "Leia o artigo completo no link da bio →",
+      "background": {
+        "src": "../../blog/imagens/AC-30-13-campanha-guia-de-compra-inteligente-de-amigurumi/linkedin/linkedin-guia-de-compra-inteligente-v1.png",
+        "overlay": "linear-gradient(180deg, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.45) 40%, rgba(26,26,26,0.78) 100%)",
+        "filter": "saturate(1.08) contrast(1.04)"
+      }
+    }
+  ],
+  "caption": "✨ GUIA RÁPIDO: Como fechar seu pedido com confiança\n\nQuando o atendimento é claro, o próximo passo fica mais fácil: entender o que pedir, como pedir e o que esperar.\n\n✅ Atendimento que explica prazo, canal e suporte\n✅ Proposta que combina com a sua ocasião\n✅ Entrega que reduz risco de arrependimento\n\nA peça certa, no contexto certo, reduz atrito e aumenta confiança.\n\n💬 Quer ajuda para fechar seu pedido?\nManda PEDIDO no direct que a gente te ajuda a escolher a peça ideal.",
+  "hashtags": ["#AmiClube", "#GuiaRapido", "#PedidoCerto", "#AtendimentoPersonalizado", "#CompraInteligente", "#CuradoriaAmigurumi", "#AmigurumiBrasil", "#PresenteCerto", "#FeitoAMao"],
+  "design_tokens": {
+    "accent_color": "#C45C1F"
+  }
+}

@@ -12,7 +12,7 @@
   "channel": "Instagram",
   "objective": "Consideração",
   "cta": "Comentar Agora",
-  "caption": "Você sabe qual amigurumi combina com o seu momento?\n\nCada ocasião pede uma leitura diferente. Não existe \"o melhor amigurumi\". Existe \"o melhor para o que você precisa agora\".\n\nSeja para presentear alguém especial, decorar seu espaço, ou trazer mais conforto para o dia a dia — a peça certa transforma qualquer momento.\n\nQual é a sua ocasião? Comente aqui que a gente sugere a peça ideal para você.",
+  "caption": "✨ VOCÊ SABE QUAL AMIGURUMI COMBINA COM CADA OCASIÃO?\n\nNão existe \"o melhor amigurumi\". Existe o melhor para o que você precisa AGORA.\n\n🎁 Para presentear alguém especial?\nA peça certa transforma entrega em memória.\n\n🏠 Para decorar seu espaço?\nO amigurumi ideal adiciona personalidade sem ocupar demais.\n\n👶 Para presentear uma criança?\nSegurança, textura e conexão emocional — o que mais importa.\n\n💼 Para ter no escritório?\nLeveza e profissionalismo podem andar juntos.\n\nCada ocasião pede uma leitura diferente. E a peça perfeita existe para cada momento.\n\n👉 Qual é a SUA ocasião? Comenta aqui que a gente te ajuda a escolher o amigurumi ideal!",
   "hashtags": ["#AmiClube", "#AmigurumiBrasil", "#AmigurumiArtesanal", "#PresenteCriativo", "#DecoracaoComAlma", "#ArteEmFio", "#CuradoriaAmigurumi", "#PresenteDiferente", "#DecoracaoAutoral", "#AmigurumiPremium"],
   "exported_images": [
     "../publish/ac-30-14-ds/slide-01.png",
@@ -37,7 +37,7 @@
       "textVariant": "dark",
       "background": {
         "type": "image",
-        "src": "../../blog/assets/AC-30-13-compra-inteligente-hero.jpg",
+        "src": "../../blog/imagens/AC-30-13-campanha-guia-de-compra-inteligente-de-amigurumi/instagram-carousel/instagram carousel-guia-de-compra-inteligente-v1.png",
         "position": "center",
         "overlay": "rgba(0,0,0,0.52)"
       }

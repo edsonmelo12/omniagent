@@ -1,0 +1,117 @@
+{
+  "collected_at": "2026-05-22T17:21:50.854Z",
+  "client": "amiclube",
+  "period": "last_30_days",
+  "overview": {
+    "total_users": 58,
+    "sessions": 69,
+    "pageviews": 123,
+    "bounce_rate": 0.3333333333333333,
+    "avg_engagement_time": 142.81337742028984
+  },
+  "top_pages": [
+    {
+      "path": "/pt-br/marketplace/produtos/monica-em-amigurumi-passo-a-passo/A75909163K",
+      "pageviews": 20,
+      "avg_engagement_time": 78.13558471428571
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/cassio-em-amigurumi-passo-a-passo/H75987918L",
+      "pageviews": 9,
+      "avg_engagement_time": 74.32419349999999
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/ceb-em-amigurumi-passo-a-passo/A76051162I",
+      "pageviews": 9,
+      "avg_engagement_time": 13.220367875
+    },
+    {
+      "path": "/A75909163K",
+      "pageviews": 7,
+      "avg_engagement_time": 329.2776572
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/ceb-cas-em-amigurumi-passo-a-passo/J76163738W",
+      "pageviews": 7,
+      "avg_engagement_time": 19.488509833333335
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/magali-em-amigurumi-passo-a-passo/P75923952K",
+      "pageviews": 7,
+      "avg_engagement_time": 214.4169046
+    },
+    {
+      "path": "/C84042535J",
+      "pageviews": 6,
+      "avg_engagement_time": 34.023272
+    },
+    {
+      "path": "/pt-br/marketplace/produtos/pic-ped-em-amigurumi-passo-a-passo/H81241039O",
+      "pageviews": 6,
+      "avg_engagement_time": 13.935626333333333
+    },
+    {
+      "path": "/A76051162I",
+      "pageviews": 5,
+      "avg_engagement_time": 137.2522905
+    },
+    {
+      "path": "/Y79213111P",
+      "pageviews": 5,
+      "avg_engagement_time": 41.436432
+    }
+  ],
+  "traffic_sources": [
+    {
+      "source": "google",
+      "medium": "organic",
+      "sessions": 43,
+      "users": 38
+    },
+    {
+      "source": "(direct)",
+      "medium": "(none)",
+      "sessions": 16,
+      "users": 14
+    },
+    {
+      "source": "amiclube.com.br",
+      "medium": "referral",
+      "sessions": 5,
+      "users": 3
+    },
+    {
+      "source": "bit.ly",
+      "medium": "referral",
+      "sessions": 3,
+      "users": 3
+    },
+    {
+      "source": "IGShopping",
+      "medium": "Social",
+      "sessions": 1,
+      "users": 1
+    },
+    {
+      "source": "bing",
+      "medium": "organic",
+      "sessions": 1,
+      "users": 1
+    }
+  ],
+  "devices": [
+    {
+      "device": "mobile",
+      "users": 49,
+      "sessions": 59
+    },
+    {
+      "device": "desktop",
+      "users": 9,
+      "sessions": 10
+    }
+  ],
+  "realtime": {
+    "active_users": 0
+  }
+}

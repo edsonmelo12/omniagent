@@ -1,0 +1,105 @@
+{
+  "asset_id": "AC-30-35",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "instagram-carousel",
+  "title": "\"Antes de comprar, confira estes 5 sinais para evitar arrependimento.\"",
+  "deck_label": "carrossel",
+  "topic": "\"Antes de comprar, confira estes 5 sinais para evitar arrependimento.\"",
+  "footer": "@marca",
+  "footerNote": "@marca",
+  "design_tokens": {},
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "canvas": {
+    "width": 1080,
+    "height": 1350
+  },
+  "preview": {
+    "width": 420,
+    "height": 525
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "Destaque",
+      "title": "\"Antes de comprar, confira estes 5 sinais para evitar arrependimento.\"",
+      "body": "**Salve para consultar antes da compra.**",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "CONTENT",
+      "title": "content 1",
+      "body": "Objetivo de funil: Descoberta -> Consideração",
+      "textVariant": "light",
+      "contrast_strategy": "zone-isolation",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "CONTENT",
+      "title": "content 2",
+      "body": "Ângulo: `5 sinais de compra inteligente`",
+      "textVariant": "light",
+      "contrast_strategy": "zone-isolation",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "CONTENT",
+      "title": "content 3",
+      "body": "Abertura (slide 1): \"Antes de comprar, confira estes 5 sinais para evitar arrependimento.\"",
+      "textVariant": "light",
+      "contrast_strategy": "zone-isolation",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "align": "left",
+      "eyebrow": "RECAP",
+      "title": "recap 4",
+      "body": "Prova (slides 2-6): critérios de escolha, confiança e valor percebido.",
+      "textVariant": "light",
+      "contrast_strategy": "zone-isolation",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "CTA",
+      "title": "cta 5",
+      "body": "Fechamento (slide 7): checklist final.",
+      "textVariant": "light",
+      "contrast_strategy": "zone-isolation",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    }
+  ]
+}

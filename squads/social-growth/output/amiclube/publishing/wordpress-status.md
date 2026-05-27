@@ -26,7 +26,7 @@
 |:---|:---|:---|:---|:---|:---|:---|:---|
 | 6001 | 04/05/2026 18:30 | Instagram | AC-30-03 | Erro: focar só no preço **V2** | Carrossel | ✅ Scheduled | Worker (Meta API + imgBB) |
 | 6002 | 03/05/2026 10:00 | Facebook | AC-30-04 | Marca artesanal premium **V2** | Post publicado | ✅ Published | Worker (Meta API) |
-| 6003 | 05/05/2026 18:30 | Instagram | AC-30-19 | Conforto no uso | Post Estático | ✅ Scheduled | Worker (Meta API + imgBB) |
+| 6003 | 05/05/2026 18:30 | Instagram | AC-30-19 | Conforto no uso | Post Estático | 🗑️ Removed | Worker (Meta API + imgBB) |
 | 6004 | 06/05/2026 10:00 | Facebook | AC-30-34 | Ergonomia também importa | Post | ✅ Scheduled | Worker (Meta API) |
 | 6005 | 06/05/2026 18:30 | Instagram | AC-30-20 | Escala de conforto | Stories | ✅ Scheduled | Worker (Meta API + imgBB) |
 | 6006 | 07/05/2026 18:30 | Instagram | AC-30-17 | Checklist: Qualidade **V2** | Carrossel | ✅ Scheduled | Worker (Meta API + imgBB) |

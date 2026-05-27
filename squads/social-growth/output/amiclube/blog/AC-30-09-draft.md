@@ -182,15 +182,15 @@ Comprar com critério protege a emoção de uma frustração evitável.
 - Visual concept: composição de soft toys artesanais em caixas e embalagem para representar reputação sustentada por apresentação e cuidado.
 - Format: blog-hero-16x9 (1600x900)
 - Alt text: Soft toys artesanais em caixas e embalagem, reforçando reputação percebida por apresentação cuidadosa e coerência de marca.
-- Asset: `assets/AC-30-09-reputacao-marca-hero.jpg`
-- Implementation note: usar hero exclusivo da pauta AC-30-09, baixado de Pexels (ID 18864021) e recortado em `blog-hero-16x9`.
+- Asset: `imagens/AC-30-09-campanha-como-avaliar-reputação-de-marca-artesanal/blog/blog-como-avaliar-reputacao-de-v1.webp`
+- Implementation note: usar hero exclusivo da pauta AC-30-09 fornecido na campanha e recortado em `blog-hero-16x9`.
 - Source class: free/public stock (Pexels)
 
 ## Featured Image Source Search
 - Candidate source type: Pexels, Wikimedia Commons, Unsplash.
 - Chosen source: Pexels — Handmade Soft Toys (ID 18864021), com crop canônico para reforçar reputação visível na apresentação e no cuidado de marca.
 - Source page: https://www.pexels.com/photo/handmade-soft-toys-18864021/
-- Local asset path: assets/AC-30-09-reputacao-marca-hero.jpg
+- Local asset path: imagens/AC-30-09-campanha-como-avaliar-reputação-de-marca-artesanal/blog/blog-como-avaliar-reputacao-de-v1.webp
 - License note: Pexels License (uso gratuito; sem exigência de atribuição, mantendo source page para auditoria).
 - License check date: 2026-04-25.
 - Rejected options: imagens genéricas de craft, composições com sinal de tricô, imagens de tutorial e source page já ativa na mesma semana.

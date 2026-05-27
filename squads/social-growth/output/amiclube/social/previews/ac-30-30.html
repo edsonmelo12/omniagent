@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AC-30-30 — Facebook Post</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>AC-30-30 — Decoração com alma: Home Office | Facebook Post</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -20,67 +20,83 @@ body {
   width: 600px; height: 315px;
   aspect-ratio: 1.91/1; position: relative; overflow: hidden;
   background: #1A1A1A;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-/* Background */
-.bg {
+.frame .bg {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; filter: brightness(0.35) saturate(0.8);
+  object-fit: cover;
 }
 
 .overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.4) 100%);
+  background: linear-gradient(135deg, rgba(22, 20, 18, 0.92) 0%, rgba(22, 20, 18, 0.55) 50%, rgba(22, 20, 18, 0.25) 100%);
 }
 
 .content {
   position: absolute; inset: 0; z-index: 2;
   display: flex; flex-direction: column;
-  justify-content: center; padding: 32px 40px;
+  justify-content: center; padding: 28px 36px;
 }
 
-/* Brand lockup */
-.brand-top {
-  position: absolute; top: 16px; left: 20px; z-index: 3;
-  display: flex; align-items: center; gap: 8px;
+.eyebrow {
+  font-size: 8px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #C9A84C; margin-bottom: 8px;
 }
-.brand-avatar {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: #8b6f5c; display: flex; align-items: center;
-  justify-content: center; color: #fff; font-size: 9px; font-weight: 700;
+
+.title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 28px; font-weight: 700; line-height: 1.15;
+  color: #FFFFFF; margin-bottom: 8px; max-width: 440px;
+}
+
+.subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500; line-height: 1.5;
+  color: rgba(255,255,255,0.7); max-width: 380px;
+  margin-bottom: 14px;
+}
+
+.url-bar {
+  display: inline-block;
+  font-size: 8px; font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.3px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 3px 8px;
+  max-width: fit-content;
+}
+
+.badge-leia {
+  position: absolute; bottom: 14px; right: 20px; z-index: 3;
+  padding: 4px 12px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; font-weight: 600; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #C9A84C;
+}
+
+.brand {
+  position: absolute; bottom: 14px; left: 20px; z-index: 3;
+  display: flex; align-items: center; gap: 6px;
+}
+.brand-mark {
+  width: 18px; height: 18px;
+  background: #C9A84C; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; font-weight: 700; color: #1A1A1A;
 }
 .brand-name {
-  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
 }
-
-/* Typography */
-.eyebrow {
-  font-size: 9px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: #D4AF37; margin-bottom: 10px;
-}
-.headline {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 26px; font-weight: 700; line-height: 1.2;
-  color: #fff; margin-bottom: 12px; max-width: 380px;
-}
-.body-text {
-  font-size: 13px; line-height: 1.5;
-  color: rgba(255,255,255,0.8); max-width: 400px;
-}
-
-.cta {
-  margin-top: 12px; font-size: 12px; font-weight: 600;
-  color: #D4AF37;
-}
-
-/* Brand bottom */
-.brand-bottom {
-  position: absolute; bottom: 14px; right: 20px; z-index: 3;
-  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(255,255,255,0.25);
-}
-
 </style>
 </head>
 <body>
@@ -90,23 +106,23 @@ body {
   <p>1200×630px (1.91:1) · Facebook · Dark Premium</p>
 </div>
 
-<article class="frame" aria-label="AC-30-30 Decoração com alma">
-  <img class="bg" src="../../blog/assets/AC-30-13B-home-office-hero.jpg" alt="Fundo" />
+<article class="frame post-wrapper" aria-label="AC-30-30 Decoração com alma: Home Office">
+  <img class="bg" src="../../blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/facebook-post/facebook post-investimento-em-decoracao-artesanal-v1.webp" alt="Home office com decoração artesanal" />
   <div class="overlay"></div>
-  
-  <div class="brand-top">
-    <div class="brand-avatar">A</div>
-    <span class="brand-name">amiclube</span>
-  </div>
-  
+
   <div class="content">
     <span class="eyebrow">Decoração Artesanal</span>
-    <h1 class="headline">A decoração que tem alma não se aprende. Se sente.</h1>
-    <p class="body-text">O home office pode ter a cadeira mais confortável, a iluminação ideal. Mas se não houver um elemento que reflita quem você é, o espaço permanece frio.</p>
-    <p class="cta">Leia o artigo completo →</p>
+    <h1 class="title">Decoração com alma:<br>Home Office</h1>
+    <p class="subtitle">A peça artesanal que eleva presença, acolhimento e identidade</p>
+    <span class="url-bar">amiclube.com.br/?p=13046</span>
   </div>
-  
-  <div class="brand-bottom">amiclube</div>
+
+  <div class="brand">
+    <span class="brand-mark">A</span>
+    <span class="brand-name">amiclube</span>
+  </div>
+
+  <span class="badge-leia">Leia a Descrição</span>
 </article>
 
 </body>

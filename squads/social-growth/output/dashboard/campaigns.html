@@ -43,6 +43,36 @@
     .meta-tag.priority-p1 { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
     .meta-tag.priority-p2 { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
     .meta-tag.status { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .campaign-actions { display: flex; gap: 8px; margin-top: 16px; }
+    .post-link { display: inline-flex; align-items: center; justify-content: center; padding: 8px 12px; border-radius: 8px; background: rgba(12, 92, 171, 0.14); color: #7cc2ff; text-decoration: none; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .post-link:hover { background: rgba(12, 92, 171, 0.22); }
+    .post-link.secondary { background: rgba(255, 255, 255, 0.06); color: var(--text); }
+    .post-link.secondary:hover { background: rgba(255, 255, 255, 0.1); }
+    .post-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72); display: none; align-items: stretch; justify-content: stretch; padding: 0; z-index: 50; }
+    .post-modal-backdrop.open { display: flex; }
+    .post-modal { width: 100vw; height: 100vh; overflow: auto; background: var(--surface-elevated); border: 0; border-radius: 0; box-shadow: none; }
+    .post-modal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 20px 22px; border-bottom: 1px solid var(--border); }
+    .post-modal-title { font-size: 20px; font-weight: 700; }
+    .post-modal-subtitle { margin-top: 4px; color: var(--text-muted); font-size: 13px; }
+    .post-modal-close { border: 0; background: transparent; color: var(--text-muted); font-size: 28px; line-height: 1; cursor: pointer; }
+    .post-modal-body { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 20px; padding: 22px; min-height: calc(100vh - 70px); }
+    .post-modal-panel { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .post-modal-panel h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); margin-bottom: 12px; }
+    .post-modal-caption { white-space: pre-wrap; line-height: 1.6; font-size: 14px; }
+    .post-modal-hashtags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .post-modal-hashtag { padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: var(--text); font-size: 12px; }
+    .post-modal-source { color: var(--text-muted); font-size: 12px; margin-top: 10px; }
+    .post-modal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .post-modal-images { display: grid; grid-template-columns: repeat(var(--post-image-columns, 3), minmax(0, 1fr)); gap: 12px; align-content: start; }
+    .post-modal-image { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: #0f0f13; }
+    .post-modal-image img { width: 100%; display: block; height: auto; }
+    .post-modal-image-label { padding: 10px 12px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); }
+    .meta-tag.format { background: rgba(12, 92, 171, 0.15); color: #8dc6ff; }
+    .meta-tag.date { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    @media (max-width: 900px) {
+      .post-modal-body { grid-template-columns: 1fr; min-height: auto; }
+      .post-modal-images { grid-template-columns: 1fr; }
+    }
     .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
     .status-pill.published { background: rgba(16, 185, 129, 0.15); color: var(--success); }
     .status-pill.scheduled { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
@@ -53,9 +83,18 @@
     .metric-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
     .metric-title { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .metric-value { font-size: 28px; font-weight: 700; }
+    .filters-bar { display: grid; grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
+    .filter-field { display: flex; flex-direction: column; gap: 8px; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    .filter-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+    .filter-input, .filter-select { width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); color: var(--text); border-radius: 10px; padding: 10px 12px; font: inherit; }
+    .filter-select { color-scheme: dark; background-color: #1a1a21; }
+    .filter-select option { background: #1a1a21; color: var(--text); }
+    .filter-input::placeholder { color: var(--text-muted); }
+    .filter-input:focus, .filter-select:focus { outline: none; border-color: rgba(124, 194, 255, 0.65); box-shadow: 0 0 0 3px rgba(12, 92, 171, 0.2); }
     .empty-state { text-align: center; padding: 48px; color: var(--text-muted); grid-column: 1 / -1; }
     @media (max-width: 1200px) { .campaigns-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 16px; } .campaigns-grid { grid-template-columns: 1fr; } .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 900px) { .filters-bar { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 16px; } .campaigns-grid { grid-template-columns: 1fr; } .metrics-row { grid-template-columns: repeat(2, 1fr); } .filters-bar { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -65,6 +104,10 @@
       <span class="sidebar-logo-text">Social Growth</span>
     </div>
     <nav class="sidebar-nav">
+      <a href="chat.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5m8-2c0 4.418-4.03 8-9 8a9.98 9.98 0 01-3-.45L3 20l1.43-3.73A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        Chat da squad
+      </a>
       <a href="index.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
         Overview
@@ -72,6 +115,10 @@
       <a href="campaigns.html" class="nav-item active">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
         Campaigns
+      </a>
+      <a href="articles.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M4 6h.01M4 12h.01M4 18h.01"></path></svg>
+        Artigo
       </a>
       <a href="schedule.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -84,6 +131,10 @@
       <a href="analytics.html" class="nav-item">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
         Analytics
+      </a>
+      <a href="products.html" class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a1 1 0 00-1 1v8a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1zm-4 0V5a2 2 0 10-4 0v2m-4 0V5a2 2 0 114 0v2"></path></svg>
+        Produtos
       </a>
       <a href="settings.html" class="nav-item" style="margin-top: auto;">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -116,24 +167,204 @@
       </div>
     </div>
 
+    <div class="filters-bar" id="filtersBar">
+      <label class="filter-field">
+        <span class="filter-label">Pesquisa textual</span>
+        <input class="filter-input" id="searchFilter" type="search" placeholder="Buscar por título, ID, objetivo..." />
+      </label>
+      <label class="filter-field">
+        <span class="filter-label">Status</span>
+        <select class="filter-select" id="statusFilter"></select>
+      </label>
+      <label class="filter-field">
+        <span class="filter-label">Tipo de post</span>
+        <select class="filter-select" id="typeFilter"></select>
+      </label>
+      <label class="filter-field">
+        <span class="filter-label">Rede social</span>
+        <select class="filter-select" id="networkFilter"></select>
+      </label>
+    </div>
+
     <div class="campaigns-grid" id="campaignsGrid">
       <div class="empty-state">Carregando campanhas...</div>
     </div>
   </main>
 
+  <div class="post-modal-backdrop" id="postModalBackdrop" aria-hidden="true">
+    <div class="post-modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+      <div class="post-modal-header">
+        <div>
+          <div class="post-modal-title" id="postModalTitle">Post</div>
+          <div class="post-modal-subtitle" id="postModalSubtitle"></div>
+        </div>
+        <button class="post-modal-close" type="button" id="postModalClose" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="post-modal-body">
+        <div class="post-modal-panel">
+          <h4>Legenda</h4>
+          <div class="post-modal-caption" id="postModalCaption"></div>
+          <div class="post-modal-hashtags" id="postModalHashtags"></div>
+          <div class="post-modal-source" id="postModalSource"></div>
+          <div class="post-modal-actions">
+            <a class="post-link" id="postModalUrl" href="#" target="_blank" rel="noreferrer">Abrir post</a>
+          </div>
+        </div>
+        <div class="post-modal-panel">
+          <h4>Imagens</h4>
+          <div class="post-modal-images" id="postModalImages"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="data.js"></script>
 <script>
     var currentClient = 'amiclube';
+    var campaignItems = [];
+    var filterState = {
+      search: '',
+      status: 'all',
+      type: 'all',
+      network: 'all'
+    };
 
-    async function loadData() {
-      var data = { campaigns: { amiclube: { assets: [] } } };
-      try {
-        var response = await fetch('data.json');
-        if (response.ok) data = await response.json();
-      } catch (e) { console.log('Usando dados offline'); }
-      return data;
+    function loadData() {
+      return window.__DASHBOARD_DATA__ || {};
+    }
+
+    function resolveAssetUrl(item) {
+      return item.publishedUrl || item.published_url || item.linkTarget || item.canonicalPreviewHtml || item.reviewModalHtml || '#';
+    }
+
+    function parseCampaignDate(item) {
+      var raw = item.publish_at_iso || item.publish_at || item.publishedAt || item.published_at || item.targetDate || '';
+      if (!raw) return null;
+
+      var value = String(raw).trim();
+      var isoMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (isoMatch) {
+        return new Date(Number(isoMatch[1]), Number(isoMatch[2]) - 1, Number(isoMatch[3]));
+      }
+
+      var brMatch = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      if (brMatch) {
+        return new Date(Number(brMatch[3]), Number(brMatch[2]) - 1, Number(brMatch[1]));
+      }
+
+      var parsed = new Date(value);
+      return isNaN(parsed.getTime()) ? null : parsed;
+    }
+
+    function formatCampaignDate(item) {
+      var date = parseCampaignDate(item);
+      if (!date) return item.publish_at || item.publishedAt || item.published_at || item.targetDate || '-';
+      var day = String(date.getDate()).padStart(2, '0');
+      var month = String(date.getMonth() + 1).padStart(2, '0');
+      var year = String(date.getFullYear());
+      return day + '/' + month + '/' + year;
+    }
+
+    function capitalizeType(type) {
+      var value = String(type || '').trim();
+      if (!value) return '-';
+      return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    }
+
+    function normalize(value) {
+      return String(value || '').trim().toLowerCase();
+    }
+
+    function getStatusBucket(status) {
+      var value = normalize(status);
+      if (value === 'aprovado' || value === 'published') return 'published';
+      if (value === 'agendado' || value === 'scheduled') return 'scheduled';
+      if (value === 'em revisão' || value === 'em revisão (preview pronto)' || value === 'review') return 'review';
+      return 'draft';
+    }
+
+    function statusLabel(bucket) {
+      if (bucket === 'published') return 'Publicado';
+      if (bucket === 'scheduled') return 'Agendado';
+      if (bucket === 'review') return 'Em revisão';
+      return 'Rascunho';
+    }
+
+    function uniqueValues(items, getter) {
+      var seen = {};
+      var values = [];
+      for (var i = 0; i < items.length; i++) {
+        var value = getter(items[i]);
+        if (!value) continue;
+        var key = normalize(value);
+        if (seen[key]) continue;
+        seen[key] = true;
+        values.push(value);
+      }
+      return values;
+    }
+
+    function buildFilterOptions(campaigns) {
+      var statusSelect = document.getElementById('statusFilter');
+      var typeSelect = document.getElementById('typeFilter');
+      var networkSelect = document.getElementById('networkFilter');
+
+      var statuses = ['published', 'scheduled', 'review', 'draft'];
+      var types = uniqueValues(campaigns, function(item) { return item.type || ''; });
+      var networks = uniqueValues(campaigns, function(item) { return item.channel || ''; });
+
+      statusSelect.innerHTML = '<option value="all">Todos os status</option>' + statuses.map(function(bucket) {
+        return '<option value="' + bucket + '">' + statusLabel(bucket) + '</option>';
+      }).join('');
+      typeSelect.innerHTML = '<option value="all">Todos os tipos</option>' + types.map(function(type) {
+        return '<option value="' + normalize(type) + '">' + capitalizeType(type) + '</option>';
+      }).join('');
+      networkSelect.innerHTML = '<option value="all">Todas as redes</option>' + networks.map(function(network) {
+        return '<option value="' + normalize(network) + '">' + network + '</option>';
+      }).join('');
+    }
+
+    function matchesFilters(item) {
+      var search = normalize(filterState.search);
+      var status = normalize(filterState.status);
+      var type = normalize(filterState.type);
+      var network = normalize(filterState.network);
+      var title = normalize(item.title || item.plannedTitle);
+      var assetId = normalize(item.assetId || item.asset_id || item.id);
+      var objective = normalize(item.objective);
+      var itemType = normalize(item.type);
+      var itemNetwork = normalize(item.channel);
+      var itemStatus = getStatusBucket(item.status);
+
+      if (search) {
+        var haystack = [title, assetId, objective, itemType, itemNetwork].join(' ');
+        if (haystack.indexOf(search) === -1) return false;
+      }
+      if (status !== 'all' && itemStatus !== status) return false;
+      if (type !== 'all' && itemType !== type) return false;
+      if (network !== 'all' && itemNetwork !== network) return false;
+      return true;
+    }
+
+    function getCampaignItems(data) {
+      if (data && data.campaigns && Array.isArray(data.campaigns.items) && data.campaigns.items.length) {
+        return data.campaigns.items;
+      }
+      if (Array.isArray(data.items) && data.items.length) {
+        return data.items;
+      }
+      if (Array.isArray(data.queue) && data.queue.length) {
+        return data.queue;
+      }
+      return [];
     }
 
     function getStatusLabel(status) {
+      var normalized = String(status || '').toLowerCase();
+      if (normalized === 'review' || normalized === 'em revisão' || normalized === 'em revisão (preview pronto)') return 'review';
+      if (normalized === 'published' || normalized === 'aprovado') return 'published';
+      if (normalized === 'scheduled' || normalized === 'agendado') return 'scheduled';
+      if (normalized === 'blocked' || normalized === 'rascunho') return 'draft';
       if (status === 'Em revisão' || status === 'Em revisão (preview pronto)') return 'review';
       if (status === 'Aprovado') return 'published';
       if (status === 'Agendado') return 'scheduled';
@@ -141,10 +372,10 @@
       return 'draft';
     }
 
-    async function renderCampaigns(client) {
-      var data = await loadData();
-      var clientData = data.campaigns && data.campaigns[client];
-      var campaigns = clientData ? clientData.assets : [];
+    function renderCampaigns(client) {
+      var data = loadData();
+      var campaigns = getCampaignItems(data);
+      campaignItems = campaigns;
       var container = document.getElementById('campaignsGrid');
       
       if (campaigns.length === 0) {
@@ -152,44 +383,134 @@
         return;
       }
       
+      var filteredCampaigns = campaigns.filter(matchesFilters).slice().sort(function(a, b) {
+        var dateA = parseCampaignDate(a);
+        var dateB = parseCampaignDate(b);
+        if (!dateA && !dateB) return 0;
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateA - dateB;
+      });
       var html = '';
-      for (var i = 0; i < campaigns.length; i++) {
-        var c = campaigns[i];
+      for (var i = 0; i < filteredCampaigns.length; i++) {
+        var c = filteredCampaigns[i];
         var statusClass = getStatusLabel(c.status);
-        var channelClass = c.channel === 'Blog' ? 'blog' : 'channel';
-        var priorityClass = 'priority-' + c.priority.toLowerCase();
+        var priorityClass = 'priority-' + ((c.priority || 'P2').toLowerCase());
+        var title = c.title || c.plannedTitle || c.assetId || c.asset_id || 'Campanha';
+        var targetDate = formatCampaignDate(c);
+        var formatLabel = (c.channel || '-') + ' - ' + capitalizeType(c.type);
+        var isScheduled = String(c.status || '').toLowerCase() === 'scheduled' || String(c.status || '').toLowerCase() === 'agendado';
         
         html += '<div class="campaign-card">' +
           '<div class="campaign-header">' +
             '<div>' +
-              '<div class="campaign-title">' + (c.title.length > 45 ? c.title.substring(0, 45) + '...' : c.title) + '</div>' +
-              '<div class="campaign-id">' + c.id + '</div>' +
+              '<div class="campaign-title">' + (title.length > 45 ? title.substring(0, 45) + '...' : title) + '</div>' +
+              '<div class="campaign-id">' + (c.asset_id || c.id || '-') + '</div>' +
             '</div>' +
-            '<span class="status-pill ' + statusClass + '">' + c.status + '</span>' +
+            '<span class="status-pill ' + statusClass + '">' + (c.status || '-') + '</span>' +
           '</div>' +
           '<div class="campaign-progress">' +
             '<div class="progress-bar"><div class="progress-fill ' + statusClass + '" style="width:70%"></div></div>' +
-            '<div class="progress-text">70% • Meta: ' + c.targetDate + '</div>' +
+            '<div class="progress-text">70% • ' + (isScheduled && targetDate !== '-' ? 'Previsão: ' + targetDate : 'Meta: ' + targetDate) + '</div>' +
           '</div>' +
           '<div class="campaign-meta">' +
-            '<span class="meta-tag ' + channelClass + '">' + c.channel + '</span>' +
-            '<span class="meta-tag ' + priorityClass + '">' + c.priority + '</span>' +
+            '<span class="meta-tag format">' + formatLabel + '</span>' +
+            '<span class="meta-tag ' + priorityClass + '">' + (c.priority || 'P2') + '</span>' +
+            (isScheduled && targetDate !== '-' ? '<span class="meta-tag date">Previsão ' + targetDate + '</span>' : '') +
+          '</div>' +
+          '<div class="campaign-actions">' +
+            '<a class="post-link" href="#" data-post-asset="' + (c.assetId || c.asset_id || c.id || '') + '">post</a>' +
+            '<a class="post-link secondary" href="' + resolveAssetUrl(c) + '" target="_blank" rel="noreferrer">abrir</a>' +
           '</div>' +
         '</div>';
       }
       container.innerHTML = html;
       
-      var total = clientData ? clientData.total : campaigns.length;
-      var blogs = clientData ? clientData.blog : 0;
-      var social = clientData ? clientData.social : 0;
-      var published = campaigns.filter(function(c) { return c.status === 'Aprovado'; }).length;
+      var total = campaigns.length;
+      var blogs = campaigns.filter(function(c) { return (c.channel || '').toLowerCase() === 'blog'; }).length;
+      var social = campaigns.length - blogs;
+      var published = campaigns.filter(function(c) { return getStatusBucket(c.status) === 'published'; }).length;
       
       document.getElementById('totalAssets').textContent = total;
       document.getElementById('blogCount').textContent = blogs;
       document.getElementById('socialCount').textContent = social;
       document.getElementById('publishedCount').textContent = published;
+
+      container.innerHTML = html || '<div class="empty-state">Nenhuma campanha corresponde aos filtros</div>';
     }
 
+    function openPostModal(item) {
+      if (!item) return;
+      document.getElementById('postModalTitle').textContent = item.title || item.assetId || 'Post';
+      document.getElementById('postModalSubtitle').textContent = [item.assetId || item.asset_id, item.channel, item.objective].filter(Boolean).join(' • ');
+      document.getElementById('postModalCaption').textContent = item.caption || 'Legenda não disponível.';
+      document.getElementById('postModalUrl').setAttribute('href', resolveAssetUrl(item));
+
+      var hashtagsEl = document.getElementById('postModalHashtags');
+      var hashtags = Array.isArray(item.hashtags) ? item.hashtags : [];
+      hashtagsEl.innerHTML = hashtags.length ? hashtags.map(function(tag) { return '<span class="post-modal-hashtag">' + tag + '</span>'; }).join('') : '<span class="post-modal-hashtag">Sem hashtags</span>';
+
+      document.getElementById('postModalSource').textContent = 'Fonte: ' + (item.previewManifestFile || item.reviewModalFile || item.canonicalPreviewHtml || 'data.js');
+
+      var imagesEl = document.getElementById('postModalImages');
+      var images = Array.isArray(item.exportedImages) ? item.exportedImages : [];
+      imagesEl.style.setProperty('--post-image-columns', String(Math.min(3, Math.max(1, images.length || 1))));
+      if (images.length) {
+        imagesEl.innerHTML = images.map(function(src, index) {
+          var label = 'Imagem ' + String(index + 1).padStart(2, '0');
+          return '<figure class="post-modal-image"><img src="' + src + '" alt="' + label + '" loading="lazy" /><figcaption class="post-modal-image-label">' + label + '</figcaption></figure>';
+        }).join('');
+      } else {
+        imagesEl.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1; padding: 20px;">Nenhuma imagem vinculada.</div>';
+      }
+
+      var backdrop = document.getElementById('postModalBackdrop');
+      backdrop.classList.add('open');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    function closePostModal() {
+      var backdrop = document.getElementById('postModalBackdrop');
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('postModalClose').addEventListener('click', closePostModal);
+    document.getElementById('postModalBackdrop').addEventListener('click', function(event) {
+      if (event.target === this) closePostModal();
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closePostModal();
+    });
+    document.addEventListener('click', function(event) {
+      var trigger = event.target.closest('[data-post-asset]');
+      if (!trigger) return;
+      event.preventDefault();
+      var assetId = String(trigger.getAttribute('data-post-asset') || '').toUpperCase();
+      var item = campaignItems.find(function(entry) {
+        return String(entry.assetId || entry.asset_id || entry.id || '').toUpperCase() === assetId;
+      });
+      openPostModal(item);
+    });
+
+    document.getElementById('searchFilter').addEventListener('input', function(event) {
+      filterState.search = event.target.value || '';
+      renderCampaigns(currentClient);
+    });
+    document.getElementById('statusFilter').addEventListener('change', function(event) {
+      filterState.status = event.target.value || 'all';
+      renderCampaigns(currentClient);
+    });
+    document.getElementById('typeFilter').addEventListener('change', function(event) {
+      filterState.type = event.target.value || 'all';
+      renderCampaigns(currentClient);
+    });
+    document.getElementById('networkFilter').addEventListener('change', function(event) {
+      filterState.network = event.target.value || 'all';
+      renderCampaigns(currentClient);
+    });
+
+    buildFilterOptions(getCampaignItems(loadData()));
     renderCampaigns(currentClient);
   </script>
 </body>

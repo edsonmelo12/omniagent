@@ -246,32 +246,88 @@
     }
 
     .chart-card {
-      background: var(--surface-elevated);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(18, 18, 22, 0.96) 0%, rgba(18, 18, 22, 0.88) 100%);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 22px;
       backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .chart-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(12, 92, 171, 0.65), transparent);
     }
 
     .chart-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .chart-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .chart-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(12, 92, 171, 0.14);
+      color: #8ec0ff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .chart-subtitle {
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+      max-width: 42rem;
+    }
+
+    .chart-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .chart-placeholder {
-      height: 200px;
+      min-height: 238px;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       position: relative;
       overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: radial-gradient(circle at top left, rgba(12, 92, 171, 0.12), transparent 42%), rgba(255, 255, 255, 0.02);
+      padding: 14px;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .chart-placeholder::before {
@@ -284,10 +340,10 @@
 
     .chart-line {
       position: absolute;
-      bottom: 40px;
-      left: 20px;
-      right: 20px;
-      height: 80px;
+      bottom: 18px;
+      left: 16px;
+      right: 16px;
+      height: 96px;
     }
 
     .chart-line svg {
@@ -298,13 +354,16 @@
     .pie-placeholder {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 24px;
+      width: 100%;
+      flex-wrap: wrap;
+      min-height: 170px;
     }
 
     .pie-visual {
-      width: 120px;
-      height: 120px;
+      width: 132px;
+      height: 132px;
       border-radius: 50%;
       background: conic-gradient(
         var(--primary) 0deg 126deg,
@@ -313,6 +372,7 @@
         var(--secondary) 288deg 360deg
       );
       position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 12px 28px rgba(0, 0, 0, 0.22);
     }
 
     .pie-visual::after {
@@ -321,29 +381,394 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
+      width: 66px;
+      height: 66px;
       background: var(--surface-elevated);
       border-radius: 50%;
+    }
+
+    .pie-visual-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .pie-legend {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      min-width: 240px;
+      flex: 1;
     }
 
     .pie-legend-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 13px;
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .pie-legend-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .pie-legend-meta {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .pie-footnote {
+      margin-top: 16px;
+      width: 100%;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .catalog-section {
+      margin-bottom: 32px;
+    }
+
+    .catalog-body {
+      width: 100%;
+      display: block;
+    }
+
+    .catalog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .catalog-summary {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .catalog-summary-card,
+    .catalog-featured-card,
+    .catalog-mini-list {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .catalog-summary-card {
+      padding: 14px 16px;
+    }
+
+    .catalog-summary-label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .catalog-summary-value {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .catalog-summary-note {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .catalog-layout {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .catalog-featured-card {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 16px;
+      min-height: 192px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg, rgba(12, 92, 171, 0.14), rgba(255, 255, 255, 0.03));
+    }
+
+    .catalog-featured-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(12, 92, 171, 0.2), transparent 46%);
+      pointer-events: none;
+    }
+
+    .catalog-cover {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 160px;
+      background: linear-gradient(135deg, rgba(12, 92, 171, 0.95), rgba(10, 74, 138, 0.88));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px;
+    }
+
+    .catalog-cover-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .catalog-cover-initials {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .catalog-cover-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.35;
+    }
+
+    .catalog-featured-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .catalog-featured-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #8ff0cb;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .catalog-featured-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      word-break: break-word;
+    }
+
+    .catalog-featured-id {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .catalog-featured-chips,
+    .catalog-mini-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .catalog-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    .catalog-photo-note {
+      margin-top: auto;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .catalog-mini-list {
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .catalog-mini-item {
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .catalog-mini-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .catalog-mini-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .catalog-mini-id {
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .catalog-mini-badge {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(12, 92, 171, 0.14);
+      color: #9fc8ff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .catalog-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .catalog-card-image {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: rgba(148, 163, 184, 0.12);
+      display: block;
+    }
+
+    .catalog-card-placeholder {
+      width: 100%;
+      height: 190px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(107, 56, 212, 0.10), rgba(236, 72, 153, 0.10));
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .catalog-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      word-break: break-word;
+    }
+
+    .catalog-card-id {
+      color: var(--text-muted);
+      font-size: 12px;
+      word-break: break-word;
+    }
+
+    .catalog-card-description {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .catalog-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .catalog-card .catalog-product-link {
+      margin-top: auto;
+    }
+
+    .catalog-empty {
+      grid-column: 1 / -1;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 1024px) {
+      .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Table */
@@ -612,7 +1037,12 @@
     <section class="charts-grid">
       <div class="chart-card">
         <div class="chart-header">
-          <h2 class="chart-title">Engajamento ao Longo do Tempo</h2>
+          <div>
+            <div class="chart-kicker">Dados reais</div>
+            <h2 class="chart-title">Engajamento ao Longo do Tempo</h2>
+            <p class="chart-subtitle">Likes + comentários dos últimos posts publicados.</p>
+          </div>
+          <div class="chart-badge">10 posts</div>
         </div>
         <div class="chart-placeholder">
           <div class="chart-line">
@@ -636,30 +1066,53 @@
 
       <div class="chart-card">
         <div class="chart-header">
-          <h2 class="chart-title">Fontes de Tráfego</h2>
+          <div>
+            <div class="chart-kicker">GA4</div>
+            <h2 class="chart-title">Fontes de Tráfego</h2>
+            <p class="chart-subtitle">Origem e meio das sessões do período disponível.</p>
+          </div>
+          <div class="chart-badge">12 sessões</div>
         </div>
         <div class="pie-placeholder">
-          <div class="pie-visual"></div>
+          <div class="pie-visual">
+            <div class="pie-visual-label">
+              12
+              <div style="font-size:10px; color: var(--text-muted);">sessões</div>
+            </div>
+          </div>
           <div class="pie-legend">
             <div class="pie-legend-item">
               <span class="pie-legend-dot" style="background: var(--primary);"></span>
-              Orgânico (35%)
+              <span>google/organic</span>
+              <span class="pie-legend-meta">8 · 67%</span>
             </div>
             <div class="pie-legend-item">
               <span class="pie-legend-dot" style="background: var(--success);"></span>
-              Social (25%)
+              <span>(direct)/(none)</span>
+              <span class="pie-legend-meta">3 · 25%</span>
             </div>
             <div class="pie-legend-item">
               <span class="pie-legend-dot" style="background: var(--warning);"></span>
-              Direto (20%)
-            </div>
-            <div class="pie-legend-item">
-              <span class="pie-legend-dot" style="background: var(--secondary);"></span>
-              Referral (20%)
+              <span>IGShopping/Social</span>
+              <span class="pie-legend-meta">1 · 8%</span>
             </div>
           </div>
+          <div class="pie-footnote">Baseado em 3 origens reais · fonte ga4-insights-1777942981308.json</div>
         </div>
       </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="catalog-section">
+      <div class="catalog-header">
+        <div>
+          <div class="chart-kicker">Instagram Commerce</div>
+          <h2 class="chart-title">Catálogo de Produtos</h2>
+          <p class="chart-subtitle" data-catalog-subtitle>Produtos mapeados para conteúdo, marcação e conversão.</p>
+        </div>
+        <div class="chart-badge" data-catalog-badge>--</div>
+      </div>
+      <div class="catalog-body" data-catalog></div>
     </section>
 
     <!-- Recent Activity Table -->
@@ -743,12 +1196,82 @@
     </section>
   </main>
 
-  <script>
+    <script src="../../dashboard/data.js"></script>
+
+    <script>
+    function renderCatalog(catalog) {
+      const container = document.querySelector('[data-catalog]');
+      if (!container) return;
+
+      const products = Array.isArray(catalog?.products) ? catalog.products : [];
+      const badge = document.querySelector('[data-catalog-badge]');
+      const subtitle = document.querySelector('[data-catalog-subtitle]');
+
+      if (!products.length) {
+        if (badge) badge.textContent = '--';
+        if (subtitle) subtitle.textContent = 'Nenhum catálogo carregado no momento.';
+        container.innerHTML = '<div class="catalog-empty">Sem catálogo conectado.</div>';
+        return;
+      }
+
+      if (badge) badge.textContent = `${products.length} produtos`;
+      if (subtitle) subtitle.textContent = `Catálogo Instagram ID ${catalog?.catalogId || 'n/d'} · fonte ${catalog?.sourceFile || 'seed'}.`;
+
+      const topTheme = Array.isArray(catalog?.topThemes) && catalog.topThemes.length > 0 ? catalog.topThemes[0] : null;
+      const makeInitials = (name) => String(name || '')
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 3)
+        .map((part) => part[0])
+        .join('')
+        .toUpperCase();
+
+      const summaryHtml = `
+        <div class="catalog-summary-card">
+          <span class="catalog-summary-label">Itens ativos</span>
+          <div class="catalog-summary-value">${products.length}</div>
+          <div class="catalog-summary-note">Produtos mapeados para o Instagram</div>
+        </div>
+        <div class="catalog-summary-card">
+          <span class="catalog-summary-label">Catálogo</span>
+          <div class="catalog-summary-value">${catalog?.catalogId || 'n/d'}</div>
+          <div class="catalog-summary-note">ID de integração</div>
+        </div>
+        <div class="catalog-summary-card">
+          <span class="catalog-summary-label">Tema em destaque</span>
+          <div class="catalog-summary-value">${topTheme?.theme || 'n/d'}</div>
+          <div class="catalog-summary-note">${topTheme ? `${topTheme.count} ocorrência(s)` : 'Sem contagem'}</div>
+        </div>
+      `;
+
+      const cardsHtml = products.map((product, index) => {
+        const themeChips = Array.isArray(product.related_content_themes) ? product.related_content_themes : [];
+        const imageUrl = String(product.image_url || product.product_image_url || '').trim();
+        const salesUrl = String(product.sales_url || product.hotmart_url || '').trim();
+        const price = String(product.price || product.product_price || '').trim();
+        const availability = String(product.availability || product.product_availability || '').trim();
+        const description = String(product.description || product.product_description || '').trim();
+        return `
+          <article class="catalog-card">
+            ${imageUrl ? `<img class="catalog-card-image" src="${imageUrl}" alt="${product.name}" loading="lazy" />` : `<div class="catalog-card-placeholder">${makeInitials(product.name)}</div>`}
+            <div class="catalog-index">#${String(index + 1).padStart(2, '0')}</div>
+            <div class="catalog-card-title">${product.name}</div>
+            <div class="catalog-card-id">${product.id}</div>
+            ${(price || availability) ? `<div class="catalog-card-meta">${price ? `<span class="catalog-chip">${price}</span>` : ''}${availability ? `<span class="catalog-chip">${availability}</span>` : ''}</div>` : ''}
+            ${description ? `<div class="catalog-card-description">${description}</div>` : ''}
+            ${themeChips.length ? `<div class="catalog-card-meta">${themeChips.map((theme) => `<span class="catalog-chip">${theme}</span>`).join('')}</div>` : ''}
+            ${salesUrl ? `<a class="catalog-product-link" href="${salesUrl}" target="_blank" rel="noreferrer">Abrir página de vendas</a>` : ''}
+          </article>
+        `;
+      }).join('');
+
+      container.innerHTML = summaryHtml + `<div class="catalog-grid">${cardsHtml}</div>`;
+    }
+
     // Dashboard Data Loader
     async function loadDashboardData() {
       try {
-        const response = await fetch('data.json');
-        const data = await response.json();
+        const data = window.__DASHBOARD_DATA__ || {};
         
         // Update metrics
         const metrics = data.metrics;
@@ -822,6 +1345,8 @@
             </td>
           </tr>
         `).join('');
+
+        renderCatalog(data.catalog);
         
         console.log('Dashboard data loaded successfully');
       } catch (error) {

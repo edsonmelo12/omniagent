@@ -15,7 +15,7 @@ Load these files before executing:
 - `squads/social-growth/output/blog/blog-post.md` — approved discovery-optimized blog when present
 - `squads/social-growth/output/repurposing/content-repurpose.md` — approved repurpose package when present
 - `squads/social-growth/output/content/content-production-package.md` — approved content production package
-- `squads/social-growth/output/creative/visual-direction.md` — approved visual direction
+- `squads/social-growth/output/creative/visual-direction.json` — approved visual direction
 - `squads/social-growth/output/creative/rendered-assets.md` — final render manifest
 - `squads/social-growth/output/review/content-review.md` — review notes
 - `squads/social-growth/output/strategy/content-plan.md` — plan and cadence
@@ -51,7 +51,7 @@ Load these files before executing:
 [render manifest path and asset status when relevant]
 
 ## Blog Constraints
-[word-count target, featured-image direction and source rationale used in the cycle]
+[word-count target, featured-image direction and source rationale used in the cycle when image research is active]
 ```
 
 ## Output Example
@@ -96,7 +96,7 @@ Reject and redo if ANY are true:
 - [ ] Timing respects capacity and channel behavior.
 - [ ] Notes help the team act immediately.
 - [ ] Blog length and featured-image constraints are reflected in the execution notes.
-- [ ] Blog source rationale is reflected in the execution notes.
+- [ ] Blog source rationale is reflected in the execution notes when image research is active.
 - [ ] **No date conflicts** — checked against existing schedule-plan.md and WordPress `future` posts.
 - [ ] **New batch starts after previous** — first date is > last occupied date in calendar.
 - [ ] **Max 1 post per channel per day** — no same-channel date overlap.

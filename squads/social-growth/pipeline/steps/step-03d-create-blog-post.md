@@ -45,14 +45,15 @@ Load these files before executing:
 10. Leave room for the optimizer to tighten SEO, GEO and LLM readability.
 11. Set a realistic word-count target that matches the function of the piece, not a fixed blog default.
 12. Specify a featured-image direction that reinforces the thesis and can be rendered without relying on generic stock.
-13. Add featured-image source search notes with free/public candidate types, source origin, license notes, license check date, fallback and selection rationale.
-14. Add featured-image selection criteria so the draft explains why this asset wins against generic alternatives.
+13. Record whether image research is happening now or later.
+14. Add featured-image source search notes only when image research is active, with free/public candidate types, source origin, license notes, license check date, fallback and selection rationale.
+15. Add featured-image selection criteria so the draft explains why this asset wins against generic alternatives.
 15. Preserve the selected section arc instead of collapsing everything into the same H2 sequence.
 16. Carry forward the family ledger entry so later review can detect nearby repetition.
 17. If the upstream site/entity is still ambiguous, keep the draft conservative and aligned with the canonical positioning from the GEO summary.
 18. Do not use any script, article generator, or family template to write the body. The article must be authored from the live brief, architecture, and proof context.
-19. **Collect 3-5 images** from free/public sources (Pexels, Unsplash, CC0) during article creation and add them to the **Image Bank** (see output section below). One becomes the article hero; the rest feed social derivatives.
-20. Save the image bank JSON to `output/{client}/blog/assets/{asset_id}-images.json` following the schema in `pipeline/data/blog-image-bank.md`.
+19. **When image research is active**, collect 3-5 images from free/public sources (Pexels, Unsplash, CC0) during article creation and add them to the **Image Bank** (see output section below). One becomes the article hero; the rest feed social derivatives.
+20. Save the image bank JSON to `output/{client}/blog/assets/{asset_id}-images.json` following the schema in `pipeline/data/blog-image-bank.md` when the image bank is created.
 21. **Insert transition words** in ≥30% of sentences. Use the transition word reference list below.
 20. **SEO title must be ≤55 characters** including the ` | Brand` suffix. If it exceeds 55 characters, shorten the core phrase.
 
@@ -229,9 +230,9 @@ Reject and redo if ANY are true:
 - [ ] The CTA matches the funnel stage.
 - [ ] The SEO checklist includes internal and external linking guidance.
 - [ ] The featured-image direction is explicit and thesis-aligned.
-- [ ] The featured-image source search is explicit, free/public by default, and includes source origin + license check date + fallback.
-- [ ] The image bank contains 3-5 images from free/public sources (Pexels/Unsplash/CC0) with license notes.
-- [ ] The image bank JSON was saved to `output/{client}/blog/assets/{asset_id}-images.json`.
+- [ ] The featured-image source search is explicit when image research is active, free/public by default, and includes source origin + license check date + fallback.
+- [ ] The image bank contains 3-5 images from free/public sources (Pexels/Unsplash/CC0) with license notes when image research is active.
+- [ ] The image bank JSON was saved to `output/{client}/blog/assets/{asset_id}-images.json` when the image bank is created.
 - [ ] Each image in the bank has source_url, license, license_verified_date, alt text, and suggested_use.
 - [ ] Images are visually distinct (different subjects/crops/colors) so social derivatives get variety.
 - [ ] The canonical brief is preserved.

@@ -1,5 +1,14 @@
 # Weekly Cycle Template
 
+## Cycle Transition
+
+- canonical workflow: `pipeline/data/campaign-transition-workflow.md`
+- mandatory campaign planning gate: `pipeline/data/campaign-planning-gate.md`
+- mandatory campaign planning pack: `pipeline/data/campaign-planning-pack.md`
+- mandatory campaign review pack: `pipeline/data/campaign-review-pack.md`
+- client-specific checklist: `output/amiclube/strategy/next-cycle-analysis-checklist.md` when working on AmiClube
+- source of truth: previous cycle artifacts, current client record and the active feedback loop
+
 ## Weekly Theme
 
 - theme:
@@ -21,7 +30,7 @@
 
 ## Content Allocation
 
-- 1 blog architecture when the cycle includes long-form content, including the word-count target, featured-image direction and free/public source search note
+- 1 blog architecture when the cycle includes long-form content, using `pipeline/data/blog-content-flow.md` as the sequence reference
 - 1 blog draft when the cycle includes long-form content, aligned to the approved length and visual thesis
 - 1 GEO / AI discoverability audit when the site, brand or offer is still ambiguous
 - 1 discovery-optimized blog post with SEO, GEO and LLM readiness
@@ -35,12 +44,12 @@
 ## Publishing Order
 
 1. Complete the GEO / AI discoverability audit before the blog if the site or entity needs clarity.
-2. Approve the blog architecture before drafting when long-form content is in scope, including the length target, featured-image direction and source search rationale.
-3. Publish the approved blog first when long-form content is in scope.
-4. Publish the repurposed native social asset second.
-5. Publish the community asset third.
-6. Publish stories the same day as the strongest post.
-7. Reuse the angle on secondary channels after the main publication.
+2. Approve the blog architecture before drafting when long-form content is in scope.
+3. Use the blog content flow for draft, discovery, repurpose and review sequencing.
+4. Publish the approved blog first when long-form content is in scope.
+5. Publish the repurposed native social asset second.
+6. Publish the community asset third.
+7. Publish stories the same day as the strongest post.
 
 ## Weekly Review
 
@@ -49,6 +58,12 @@
 - What post created replies or profile visits?
 - What topic should be repeated next week?
 - What topic should be dropped or rewritten?
+- What did prior campaigns, engagement, market context and trend signals say before the cycle started?
+
+## Mandatory Pack Check
+
+- Has the campaign planning pack been completed before the weekly theme was locked?
+- Has the campaign review pack from the previous cycle been completed and filed?
 
 ## Reuse Rule
 
@@ -56,3 +71,6 @@
 - If a CTA underperforms, simplify the ask before changing the topic.
 - If proof is weak, prioritize process proof or case proof before testimonial-style claims.
 - If a channel underperforms twice, reduce its weight and reevaluate the role.
+- If a new cycle is opening, start from `pipeline/data/campaign-transition-workflow.md` before filling the weekly theme.
+- If a new campaign is opening, complete `pipeline/data/campaign-planning-gate.md` before locking the weekly theme.
+- If a campaign is closing, complete `pipeline/data/campaign-review-pack.md` before starting the next weekly theme.

@@ -6,7 +6,7 @@ This folder contains the operational assets for the active client creative cycle
 
 - [Client Creative Profile Template](client-creative-profile-template.md)
 - [Operational Playbook](operational-playbook.md)
-- [Visual Direction](visual-direction.md)
+- [Visual Direction](visual-direction.json)
 - [Creative Validation Checklist](validation-checklist.md)
 - [Daily Validation Template](daily-validation-template.md)
 - [Free Source Policy](free-source-policy.md)

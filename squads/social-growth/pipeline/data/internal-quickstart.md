@@ -7,24 +7,28 @@
 3. Build or update the persisted client record.
 4. Add client-specific market notes in the database.
 5. Confirm the weekly theme and primary channel.
-6. If the cycle needs long-form content, build the blog architecture first, including the word-count target, featured-image direction, featured-image selection criteria and free/public source search note.
-7. Create the blog draft from the approved architecture, preserving the approved length, visual thesis, image rationale and source rationale.
-8. Optimize the blog for discovery when the article is meant to rank, be cited or reused.
-9. Repurpose the approved blog into native social assets when the brief calls for multichannel output.
-10. Create the first `content-production-package.md` after the blog, discovery and repurpose outputs are approved.
-11. Review it and wait for approval before scheduling.
+6. If the cycle needs long-form content, follow `pipeline/data/blog-content-flow.md` after the architecture is approved.
+7. Use the image research selector only when the cycle truly needs source notes or an image bank.
+8. Create the first `content-production-package.md` after the blog, discovery and repurpose outputs are approved.
+9. Review it and wait for approval before scheduling.
 
 ## When Starting a Weekly Cycle
 
 1. Open the current client, product and strategy records in the database.
 2. Open the database-backed market research record only if a human-readable review copy is needed.
 3. If the cycle is about to move from social intelligence into strategy, ask whether it should also generate the consolidated proposal report. Do not generate the report unless the user confirms it or the checkpoint requires it.
-4. Open `content-plan.md`.
-5. Open `weekly-cycle-template.md`.
-6. If blog is in scope, open the blog architecture, blog draft and discovery optimization outputs first, and confirm the length target, featured-image direction, image-selection rationale and source search note.
-7. Fill the theme, business goal and CTA.
-8. Select the main post and the supporting posts.
-9. Keep the publishing order simple.
+4. Open `pipeline/data/campaign-transition-workflow.md` and read the previous-cycle evidence first.
+5. Open `pipeline/data/campaign-planning-gate.md` and complete it before any new campaign brief or content plan.
+6. Write the resulting `pipeline/data/campaign-planning-pack.md` before moving into strategy.
+7. If the cycle includes video intelligence, open `pipeline/data/video-intelligence-decision-protocol.md` first.
+8. If the cycle includes video intelligence, open `pipeline/data/youtube-intelligence-brief-quickstart.md` first.
+9. If the cycle includes video intelligence, open `pipeline/data/youtube-intelligence-consolidated-brief-template.md` and `pipeline/data/youtube-intelligence-client-adaptation-template.md` before writing the client-specific brief.
+10. Open `content-plan.md`.
+11. Open `weekly-cycle-template.md`.
+12. If blog is in scope, use `pipeline/data/blog-content-flow.md` as the sequence reference and confirm the image-research mode separately only when needed.
+13. Fill the theme, business goal and CTA.
+14. Select the main post and the supporting posts.
+15. Keep the publishing order simple.
 
 ## What the Team Must Not Skip
 
@@ -39,6 +43,9 @@
 - If the offer changes, update the client record first.
 - If the audience changes, update the client record first.
 - If a channel changes priority, update the strategy before content.
+- If a new campaign is about to be planned, complete `pipeline/data/campaign-planning-gate.md` first.
+- If a campaign is closing, complete `pipeline/data/campaign-review-pack.md` before starting the next planning cycle.
 - If a blog is added or changed, refresh discovery optimization before repurposing, and revalidate the length, featured-image, image-selection and source-search constraints.
 - If the client wants a consolidated proposal report, route the cycle through the proposal module before content. If not, keep the cycle analytical and move directly to strategy and then content.
 - If a post underperforms twice, revisit the weekly template.
+- If a new cycle starts from campaign history, open `pipeline/data/campaign-transition-workflow.md` before writing the weekly theme.

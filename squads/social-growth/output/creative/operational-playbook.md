@@ -34,7 +34,7 @@ For the active client, this means:
 
 - [Team Brief](team-brief.md)
 - [Operational Brief](operational-brief.md)
-- [Visual Direction](visual-direction.md)
+- [Visual Direction](visual-direction.json)
 - [Creative Validation Checklist](validation-checklist.md)
 - [Daily Validation Template](daily-validation-template.md)
 - [Reference Extraction](reference-extraction.md)

@@ -18,6 +18,16 @@ if (!client) {
   process.exit(2);
 }
 
+const assetFilterRaw = readArg("asset") || readArg("assets");
+const assetFilterSet = assetFilterRaw
+  ? new Set(
+      assetFilterRaw
+        .split(",")
+        .map((value) => String(value || "").trim().toUpperCase())
+        .filter(Boolean),
+    )
+  : null;
+
 const root = process.cwd();
 const clientDir = path.join(root, "squads", "social-growth", "output", client);
 const manifestPath = path.join(clientDir, "review", "campaign-manifest.json");
@@ -87,8 +97,10 @@ const typeConfig = (typeRaw, channel) => {
       height: 1350,
       selectors: [".slide"],
       exportKind: "image_sequence_png",
-      mode: "selector",
+      mode: "viewport",
       isMultiFrame: true,
+      wrapperSelector: ".carousel-track",
+      containerSelector: ".carousel-viewport",
     };
   }
   if (type.includes("stories")) {
@@ -111,7 +123,7 @@ const typeConfig = (typeRaw, channel) => {
       exportKind: "image_sequence_png",
       mode: "viewport",
       isMultiFrame: true,
-      wrapperSelector: ".frame-wrapper",
+      wrapperSelector: ".reels-track",
       containerSelector: ".frame-container",
     };
   }
@@ -321,7 +333,11 @@ const socialAssets = Array.isArray(manifest?.assets?.social) ? manifest.assets.s
 const selectedAssets = socialAssets.filter((asset) => {
   const status = canonicalStatus(asset?.status);
   const relPreview = String(asset?.canonicalPreviewPath || "").trim();
-  return exportStatuses.has(status) && relPreview.length > 0;
+  if (relPreview.length === 0) return false;
+  if (assetFilterSet) {
+    return assetFilterSet.has(String(asset?.assetId || "").trim().toUpperCase());
+  }
+  return exportStatuses.has(status);
 });
 
 fs.mkdirSync(publishDir, { recursive: true });
@@ -440,18 +456,23 @@ for (const asset of selectedAssets) {
     }
 
     for (let i = 0; i < frameCount; i++) {
-      // Position to the correct frame
       await page.evaluate((data) => {
-        const { wrapperSel, frameIndex, total } = data;
+        const { wrapperSel, frameIndex } = data;
         const wrapper = document.querySelector(wrapperSel);
         if (wrapper) {
           wrapper.style.transition = "none";
-          wrapper.style.transform = `translateX(-${(frameIndex / total) * 100}%)`;
+          wrapper.style.transform = "none";
+          wrapper.querySelectorAll(".frame").forEach((frame, idx) => {
+            frame.style.display = idx === frameIndex ? "flex" : "none";
+          });
         }
         // Also freeze track transition as fallback
         const track = document.querySelector(".reels-track, .carousel-track");
-        if (track) track.style.transition = "none";
-      }, { wrapperSel: cfg.wrapperSelector, frameIndex: i, total: frameCount });
+        if (track) {
+          track.style.transition = "none";
+          track.style.transform = "none";
+        }
+      }, { wrapperSel: cfg.wrapperSelector, frameIndex: i });
 
       await page.waitForTimeout(600);
 
@@ -459,8 +480,9 @@ for (const asset of selectedAssets) {
       const outAbs = path.join(assetDir, fileName);
 
       try {
-        const container = await page.locator(cfg.containerSelector).first();
-        await container.screenshot({ path: outAbs, type: "png" });
+        const frameSel = cfg.selectors && cfg.selectors.length > 0 ? cfg.selectors[0] : ".frame";
+        const frameLocator = page.locator(frameSel).nth(i);
+        await frameLocator.screenshot({ path: outAbs, type: "png" });
         captured.push(outAbs);
       } catch {
         // Fallback to full page
@@ -566,6 +588,7 @@ for (const asset of selectedAssets) {
   exportRows.push({
     asset_id: assetId,
     type: assetType,
+    channel: assetChannel,
     status,
     source_preview_path: relPreview,
     export_kind: cfg.exportKind,
@@ -606,8 +629,10 @@ for (const row of exportRows) {
     try {
       const identify = execSync(`identify -format "%w %h %b" "${absFile}"`, { encoding: "utf8" }).trim();
       const [w, h, size] = identify.split(" ");
-      const expectedW = row.export_kind === "image_sequence_png" && relFile.includes("facebook") ? 1200 : row.export_kind === "image_sequence_png" && (relFile.includes("reels") || relFile.includes("stories") || relFile.includes("ac-30-07")) ? 1080 : 1080;
-      const expectedH = row.export_kind === "image_sequence_png" && relFile.includes("facebook") ? 630 : row.export_kind === "image_sequence_png" && (relFile.includes("reels") || relFile.includes("stories") || relFile.includes("ac-30-07")) ? 1920 : 1350;
+       const channel = String(row.channel || "").trim().toLowerCase();
+       const type = String(row.type || "").trim().toLowerCase();
+       const expectedW = channel.includes("facebook") ? 1200 : (type.includes("reels") || type.includes("stories") ? 1080 : 1080);
+       const expectedH = channel.includes("facebook") ? 630 : (type.includes("reels") || type.includes("stories") ? 1920 : 1350);
       const sizeBytes = parseFloat(size);
       const isKB = size.endsWith("KB") || size.endsWith("iB");
       const isMB = size.endsWith("MB");

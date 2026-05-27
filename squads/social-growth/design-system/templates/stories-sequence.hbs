@@ -144,6 +144,34 @@
       font-weight: 800;
     }
 
+    .choice-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .choice-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--style-border);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--style-text-heading);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      min-width: 88px;
+    }
+
+    .choice-pill.primary {
+      background: linear-gradient(135deg, var(--style-accent-soft), rgba(255,255,255,0.08));
+    }
+
     .stories-progress {
       position: absolute; top: 0; left: 0; right: 0; z-index: 10;
       display: flex; gap: 4px;
@@ -184,14 +212,16 @@
     }
 
     body.export-mode .stories-track {
+      width: max-content;
       height: 1920px;
       transition: none !important;
     }
 
     body.export-mode .frame {
-      min-height: 1920px; height: 1920px;
-      width: 1080px;
+      width: 1080px; min-width: 1080px; max-width: 1080px;
+      min-height: 1920px; height: 1920px; max-height: 1920px;
       padding: 140px 60px 160px;
+      overflow: hidden;
     }
 
     body.export-mode .stories-progress,
@@ -202,12 +232,14 @@
     body.export-mode .body-text { max-width: 840px; font-size: 28px; }
     body.export-mode .eyebrow { font-size: 20px; padding: 10px 20px; }
     body.export-mode .cta-block { padding: 18px 28px; font-size: 22px; }
+    body.export-mode .choice-pills { gap: 16px; }
+    body.export-mode .choice-pill { padding: 18px 24px; font-size: 22px; min-width: 190px; }
   </style>
 </head>
 <body>
   <div class="stories-frame">
-    <div class="stories-viewport">
-      <div class="stories-track" id="storiesTrack">
+    <div class="stories-viewport frame-container">
+      <div class="stories-track frame-wrapper" id="storiesTrack">
         {{slidesHtml}}
       </div>
     </div>

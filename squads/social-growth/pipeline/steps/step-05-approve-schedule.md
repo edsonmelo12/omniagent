@@ -12,7 +12,7 @@ Load these files before executing:
 - `squads/social-growth/output/blog/blog-post.md` — approved discovery-optimized blog when present
 - `squads/social-growth/output/repurposing/content-repurpose.md` — approved repurpose package when present
 - `squads/social-growth/output/content/content-production-package.md` — content production package ready for agenda
-- `squads/social-growth/output/creative/visual-direction.md` — visual direction approved alongside the copy
+- `squads/social-growth/output/creative/visual-direction.json` — visual direction approved alongside the copy
 - `squads/social-growth/output/creative/rendered-assets.md` — final render manifest for the cycle
 - `squads/social-growth/output/creative/validation-checklist.md` — final validation gate for the batch
 - `squads/social-growth/output/{client}/review/pipeline-compliance-{asset-or-batch-id}.md` — mandatory pipeline compliance report from Step 04B
@@ -45,7 +45,7 @@ O checklist criativo tambem foi validado.
 O relatorio de conformidade da pipeline retornou `[PASS | PASS_WITH_WARNINGS]`.
 
 ## Blog Constraints
-[word-count target, featured-image direction, source search note, and render status]
+[word-count target, featured-image direction, source search note when image research is active, and render status]
 
 1. Aprovar e seguir para o plano de agendamento.
 2. Pausar para ajustes.
@@ -91,4 +91,4 @@ Reject and redo if ANY are true:
 - [ ] The schedule step only proceeds when pipeline compliance verdict is `PASS` or `PASS_WITH_WARNINGS`.
 - [ ] Compliance warnings are shown to the user before approval.
 - [ ] Blog length and featured-image constraints are visible before approval.
-- [ ] Blog source search notes are visible before approval.
+- [ ] Blog source search notes are visible before approval when image research is active.

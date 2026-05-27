@@ -17,3 +17,4 @@ Scheduler,📅,./agents/scheduler.agent.md,Organização de agenda e plano de pu
 Monitor,📈,./agents/monitor.agent.md,Monitoramento de saude e performance,subagent
 Intake,🗂️,./agents/intake.agent.md,Ingestão de links e documentos do cliente,subagent
 Atos Analista,📊,./agents/atos-analista.agent.md,Análise estratégica e vereditos de decisão,subagent
+Git Master,🐙,./agents/git-master.agent.md,Especialista em Controle de Versão,subagent

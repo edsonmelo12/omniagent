@@ -27,12 +27,14 @@ Expose, in one place, who is responsible for each pipeline phase so users can se
 | 03E | `step-03e-optimize-discovery-content.md` | `discovery-optimizer` |
 | 03F | `step-03f-repurpose-content.md` | `content-repurposer` |
 | 03 | `step-03-create-content.md` | `creator` |
+| 03A1 | `step-03a1-generate-social-drafts.md` | `content-repurposer` |
 | 03B | `step-03b-create-visual-direction.md` | `visual-director` |
 | 03C | `step-03c-render-creative.md` | `creative-renderer` |
 | 04 | `step-04-review-content.md` | `reviewer` |
 | 05 | `step-05-approve-schedule.md` | `user-checkpoint` |
 | 06 | `step-06-schedule-delivery.md` | `scheduler` |
 | 06B | `step-06b-publish-to-wordpress.md` | `wagner-wordpress` |
+| 06B1 | `step-06b1-resolve-article-urls.md` | `wagner-wordpress` |
 | 07 | `step-07-monitor-health.md` | `monitor` |
 | 08 | `step-08-atos-analise-estrategica.md` | `atos-analista` |
 | 09 | `step-09-action-recommendations.md` | `strategist` |

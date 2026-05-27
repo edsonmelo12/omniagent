@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "client": "amiclube",
-  "updatedAt": "2026-05-08T00:03:17.153Z",
+  "updatedAt": "2026-05-13T14:20:00.000Z",
   "captionPolicy": {
     "emojiPolicy": "moderado",
     "instagramHashtagRange": "5-10",
@@ -15,7 +15,7 @@
       "format": "carrossel",
       "first_line_hook": "Preço baixo pode sair caro quando o critério fica de fora. 😬",
       "final_caption": "Preço baixo pode sair caro quando o critério fica de fora. 😬\n\nAntes de escolher um amigurumi só pelo valor, observe:\n✅ Acabamento\n✅ Segurança dos materiais\n✅ Firmeza dos pontos\n✅ Reputação de quem produz\n\nUma peça artesanal premium precisa encantar, mas também precisa durar. ✨\n\n👆 Clique no link da bio e leia o artigo completo!\nSalve para consultar antes da próxima compra.",
-      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "cta": "👉 Veja o guia completo no link da bio!",
       "hashtags": [
         "amigurumi",
         "amigurumibrasil",
@@ -148,6 +148,118 @@
       "alt_text": "Post da AmiClube sobre diferença entre valor percebido e valor entregue na compra de amigurumi artesanal."
     },
     {
+      "asset_id": "AC-30-22",
+      "channel": "instagram",
+      "format": "post",
+      "first_line_hook": "3 perguntas antes da compra",
+      "final_caption": "3 perguntas antes da compra\n\nA pressa em aproveitar um \"preço imbatível\" pode esconder riscos invisíveis. Antes de finalizar, observe:\n✓ A proposta combina com minha intenção real?\n✓ O atendimento explica prazo, canal e suporte com clareza?\n✓ Eu consigo justificar a escolha além do número na etiqueta?\n\nMais detalhes na legenda.\n\nLeia o artigo completo no link da bio:\nhttps://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "cta": "Leia o artigo completo no link da bio.",
+      "hashtags": [
+        "amigurumi",
+        "comprainteligente",
+        "precoevalor",
+        "artesanatopremium",
+        "decisaodecompra",
+        "amigurumibrasil"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Post estático da AmiClube com três perguntas para avaliar a compra de amigurumi artesanal com mais critério."
+    },
+    {
+      "asset_id": "AC-30-25",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "✨ Estética Dark Luxo: por que veludo?",
+      "final_caption": "✨ Estética Dark Luxo é sobre percepção de luxo no artesanal.\n\n🧶 Veludo grosso, brilho sutil e textura tátil criam a leitura de sofisticação sem exagero.\n\n💡 Salve para lembrar: a escolha certa começa no toque.\n\nQuer saber mais? O link está na bio.\nLeia o artigo completo: https://amiclube.com.br/tendencias-2026-veludo",
+      "cta": "Quer saber mais? O link está na bio.",
+      "hashtags": [
+        "veludopremium",
+        "amigurumiluxo",
+        "decoracaoautoral",
+        "luxoacessivel",
+        "amiclube"
+      ],
+      "link_target": "https://amiclube.com.br/tendencias-2026-veludo",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel da AmiClube sobre estética dark luxo e percepção de valor no artesanal com veludo."
+    },
+    {
+      "asset_id": "AC-30-10",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "💡 FOTO BONITA NÃO É REPUTAÇÃO",
+      "final_caption": "💡 FOTO BONITA NÃO É REPUTAÇÃO\n\nVocê já comprou de uma marca artesanal só pela foto e se arrependeu depois? ✨\n\nFoto bonita cativa, mas não substitui confiança. Neste carrossel, reuni 5 sinais para você avaliar antes de comprar.\n\n🧵 SALVE este post para consultar nas próximas encomendas\n🔎 COMPARTILHE com quem também quer comprar com critério\n\n📖 Leia o artigo completo no link da bio.",
+      "cta": "📖 Leia o artigo completo no link da bio.",
+      "hashtags": [
+        "amigurumi",
+        "reputacaodemarca",
+        "marcartesanal",
+        "comprainteligente",
+        "presentescriativos"
+      ],
+      "link_target": "https://amiclube.com.br/reputacao-marca-artesanal-avaliar-antes-comprar/",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel da AmiClube sobre cinco sinais para avaliar a reputação de uma marca artesanal antes da compra."
+    },
+    {
+      "asset_id": "AC-30-11",
+      "channel": "instagram",
+      "format": "reels",
+      "first_line_hook": "REPUTAÇÃO = COERÊNCIA",
+      "final_caption": "REPUTAÇÃO = COERÊNCIA\n\n5 sinais para ler uma marca artesanal com mais critério antes de comprar.\n\n✅ Acabamento visível\n✅ Clareza comercial\n✅ Linguagem com critério\n✅ Depoimentos específicos\n✅ Consistência do conjunto\n\n👆 Salve este Reels para rever antes da próxima compra.\nLeia o artigo completo no link da bio.",
+      "cta": "👆 Salve este Reels para rever antes da próxima compra.",
+      "hashtags": [
+        "amigurumi",
+        "reputacaodemarca",
+        "marcartesanal",
+        "comprainteligente",
+        "reels"
+      ],
+      "link_target": "https://amiclube.com.br/reputacao-marca-artesanal-avaliar-antes-comprar/",
+      "link_strategy": "reels_mention",
+      "alt_text": "Reels da AmiClube sobre cinco sinais de coerência para avaliar a reputação de uma marca artesanal."
+    },
+    {
+      "asset_id": "AC-30-35",
+      "channel": "facebook",
+      "format": "post",
+      "first_line_hook": "FOTO BONITA NÃO BASTA",
+      "final_caption": "FOTO BONITA NÃO BASTA\n\nCinco sinais para separar estética bonita de confiança real na escolha de uma marca artesanal.\n\n✅ Acabamento visível em close\n✅ Processo comercial claro\n✅ Linguagem sem promessa vazia\n✅ Depoimentos específicos\n✅ Entrega coerente com a vitrine\n\nLeia os comentários para ver os sinais em prática.\n\nAcesse o artigo completo: https://amiclube.com.br/reputacao-marca-artesanal-avaliar-antes-comprar/",
+      "cta": "Leia os comentários para ver os sinais em prática.",
+      "hashtags": [],
+      "link_target": "https://amiclube.com.br/reputacao-marca-artesanal-avaliar-antes-comprar/",
+      "link_strategy": "first_comment",
+      "alt_text": "Post do Facebook da AmiClube sobre sinais de reputação de marca artesanal, com foco em confiança real além da foto bonita."
+    },
+    {
+      "asset_id": "AC-30-21",
+      "channel": "instagram",
+      "format": "carrossel",
+      "first_line_hook": "Barato x Caro: você já fez essa conta?",
+      "final_caption": "Barato x Caro: você já fez essa conta?\n\nMuitas vezes a gente olha o preço, acha caro e vai no mais barato.\n\nMas o que quase ninguém conta é que o custo real aparece depois:\n→ troca em 3 meses;\n→ frete de devolução;\n→ presente que não dura;\n→ decoração que incomoda na primeira lavagem.\n\nO barato que parecia economia vira gasto duplo em pouco tempo.\n\nJá o valor de verdade se mede por:\n✓ atendimento claro;\n✓ proposta que combina com o uso;\n✓ entrega que reduz risco de arrependimento.\n\nAntes da próxima compra, faça essa pergunta:\n\"Esta escolha vai me custar mais tempo ou mais dinheiro daqui a 6 meses?\"\n\nSe a resposta for sim, repense.\n\nQuer um cálculo real para sua próxima compra?\nMe envia um Direct com a palavra **CALCULE**\nTe mando o guia rápido de custo-benefício.",
+      "cta": "Me envia um Direct com a palavra **CALCULE**",
+      "hashtags": [
+        "PrecoEValor",
+        "Amigurumi",
+        "CompraInteligente",
+        "CustoBeneficio",
+        "AmigurumiArtesanal",
+        "EconomiaReal",
+        "PresenteConsciente",
+        "DecoracaoAfetiva",
+        "DecoraçãoInfantil",
+        "AmigurumiPremium",
+        "FeitoAMao",
+        "DicaDeCompra",
+        "AntiGasto",
+        "DecisaoDeCompra"
+      ],
+      "link_target": "https://amiclube.com.br/preco-valor-amigurumi",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Carrossel da AmiClube comparando barato vs caro e custo real de compra de amigurumi artesanal."
+    },
+    {
       "asset_id": "AC-30-07",
       "channel": "instagram",
       "format": "carrossel",
@@ -170,9 +282,9 @@
       "asset_id": "AC-30-06",
       "channel": "instagram",
       "format": "carrossel",
-      "first_line_hook": "Mito ou verdade: preço baixo é sempre bom negócio? 🤔",
-      "final_caption": "Mito ou verdade: preço baixo é sempre bom negócio? 🤔\n\nNo amigurumi, a mesma pergunta gera respostas diferentes dependendo do critério usado. Algumas crenças comuns falham quando você olha por dentro da proposta.\n\n🧵 Salve este carrossel e use como filtro na próxima compra.\n\n👉 Veja o guia completo no link da bio!",
-      "cta": "👆 Clique no link da bio e leia o artigo completo!",
+      "first_line_hook": "✨ PREÇO BAIXO NEM SEMPRE É BOM NEGÓCIO.",
+      "final_caption": "✨ PREÇO BAIXO NEM SEMPRE É BOM NEGÓCIO.\n\nNo amigurumi, o valor certo vai muito além da etiqueta. Quando você olha só para o número, pode deixar de ver o que realmente sustenta a compra.\n\n🧵 Antes de decidir, observe:\n✅ Acabamento\n✅ Segurança dos materiais\n✅ Firmeza dos pontos\n✅ Reputação de quem produz\n\nUma peça artesanal premium precisa encantar, mas também precisa durar.\n\n👉 Veja o guia completo no link da bio!\n🧵 Salve este carrossel para revisar antes da próxima compra.",
+      "cta": "👉 Veja o guia completo no link da bio!",
       "hashtags": [
         "amigurumi",
         "comprainteligente",
@@ -183,7 +295,7 @@
       ],
       "link_target": "https://amiclube.com.br/como-precificar-amigurumi-estrategias",
       "link_strategy": "link_na_bio",
-      "alt_text": "Carrossel educativo da AmiClube desmascarando mitos e verdades sobre preço baixo em amigurumi artesanal."
+      "alt_text": "Carrossel educativo da AmiClube mostrando que preço baixo não é sempre o melhor negócio na compra de amigurumi artesanal."
     },
     {
       "asset_id": "AC-30-31",
@@ -199,7 +311,7 @@
         "artesanatopremium",
         "presentesafetivos"
       ],
-      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_target": "https://amiclube.com.br/seguranca-amigurumi-artesanal-7-perguntas-avaliar",
       "link_strategy": "link_na_bio",
       "alt_text": "Carrossel da AmiClube com 7 perguntas para avaliar confiabilidade de amigurumi artesanal."
     },
@@ -217,7 +329,7 @@
         "artesanatopremium",
         "reels"
       ],
-      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_target": "https://amiclube.com.br/seguranca-amigurumi-artesanal-7-perguntas-avaliar",
       "link_strategy": "reels_mention",
       "alt_text": "Reels da AmiClube com teste de confiabilidade para compra de amigurumi artesanal."
     },
@@ -229,9 +341,80 @@
       "final_caption": "7 sinais de que o amigurumi que você está escolhendo é seguro. 👀\n\nAntes de fechar a compra, observe esses pontos:\n\n✅ Detalhe real da peça\n✅ Materiais e uso explicados\n✅ Apresentação limpa e honesta\n✅ Atendimento que responde rápido\n✅ Portfólio consistente\n✅ Relatos específicos de clientes\n✅ Experiência que parece previsível\n\n——\n\nCada \"sim\" reduz a chance de frustração. Salve para consultar antes de comprar.\n\n👆 Clique e leia o artigo completo!",
       "cta": "👆 Clique e leia o artigo completo!",
       "hashtags": [],
-      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_target": "https://amiclube.com.br/seguranca-amigurumi-artesanal-7-perguntas-avaliar",
       "link_strategy": "facebook_caption_link_optional",
       "alt_text": "Post do Facebook da AmiClube com sinais de segurança para avaliar amigurumi artesanal."
+    },
+    {
+      "asset_id": "AC-30-36",
+      "channel": "facebook",
+      "format": "post",
+      "first_line_hook": "Guia rápido: Como fechar seu pedido com confiança ✨",
+      "final_caption": "✨ GUIA RÁPIDO: Como fechar seu pedido com confiança\n\nQuando o atendimento é claro, o próximo passo fica mais fácil: entender o que pedir, como pedir e o que esperar.\n\n✅ Atendimento que explica prazo, canal e suporte\n✅ Proposta que combina com a sua ocasião\n✅ Entrega que reduz risco de arrependimento\n\nA peça certa, no contexto certo, reduz atrito e aumenta confiança.\n\n👉 Veja nosso guia completo: https://amiclube.com.br/como-escolher-amigurumi-com-criterio\n\n💬 Quer ajuda para fechar seu pedido?\nManda PEDIDO no direct que a gente te ajuda a escolher a peça ideal.",
+      "cta": "💬 Quer ajuda para fechar seu pedido? Manda PEDIDO no direct.",
+      "hashtags": [
+        "AmiClube",
+        "GuiaRapido",
+        "PedidoCerto",
+        "AtendimentoPersonalizado",
+        "CompraInteligente",
+        "CuradoriaAmigurumi",
+        "AmigurumiBrasil",
+        "PresenteCerto",
+        "FeitoAMao"
+      ],
+      "link_target": "https://amiclube.com.br/como-escolher-amigurumi-com-criterio",
+      "link_strategy": "facebook_caption_link_optional",
+      "alt_text": "Post do Facebook da AmiClube com guia rápido sobre como fechar pedido de amigurumi personalizado com confiança."
+    },
+    {
+      "asset_id": "AC-30-28",
+      "channel": "instagram",
+      "format": "post",
+      "first_line_hook": "Seu home office fala sobre você. A questão é: o que ele diz?",
+      "final_caption": "Seu home office fala sobre você. A questão é: o que ele diz?\n\nUma peça artesanal bem posicionada — na mesa, na estante ou no fundo de câmera — transforma a leitura do espaço. Não é enfeite. É estratégia de imagem.\n\n💬 Quer usar decoração como presença de marca?\nManda HOME no direct que a gente te ajuda a escolher a peça ideal.",
+      "cta": "💬 Quer usar decoração como presença de marca? Manda HOME no direct.",
+      "hashtags": [],
+      "link_target": "https://amiclube.com.br/decoracao-artesanal-home-office-investimento",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Post da AmiClube sobre decoração artesanal como estratégia de imagem no home office."
+    },
+    {
+      "asset_id": "AC-30-29",
+      "channel": "instagram",
+      "format": "stories",
+      "first_line_hook": "Qual estilo combina mais no seu home office? 🤔",
+      "final_caption": "Qual estilo combina mais no seu home office? 🤔\n\n✨ Mesa: ponto focal na área de trabalho\n✨ Estante: presença decorativa no ambiente\n✨ Fundo de câmera: memorabilidade nas chamadas\n\nO artigo mostra onde cada opção funciona melhor.\n\n👆 Vote na enquete ou mande sua escolha no direct!\nVote no seu estilo favorito 👇",
+      "cta": "👆 Vote na enquete ou mande sua escolha no direct!",
+      "hashtags": [
+        "amigurumi",
+        "decoracaoartesanal",
+        "homeoffice",
+        "curadoria",
+        "estilodevida",
+        "amigurumibrasil"
+      ],
+      "link_target": "https://amiclube.com.br/decoracao-artesanal-home-office-investimento",
+      "link_strategy": "link_na_bio",
+      "alt_text": "Sequência de Stories da AmiClube perguntando qual estilo de decoração artesanal combina mais no home office: mesa, estante ou fundo de câmera."
+    },
+    {
+      "asset_id": "AC-30-30",
+      "channel": "facebook",
+      "format": "post",
+      "first_line_hook": "Seu home office está funcional, mas ainda parece sem presença? ✨",
+      "final_caption": "Seu home office está funcional, mas ainda parece sem presença? ✨\n\nA decoração artesanal entra exatamente nessa camada. Uma peça bem escolhida não compete com as ferramentas de trabalho nem pesa no ambiente. Ela adiciona textura, acolhimento visual e identidade em um espaço que, sem isso, tende a ficar frio ou genérico.\n\n📸 No fundo da câmera, o amigurumi vira um ponto de memorabilidade discreto.\n🪴 Na estante, ele traz equilíbrio.\n🖤 Na mesa, funciona como respiro visual.\n\nO segredo está na curadoria: proporção, paleta e intenção clara.\n\n💚 Quer ver a peça Baby Yoda do catálogo? Clique aqui e confira agora:\nhttps://pay.hotmart.com/Y79213111P?checkoutMode=10\n\nLeia o artigo completo e descubra onde cada peça funciona melhor: https://amiclube.com.br/?p=13046",
+      "cta": "💚 Quer ver a peça Baby Yoda do catálogo? Clique aqui e confira agora: https://pay.hotmart.com/Y79213111P?checkoutMode=10",
+      "hashtags": [
+        "DecoraçãoArtesanal",
+        "HomeOffice",
+        "Amigurumi",
+        "Autoridade",
+        "Curadoria"
+      ],
+      "link_target": "https://pay.hotmart.com/Y79213111P?checkoutMode=10",
+      "link_strategy": "caption",
+      "alt_text": "Post horizontal da AmiClube sobre decoração artesanal no home office, com amigurumi em crochê sobre superfície de madeira e planta ao fundo. Título: Decoração com alma: Home Office. Estilo Dark Premium com paleta neutro-quente."
     }
   ]
 }

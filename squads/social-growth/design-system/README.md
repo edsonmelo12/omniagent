@@ -37,17 +37,69 @@ node squads/social-growth/design-system/engine/preset-from-brand.mjs \
   --json caminho/para/preset.json
 ```
 
-## Fluxo operacional
+## Expandir para novos formatos
 
-1. Visual Director cria o manifesto JSON com `style`, `format` e `slides`.
-2. Creative Renderer chama `compose.mjs`.
+1. Escolha o formato em `contracts/post-system.json`.
+2. Gere um manifesto-base com o scaffold:
+
+```bash
+node squads/social-growth/design-system/engine/scaffold-manifest.mjs \
+  --format instagram-carousel \
+  --style editorial-magazine \
+  --asset-id AC-99-01 \
+  --output /tmp/opencode/ac-99-01.json
+```
+
+3. Pesquise referências do formato, extraia os tokens visuais e ajuste só o manifesto.
+4. Rode `compose.mjs` e depois `export-slides.mjs`.
+5. Valide a saída final antes de promover para o pipeline.
+
+Se quiser começar pela direção visual em vez do manifesto, use:
+
+```bash
+node squads/social-growth/design-system/engine/scaffold-visual-direction.mjs \
+  --format facebook-post \
+  --asset-id AC-99-01 \
+  --output /tmp/opencode/ac-99-01-visual-direction.json
+```
+
+Para gerar a direção inicial a partir do pacote de conteúdo:
+
+```bash
+node squads/social-growth/design-system/engine/generate-direction-from-package.mjs \
+  --package squads/social-growth/output/content/content-production-package.md \
+  --output /tmp/opencode/visual-direction.json
+```
+
+Para rodar 03B -> 03C em sequência:
+
+```bash
+node squads/social-growth/design-system/engine/run-design-system-cycle.mjs \
+  --package squads/social-growth/output/amiclube/content/content-production-package.md \
+  --asset-id AC-30-35 \
+  --client amiclube \
+  --brand AmiClube
+```
+
+### Mapa rápido
+
+- `facebook-post` e `social-single-post`: autoridade, reputação, conversão curta.
+- `instagram-carousel` e `linkedin-carousel`: progressão editorial e prova.
+- `reels-sequence` e `stories-sequence`: retenção, ritmo e CTA rápido.
+- `pinterest-pin`: descoberta visual com foco em legibilidade.
+
+## Fluxo operacional (determinístico — padrão)
+
+1. Visual Director cria `visual-direction.json` com `style`, `format` e `slides`.
+2. Creative Renderer chama `compose.mjs --manifest visual-direction.json` — **nunca** gera HTML manualmente.
 3. O HTML é salvo em `output/{client}/social/previews/`.
-4. O export continua usando Playwright e os scripts atuais.
+4. PNGs exportados via `export-slides.mjs`.
+5. Batch render disponível: `node scripts/batch-render.mjs`.
 
 ## Garantias (Fase 1 + Fase 2)
 
 - **8 formatos implementados:** `instagram-carousel`, `reels-sequence`, `stories-sequence`, `linkedin-carousel`, `facebook-post`, `pinterest-pin`, `social-single-post`, `post-preview`.
-- **7 presets de estilo:** `dark-premium`, `editorial-magazine`, `editorial-myth`, `high-energy-cyber`, `minimalist-texture`, `authentic-rough`, `motion-social`.
+- **8 presets de estilo:** `dark-premium`, `editorial-magazine`, `editorial-myth`, `high-energy-cyber`, `minimalist-texture`, `authentic-rough`, `motion-social`, `paper-bulletin`.
 - Engine: `compose.mjs` valida, compõe e gera HTML para todos os formatos (0 tokens de LLM).
 - Export: `export-slides.mjs` para captura via Playwright.
 - Pipeline integrado: Step 03B pode gerar JSON manifest; Step 03C chama engine.
@@ -63,17 +115,13 @@ node squads/social-growth/design-system/engine/preset-from-brand.mjs \
 - [ ] Validar `preset-from-brand.mjs` com `node --check` antes de criar presets de cliente.
 - [ ] Usar `--out /tmp/opencode/...` para testes rápidos.
 
-## Piloto Controlado
-
-1. Escolher 1 carrossel real já aprovado pela squad.
-2. Criar o manifesto JSON a partir do conteúdo aprovado.
-3. Compor o HTML via `compose.mjs`.
-4. Exportar PNG com Playwright em `body.export-mode`.
-5. Comparar com o fluxo antigo em qualidade, tempo e consumo estimado de tokens.
-6. Só integrar Step 03B/03C depois do piloto aprovado.
-
 ## Status
 
-- **Fase 1 (Fundação):** ✅ Completa (tokens.css, dark-premium.css, instagram-carousel.hbs, compose.mjs)
-- **Fase 2 (Estilos e Formatos):** ✅ Completa (7 presets, 8 templates, engine multi-formato)
-- **Fase 3 (Pipeline):** ✅ Completa (Step 03B/03C adaptados, agentes atualizados)
+- **Fase 1 (Fundação):** ✅ Completa
+- **Fase 2 (Estilos e Formatos):** ✅ Completa (8 presets, 8 templates, engine multi-formato)
+- **Fase 3 (Pipeline — DS como alternativa):** ✅ Completa
+- **Fase 4 (Pipeline — DS como padrão determinístico):** ✅ Ativa (este release)
+  - Visual Director produz JSON manifest por padrão
+  - Creative Renderer chama `compose.mjs` por padrão
+  - Batch render via `scripts/batch-render.mjs`
+  - Caminho legado (markdown VDC + HTML manual) requer aprovação do Atlas CEO

@@ -109,7 +109,7 @@ Editorial Magazine + Proof Layer (mobile-first, alto contraste, textura leve de 
 - **CTA Treatment**: callout final para salvar e revisar antes de comprar.
 - **Notes**: a peça precisa sustentar a tese de premium sem exagero visual. Não transformar o carrossel em artigo rolável.
 
-### AC-30-10 — Instagram Carrossel "Case real: contexto, decisão e resultado"
+### AC-30-10 — Instagram Carrossel "Reputação de marca artesanal: 5 sinais para avaliar"
 - **Visual Skill**: `instagram-carousel`
 - **Cover Direction**: imagem de prova social em close com os amigurumis ainda visíveis, headline central forte e overlay escuro moderado para legibilidade.
 - **Slide Structure**: capa de contexto, slide de problema/ocasião, slide de decisão e fechamento com resultado mais CTA de compartilhamento.

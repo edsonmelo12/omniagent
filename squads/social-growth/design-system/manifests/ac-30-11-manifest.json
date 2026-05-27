@@ -1,0 +1,77 @@
+{
+  "asset_id": "AC-30-11",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "reels-sequence",
+  "title": "REPUTAÇÃO = COERÊNCIA",
+  "deck_label": "reputacao",
+  "topic": "Reputação de marca artesanal",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Consideração",
+  "canvas": {
+    "width": 1080,
+    "height": 1920
+  },
+  "first_impression": {
+    "diversity_statement": "Reels vertical com prova de coerência para validar reputação antes da compra. Não repetir a primeira impressão de posts recentes.",
+    "base": "Artigo AC-30-09 + direção editorial nova para Reels"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "REPUTAÇÃO",
+      "title": "REPUTAÇÃO = COERÊNCIA",
+      "body": "5 sinais para ler uma marca artesanal com mais critério antes de comprar.",
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/AC-30-09-campanha-como-avaliar-reputação-de-marca-artesanal/instagram-reels/instagram reels-como-avaliar-reputacao-de-v1.webp",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 1 + 2",
+      "title": "ACABAMENTO + CLAREZA",
+      "body": "Sinal 1: acabamento visível\nSinal 2: clareza comercial",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 3 + 4",
+      "title": "LINGUAGEM + DEPOIMENTOS",
+      "body": "Sinal 3: linguagem com critério\nSinal 4: depoimentos específicos",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "SINAL 5",
+      "title": "CONSISTÊNCIA DO CONJUNTO",
+      "body": "Sinal 5: o conjunto inteiro inspira confiança?\n\nClose visível? Imagens consistentes? Prazo claro? Linguagem com critério? Depoimentos específicos?",
+      "cta": "SALVE",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

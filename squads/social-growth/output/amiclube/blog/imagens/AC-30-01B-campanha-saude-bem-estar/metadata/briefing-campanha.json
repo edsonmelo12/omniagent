@@ -1,0 +1,66 @@
+{
+  "campaign": {
+    "title": "Saúde e Bem-Estar: Ergonomia e cuidados ao escolher amigurumi",
+    "objective": "Gerar tráfego para o blog",
+    "niche": "amigurumi, saúde infantil, ergonomia",
+    "targetAudience": "pais, mães e responsáveis acima de 25 anos",
+    "channels": [
+      "Blog",
+      "Instagram Post",
+      "Instagram Stories",
+      "Facebook Post"
+    ],
+    "style": "editorial realista",
+    "description": "Briefing visual para o artigo AC-30-01B e seus derivados sociais."
+  },
+  "briefing": {
+    "interpretation": "Posicionar o amigurumi como um objeto artesanal premium que transmite segurança, conforto e cuidado. A direção visual deve destacar ergonomia, textura tátil, limpeza estética e sensação de luxo seguro, evitando qualquer aparência infantilizada demais ou genérica de brinquedo em massa.",
+    "identifiedProduct": "Amigurumi artesanal premium com textura visível, acabamento seguro e presença decorativa elegante.",
+    "visualDirection": "Quatro prompts prontos: hero do artigo + três artes derivadas. Tudo deve manter paleta quente e neutra, iluminação natural suave, cenário limpo e foco em conforto visual e tátil.",
+    "suggestedElements": [
+      "amigurumi artesanal com costura visível",
+      "paleta creme, areia, caramelo e sage",
+      "linho, madeira clara e cerâmica fosca",
+      "iluminação natural suave",
+      "composição editorial com respiro"
+    ],
+    "elementsToAvoid": [
+      "aparência de brinquedo industrial",
+      "cores neon ou saturação excessiva",
+      "rostos de crianças ou bebês em destaque",
+      "texto incorporado na imagem",
+      "clutter visual",
+      "proporções deformadas"
+    ],
+    "channelRecommendations": [
+      {
+        "assetId": "AC-30-01B",
+        "channel": "Blog",
+        "recommendation": "Hero horizontal do artigo, com presença editorial e sensação de segurança premium.",
+        "format": "16:9",
+        "prompt": "Horizontal hero image of a handcrafted premium amigurumi resting on a calm nursery shelf with linen, light wood and soft ceramic props, warm natural window light, clean negative space, tactile yarn texture clearly visible, luxury-safe editorial mood, realistic photography, no text, no people, no watermark."
+      },
+      {
+        "assetId": "AC-30-19",
+        "channel": "Instagram Post",
+        "recommendation": "Close-up vertical shot enfatizando textura, toque e leitura de conforto.",
+        "format": "4:5",
+        "prompt": "Vertical 4:5 editorial photo of a premium handcrafted amigurumi on a neutral linen surface with a subtle hand scale reference, visible stitch texture, soft cream and sage palette, gentle daylight, shallow depth of field, refined artisanal mood, plenty of clean space for overlay text, no text baked into the image, no watermark."
+      },
+      {
+        "assetId": "AC-30-20",
+        "channel": "Instagram Stories",
+        "recommendation": "Sequência de 5 frames verticais com progressão de conforto, pronta para receber copy e stickers.",
+        "format": "9:16 / 5 frames",
+        "prompt": "Create a cohesive 5-frame Instagram Stories image sequence in vertical 9:16 format for a premium amigurumi ergonomics story set. Frame 1: hero product on a calm neutral background with generous top space. Frame 2: macro stitch texture close-up. Frame 3: side angle showing shape and proportion. Frame 4: comfort-focused composition with soft fabric and warm light. Frame 5: CTA-friendly minimalist scene with strong negative space for link sticker and text overlay. Keep the same warm editorial palette, soft natural light, tactile yarn detail, and no baked-in text."
+      },
+      {
+        "assetId": "AC-30-34",
+        "channel": "Facebook Post",
+        "recommendation": "Plano mais amplo e contextual, com respiro para leitura em feed.",
+        "format": "1200x630",
+        "prompt": "Wide social post image 1200x630 showing a premium handcrafted amigurumi in a cozy, polished setting with light wood, neutral textiles and gentle daylight, elegant editorial composition, clean background with room for headline overlay, realistic product photography, tactile yarn detail, no text baked into the image, no watermark."
+      }
+    ]
+  }
+}

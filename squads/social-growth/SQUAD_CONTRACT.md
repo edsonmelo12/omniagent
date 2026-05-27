@@ -29,6 +29,8 @@
 - Simple brand lockup (small, corner-positioned).
 
 ## 3. Operational Rules
+- **Contract Order:** Always load and follow `SQUAD_CONTRACT.md` first. If an agent memory, example, or draft conflicts with this contract, the squad contract wins.
+- **Language of Execution:** All progress updates, handoffs, decision notes, and user-facing explanations from the squad must be written in pt-BR. Use English only for technical identifiers, file names, and code.
 - **No Inventions:** Do not add emojis, "fofura" or tech tutorials.
 - **Source Truth:** Only use content from the approved `.md` copy files.
 - **Skill Locking:**

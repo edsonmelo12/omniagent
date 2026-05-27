@@ -46,10 +46,19 @@
 - [Research Record](research-record.md)
 - [Domain Framework](domain-framework.md)
 - [Campaign State Machine](campaign-state-machine.md)
+- [Campaign Planning Gate](campaign-planning-gate.md)
+- [Campaign Planning Pack](campaign-planning-pack.md)
+- [Campaign Review Pack](campaign-review-pack.md)
 - [Stage Contracts](stage-contracts.md)
 - [Campaign Backend Map](campaign-backend-map.md)
 - [Social Sales Proposal Module](social-sales-proposal-module.md)
 - [Weekly Cycle Template](weekly-cycle-template.md)
+- [Campaign Transition Workflow](campaign-transition-workflow.md)
+- [Next Cycle Briefing](../../output/amiclube/strategy/next-cycle-briefing.md) review copy only
+- [YouTube Intelligence Brief Quickstart](youtube-intelligence-brief-quickstart.md)
+- [YouTube Intelligence Consolidated Brief Template](youtube-intelligence-consolidated-brief-template.md)
+- [YouTube Intelligence Client Adaptation Template](youtube-intelligence-client-adaptation-template.md)
+- [Video Intelligence Decision Protocol](video-intelligence-decision-protocol.md)
 - [Account Launch Kit](account-launch-kit.md)
 - [Content Plan](../../output/strategy/content-plan.md) review copy only
 - [Market Intel](../../output/research/market-intel.md) review copy only
@@ -62,6 +71,7 @@
 - [Output Examples](output-examples.md)
 - [Creative Playbook](../../output/creative/operational-playbook.md) review copy only
 - [Creative Validation Checklist](../../output/creative/validation-checklist.md) review copy only
+- [Social Generation Contract](generation-contract.md)
 - [Daily Validation Template](../../output/creative/daily-validation-template.md) review copy only
 - [Pipeline Compliance Audit Step](../steps/step-04b-pipeline-compliance-audit.md)
 - [GEO & AI Discoverability Audit](../../_opensquad/core/best-practices/geo-ai-discoverability.md)
@@ -76,6 +86,9 @@
 - [Anti-Patterns](anti-patterns.md)
 - [Current Content Production Package](../../output/content/content-production-package.md) review copy only
 - [Content Review](../../output/review/content-review.md) review copy only
+- [NLM Visual Prototype](nlm-visual-prototype.md)
+- [NLM Visual Prototype Prompts](nlm-visual-prototype-prompts.md)
+- [NLM Visual Prototype Step](../steps/step-03a2-nlm-visual-prototype.md)
 
 ## Publishing
 
@@ -124,6 +137,7 @@ Read the files in this order when working a new client:
 15. Blog Post
 16. Content Repurpose
 17. Content Production Package
-18. Content Review
-19. Schedule Plan
-20. Monitoring files
+18. Optional NLM Visual Prototype, only when Atlas decides it reduces visual uncertainty
+19. Content Review
+20. Schedule Plan
+21. Monitoring files

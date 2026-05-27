@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review · AC-30-21 · v3</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+    :root {
+      --bg-primary: #f8f6f2;
+      --bg-card: #ffffff;
+      --bg-dark: #1A1918;
+      --text-primary: #2B211B;
+      --text-muted: #8C6A5E;
+      --accent: #C45C1F;
+      --accent-soft: rgba(201, 92, 31, 0.12);
+      --border: #E8E3DC;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .review-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .asset-id {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .version-badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 20px;
+    }
+
+    .status-badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .status-badge.approved {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-badge.blocked {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      transition: all 0.2s;
+    }
+
+    .btn-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Main content */
+    .review-main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Gallery */
+    .gallery-panel {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      background: var(--bg-primary);
+    }
+
+    .gallery-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-item .slide-number {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .gallery-empty {
+      grid-column: 1 / -1;
+      padding: 32px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Info panel */
+    .info-panel {
+      width: 400px;
+      min-width: 400px;
+      background: var(--bg-card);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .info-section {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    /* Caption */
+    .caption-content {
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: var(--text-primary);
+    }
+
+    .caption-content .hashtags {
+      color: var(--accent);
+      margin-top: 12px;
+    }
+
+    /* Metadata */
+    .metadata-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metadata-item {
+      font-size: 13px;
+    }
+
+    .metadata-label {
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .metadata-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    .review-footer {
+      padding: 16px 32px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .footer-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    @media (max-width: 1024px) {
+      .review-main {
+        flex-direction: column;
+      }
+      .info-panel {
+        width: 100%;
+        min-width: 100%;
+        max-height: 300px;
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="review-container">
+    <header class="review-header">
+      <div class="header-left">
+        <span class="asset-id">AC-30-21</span>
+        <span class="version-badge">vv3</span>
+        <span class="status-badge approved">APPROVED</span>
+      </div>
+      <div class="header-right">
+        
+        <a href="../social/previews/ac-30-21-v3.html" class="btn-link" target="_blank">Ver HTML</a>
+      </div>
+    </header>
+
+    <main class="review-main">
+      <div class="gallery-panel">
+        <div class="gallery-title">Imagens Exportadas (7 slides)</div>
+        <div class="gallery-grid">
+                    <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-01.png" alt="Slide 01" />
+            <span class="slide-number">01</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-02.png" alt="Slide 02" />
+            <span class="slide-number">02</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-03.png" alt="Slide 03" />
+            <span class="slide-number">03</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-04.png" alt="Slide 04" />
+            <span class="slide-number">04</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-05.png" alt="Slide 05" />
+            <span class="slide-number">05</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-06.png" alt="Slide 06" />
+            <span class="slide-number">06</span>
+          </div>
+          <div class="gallery-item">
+            <img src="../social/publish/ac-30-21/ac-30-21-07.png" alt="Slide 07" />
+            <span class="slide-number">07</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel">
+        <div class="info-section">
+          <div class="section-title">Caption / Legenda</div>
+          <div class="caption-content">
+Barato x Caro: você já fez essa conta?
+
+Muitas vezes a gente olha o preço, acha caro e vai no mais barato.
+
+Mas o que quase ninguém conta é que o custo real aparece depois:
+→ troca em 3 meses;
+→ frete de devolução;
+→ presente que não dura;
+→ decoração que incomoda na primeira lavagem.
+
+O barato que parecia economia vira gasto duplo em pouco tempo.
+
+Já o valor de verdade se mede por:
+✓ atendimento claro;
+✓ proposta que combina com o uso;
+✓ entrega que reduz risco de arrependimento.
+
+Antes da próxima compra, faça essa pergunta:
+&quot;Esta escolha vai me custar mais tempo ou mais dinheiro daqui a 6 meses?&quot;
+
+Se a resposta for sim, repense.
+
+Quer um cálculo real para sua próxima compra?
+Me envia um Direct com a palavra **CALCULE**
+Te mando o guia rápido de custo-benefício.
+            <div class="hashtags">#PrecoEValor #Amigurumi #CompraInteligente #CustoBeneficio #AmigurumiArtesanal #EconomiaReal #PresenteConsciente #DecoracaoAfetiva #DecoraçãoInfantil #AmigurumiPremium #FeitoAMao #DicaDeCompra #AntiGasto #DecisaoDeCompra</div>
+          </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <div class="section-title">Metadata</div>
+          <div class="metadata-grid">
+            <div class="metadata-item">
+              <span class="metadata-label">Formato</span>
+              <span class="metadata-value">carrossel</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Dimensões</span>
+              <span class="metadata-value">1080x1350</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Slides</span>
+              <span class="metadata-value">7</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Canal</span>
+              <span class="metadata-value">Instagram</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="review-footer">
+      <div class="footer-meta">
+        Gerado em 11/05/2026, 10:48:13
+      </div>
+      <div class="footer-links">
+        <a href="../social/previews/ac-30-21-v3.html" class="btn-link" target="_blank">Abrir no Hub</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

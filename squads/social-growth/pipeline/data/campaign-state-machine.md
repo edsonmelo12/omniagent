@@ -39,105 +39,119 @@ The squad validates the market and the social evidence.
 Exit condition:
 - market context, presence digital signals and audience hypotheses are enough to support strategy
 
-### 5. `strategy`
+### 5. `campaign_planning`
+
+The squad reads previous campaigns, engagement, market signals and trends before locking a new campaign thesis.
+
+Exit condition:
+- the next campaign thesis, objections, proof gaps and channel roles are explicit
+
+### 6. `strategy`
 
 The squad converts evidence into priorities, angle and cadence.
 
 Exit condition:
 - the strategy can be turned into content without guessing
 
-### 6. `proposal`
+### 7. `proposal`
 
 The squad optionally creates the commercial proposal or presentation deck when the checkpoint is confirmed.
 
 Exit condition:
 - the commercial report is ready and the client-facing order is presentation first, text second
 
-### 7. `content_plan`
+### 8. `content_plan`
 
 The squad defines what will be published.
 
 Exit condition:
 - content themes, formats and cadence are set
 
-### 8. `blog_draft`
+### 9. `blog_draft`
 
 The squad produces the long-form draft when the cycle includes blog content.
 
 Exit condition:
 - the blog draft is ready for discovery optimization
 
-### 9. `discovery_optimization`
+### 10. `discovery_optimization`
 
 The squad finalizes the blog for SEO, GEO and LLM discoverability.
 
 Exit condition:
 - the blog is optimized and has the required author, source and schema blocks
 
-### 10. `content_repurpose`
+### 11. `content_repurpose`
 
 The squad translates the blog into native social assets when multichannel output is needed.
 
 Exit condition:
 - the repurpose package is ready for content packaging or direct execution
 
-### 11. `content_production_package`
+### 12. `content_production_package`
 
 The squad produces the final content production package for the selected channel mix.
 
 Exit condition:
 - the package is ready for review
 
-### 12. `visual_direction`
+### 13. `visual_direction`
 
 The squad turns the approved content into a production-ready visual brief.
 
 Exit condition:
 - the visual system, layout guidance and production notes are stable
 
-### 13. `render`
+### 14. `render`
 
 The squad renders the approved brief into final assets and a manifest.
 
 Exit condition:
 - the asset paths, formats and variants are recorded
 
-### 14. `review`
+### 15. `review`
 
 The squad reviews the content production package, visual direction and rendered assets.
 
 Exit condition:
 - the review is approved or returns precise fixes
 
-### 15. `schedule`
+### 16. `schedule`
 
 The squad orders the content for delivery.
 
 Exit condition:
 - the publishing sequence is realistic and approved for execution
 
-### 16. `approval`
+### 17. `approval`
 
 The squad waits for explicit user or operator confirmation.
 
 Exit condition:
 - schedule is approved or rejected with notes
 
-### 17. `publish`
+### 18. `publish`
 
 The squad executes the agenda.
 
 Exit condition:
 - the planned items were published or their execution state is known
 
-### 18. `monitoring`
+### 19. `monitoring`
 
 The squad reads the effect of the cycle.
 
 Exit condition:
 - the performance summary exists and the next actions are clear
 
-### 19. `adjustment`
+### 20. `campaign_review`
+
+The squad closes the campaign with a formal review pack that captures outcomes, learnings and the next-cycle seed.
+
+Exit condition:
+- the campaign review pack is complete and recorded
+
+### 21. `adjustment`
 
 The squad turns monitoring into the next cycle of improvements.
 
@@ -148,11 +162,11 @@ Exit condition:
 
 The default path is:
 
-`intake -> client_record -> research -> strategy -> content_plan -> blog_draft -> discovery_optimization -> content_repurpose -> content_production_package -> visual_direction -> render -> review -> schedule -> approval -> publish -> monitoring -> adjustment`
+`intake -> client_record -> research -> campaign_planning -> strategy -> content_plan -> blog_draft -> discovery_optimization -> content_repurpose -> content_production_package -> visual_direction -> render -> review -> schedule -> approval -> publish -> monitoring -> campaign_review -> adjustment`
 
 If the proposal checkpoint is confirmed, insert the optional proposal branch after strategy and before content plan:
 
-`intake -> client_record -> research -> strategy -> proposal -> content_plan -> blog_draft -> discovery_optimization -> content_repurpose -> content_production_package -> visual_direction -> render -> review -> schedule -> approval -> publish -> monitoring -> adjustment`
+`intake -> client_record -> research -> campaign_planning -> strategy -> proposal -> content_plan -> blog_draft -> discovery_optimization -> content_repurpose -> content_production_package -> visual_direction -> render -> review -> schedule -> approval -> publish -> monitoring -> campaign_review -> adjustment`
 
 ## Backward Moves
 
@@ -162,6 +176,7 @@ Some changes should reopen previous states:
 - `client_record` identity or diagnosis change -> reopen `research`, `strategy`, `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
 - `client_record` narrative or offer change -> reopen `strategy`, `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
 - `research` changed -> reopen `strategy`, `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
+- `campaign_planning` changed -> reopen `strategy`, `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
 - `strategy` changed -> reopen `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
 - `proposal` changed -> reopen `content_plan`, `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
 - `content_plan` changed -> reopen `blog_draft`, `discovery_optimization`, `content_repurpose`, `content_production_package`, `schedule`
@@ -173,6 +188,7 @@ Some changes should reopen previous states:
 - `render` changed -> reopen `review`, `schedule`
 - `schedule` changed -> reopen `approval`
 - `publish` outcome changes -> reopen `monitoring`
+- `campaign_review` changes -> reopen `monitoring`
 
 ## Blockers
 
@@ -180,6 +196,8 @@ The system should not advance if:
 
 - the base client record is incoherent
 - the required evidence is missing
+- campaign planning has not been completed with previous campaigns, engagement and market signals
+- the campaign planning pack has not been completed
 - the current schedule has not been approved
 - the content production package is not aligned with the strategy
 - the blog draft is not optimized when long-form content is in scope
@@ -187,6 +205,7 @@ The system should not advance if:
 - the visual direction is not executable
 - the rendered assets do not exist or do not match the approved brief
 - the monitoring summary has not been produced
+- the campaign review pack has not been completed when the campaign is closing
 
 ## Decision Rule
 

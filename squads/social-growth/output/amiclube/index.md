@@ -47,7 +47,7 @@
 - **Formato:** Instagram Carousel + Reels
 - **Preview geral de checkpoint:** `review/preview-semana-1-p1-abril-maio-2026.html`
 - **Pacote de Criação (Fase 03):** `squads/social-growth/output/amiclube/content/content-production-package.md`
-- **Direção Visual (Fase 03B):** `squads/social-growth/output/amiclube/creative/visual-direction.md`
+- **Direção Visual (Fase 03B):** `squads/social-growth/output/amiclube/creative/visual-direction.json`
 - **Render Final (Fase 03C):** `squads/social-growth/output/amiclube/creative/rendered-assets.md` (`reexecutado em modo skill-driven`)
 - **Checkpoint Render:** `squads/social-growth/output/amiclube/review/preview-fase-03c-render-amiclube.html` (`válido para aprovação`)
 - **Auditoria de Conformidade:** `squads/social-growth/output/amiclube/review/render-compliance-audit-2026-04-21.md`
@@ -84,8 +84,17 @@
 - **Plano Estratégico (Eldon):** `squads/social-growth/output/amiclube/strategy/content-plan.md`
 - **Radar Estratégico (canônico):** `squads/social-growth/output/amiclube/strategy/trend-opportunity-radar.md`
 - **Feedback Loop Estratégico (canônico):** `squads/social-growth/output/amiclube/strategy/strategy-feedback-loop.md`
+- **Gate de Planejamento de Campanha:** `squads/social-growth/pipeline/data/campaign-planning-gate.md`
+- **Campaign Planning Pack:** `squads/social-growth/pipeline/data/campaign-planning-pack.md`
+- **Campaign Review Pack:** `squads/social-growth/pipeline/data/campaign-review-pack.md`
+- **Workflow Canônico de Transição:** `squads/social-growth/pipeline/data/campaign-transition-workflow.md`
+- **Camada de Leitura Superior:** `squads/social-growth/output/amiclube/strategy/intelligence-layer-review.md`
+- **Checklist de Transição de Ciclo:** `squads/social-growth/output/amiclube/strategy/next-cycle-analysis-checklist.md`
+- **Briefing do Próximo Ciclo:** `squads/social-growth/output/amiclube/strategy/next-cycle-briefing.md`
+- **Pacote de Handoffs YouTube:** `squads/social-growth/output/2026-05-22/youtube-intelligence/rafael-kiso-agent-handoff-pack.md`
+- **Índice de Handoffs YouTube:** `squads/social-growth/output/2026-05-22/youtube-intelligence/rafael-kiso-agent-handoff-index.md`
 - **Saída da Clara (Fase 03):** `squads/social-growth/output/amiclube/content/content-production-package.md`
-- **Saída do Visual Director (Fase 03B):** `squads/social-growth/output/amiclube/creative/visual-direction.md`
+- **Saída do Visual Director (Fase 03B):** `squads/social-growth/output/amiclube/creative/visual-direction.json`
 - **Saída do Creative Renderer (Fase 03C):** `squads/social-growth/output/amiclube/creative/rendered-assets.md`
 - **Saída do Reviewer (Fase 04):** `squads/social-growth/output/amiclube/review/content-review.md`
 

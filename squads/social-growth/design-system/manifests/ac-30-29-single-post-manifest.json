@@ -1,0 +1,45 @@
+{
+  "asset_id": "AC-30-29",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "style": "premium-editorial",
+  "format": "social-single-post",
+  "title": "AC-30-29 · Instagram Post",
+  "headline": "Mesa, estante ou fundo de câmera?",
+  "eyebrow": "DECORAÇÃO ARTESANAL",
+  "body": "Escolha o ponto que mais combina com o seu home office e com a sua rotina.",
+  "cta": "Salve para comparar",
+  "footerNote": "@amiclube",
+  "background": {
+    "type": "image",
+    "src": "squads/social-growth/output/amiclube/blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-reels/instagram reels-investimento-em-decoracao-artesanal-v1.webp",
+    "overlay": "rgba(17, 16, 24, 0.62)",
+    "filter": "saturate(0.92) contrast(1.02)",
+    "position": "center"
+  },
+  "listHtml": "",
+  "design_tokens": {
+    "accent_color": "#C45C1F",
+    "title_color": "#F6F1EA",
+    "body_color": "rgba(255,255,255,0.88)",
+    "muted_color": "rgba(255,255,255,0.68)"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DECORAÇÃO ARTESANAL",
+      "title": "Mesa, estante ou fundo de câmera?",
+      "body": "Escolha o ponto que mais combina com o seu home office e com a sua rotina.",
+      "cta": "Salve para comparar",
+      "background": {
+        "type": "image",
+        "src": "squads/social-growth/output/amiclube/blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-reels/instagram reels-investimento-em-decoracao-artesanal-v1.webp",
+        "overlay": "rgba(17, 16, 24, 0.62)",
+        "filter": "saturate(0.92) contrast(1.02)",
+        "position": "center"
+      },
+      "textVariant": "dark"
+    }
+  ]
+}

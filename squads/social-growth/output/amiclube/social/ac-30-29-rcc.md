@@ -1,84 +1,87 @@
 # Render Compliance Card — AC-30-29
 
-## Render Summary
+## Asset Identification
 
-- Asset: AC-30-29
-- Client: AmiClube
-- Format: Instagram Stories sequence, 3 frames
-- Canvas: 1080x1920 px per frame
-- Skill: `stories-sequence` applied from VDC specification
-- Visual style: Minimalist Texture + Organic Image-led
-- Source VDC: `squads/social-growth/output/amiclube/social/ac-30-29-vdc.md`
-- Source image: `squads/social-growth/output/amiclube/blog/assets/AC-30-13B-home-office-hero.jpg`
+| Campo | Valor |
+|-------|-------|
+| Asset ID | AC-30-29 |
+| Cliente | AmiClube |
+| Canal | Instagram feed |
+| Formato | 1080x1350 px |
+| Frames | 1 |
+| Blog Parent | AC-30-13B |
 
-## Files
+## Visual Production Gate Validation
 
-- Preview aggregate: `squads/social-growth/output/amiclube/social/previews/ac-30-29.html`
-- Individual export redirects: `ac-30-29-s1.html`, `ac-30-29-s2.html`, `ac-30-29-s3.html`
-- PNG frame 1: `squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-01.png`
-- PNG frame 2: `squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-02.png`
-- PNG frame 3: `squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-03.png`
+| Gate | Status | Evidência |
+|------|--------|-----------|
+| Canvas dimensions | ✅ PASS | 1080x1350 px |
+| Skill applied | ✅ PASS | social-single-post |
+| Style | ✅ PASS | premium-editorial |
+| Background Image Scope | ✅ PASS | Hero da campanha em full-bleed |
+| First Impression Diversity | ✅ PASS | Capa nova para o feed, sem reutilizar composição de stories |
+| Contrast Strategy | ✅ PASS | Overlay escuro controlado aplicado |
+| Text Legibility | ✅ PASS | Legível em canvas único |
+| Anti-Pattern Compliance | ✅ PASS | Sem setas, sem mock, sem URL inventada |
 
-## Copy Sync
+## Export Paths
 
-- Frame 1: “Qual estilo combina mais?” + “Mesa” + “Estante”
-- Frame 2: “O artigo mostra onde cada opção funciona melhor: mesa, estante ou fundo de câmera.”
-- Frame 3: “Vote!” + “Mande a opção no Direct”
-- pt-BR diacritics checked in HTML source before export.
+| Entrega | Caminho |
+|---------|---------|
+| Preview HTML | `squads/social-growth/output/amiclube/social/previews/ac-30-29-premium-editorial-single-post.html` |
+| PNG Final | `squads/social-growth/output/amiclube/social/publish/ac-30-29-post/ac-30-29-post.png` |
 
-## Export Method
+## Caption Sourced From
 
-- Tool: Playwright + `/usr/bin/google-chrome`, headless.
-- Method: opened `ac-30-29.html?export=1&frame=N`, viewport `1080x1920`, screenshot of `.viewport` only.
-- Final PNGs exclude preview controls, browser chrome, social mock UI, footer, metadata blocks and compliance text.
-- Reviewer correction: progress bars removed from final PNGs via export-only CSS hiding `.progress`.
-- Preview mode constrained for campaign hub; export mode unchanged.
+| Campo | Valor |
+|-------|-------|
+| Caption Source | social-final-captions.json |
+| Asset Caption ID | AC-30-29 |
+| Link Target | `https://amiclube.com.br/?p=13046` |
+| Link Strategy | link_na_bio |
 
-## Validation Evidence
+## Typography Validation
 
-### Dimensions and File Size
+| Elemento | Tamanho | Peso | Status |
+|----------|---------|------|--------|
+| Headline | 58px | 800 | ✅ PASS |
+| Body | 18px | 500-700 | ✅ PASS |
+| CTA | 13px | 800 | ✅ PASS |
 
-`identify -format '%f %wx%h %b\n' ...`
+## Copy Validation
 
-```text
-ac-30-29-01.png 1080x1920 1.60744MB
-ac-30-29-02.png 1080x1920 1.57062MB
-ac-30-29-03.png 1080x1920 1.45556MB
-```
+| Campo | Copy | Status |
+|-------|------|--------|
+| Headline | "Mesa, estante ou fundo de câmera?" | ✅ pt-BR com acentuação |
+| Body | "Escolha o ponto que mais combina com o seu home office e com a sua rotina." | ✅ pt-BR com acentuação |
+| CTA | "Salve para comparar" | ✅ pt-BR com acentuação |
 
-`stat -c '%n %s bytes' ...`
+## Pipeline Steps Completed
 
-```text
-squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-01.png 1607439 bytes
-squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-02.png 1570625 bytes
-squads/social-growth/output/amiclube/social/publish/ac-30-29/ac-30-29-03.png 1455559 bytes
-```
+1. ✅ Manifesto do post único criado
+2. ✅ Preview HTML gerado
+3. ✅ PNG final exportado
+4. ✅ RCC atualizado
 
-All PNGs are exactly `1080x1920` and above the 50KB content threshold.
+## Validation Checklist
 
-### Preview Navigation
+- [x] 1 frame final, 1080x1350 px
+- [x] Preview HTML com layout compatível com o canvas
+- [x] Imagem-base correta (campanha AC-30-13B)
+- [x] Fonte mínima respeitada
+- [x] Copy em pt-BR com acentuação correta
 
-Playwright navigation check result:
+## Skill Invocation Ledger
 
-```json
-{"frames":3,"before":"1 / 3","afterNext":"2 / 3","afterPrev":"1 / 3"}
-```
+| Skill | Evocado | Evidência |
+|-------|---------|-----------|
+| social-single-post | ✅ | Template `social-single-post.hbs` |
+| premium-editorial | ✅ | Preset `design-system/styles/premium-editorial.css` |
+| social-visual-system | ✅ | Tokens e composição do design system |
 
-The aggregate preview has exactly 3 frames, one visible at a time, with external previous/next controls and progress dots outside the artwork.
+## Metadata
 
-## Compliance Checks
-
-- Uses hero image as full-bleed atmospheric background with warm overlay and varied crop per frame.
-- Main content is vertically centered inside Stories safe areas.
-- Minimum in-art text size is above 42 px in final canvas CSS.
-- No arrows inside the artwork.
-- No progress bars in the exported final PNGs.
-- No Instagram/social network mock UI.
-- No vertically stacked slides in final preview.
-- No invented URL or public link in the render.
-- Warm, human, artisanal and useful AmiClube DNA preserved.
-- Campaign hub updated to `social/previews/ac-30-29.html`.
-
-## Notes
-
-- No local standalone `stories-sequence` skill file was found in the workspace; execution followed the VDC's complete `stories-sequence` production contract.
+- **RCC Version:** 2.0.0
+- **Created:** 2026-05-16
+- **Created by:** Creative Renderer
+- **Next:** Reviewer → Pipeline Auditor → Campaign Hub update

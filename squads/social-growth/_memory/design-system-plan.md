@@ -315,7 +315,7 @@ pipeline/data/design-system-manifest.md   — Schema do JSON manifest
 | Fase | Descrição | Status | Data |
 |------|-----------|--------|------|
 | Fase 1 | Fundação (tokens + 1 template + engine + 1 preset) | ✅ Completa | 2026-05-10 |
-| Fase 2 | Estilos e Formatos (7 presets, 8 templates, engine multi-formato) | ✅ Completa | 2026-05-10 |
+| Fase 2 | Estilos e Formatos (8 presets, 8 templates, engine multi-formato) | ✅ Completa | 2026-05-10 |
 | Fase 3 | Integração ao Pipeline (Step 03B/03C + agentes) | ✅ Completa | 2026-05-10 |
 
 ## 7. Plano de Migração — 3 Fases
@@ -428,7 +428,7 @@ Higienização executada:
 ### Fase 2: Estilos e Formatos — ✅ Completa
 
 **Entregas:**
-- 7 presets: dark-premium, editorial-magazine, editorial-myth, high-energy-cyber, minimalist-texture, authentic-rough, motion-social
+- 8 presets: dark-premium, editorial-magazine, editorial-myth, high-energy-cyber, minimalist-texture, authentic-rough, motion-social, paper-bulletin
 - 8 templates: instagram-carousel, reels-sequence, stories-sequence, linkedin-carousel, facebook-post, pinterest-pin, social-single-post, post-preview
 - Engine multi-formato com validação por schema
 - 5 manifests de exemplo + 2 manifests de piloto

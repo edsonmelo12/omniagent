@@ -1,0 +1,102 @@
+{
+  "asset_id": "AC-30-17",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "instagram-carousel",
+  "title": "Qualidade Antes do Preço — Checklist",
+  "deck_label": "checklist",
+  "topic": "Qualidade Antes do Preço",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Educacional",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "CHECKLIST",
+      "title": "QUALIDADE ANTES DO PREÇO",
+      "body": "5 Sinais de que você encontrou um Amigurumi Premium.",
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../social/assets/post-ac-30-17.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 1 DE 5",
+      "title": "Densidade Constante",
+      "body": "Aperte suavemente. Um premium não deforma e não deixa o enchimento aparecer entre os pontos.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 2 DE 5",
+      "title": "Fio Mercerizado",
+      "body": "Peças de alto padrão usam fibras que brilham sutilmente e não criam bolinhas com o tempo.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 3 DE 5",
+      "title": "Junções Perfeitas",
+      "body": "Olhe para o pescoço e braços. Se você não consegue ver onde começa a costura, a técnica é superior.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 4 DE 5",
+      "title": "Trava Interna",
+      "body": "Em peças premium, os olhos não são colados; são travados por dentro. Segurança total para crianças.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 5 DE 5",
+      "title": "Base Estruturada",
+      "body": "A peça precisa parar em pé sozinha ou manter o equilíbrio natural. Isso indica domínio de proporção.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "SALVE ESTE CHECKLIST",
+      "body": "Use esses 5 critérios na sua próxima avaliação.",
+      "cta": "Quer saber mais? O link está na bio",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

@@ -17,10 +17,14 @@
 13. `geo-ai-discoverability.md` when the site, brand or offer needs AI discoverability or entity clarity
 14. `content-discovery-optimization.md` when the blog needs SEO, GEO and LLM optimization
 15. `content-repurposing.md` when the blog needs native social derivatives
+16. `campaign-transition-workflow.md` when starting the next cycle from campaign history
+17. `campaign-planning-gate.md` before locking any new campaign thesis
+18. `campaign-planning-pack.md` for the formal pre-campaign dossier
+19. `campaign-review-pack.md` for the formal post-campaign dossier
 
 ## Featured Image Rule
 
-If a blog is in scope, the featured image must be selected by thesis, topic fit and one-glance clarity, with the selection rationale explicit in architecture, draft and review.
+If a blog is in scope, the featured image direction must be defined by thesis, topic fit and one-glance clarity. The image research itself may be deferred, but the decision must be explicit and stored as `now` or `later`.
 
 ## Then Check
 
@@ -29,6 +33,15 @@ If a blog is in scope, the featured image must be selected by thesis, topic fit 
 3. `output/strategy/content-plan.md`
 4. `social-intelligence-summary-template.md`
 5. `contextual-market-intelligence.md`
+
+## Image Research Selector
+
+Before starting a new campaign, ask:
+
+`Deseja fazer a pesquisa das imagens agora?`
+
+- `Sim` -> continue with image sourcing and export planning.
+- `Não` -> continue with textual planning and mark image research as deferred.
 
 ## Use This Order
 

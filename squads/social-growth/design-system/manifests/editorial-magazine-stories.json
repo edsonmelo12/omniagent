@@ -1,0 +1,64 @@
+{
+  "asset_id": "example-editorial-magazine-stories",
+  "client": "Template",
+  "brand": "MARCA",
+  "style": "editorial-magazine",
+  "format": "stories-sequence",
+  "title": "Template — Editorial Magazine Stories",
+  "deck_label": "stories",
+  "topic": "Tema dos Stories",
+  "footer": "@marca",
+  "design_tokens": {},
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "ENQUETE",
+      "title": "Pergunta para engajar",
+      "body": "Contexto rápido para a pergunta",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "DICA 1",
+      "title": "Primeira dica rápida",
+      "body": "Uma ideia por frame. Stories são rápidos.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "DICA 2",
+      "title": "Segunda dica",
+      "body": "Mantenha o ritmo acelerado.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "MARCA",
+      "title": "Responda nos comentários",
+      "body": "Sua opinião importa",
+      "textVariant": "light",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

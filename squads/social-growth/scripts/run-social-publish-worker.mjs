@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 
 const args = process.argv.slice(2);
 const getArg = (name) => {
@@ -30,6 +31,8 @@ const publishingDir = path.join(squadRoot, "output", client, "publishing");
 const queuePath = path.join(publishingDir, "social-publish-queue.json");
 const logPath = path.join(publishingDir, "social-publish-worker-log.md");
 const envFile = path.join(squadRoot, `.env.publish.${client}`);
+const dashboardUpdateScript = path.join(squadRoot, "scripts", "update-dashboard-data.mjs");
+const imageRevisionsPath = path.join(squadRoot, "output", "dashboard", "image-revisions.js");
 
 if (!fs.existsSync(queuePath)) {
   console.error(`Queue file not found: ${path.relative(root, queuePath)}`);
@@ -58,7 +61,46 @@ function getArticleUrl(assetId, assetsData) {
   return match?.articleUrl || null;
 }
 
+function loadImageRevisions() {
+  if (!fs.existsSync(imageRevisionsPath)) return {};
+  const source = fs.readFileSync(imageRevisionsPath, "utf8");
+  const match = source.match(/window\.__DASHBOARD_IMAGE_REVISIONS__\s*=\s*(\{[\s\S]*\})\s*;?\s*$/);
+  if (!match) return {};
+  try {
+    return JSON.parse(match[1]);
+  } catch {
+    return {};
+  }
+}
+
+function hashFile(filePath) {
+  const data = fs.readFileSync(filePath);
+  return createHash("sha256").update(data).digest("hex");
+}
+
+function validateRevisedFiles(row, revisions) {
+  const files = resolveRowFiles(row);
+  for (const filePath of files) {
+    const absoluteKey = path.resolve(filePath);
+    const relativeKey = path.relative(root, filePath).split(path.sep).join(path.posix.sep);
+    const revision = revisions[absoluteKey] || revisions[relativeKey];
+    if (!revision) continue;
+
+    if (!fs.existsSync(filePath)) {
+      return { ok: false, reason: `missing_revised_file:${relativeKey}` };
+    }
+
+    const currentHash = hashFile(filePath);
+    if (String(revision.sha256 || "") !== currentHash) {
+      return { ok: false, reason: `revised_file_hash_mismatch:${relativeKey}` };
+    }
+  }
+
+  return { ok: true };
+}
+
 const actions = [];
+const imageRevisions = loadImageRevisions();
 
 // Resolve env file for the client (resolve-client-secrets should have been called first)
 function loadEnv() {
@@ -83,7 +125,7 @@ function getChannelForAsset(assetId) {
   return "instagram"; // default
 }
 
-async function publishViaInstagramPublisher(images, caption) {
+async function publishViaInstagramPublisher(images, caption, productId = null) {
   const env = loadEnv();
   const token = env.INSTAGRAM_ACCESS_TOKEN || process.env.INSTAGRAM_ACCESS_TOKEN;
   const userId = env.INSTAGRAM_USER_ID || process.env.INSTAGRAM_USER_ID;
@@ -118,15 +160,18 @@ async function publishViaInstagramPublisher(images, caption) {
       images.join(","),
       "--caption",
       caption,
+      ...(productId ? ["--product-id", String(productId)] : []),
     ], { encoding: "utf8", maxBuffer: 10 * 1024 * 1024 });
     try { fs.unlinkSync(tmpEnv); } catch {}
     // Parse the output for post ID and URL
     const postIdMatch = stdout.match(/Post ID:\s*(\S+)/);
     const urlMatch = stdout.match(/URL:\s*(\S+)/);
+    const tagStatusMatch = stdout.match(/Product tag status:\s*(\S+)/);
     return {
       success: true,
       postId: postIdMatch ? postIdMatch[1] : null,
       url: urlMatch ? urlMatch[1] : null,
+      productTagStatus: tagStatusMatch ? tagStatusMatch[1] : (productId ? "unknown" : "not_tagged"),
       output: stdout,
     };
   } catch (execErr) {
@@ -202,9 +247,21 @@ function composeCaption(row) {
     .filter(Boolean)
     .map((tag) => (tag.startsWith("#") ? tag : `#${tag}`))
     .join(" ");
+  let linkTarget = String(row.link_target || "").trim();
+  const channel = getChannelForAsset(row.asset_id);
+
   if (!base) return "";
-  if (!hashtagText || base.includes(hashtagText)) return base;
-  return `${base}\n\n${hashtagText}`;
+
+  const parts = [base];
+  if (channel === "facebook" && linkTarget && !base.includes(linkTarget)) {
+    parts.push(linkTarget);
+  }
+
+  if (hashtagText && !base.includes(hashtagText)) {
+    parts.push(hashtagText);
+  }
+
+  return parts.join("\n\n");
 }
 
 /**
@@ -214,6 +271,7 @@ function composeCaption(row) {
 function sanitizeCaption(caption) {
   if (!caption) return "";
   return caption
+    .replace(/(?:\\n|\/n)/g, "\n")
     .replace(/\r\n/g, "\n")
     .replace(/\r/g, "\n")
     .normalize("NFC");
@@ -285,6 +343,10 @@ for (const row of dueRows) {
   const channel = getChannelForAsset(row.asset_id);
   const assetsData = loadAssetsManifest();
   const articleUrl = getArticleUrl(row.asset_id, assetsData);
+  if (!String(row.link_target || "").trim() && articleUrl) {
+    row.link_target = articleUrl;
+    linkTarget = articleUrl;
+  }
 
   if (linkTarget && mode === "live_api" && row.status !== "published" && !skipLinkValidation) {
     try {
@@ -401,20 +463,31 @@ for (const row of dueRows) {
       continue;
     }
 
+    const revisionCheck = validateRevisedFiles(row, imageRevisions);
+    if (!revisionCheck.ok) {
+      row.status = "blocked";
+      row.last_result = revisionCheck.reason;
+      actions.push({ asset_id: row.asset_id, action: "blocked", reason: row.last_result });
+      continue;
+    }
+
     const caption = sanitizeCaption(composeCaption(row));
-    const result = await publishViaInstagramPublisher(assetImages, caption);
+    const result = await publishViaInstagramPublisher(assetImages, caption, row.selected_product_id || row.recommended_product_id || null);
 
     if (result.success) {
       row.status = "published";
       row.last_result = "published_ok";
       row.published_post_id = result.postId;
       row.published_url = result.url;
+      row.product_tag_status = result.productTagStatus || (row.selected_product_id || row.recommended_product_id ? "unknown" : "not_tagged");
+      row.product_tag_product_id = row.selected_product_id || row.recommended_product_id || null;
       row.published_at = now.toISOString();
       actions.push({
         asset_id: row.asset_id,
         action: "published",
         postId: result.postId,
         url: result.url,
+        productTagStatus: row.product_tag_status,
       });
     } else {
       row.status = "failed";
@@ -432,6 +505,15 @@ for (const row of dueRows) {
       actions.push({ asset_id: row.asset_id, action: "blocked", reason: row.last_result });
       continue;
     }
+
+    const revisionCheck = validateRevisedFiles(row, imageRevisions);
+    if (!revisionCheck.ok) {
+      row.status = "blocked";
+      row.last_result = revisionCheck.reason;
+      actions.push({ asset_id: row.asset_id, action: "blocked", reason: row.last_result });
+      continue;
+    }
+
     const caption = sanitizeCaption(composeCaption(row));
     const result = await publishViaFacebookPage(imagePath, caption);
     if (result.success) {
@@ -439,6 +521,7 @@ for (const row of dueRows) {
       row.last_result = "published_ok";
       row.published_post_id = result.postId;
       row.published_url = result.url;
+      row.product_tag_status = "not_applicable";
       row.published_at = now.toISOString();
       actions.push({ asset_id: row.asset_id, action: "published", postId: result.postId, url: result.url });
     } else {
@@ -480,6 +563,7 @@ const log = [
           const parts = [`- ${a.asset_id}: ${a.action} (${a.reason})`];
           if (a.postId) parts.push(`  Post ID: ${a.postId}`);
           if (a.url) parts.push(`  URL: ${a.url}`);
+          if (a.productTagStatus) parts.push(`  Product tag status: ${a.productTagStatus}`);
           return parts.join("\n");
         })
       : ["- none"]
@@ -490,6 +574,14 @@ const log = [
 fs.mkdirSync(publishingDir, { recursive: true });
 fs.writeFileSync(logPath, log, "utf8");
 
+let dashboardUpdated = false;
+try {
+  execFileSync("node", [dashboardUpdateScript], { stdio: "inherit" });
+  dashboardUpdated = true;
+} catch (err) {
+  console.error(`Dashboard update failed: ${err.message}`);
+}
+
 console.log(
   JSON.stringify(
     {
@@ -499,6 +591,8 @@ console.log(
       dueRows: dueRows.length,
       actions: actions.length,
       published: actions.filter((a) => a.action === "published").length,
+      tagged: actions.filter((a) => a.productTagStatus === "tagged").length,
+      dashboardUpdated,
       queuePath: path.relative(root, queuePath),
       logPath: path.relative(root, logPath),
     },

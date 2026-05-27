@@ -15,6 +15,7 @@ Load these files before executing:
 - `squads/social-growth/output/review/content-review.md` — approved review with verdict
 - `squads/social-growth/output/creative/rendered-assets.md` — rendered asset manifest
 - `squads/social-growth/output/{client}/publishing/social-final-captions.json` — required final captions, CTAs, hashtags, link strategy and alt text
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist for publishable metadata and export parity
 - `_opensquad/_memory/company.md` — company context for client slug resolution
 - `squads/social-growth/pipeline/data/publishing-module-blueprint.md` — publishing architecture
 - `squads/social-growth/infra/postgres/migrations/018_publishing_profiles.sql` — profile schema reference
@@ -86,6 +87,8 @@ This executes in sequence:
     ```bash
     node squads/social-growth/scripts/build-social-publish-queue.mjs --client {slug}
     ```
+
+   Confirm the queue payload can satisfy `generation-contract.md`: asset identity, caption, link strategy, final canvas/export proof and alt text must already be present or derivable.
 
 8. **Regenerate the social monitor immediately after queue build**:
    ```bash

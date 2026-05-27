@@ -46,9 +46,9 @@ If post-GEO-fix score is still <60%, mark the draft as needing brief/architectur
 3. Improve headings, definitions, FAQ and source framing for SEO, GEO and LLM readability.
 4. Keep the tone human and the structure easy to scan.
 5. Preserve the original thesis, structure family, copy brief lock, chosen hook, brief alignment and examples unless they reduce clarity.
-6. Add a clear featured-image note so the final article can be rendered with a visual that supports the thesis.
+6. Add a clear featured-image note so the final article can be rendered with a visual that supports the thesis; source notes are only required when image research is active.
 7. Include image selection criteria that explain why the chosen asset is thesis-led and not generic.
-8. Include featured-image source search notes with free/public candidate types, license notes and rationale.
+8. Include featured-image source search notes with free/public candidate types, license notes and rationale only when image research is active.
 9. Resist flattening the article back into the default blog mold.
 10. Preserve the family-specific arc; you may improve headings, but you may not normalize every article into the same H2 order.
 11. Preserve the family ledger entry so the next post can be checked against nearby repetition.
@@ -218,5 +218,5 @@ Reject and redo if ANY are true:
 - [ ] The final article remains human-friendly.
 - [ ] The copy brief lock and chosen hook survived optimization.
 - [ ] The featured-image note is explicit and thesis-aligned.
-- [ ] The featured-image source search is explicit and free/public by default.
+- [ ] The featured-image source search is explicit and free/public by default when image research is active.
 - [ ] The canonical brief and family ledger were preserved.

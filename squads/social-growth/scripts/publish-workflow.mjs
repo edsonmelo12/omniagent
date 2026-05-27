@@ -95,11 +95,13 @@ if (dryRunData.dueRows > 0) {
   log("Etapa 5: Reconciliar Status");
   runScript(`node squads/social-growth/scripts/monitor-social-publish-queue.mjs --client ${client}`, "Regenerando monitor");
   runScript(`node squads/social-growth/scripts/reconcile-post-publish.mjs --client ${client}`, "Sincronizando plan + status");
+  runScript(`node squads/social-growth/scripts/update-dashboard-data.mjs`, "Atualizando dashboard");
   
   console.log("\n✅ PUBLICAÇÃO CONCLUÍDA");
   console.log("   Queue: atualizada");
   console.log("   Monitor: regenerado");
   console.log("   Plan + Status: reconciliados");
+  console.log("   Dashboard: atualizada");
 } else {
   console.log("\nℹ️ Nenhum post pendente para publicação");
 }

@@ -1,0 +1,70 @@
+{
+  "campaign": {
+    "title": "Guia de compra inteligente de amigurumi",
+    "objective": "Gerar tráfego para o blog",
+    "niche": "amigurumi, crochê",
+    "targetAudience": "mães, acima de 25 anos",
+    "channels": [
+      "Blog",
+      "Instagram Carousel",
+      "Instagram Reels",
+      "Facebook Post",
+      "LinkedIn"
+    ],
+    "style": "realista",
+    "description": ""
+  },
+  "briefing": {
+    "interpretation": "The strategy positions the amigurumi as a high-end artisanal product by emphasizing its tactile craftsmanship through professional studio photography. This approach builds consumer trust by highlighting the specific quality markers and uniform stitch patterns essential for a smart buying decision.",
+    "identifiedProduct": "A premium handmade crochet Charmander amigurumi featuring tangerine orange yarn, a pale cream belly, and a distinct yarn flame tail.",
+    "visualDirection": "The 'realista' style is applied through high-fidelity photographic techniques, using macro lenses to capture the authentic texture of the yarn and soft studio lighting to create depth and professional appeal.",
+    "suggestedElements": [
+      "High-quality cotton yarn balls",
+      "Handcrafted wooden crochet hooks",
+      "Minimalist measuring tape",
+      "Soft linen fabric backdrop"
+    ],
+    "elementsToAvoid": [
+      "realistic skin",
+      "scary eyes",
+      "distorted proportions",
+      "fur texture",
+      "cinematic fantasy filters",
+      "text",
+      "logos"
+    ],
+    "channelRecommendations": [
+      {
+        "channel": "Blog",
+        "recommendation": "Main header image with clear product placement",
+        "format": "16:9",
+        "assetPath": "blog/blog-guia-de-compra-inteligente-v2.png",
+        "prompt": "Stunning 16:9 horizontal header photography of The Charmander Amigurumi: Tangerine Orange handmade crochet toy with uniform knit texture, Pale Cream belly, and yarn flame tail, centered on a minimalist white wooden studio table with scattered balls of premium yarn, soft studio lighting, clean shadows, high resolution 8k, professional product shot."
+      },
+      {
+        "channel": "Instagram Carousel",
+        "recommendation": "Macro detail shot focusing on craftsmanship quality",
+        "format": "4:5",
+        "prompt": "Professional toy photography of the exact [Visual DNA: Charmander Amigurumi], placed in a minimalist studio scene, high quality yarn texture, soft studio lighting, macro lens capturing tight consistent stitches, 8k, pastel bokeh background."
+      },
+      {
+        "channel": "Instagram Reels",
+        "recommendation": "Centric framing for vertical product showcase",
+        "format": "9:16",
+        "prompt": "Dynamic vertical shot of the exact [Visual DNA: Charmander Amigurumi] sitting in a professional minimalist studio setup, vibrant tangerine colors, soft lighting, depth of field, 8k, high-end toy photography."
+      },
+      {
+        "channel": "Facebook Post",
+        "recommendation": "Clean lifestyle composition for social sharing",
+        "format": "1:1",
+        "prompt": "Square product shot of The Charmander Amigurumi: Tangerine Orange handmade crochet toy, positioned beside a soft linen cloth and a small wooden measuring tape to show scale, professional minimalist studio setup, soft lighting, 8k resolution, realistic environment."
+      },
+      {
+        "channel": "LinkedIn",
+        "recommendation": "Sophisticated wide shot highlighting artisanal value",
+        "format": "1.91:1",
+        "prompt": "Sophisticated landscape shot of The Charmander Amigurumi: Tangerine Orange handmade crochet toy, showcasing its artisanal craftsmanship in a bright professional studio environment, clean composition, soft bokeh background, high-resolution commercial photography."
+      }
+    ]
+  }
+}

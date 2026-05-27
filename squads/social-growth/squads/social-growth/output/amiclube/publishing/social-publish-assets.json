@@ -1,14 +1,22 @@
 {
   "version": "1.0.0",
   "client": "amiclube",
-  "generatedAt": "2026-04-30T21:39:11.298Z",
+  "generatedAt": "2026-05-17T00:28:57.837Z",
   "sourceManifestPath": "squads/social-growth/output/amiclube/review/campaign-manifest.json",
   "exportDir": "squads/social-growth/output/amiclube/social/publish",
-  "selectedAssets": 0,
-  "exportedAssets": 0,
-  "exports": [],
+  "selectedAssets": 1,
+  "exportedAssets": 1,
+  "exports": [
+    {
+      "asset_id": "AC-30-29",
+      "files": [
+        "squads/social-growth/output/amiclube/social/publish/ac-30-29-post/ac-30-29-post.png"
+      ],
+      "channel": "Instagram",
+      "objective": "Consideração",
+      "title": "Mesa, estante ou fundo de câmera?"
+    }
+  ],
   "failures": [],
-  "notes": [
-    "social-publish-assets-policy missing; using default statuses"
-  ]
+  "notes": []
 }

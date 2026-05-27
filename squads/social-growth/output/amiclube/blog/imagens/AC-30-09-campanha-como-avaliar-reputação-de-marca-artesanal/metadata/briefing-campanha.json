@@ -1,0 +1,68 @@
+{
+  "campaign": {
+    "title": "Como avaliar reputação de marca artesanal",
+    "objective": "Gerar tráfego para o blog",
+    "niche": "amigurumi, crochê, artesanato",
+    "targetAudience": "artesãs, crocheteiras",
+    "channels": [
+      "Blog",
+      "Instagram Carousel",
+      "Instagram Reels",
+      "Facebook Post",
+      "LinkedIn"
+    ],
+    "style": "profissional",
+    "description": ""
+  },
+  "briefing": {
+    "interpretation": "The strategy focuses on building consumer trust by showcasing the meticulous craftsmanship and quality indicators of the amigurumi. By placing the product in a professional artisanal setting, we visually communicate the 'reputation' aspect through high-end presentation and attention to detail.",
+    "identifiedProduct": "Handmade crochet amigurumi toy with yarn texture, blue skin, and a turtle-like shell.",
+    "visualDirection": "The professional aesthetic is achieved through a minimalist craft studio setting, utilizing shallow depth of field and high-end studio lighting to emphasize the 'premium' nature of the handmade work.",
+    "suggestedElements": [
+      "blank quality certification card",
+      "wooden artisan desk",
+      "soft measuring tape",
+      "premium gift box with silk ribbon",
+      "magnifying glass"
+    ],
+    "elementsToAvoid": [
+      "realistic skin",
+      "scary eyes",
+      "distorted proportions",
+      "messy background",
+      "plastic textures"
+    ],
+    "channelRecommendations": [
+      {
+        "channel": "Blog",
+        "recommendation": "Main header image showing the product as a masterpiece of craftsmanship.",
+        "format": "16:9",
+        "prompt": "Stunning horizontal header photography of The [PRODUCT FINGERPRINT], centered on a clean white oak artisan table, a blank elegant hangtag attached with twine, soft natural studio lighting, high resolution, professional product shot for a brand reputation guide."
+      },
+      {
+        "channel": "Instagram Carousel",
+        "recommendation": "Macro-focused slide showing texture and stitch quality.",
+        "format": "4:5",
+        "prompt": "Professional toy photography of The [PRODUCT FINGERPRINT], a close-up macro shot focusing on the perfect yarn stitches and the white-trimmed shell, soft studio lighting, pastel bokeh background, 8k resolution, emphasizing handmade quality."
+      },
+      {
+        "channel": "Instagram Reels",
+        "recommendation": "Centralized vertical framing for a 'quality inspection' narrative.",
+        "format": "9:16",
+        "prompt": "Dynamic vertical shot of The [PRODUCT FINGERPRINT] placed inside a luxury open gift box on a professional craft counter, gentle hands adjusting the white trim, soft lighting, depth of field, 8k, vibrant colors."
+      },
+      {
+        "channel": "Facebook Post",
+        "recommendation": "Lifestyle studio shot emphasizing trust and brand value.",
+        "format": "1:1",
+        "prompt": "Professional studio shot of The [PRODUCT FINGERPRINT] next to a small, textless gold seal of quality on a clean surface, minimalist artisanal workshop background, soft shadows, warm professional lighting."
+      },
+      {
+        "channel": "LinkedIn",
+        "recommendation": "Professional business-of-craft composition.",
+        "format": "1.91:1",
+        "prompt": "Wide horizontal composition of The [PRODUCT FINGERPRINT] on a high-end minimalist desk next to a professional designer's sketchbook and a soft-focus measuring tape, symbolizing the standard of artisanal reputation, clean professional aesthetic, high-end photography."
+      }
+    ]
+  }
+}

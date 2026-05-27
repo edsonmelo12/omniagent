@@ -1,0 +1,18 @@
+:root {
+  --style-name: "premium-editorial";
+  --style-bg: #f7f2ea;
+  --style-bg-alt: #111018;
+  --style-surface: rgba(255, 255, 255, 0.08);
+  --style-surface-strong: rgba(255, 255, 255, 0.14);
+  --style-text-heading: #f6f1ea;
+  --style-text-body: rgba(255, 255, 255, 0.88);
+  --style-text-muted: rgba(255, 255, 255, 0.68);
+  --style-accent: #c45c1f;
+  --style-accent-soft: rgba(196, 92, 31, 0.18);
+  --style-border: rgba(196, 92, 31, 0.34);
+  --style-heading-font: "Playfair Display", Georgia, serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.03;
+  --style-vignette-opacity: 0.35;
+  --style-gradient: radial-gradient(circle at 22% 12%, rgba(196, 92, 31, 0.16), transparent 34%), linear-gradient(145deg, #111018 0%, #1f1a16 52%, #0a0a0a 100%);
+}

@@ -18,9 +18,10 @@ Load these files before executing:
 - `squads/social-growth/output/repurposing/content-repurpose.md` - repurposed social package when present
 - `squads/social-growth/output/content/content-production-package.md` - content production package to review
 - `squads/social-growth/output/context/geo-discoverability-summary.md` — site-level GEO and entity clarity when present
-- `squads/social-growth/output/creative/visual-direction.md` — visual direction to validate alongside copy
+- `squads/social-growth/output/creative/visual-direction.json` — visual direction manifest to validate alongside copy
 - `squads/social-growth/output/creative/rendered-assets.md` — final render manifest to validate against the brief
 - `squads/social-growth/output/creative/validation-checklist.md` — gate checklist for clarity, proof, closing strength and anti-repetition
+- `squads/social-growth/pipeline/data/generation-contract.md` — canonical checklist to validate across brief, render and export
 - `squads/social-growth/pipeline/data/visual-production-gate.md` — mandatory social visual decision/render/review gate
 - `squads/social-growth/pipeline/data/skill-invocation-gate.md` — mandatory skill invocation evidence for social generation
 - `squads/social-growth/output/{client}/creative-dna-acceptance.json` — active client creative acceptance envelope when available
@@ -44,7 +45,7 @@ Load these files before executing:
 1. Score the package against the quality criteria.
    - use the weighted publication scorecard (0-100).
    - assign a decision: `publish`, `revise`, or `hold`.
-2. Validate that the visual direction matches the blog, repurpose package and content production package.
+2. Validate that the visual direction manifest matches the blog, repurpose package and content production package.
 3. Validate that the rendered assets match the content production package and the visual direction.
 4. Validate the batch against the creative validation checklist.
 5. If a blog post exists, validate it against blog readability, SEO, GEO and LLM optimization rules.
@@ -66,11 +67,13 @@ Load these files before executing:
 21. Separate required fixes from optional improvements.
 22. Return a verdict that the next step can trust.
 23. Apply the Visual Production Gate to every social visual asset: verify the Visual Decision Card, Render Compliance Card, first impression diversity, background/image decision, typography minimum, campaign-hub preview behavior, navigation and export validation evidence.
-24. Validate Client Creative DNA Acceptance for every social VDC; block styles outside the client's envelope even if the render is technically correct.
-25. Block any social visual asset whose design decisions or render evidence are incomplete, even if the asset appears visually acceptable.
-26. Apply `skill-invocation-gate.md`: reject any social generation artifact whose required skills were not invoked and evidenced in a `Skill Invocation Ledger`.
-27. Do not infer skill usage from good output. If the ledger is missing or vague, verdict is `BLOCKED`.
-28. Update or append `squads/social-growth/output/review/client-editorial-backlog.md` with recurring discrepancy patterns and future topic opportunities.
+24. Validate the canonical generation checklist for every social asset before approval.
+25. Validate Client Creative DNA Acceptance for every social VDC; block styles outside the client's envelope even if the render is technically correct.
+26. Block any social visual asset whose design decisions or render evidence are incomplete, even if the asset appears visually acceptable.
+27. Apply `skill-invocation-gate.md`: reject any social generation artifact whose required skills were not invoked and evidenced in a `Skill Invocation Ledger`.
+28. Do not infer skill usage from good output. If the ledger is missing or vague, verdict is `BLOCKED`.
+29. Update or append `squads/social-growth/output/review/client-editorial-backlog.md` with recurring discrepancy patterns and future topic opportunities.
+30. If the asset changed background image, crop, or canvas, verify the review modal and hub are reading the regenerated preview/PNG revision, not the older version.
 
 ## Output Format
 
@@ -181,7 +184,7 @@ Reject and redo if ANY are true:
 - [ ] Blog output, when present, was validated against the copy brief lock and chosen hook.
 - [ ] Blog output, when present, matched the squad length range for the piece function.
 - [ ] Blog output, when present, included a thesis-aligned featured image note.
-- [ ] Blog output, when present, included a free/public featured-image source search note.
+- [ ] Blog output, when present, included a free/public featured-image source search note when image research was active.
 - [ ] **[GEO Gate]** Blog output GEO validator score must be ≥60% before approval. Run `node squads/social-growth/scripts/local-blog-validator.mjs --file=blog-post.md` to verify. If <60%, apply `node squads/social-growth/scripts/deep-fix-blog.mjs --file=blog-post.md --geo` and re-validate.
 - [ ] Repurposed output, when present, was validated against repurposing rules.
 - [ ] The visual direction was validated against the content production package.
@@ -189,6 +192,7 @@ Reject and redo if ANY are true:
 - [ ] The creative validation checklist was applied to the batch.
 - [ ] **[multi-slide]** Every multi-slide asset (carousel/stories) was validated against its visual skill's native interaction model (navigation, progress bar, chrome rules).
 - [ ] Every social visual asset was validated against `visual-production-gate.md`.
+- [ ] Every social visual asset completed the canonical generation checklist.
 - [ ] Every social visual asset was validated against the client's creative DNA acceptance contract when available.
 - [ ] Every approved social visual asset has complete Visual Decision Card and Render Compliance Card.
 - [ ] First impression diversity, background/image decision, typography minimum and campaign-hub preview behavior were verified.

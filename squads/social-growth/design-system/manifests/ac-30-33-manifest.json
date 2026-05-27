@@ -1,0 +1,39 @@
+{
+  "asset_id": "AC-30-33",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "dark-premium",
+  "format": "facebook-post",
+  "title": "AC-30-33 Facebook Post — AmiClube",
+  "deck_label": "Segurança",
+  "topic": "Segurança",
+  "footer": "@amiclube",
+  "design_tokens": {
+    "accent_color": "#8FB8A8",
+    "title_color": "#FFFFFF",
+    "body_color": "rgba(255,255,255,0.85)",
+    "muted_color": "rgba(255,255,255,0.5)",
+    "heading_font": "Poppins",
+    "body_font": "Nunito",
+    "noise_opacity": "0.03"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "SEGURANÇA",
+      "title": "7 perguntas que mostram se um amigurumi artesanal é confiável",
+      "body": "Detalhe real · Materiais · Apresentação · Atendimento · Portfólio · Depoimentos · Jornada",
+      "cta": "Acessar catálogo completo",
+      "showDivider": true,
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/ac-30-08B/ac-30-33-facebook-post.webp",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.45)"
+      }
+    }
+  ]
+}

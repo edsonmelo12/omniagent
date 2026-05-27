@@ -1,0 +1,25 @@
+{
+  "asset_id": "AC-30-28",
+  "client": "amiclube",
+  "style": "organic-image-led",
+  "format": "social-single-post",
+  "title": "Setup de autoridade com amigurumi",
+  "brand": "AmiClube",
+  "image_bank": "AC-30-13B-images.json",
+  "slides": [
+    {
+      "id": 1,
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-carousel/instagram carousel-investimento-em-decoracao-artesanal-v1.webp",
+        "overlay": "rgba(0,0,0,0.70)",
+        "position": "center"
+      },
+      "eyebrow": "DECORAÇÃO ARTESANAL",
+      "title": "Seu home office fala sobre você.\nA questão é: o que ele diz?",
+      "body": "Uma peça artesanal bem posicionada — na mesa, na estante ou no fundo de câmera — transforma a leitura do espaço. Não é enfeite. É estratégia de imagem.",
+      "cta": "Fale com a AmiClube →"
+    }
+  ]
+}

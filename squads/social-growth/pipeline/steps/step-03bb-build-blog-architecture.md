@@ -36,7 +36,7 @@ Load these files before executing:
 4. Define the intended word-count range based on the function of the piece.
 5. Define the featured-image direction so the visual reinforces the thesis rather than a generic category.
 6. Define the featured-image selection criteria so the chosen asset can be defended against the article thesis, topic and one-glance clarity.
-7. Define the featured-image source search note so the eventual asset can be sourced from free/public candidates before render.
+7. Ask whether image research will happen now or later; only write the featured-image source search note when the answer is now.
    - include source origin URL or repository, license class, license check date and fallback candidate.
 8. Read the canonical blog brief and preserve its thesis, structure family and proof freshness gate.
 9. Lock the editorial copy brief: target reader, reader problem, promise, dominant objection, CTA direction and hook territory.
@@ -117,7 +117,7 @@ Reject and redo if ANY are true:
 - [ ] The proof map includes more than generic claims.
 - [ ] The word-count target matches the function of the piece.
 - [ ] The featured-image direction reinforces the thesis and is not generic.
-- [ ] The featured-image source search is explicit, free/public by default, and includes source origin + license check date + fallback.
+- [ ] The featured-image source search is explicit when image research is active, free/public by default, and includes source origin + license check date + fallback.
 - [ ] The canonical brief was respected.
 - [ ] The copy brief lock is explicit and useful for drafting.
 - [ ] The family ledger entry is complete.

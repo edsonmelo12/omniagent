@@ -64,6 +64,15 @@
       padding: 60px 28px 80px;
     }
 
+    .frame[data-text-variant="dark"] .eyebrow { color: #fff; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); }
+    .frame[data-text-variant="dark"] .title,
+    .frame[data-text-variant="dark"] .heading { color: #fff; }
+    .frame[data-text-variant="dark"] .body-text,
+    .frame[data-text-variant="dark"] .subtitle { color: rgba(255,255,255,0.88); }
+    .frame[data-text-variant="dark"] .brand-mark { color: var(--style-accent); }
+    .frame[data-text-variant="dark"] .footer-zone { color: rgba(255,255,255,0.72); }
+    .frame[data-text-variant="dark"] .cta-block { color: #fff; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); }
+
     .frame::before {
       content: "";
       position: absolute; inset: 0; z-index: 0;
@@ -98,7 +107,19 @@
       font-weight: 800;
     }
 
-    .brand-mark { color: var(--style-accent); }
+    .brand-mark {
+      color: var(--style-accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .deck-label {
+      font-size: 9px;
+      letter-spacing: 1.8px;
+    }
 
     .content-creative {
       width: 100%;
@@ -106,7 +127,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 12px;
+      gap: 18px;
       text-align: left;
     }
 
@@ -118,8 +139,8 @@
       background: var(--style-accent-soft);
       border: 1px solid var(--style-border);
       border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 9px;
+      padding: 7px 12px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 1.2px;
       text-transform: uppercase;
@@ -128,27 +149,27 @@
     .title {
       color: var(--style-text-heading);
       font-family: var(--style-heading-font);
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 800;
-      line-height: 1.02;
+      line-height: 1.0;
       letter-spacing: -0.5px;
     }
 
     .heading {
       color: var(--style-text-heading);
       font-family: var(--style-heading-font);
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 800;
       line-height: 1.08;
       letter-spacing: -0.3px;
     }
 
     .body-text, .subtitle {
-      max-width: 300px;
+      max-width: 340px;
       color: var(--style-text-body);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .divider {
@@ -167,12 +188,12 @@
     .cta-block {
       width: fit-content;
       margin-top: 4px;
-      padding: 9px 14px;
+      padding: 11px 16px;
       border-radius: 999px;
       border: 1px solid var(--style-border);
       color: var(--style-text-heading);
       background: linear-gradient(135deg, var(--style-accent-soft), rgba(255,255,255,0.04));
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 800;
     }
 
@@ -223,14 +244,16 @@
     }
 
     body.export-mode .reels-track {
+      width: max-content;
       height: 1920px;
       transition: none !important;
     }
 
     body.export-mode .frame {
-      min-height: 1920px; height: 1920px;
-      width: 1080px;
+      width: 1080px; min-width: 1080px; max-width: 1080px;
+      min-height: 1920px; height: 1920px; max-height: 1920px;
       padding: 140px 80px 180px;
+      overflow: hidden;
     }
 
     body.export-mode .header-zone,
@@ -240,12 +263,14 @@
 
     body.export-mode .title { font-size: 64px; }
     body.export-mode .heading { font-size: 52px; }
+    body.export-mode .brand-mark { font-size: 30px; letter-spacing: 2px; }
+    body.export-mode .deck-label { font-size: 22px; letter-spacing: 4px; }
     body.export-mode .body-text,
-    body.export-mode .subtitle { max-width: 820px; font-size: 30px; }
-    body.export-mode .eyebrow { font-size: 22px; padding: 12px 24px; }
+    body.export-mode .subtitle { max-width: 900px; font-size: 38px; }
+    body.export-mode .eyebrow { font-size: 24px; padding: 14px 26px; }
     body.export-mode .proof-card { padding: 32px; border-radius: 32px; }
     body.export-mode .divider { width: 130px; height: 4px; }
-    body.export-mode .cta-block { padding: 20px 32px; font-size: 24px; }
+    body.export-mode .cta-block { padding: 22px 34px; font-size: 28px; }
   </style>
 </head>
 <body>

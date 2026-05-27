@@ -30,12 +30,12 @@
 
   --ds-font-hero: 34px;
   --ds-font-heading: 26px;
-  --ds-font-body: 15px;
-  --ds-font-caption: 10px;
-  --ds-export-font-hero: 78px;
-  --ds-export-font-heading: 58px;
-  --ds-export-font-body: 34px;
-  --ds-export-font-caption: 24px;
+  --ds-font-body: 19px;
+  --ds-font-caption: 13px;
+  --ds-export-font-hero: 82px;
+  --ds-export-font-heading: 62px;
+  --ds-export-font-body: 40px;
+  --ds-export-font-caption: 28px;
 
   --ds-content-pad-x: 36px;
   --ds-export-content-pad-x: 80px;
@@ -186,7 +186,7 @@
       align-items: center;
       overflow: hidden;
       isolation: isolate;
-      background: var(--style-gradient);
+      background: var(--style-bg);
       color: var(--style-text-body);
       padding: 0 var(--ds-content-pad-x);
     }
@@ -212,6 +212,23 @@
       background: radial-gradient(circle at center, transparent 28%, rgba(0, 0, 0, var(--style-vignette-opacity)) 100%);
       pointer-events: none;
     }
+
+    .slide[data-text-variant="dark"] {
+      background: var(--style-bg-alt);
+    }
+
+    .slide[data-text-variant="dark"] .eyebrow { color: var(--style-highlight); }
+    .slide[data-text-variant="dark"] .title,
+    .slide[data-text-variant="dark"] .heading { color: #fff; }
+    .slide[data-text-variant="dark"] .body-text,
+    .slide[data-text-variant="dark"] .subtitle { color: rgba(255,255,255,0.85); }
+    .slide[data-text-variant="dark"] .brand-mark { color: var(--style-accent); }
+    .slide[data-text-variant="dark"] .deck-label { color: rgba(255,255,255,0.6); }
+    .slide[data-text-variant="dark"] .cta-block { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: #fff; }
+    .slide[data-text-variant="dark"] .divider { background: var(--style-accent); }
+    .slide[data-text-variant="dark"] .footer-zone { color: rgba(255,255,255,0.6); }
+    .slide[data-text-variant="dark"] .progress-bar { background: rgba(255,255,255,0.15); }
+    .slide[data-text-variant="dark"] .progress-bar span { background: var(--style-accent); }
 
     .header-zone,
     .footer-zone,
@@ -319,7 +336,7 @@
       border: 1px solid var(--style-border);
       color: var(--style-text-heading);
       background: linear-gradient(135deg, var(--style-accent-soft), rgba(255,255,255,0.04));
-      font-size: 12px;
+      font-size: var(--ds-font-caption);
       font-weight: 800;
       letter-spacing: 0.2px;
     }
@@ -358,7 +375,7 @@
       right: 24px;
       bottom: 43px;
       color: var(--style-accent);
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -383,57 +400,62 @@
 
     .ig-dots button.active { background: #1682f3; }
 
-    body.export-mode {
-      width: var(--ds-export-w);
-      height: var(--ds-export-h);
-      min-height: auto;
-      overflow: hidden;
-      padding: 0;
-      background: #fff;
-      display: block;
+    @media (min-width: 900px) {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .ig-frame {
+        display: block;
+        width: var(--ds-export-w);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .ig-header,
+      .ig-dots,
+      .header-zone,
+      .deck-label,
+      .footer-zone,
+      .swipe-arrow,
+      .progress-bar { display: none; }
+
+      .carousel-viewport {
+        width: var(--ds-export-w);
+        height: var(--ds-export-h);
+        overflow: hidden;
+      }
+
+      .carousel-track {
+        width: max-content;
+        height: var(--ds-export-h);
+        transition: none;
+      }
+
+      .slide {
+        min-width: var(--ds-export-w);
+        width: var(--ds-export-w);
+        max-width: var(--ds-export-w);
+        height: var(--ds-export-h);
+        padding: 0 var(--ds-export-content-pad-x);
+        overflow: hidden;
+      }
+
+      .slide[data-text-variant="dark"] { background: var(--style-bg-alt); }
+      .slide[data-text-variant="light"] { background: var(--style-bg); }
+
+      .title { font-size: var(--ds-export-font-hero); }
+      .heading { font-size: var(--ds-export-font-heading); }
+      .body-text,
+      .subtitle { max-width: 860px; font-size: var(--ds-export-font-body); }
+      .eyebrow { font-size: var(--ds-export-font-caption); padding: 16px 28px; }
+      .proof-card { padding: 40px; border-radius: 42px; }
+      .proof-card p { font-size: 36px; line-height: 1.4; }
+      .divider { width: 190px; height: 5px; }
+      .cta-block { padding: 26px 38px; font-size: var(--ds-export-font-caption); }
+      .content-creative { gap: 32px; }
     }
-
-    body.export-mode .ig-frame {
-      display: block !important;
-      width: var(--ds-export-w);
-      border-radius: 0;
-      box-shadow: none;
-      background: var(--style-bg);
-    }
-
-    body.export-mode .ig-header,
-    body.export-mode .ig-dots,
-    body.export-mode .header-zone,
-    body.export-mode .deck-label,
-    body.export-mode .footer-zone,
-    body.export-mode .swipe-arrow,
-    body.export-mode .progress-bar { display: none !important; }
-
-    body.export-mode .carousel-viewport {
-      width: var(--ds-export-w);
-      height: var(--ds-export-h);
-      overflow: hidden;
-    }
-
-    body.export-mode .carousel-track {
-      height: var(--ds-export-h);
-      transition: none !important;
-    }
-
-    body.export-mode .slide {
-      min-width: var(--ds-export-w);
-      height: var(--ds-export-h);
-      padding: 0 var(--ds-export-content-pad-x);
-    }
-
-    body.export-mode .title { font-size: var(--ds-export-font-hero); }
-    body.export-mode .heading { font-size: var(--ds-export-font-heading); }
-    body.export-mode .body-text,
-    body.export-mode .subtitle { max-width: 860px; font-size: var(--ds-export-font-body); }
-    body.export-mode .eyebrow { font-size: var(--ds-export-font-caption); padding: 16px 28px; }
-    body.export-mode .proof-card { padding: 40px; border-radius: 42px; }
-    body.export-mode .divider { width: 190px; height: 5px; }
-    body.export-mode .cta-block { padding: 26px 38px; font-size: 30px; }
   </style>
 </head>
 <body>
@@ -442,7 +464,7 @@
     <div class="carousel-viewport">
       <div class="carousel-track" id="carouselTrack">
         
-        <section class="slide slide-1 cover" data-text-variant="dark" style="background: linear-gradient(rgba(26,25,24,0.5), rgba(26,25,24,0.5)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 85% center/cover no-repeat;">
+        <section class="slide slide-1 cover" data-text-variant="dark" style='background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url(../../blog/imagens/AC-30-13-campanha-guia-de-compra-inteligente-de-amigurumi/instagram-carousel/instagram%20carousel-guia-de-compra-inteligente-v1.png) center/cover no-repeat;'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
@@ -450,7 +472,7 @@
           </div>
           <div class="content-creative center">
             <span class="eyebrow">DESCUBRA</span>
-            <h1 class="title">Você sabe qual amigurumi combina com cada ocasião?</h1>
+            <h1 class="title">Você sabe qual amigurumi combina com o seu momento?</h1>
             
             
             
@@ -462,16 +484,16 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 14%"></span></div>
         </section>
 
-        <section class="slide slide-2 content" data-text-variant="light" style="background: linear-gradient(rgba(247,243,238,0.7), rgba(247,243,238,0.7)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 25% center/cover no-repeat;">
+        <section class="slide slide-2 content" data-text-variant="dark" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #1A1918, var(--style-bg-alt));'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
             <span class="deck-label">ocasiões</span>
           </div>
           <div class="content-creative ">
-            <span class="eyebrow">PRESENTE ESPECIAL</span>
-            <h2 class="heading">Presente especial</h2>
-            <div class=""><p class="body-text">momento de dar algo único</p></div>
+            <span class="eyebrow">OCASIÃO 1</span>
+            <h2 class="heading">Presentear alguém especial?</h2>
+            <div class="proof-card"><p class="body-text">A peça certa transforma entrega em memória.</p></div>
             
             <div class="divider"></div>
           </div>
@@ -482,16 +504,16 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 29%"></span></div>
         </section>
 
-        <section class="slide slide-3 content" data-text-variant="dark" style="background: linear-gradient(rgba(26,25,24,0.6), rgba(26,25,24,0.6)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 50% center/cover no-repeat;">
+        <section class="slide slide-3 content" data-text-variant="light" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #F7F3EE, var(--style-bg-alt));'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
             <span class="deck-label">ocasiões</span>
           </div>
           <div class="content-creative ">
-            <span class="eyebrow">DECORAR ESPAÇO</span>
-            <h2 class="heading">Decorar espaço</h2>
-            <div class=""><p class="body-text">peça que aquece o ambiente</p></div>
+            <span class="eyebrow">OCASIÃO 2</span>
+            <h2 class="heading">Decorar seu espaço?</h2>
+            <div class="proof-card"><p class="body-text">O amigurumi ideal adiciona personalidade sem ocupar demais.</p></div>
             
             <div class="divider"></div>
           </div>
@@ -502,16 +524,16 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 43%"></span></div>
         </section>
 
-        <section class="slide slide-4 content" data-text-variant="light" style="background: linear-gradient(rgba(247,243,238,0.65), rgba(247,243,238,0.65)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 40% center/cover no-repeat;">
+        <section class="slide slide-4 content" data-text-variant="dark" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #1A1918, var(--style-bg-alt));'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
             <span class="deck-label">ocasiões</span>
           </div>
           <div class="content-creative ">
-            <span class="eyebrow">PRESENTEAR CRIANÇA</span>
-            <h2 class="heading">Presentear criança</h2>
-            <div class=""><p class="body-text">companions de carinho</p></div>
+            <span class="eyebrow">OCASIÃO 3</span>
+            <h2 class="heading">Presentear criança?</h2>
+            <div class="proof-card"><p class="body-text">Segurança, textura e conexão emocional são o que mais importa.</p></div>
             
             <div class="divider"></div>
           </div>
@@ -522,16 +544,16 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 57%"></span></div>
         </section>
 
-        <section class="slide slide-5 content" data-text-variant="dark" style="background: linear-gradient(rgba(26,25,24,0.7), rgba(26,25,24,0.7)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 20% 30%/cover no-repeat;">
+        <section class="slide slide-5 content" data-text-variant="light" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #F7F3EE, var(--style-bg-alt));'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
             <span class="deck-label">ocasiões</span>
           </div>
           <div class="content-creative ">
-            <span class="eyebrow">AMBIENTE PROFISSIONAL</span>
-            <h2 class="heading">Ambiente profissional</h2>
-            <div class=""><p class="body-text">toque de personalidade no escritório</p></div>
+            <span class="eyebrow">OCASIÃO 4</span>
+            <h2 class="heading">Presença no escritório?</h2>
+            <div class="proof-card"><p class="body-text">Leveza e profissionalismo podem andar juntos — na peça certa.</p></div>
             
             <div class="divider"></div>
           </div>
@@ -542,16 +564,16 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 71%"></span></div>
         </section>
 
-        <section class="slide slide-6 content" data-text-variant="light" style="background: linear-gradient(rgba(247,243,238,0.7), rgba(247,243,238,0.7)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 70% center/cover no-repeat;">
+        <section class="slide slide-6 content" data-text-variant="dark" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #1A1918, var(--style-bg-alt));'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
             <span class="deck-label">ocasiões</span>
           </div>
-          <div class="content-creative ">
-            <span class="eyebrow">CONEXÃO AFETIVA</span>
-            <h2 class="heading">Conexão afetiva</h2>
-            <div class=""><p class="body-text">o que torna cada peça única</p></div>
+          <div class="content-creative center">
+            <span class="eyebrow">REFLEXÃO</span>
+            <h2 class="heading">Cada ocasião pede uma leitura diferente.</h2>
+            <div class="proof-card"><p class="body-text">Não existe &quot;o melhor amigurumi&quot;. Existe &quot;o melhor para o que você precisa agora&quot;.</p></div>
             
             <div class="divider"></div>
           </div>
@@ -562,7 +584,7 @@
           <div class="progress-bar" aria-hidden="true"><span style="width: 86%"></span></div>
         </section>
 
-        <section class="slide slide-7 cta" data-text-variant="dark" style="background: linear-gradient(rgba(26,25,24,0.75), rgba(26,25,24,0.75)), url('amiclube/blog/assets/AC-30-13-toys-collection.jpg') 50% center/cover no-repeat;">
+        <section class="slide slide-7 cta" data-text-variant="dark" style='background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #8C6A5E, #C45C1F);'>
           
           <div class="header-zone">
             <span class="brand-mark">AmiClube</span>
@@ -570,9 +592,9 @@
           </div>
           <div class="content-creative center">
             <span class="eyebrow">PARTICIPE</span>
-            <h2 class="heading">Comente: qual ocasião você gostaria de presentear?</h2>
-            
-            <div class="cta-block">Comente aqui</div>
+            <h2 class="heading">Qual é a sua ocasião?</h2>
+            <div class="proof-card"><p class="body-text">Comente aqui que a gente sugere a peça ideal para você.</p></div>
+            <div class="cta-block">Comentar Agora</div>
             
           </div>
           

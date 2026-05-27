@@ -1,0 +1,119 @@
+{
+  "asset_id": "AC-30-18",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "instagram-carousel",
+  "title": "O Que É Amigurumi Premium? — Mitos e Verdades",
+  "deck_label": "mitos",
+  "topic": "Mitos e Verdades sobre Amigurumi Premium",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Educacional",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "MITOS E VERDADES",
+      "title": "O QUE É AMIGURUMI PREMIUM?",
+      "body": "5 comparações para não errar na sua próxima compra.",
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/assets/AC-30-01b-source-amigurumi-crocheted-chicks-austria.jpg",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 1",
+      "title": "É premium se for importado",
+      "body": "Origem não define qualidade. Há artesanato brasileiro que supera importados em critério e acabamento.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 2",
+      "title": "É premium pelo tamanho",
+      "body": "Tamanho não garante padrão. Um mini bem-executado vale mais que um grande com acabamento precário.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 3",
+      "title": "É premium se for bonito",
+      "body": "Beleza sem estrutura é superfície. Verifique costuras, densidade e trava dos olhos.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "MITO 4",
+      "title": "É premium pelo preço alto",
+      "body": "Preço não mede valor real. Use os 5 sinais de qualidade. Essa é a única métrica que importa na decisão.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "CHECKLIST",
+      "title": "5 CRITÉRIOS DE QUALIDADE",
+      "body": "✓ Acabamento das costuras\n✓ Densidade do enchimento\n✓ Tipo de fio\n✓ Trava interna dos olhos\n✓ Equilíbrio e proporção",
+      "textVariant": "dark",
+      "background": {
+        "type": "solid",
+        "color": "#722F37"
+      }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "AMICLUBE",
+      "title": "COMPARTILHE COM QUEM ESTÁ COMPRANDO",
+      "body": "Às vezes a melhor decisão começa com uma comparação.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "VERDADE",
+      "title": "PREMIUM É CRITÉRIO",
+      "body": "A peça que você vai guardar por anos começa com a escolha certa.",
+      "cta": "Link na bio",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

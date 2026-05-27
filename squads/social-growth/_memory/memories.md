@@ -1,5 +1,115 @@
 # Squad Memory
 
+## 2026-05-27 — NLM Visual Prototype integrado como etapa opcional
+
+- **Decisão:** NotebookLM foi aprovado como camada opcional de prototipagem visual, não como motor final de publicação.
+- **Teste base:** três versões de carrossel AmiClube mostraram que o prompt com persona criativa e veto explícito de formato horizontal resolveu a orientação 4:5 na V3.
+- **Documentação criada:** `pipeline/data/nlm-visual-prototype.md`, `pipeline/data/nlm-visual-prototype-prompts.md` e `pipeline/steps/step-03a2-nlm-visual-prototype.md`.
+- **Integração:** pipeline agora posiciona `step-03a2-nlm-visual-prototype.md` entre drafts sociais e direção visual final; execução é opcional e depende de decisão do Atlas.
+- **Regra operacional:** protótipos do NotebookLM são `reference_only`; peça final continua exigindo VDC, RCC, Creative Renderer, Reviewer e Pipeline Auditor.
+- **Veto:** watermark do NotebookLM, promessa sem fonte, formato errado, fake social UI ou uso direto do PDF como arte final bloqueiam avanço.
+
+## 2026-05-20 — AC-30-22 com Charmander publicado e tag aplicada
+
+- **Teste:** `AC-30-22` publicado como imagem única no Instagram com `Charmander em Amigurumi - Passo a passo` (`26694700693526896`).
+- **Correção aplicada:** publicador passou a normalizar quebras de linha literais (`\n` e `/n`) para linha real antes do envio.
+- **Resultado:** legenda saiu com quebra correta e o produto foi marcado com sucesso.
+- **Retorno do conector:** `product tag status: tagged`.
+- **URL publicada:** `https://www.instagram.com/p/DYj1JN3F_NJ/`
+
+## 2026-05-20 — Teste AC-30-25 com Charmander publicado, tag não aplicável
+
+- **Teste:** `AC-30-25` publicado como carrossel no Instagram com 6 PNGs de `social/publish/ac-30-25/`.
+- **Produto escolhido:** `Charmander em Amigurumi - Passo a passo` (`26694700693526896`).
+- **Resultado do conector:** postagem publicada com sucesso, mas a marcação de produto retornou `not_applicable`.
+- **Erro da Meta:** `error_subcode 2207023` com mensagem `Tipo de mídia desconhecido` e mídia `8` desconhecida.
+- **Leitura operacional:** o carrossel foi aceito como publicação, mas este fluxo de mídia não aceitou tag clicável de produto.
+- **Próximo passo recomendado:** testar um formato ainda mais simples e elegível, se a meta for validar clique de catálogo.
+
+## 2026-05-15 — Regeneração AC-30-10 v4 completa (pipeline llena) — CORRIGIDO
+
+- **Issue anterior:** renderer criou HTML/CSS manualmente com mock frame (quadro de celular), preview缩 (360×450 em vez de 1080×1350), tipografia fora de escala e "arraste" dentro do canvas
+- **Correção:** usou `compose.mjs` (engine DS) com manifesto JSON `visual-direction-ac-30-10.json` — HTML gerado pelo engine, não pelo LLM
+- **Preview gerado:** `output/amiclube/social/previews/ac-30-10-v4-editorial-myth-carousel.html` (621 linhas, 22KB)
+- **Exports:** 6 PNGs via Playwright (1080×1350), arquivo 1520KB/1358KB/1413KB/1361KB/1418KB/898KB
+- **Template:** `instagram-carousel.hbs` + style `editorial-myth.css` — sem mock UI, sem quadro de telefone
+- **Preview HTML:** navegação com dots fora do art surface, "arraste" em chrome preview-only (ocultado no export)
+- **Regra implementada:** LLM não gera mais HTML/CSS para assets cobertos pelo DS — gera manifesto JSON, engine compõe HTML
+
+## 2026-05-15 — Strategy Plan + JSON Manifest Migration Complete
+
+- **Step 02 executado:** Plano estratégico para próximo ciclo (20 Mai — 14 Jun) criado em `output/strategy/content-plan.md`
+- **4 objetivos definidos:** alcance orgânico (+20% saves), autoridade blog (+30% sessões), conversão direct (5%), 100% assets em JSON determinístico
+- **4 pilares editoriais:** Negócio Artesanal (35%), Critério de Compra (30%), Prova e Resultado (20%), Posicionamento Premium (15%)
+- **P1 fixado:** AC-30-33 status mismatch resolvido — `social-publish-assets.json` → "approved", `campaign-manifest.json` → "Preview pronto (aprovado)"
+- **Estado atual:** P0=0, P1=0, P2=3, P3=4
+- **Deterministic migration:** 14/14 assets reais em JSON manifest, 18/18 compilam via compose.mjs — migração completa
+- **Sistema operacional:** todos os novos assets devem seguir o pipeline: content → JSON manifest → compose.mjs → PNG
+- **Próximo passo recomendado:** converter backlog de 16 ativos sociais restantes e avançar publicação dos P2s
+
+## 2026-05-13 — Correção de fundo regenerado (AC-30-28 / AC-30-30)
+
+- **Aprendizado operacional:** quando a imagem de fundo muda em um post recriado, não basta atualizar VDC/RCC ou JSON de publicação. O preview HTML ativo precisa ser reexportado e o PNG final também, senão o hub continua mostrando o arquivo antigo.
+- **Casos afetados:** AC-30-28 e AC-30-30 estavam com previews apontando para `AC-30-13B-home-office-hero.jpg`; o novo background real estava em `blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/...`.
+- **Correção aplicada:** previews ativos atualizados, PNGs reexportados e modais/hub regenerados.
+
+## 2026-05-13 — Recriação AC-30-29 (Stories Instagram)
+
+- **Tarefa:** Recriar post AC-30-29 com nova imagem da campanha AC-30-13B
+- **Pipeline executada:** VDC (2.1.0) → Caption (social-final-captions.json) → Render → RCC → Review → Audit → Hub
+- **Imagem atualizada:** De hero do blog (`AC-30-13B-home-office-hero.jpg`) para versão da campanha (`instagram-reels/instagram reels-investimento-em-decoracao-artesanal-v1.webp`)
+- **Status final:** ✅ Aprovado - Campaign Hub atualizado
+- **Artefatos criados/atualizados:**
+  - VDC: `output/amiclube/social/ac-30-29-vdc.md` (v2.1.0)
+  - Caption: `output/amiclube/publishing/social-final-captions.json` (entrada AC-30-29)
+  - Preview: `output/amiclube/social/previews/ac-30-29.html` (imagem atualizada)
+  - RCC: `output/amiclube/social/ac-30-29-rcc.md`
+  - Review: `output/amiclube/review/ac-30-29-review.md`
+  - Audit: `output/amiclube/review/ac-30-29-audit.md`
+  - Hub: `output/amiclube/review/campaign-hub.html` (status: Aprovado)
+  - Alignment: `output/amiclube/publishing/blog-social-alignment.json` (status: approved)
+
+## 2026-05-11 — Post-Preview: geração 100% via JSON + gate obrigatório + batch script
+
+- **Problema identificado:** Caption source of truth fragmentado entre `social-final-captions.json`, VDCs inline e manifests manuais. Toda cópia manual gerava risco de desync e tokens desperdiçados. O template `post-preview.hbs` existia mas nunca era invocado pela pipeline.
+- **Solução implementada em 5 arquivos:**
+  1. **design-system-manifest.md:** Nova seção `## Post-Preview Format` com schema declarativo. Campo `caption_source: "social-final-captions"` + `asset_caption_id` para lookup automático no JSON canônico. Fallback inline para compatibilidade. Zero tokens de caption.
+  2. **compose.mjs (engine):**
+     - `resolveCaptionFromJson(manifest)` — lê `social-final-captions.json`, busca pelo `asset_caption_id`, extrai `final_caption`, `hashtags`, `cta`, `channel`, `format`, `alt_text`. Se JSON não existe, fallback pra `manifest.caption`.
+     - `validateManifest()` atualizado — validação separada para `post-preview` (não exige `style` e `slides`).
+     - `renderPostPreview()` refatorado — caption e hashtags resolvidos centralmente pelo JSON.
+  3. **generate-post-previews.mjs (novo):** Script batch que percorre `social-final-captions.json`, encontra PNGs correspondentes em `social/publish/{asset_slug}/`, gera manifesto temporário e invoca `compose.mjs --format post-preview`. Saída: `output/{client}/social/previews/{asset_id}-post-preview.html` + relatório `post-preview-report.json`. Suporta slug fuzzy matching para diretórios com variação de case/sufixo (ex: `ac-30-31-v7`).
+  4. **visual-production-gate.md:** 3 novos campos obrigatórios no VDC: `Post-Preview Generated`, `Caption Sourced From`, `Caption Integrity`. 3 novos campos obrigatórios no RCC. Gate Principle atualizado com `post-preview HTML generated and caption verified`.
+  5. **step-03c-render-creative.md:** Instruções de geração de post-preview adicionadas ao Design System Path. Batch script disponível como alternativa. 3 novos veto conditions e quality criteria.
+  6. **package.json:** Novo script `npm run social:design:post-previews`.
+- **Eficiência dos ganhos:**
+  - Caption: 100% lido de JSON — **zero tokens**, zero string manual, zero desync
+  - Hashtags: extraídas do mesmo JSON — **zero tokens**
+  - Post-preview: composto deterministicamente pelo engine — **zero tokens**, mesma aparência sempre
+  - Gate: post-preview é artefato obrigatório antes de revisão — **surpresa zero**
+  - Script batch: gera todos os post-previews de uma vez em segundos
+- **Primeiro batch:** 15 post-previews gerados para amiclube em <1s
+- **Script:** `node squads/social-growth/design-system/scripts/generate-post-previews.mjs --client amiclube`
+- **npm script:** `npm run social:design:post-previews -- --client amiclube`
+
+## 2026-05-11 — Regra: Imagem do banco no slide 1 (capa) SOMENTE + contraste obrigatório + engine DS atualizado
+
+- **Problema identificado:** Imagem do image bank era reutilizada em slides 2+ dos carrosséis, desperdiçando o banco e violando o princípio de que o primeiro frame carrega a imagem de prova e os demais carregam ritmo visual via Design System.
+- **Solução implementada em 3 arquivos:**
+  1. **blog-image-bank.md:** nova seção "Regra de Imagem Única por Derivado" — imagem do banco alimenta exclusivamente o slide 1 (capa). Slides 2+ usam Design System (texturas, gradientes, padrões, composições tipográficas). Exceção: crop variationjustified com declaração no VDC. Atualizadas regras de alocação com escopo claro.
+  2. **visual-production-gate.md:**
+     - VDC: novos campos obrigatórios `Background Image Slids Scope` (slide-1-only | crop-variation-justified), `Contrast Strategy` (dark-overlay/light-overlay/gradient-mask/zone-isolation/no-overlay-justified), `Text Legibility on Image` (legible/borderline/fails)
+     - RCC: novos campos `Image Bank Applied to`, `Slides 2+ Background`, `Contrast Strategy Implemented`, `Text Legibility Check`
+     - Image Decision Rules: regra "slide 1 ONLY" + estratégia de contraste obrigatória + legibilidade como gate
+     - 3 novos veto conditions: (19) slides 2+ reutilizam imagem sem crop justification; (20) contraste ausente ou ilegível; (21) slides 2+ ignoram Design System
+  3. **design-system-manifest.md:** schema expandido com `texture: "noise|grain|paper|pattern|none"` + `contrast_strategy` + `text_legibility` no slide. Nota: type "cover" é único que pode usar background.type="image". Slides "content" usam solid/gradient/texture-pattern.
+  4. **compose.mjs (engine):**
+     - Nova função `slideBackgroundStyle(slide, index)` com validação de escopo — slide 2+ com background.type="image" gera erro
+     - `background.type = "texture-pattern"` novo — usa gradiente + noise/grain CSS inline (data URI SVG) para ritmo visual sem imagem
+     - `contrast_strategy` override no overlay: dark-overlay→rgba(0,0,0,0.52), light-overlay→rgba(255,255,255,0.25), gradient-mask→linear-gradient, zone-isolation→rgba(0,0,0,0.35), no-overlay-justified→rgba(0,0,0,0)
+- **Eficiência gains:** elimina geração de HTML por LLM para slides 2+ (Design System composa tudo); zero tokens em repetição de imagem; contraste garantido como gate, não como verificação opcional; engine valida escopo automaticamente e falha cedo em vez de renderizar asset fora de regra.
+- **Squad impacted:** Visual Director (Step 03B), Creative Renderer (Step 03C), Reviewer (Step 04)
+
 ## 2026-05-10 — Image Bank: 3-5 imagens por artigo de blog
 
 - **Nova regra:** Cada artigo de blog deve ter 3-5 imagens (free/public sources) coletadas durante a escrita (Step 03D).
@@ -11,7 +121,7 @@
 
 ## 2026-05-10 — Design System: Fase 2 e 3 completas
 
-- **Fase 2 concluída:** 7 presets de estilo (dark-premium, editorial-magazine, editorial-myth, high-energy-cyber, minimalist-texture, authentic-rough, motion-social) + 8 templates (instagram-carousel, reels-sequence, stories-sequence, linkedin-carousel, facebook-post, pinterest-pin, social-single-post, post-preview).
+- **Fase 2 concluída:** 8 presets de estilo (dark-premium, editorial-magazine, editorial-myth, high-energy-cyber, minimalist-texture, authentic-rough, motion-social, paper-bulletin) + 8 templates (instagram-carousel, reels-sequence, stories-sequence, linkedin-carousel, facebook-post, pinterest-pin, social-single-post, post-preview).
 - **Fase 3 concluída:** Pipeline steps 03B e 03C integrados ao Design System. Visual Director pode gerar JSON manifest; Creative Renderer chama `compose.mjs` (0 tokens, determinístico).
 - **Engine:** `compose.mjs` agora valida e renderiza todos os 8 formatos automaticamente.
 - **Regra:** Quando formato e estilo existem no DS, skills de formato nativas não precisam mais ser carregadas — o template já codifica o comportamento.
@@ -56,6 +166,48 @@
 - **Regra:** Edson envia link → Researcher analisa → Index atualizado → Strategist consulta
 - **Revisão:** após campanha AmiClube (maio/2026)
 - **Status:** ARMAZENADO — em amadurecimento, não em execução
+
+## 2026-05-22 — Regra Multi-Cliente Formalizada para Inteligência de Vídeo
+
+- **Novo padrão:** os insights de YouTube/podcast da squad passam a seguir uma camada dupla:
+  - template consolidado e multi-cliente
+  - adaptação por cliente antes de virar briefing
+- **Arquivos novos:**
+  - `pipeline/data/youtube-intelligence-consolidated-brief-template.md`
+  - `pipeline/data/youtube-intelligence-client-adaptation-template.md`
+  - `output/2026-05-22/youtube-intelligence/rafael-kiso-consolidated-brief.md`
+  - `output/2026-05-22/youtube-intelligence/rafael-kiso-agent-handoff-pack.md`
+  - `output/2026-05-22/youtube-intelligence/rafael-kiso-agent-handoff-index.md`
+- **Regra:** nenhuma aplicação final deve tratar AmiClube como padrão universal; o cliente ativo do ciclo é sempre o ponto de adaptação.
+
+## 2026-05-22 — Template Canônico de Inteligência de Vídeo Fechado
+
+- **Versão canônica:** `pipeline/data/youtube-intelligence-consolidated-brief-template.md`
+- **Camada de adaptação:** `pipeline/data/youtube-intelligence-client-adaptation-template.md`
+- **Quickstart:** `pipeline/data/youtube-intelligence-brief-quickstart.md`
+- **Teste fora da AmiClube:** exemplo preenchido para `dallas-rent-a-car` criado para validar aplicação multi-cliente.
+- **Regra final:** a leitura do canal é global; a aplicação sempre depende do cliente, do funil e do canal dominante.
+
+## 2026-05-22 — Triagem Extra Formalizada
+
+- **Conteúdo mais forte fora do lote inicial:** `mw9nqRFJGgI`.
+- **Decisão de prioridade:** `Scale` para inteligência de pauta e `Optimize` para os blocos de negócio associados.
+- **Validação multi-cliente:** adaptações criadas para AmiClube e Dallas Rent A Car.
+- **Aprendizado novo:** o canal oferece valor adicional relevante em trend intel, IA estratégica, precificação, valor, escala, aquisição e autoridade.
+
+## 2026-05-22 — Planejamento de Campanha Tornado Obrigatório
+
+- **Regra da squad:** nenhuma campanha nova deve ser planejada sem passar pelo `pipeline/data/campaign-planning-gate.md`.
+- **Entradas obrigatórias:** campanhas anteriores, engajamento, mercado, tendências, sinais externos e lacunas de prova.
+- **Ordem fixa:** transição de ciclo -> gate de planejamento -> estratégia -> content plan.
+- **Objetivo:** evitar campanha baseada só em ideia, tema ou calendário.
+
+## 2026-05-22 — Planning Pack e Review Pack Formalizados
+
+- **Pre-campanha:** `pipeline/data/campaign-planning-pack.md` vira o dossier obrigatório antes da estratégia.
+- **Pós-campanha:** `pipeline/data/campaign-review-pack.md` vira o dossier obrigatório ao fechar a campanha.
+- **Regra de uso:** o review da campanha anterior precisa existir antes de abrir o próximo planning pack.
+- **Efeito esperado:** menos reanálise do zero, mais memória operacional e mais precisão de decisão.
 
 ## 2026-05-08 — HTMLs v6 gerados para AC-30-31 e AC-30-32
 

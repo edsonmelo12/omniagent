@@ -34,7 +34,7 @@
 | Ativo | Status no Export | Status no Manifest | Recomendação |
 |-------|------------------|--------------------|--------------|
 | AC-30-10 | review | Em revisão (preview pronto) | Manter como `future_review`; só entrar na fila quando Semana 3 for agendada. |
-| AC-30-11 | review | Em revisão (preview pronto) | Manter como `future_review`; só entrar na fila quando Semana 3 for agendada. |
+| AC-30-11 | review | Em revisão (preview pronto) | Já entrou na fila para 2026-05-21 10:00; manter alinhado com a manifest e a queue. |
 | AC-30-12 | review | review | Manter fora da fila até decisão de canal/data. |
 | AC-30-21 | review | preview_ready | Decidir se substitui/acompanha AC-30-06/07/08; não publicar sem nova fila. |
 | AC-30-25 | review | review | Manter como Semana 4/futuro; requer decisão de calendário. |

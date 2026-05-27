@@ -56,15 +56,12 @@ Markdown artifacts are optional review and delivery copies, not the authoritativ
 1. Discover official profiles.
 2. Collect social intelligence.
 3. Build or update the client record.
-4. Run market research and the GEO / AI discoverability audit when the site is part of the acquisition path.
+4. Run market research and the GEO / AI discoverability audit when needed.
 5. Build the creative profile from the approved brand and social evidence.
 6. Optionally generate the proposal after the checkpoint.
-7. Create the blog architecture when the cycle includes long-form content.
-8. Create the blog draft from the approved architecture.
-9. Optimize discovery content for SEO, GEO and LLM readability.
-10. Repurpose the blog into native social assets when multichannel output is needed.
-11. Create content and schedule.
-12. Monitor and iterate.
+7. If long-form content is in scope, follow `blog-content-flow.md`.
+8. Create content and schedule.
+9. Monitor and iterate.
 
 ### Output
 - client record

@@ -241,8 +241,14 @@
     }
 
     body.export-mode .slide {
-      min-width: 1200px; height: 1200px;
+      width: 1200px; min-width: 1200px; max-width: 1200px;
+      height: 1200px;
       padding: 0 100px;
+      overflow: hidden;
+    }
+
+    body.export-mode .carousel-track {
+      width: max-content;
     }
 
     body.export-mode .header-zone { display: none !important; }

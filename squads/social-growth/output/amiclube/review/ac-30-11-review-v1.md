@@ -12,7 +12,7 @@ APPROVE
 | DNA Acceptance (estilo allowed) | PASS | Editorial Magazine + Proof Layer em allowed |
 | Dimensões 1080x1920 | PASS | 4 PNGs verificados |
 | pt-BR acentos corretos | PASS | Textos: reputação, confiança, critérios, específicas, perguntas |
-| HTML-PNG sync (4 frames) | PASS | 4 slides no HTML, 4 PNGs exportados |
+| JSON/HTML/PNG sync (4 frames) | PASS | post-preview-manifest.json, 4 frames no HTML, 4 PNGs exportados |
 | First Impression Diversity | PASS | Formato Reels vs posts/stories/facebook recentes |
 | Background decision implementada | PASS | Imagem do blog com transform/blur/overlay |
 | Sem setas de navegação na arte | PASS ✅ | `.nav buttons removidos` |

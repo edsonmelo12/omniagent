@@ -17,6 +17,8 @@ steps:
   - pipeline/steps/step-03e-optimize-discovery-content.md
   - pipeline/steps/step-03f-repurpose-content.md
   - pipeline/steps/step-03-create-content.md
+  - pipeline/steps/step-03a1-generate-social-drafts.md
+  - pipeline/steps/step-03a2-nlm-visual-prototype.md
   - pipeline/steps/step-03b-create-visual-direction.md
   - pipeline/steps/step-03c-render-creative.md
   - pipeline/steps/step-04-review-content.md
@@ -24,12 +26,16 @@ steps:
   - pipeline/steps/step-05-approve-schedule.md
   - pipeline/steps/step-06-schedule-delivery.md
   - pipeline/steps/step-06b-publish-to-wordpress.md
+  - pipeline/steps/step-06b1-resolve-article-urls.md
   - pipeline/steps/step-06c-publish-social.md
   - pipeline/steps/step-06d-validate-seo.md
   - pipeline/steps/step-06e-git-sync.md
   - pipeline/steps/step-07-monitor-health.md
   - pipeline/steps/step-08-action-recommendations.md
   - pipeline/steps/step-08-atos-analise-estrategica.md
+  - pipeline/steps/step-09-action-recommendations.md
+  - pipeline/steps/step-10-approve-strategy-decisions.md
+  - pipeline/steps/step-11-cycle-transition.md
 
 checkpoints:
   - pipeline/steps/step-05-approve-schedule.md

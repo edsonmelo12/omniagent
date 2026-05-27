@@ -24,7 +24,8 @@
 - Antes de seguir para strategy, pergunte se este ciclo também deve gerar a proposta comercial em documento único.
 - Se houver evidência suficiente e o cliente confirmar o checkpoint, gere a proposta começando pelo deck com título e objetivo.
 - Se houver blog no ciclo, gere primeiro o rascunho, depois a otimização de descoberta e só então o repurpose.
-- Se houver blog, a imagem deve ser escolhida por tese, tema e clareza visual, com justificativa explícita.
+- Se houver blog, siga `blog-content-flow.md`.
+- Se houver imagem, use o seletor canônico (`now` ou `later`).
 - A pesquisa de tendências começa apenas na fase de geração de conteúdo (backlog de pautas/blog).
 - Se a entrega for para o cliente, salve o consolidado em `output/<cliente>/client-report.md`.
 - Se o produto for maior que um projeto isolado, pense no modelo multi-agência.

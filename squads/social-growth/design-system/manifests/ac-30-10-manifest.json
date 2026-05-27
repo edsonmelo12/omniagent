@@ -1,0 +1,90 @@
+{
+  "asset_id": "AC-30-10",
+  "client": "AmiClube",
+  "brand": "AmiClube",
+  "style": "editorial-magazine",
+  "format": "instagram-carousel",
+  "title": "Foto Bonita Não Basta — 5 Sinais de Reputação",
+  "deck_label": "reputação",
+  "topic": "Reputação de Marca Artesanal",
+  "footer": "@amiclube",
+  "design_system": true,
+  "engine_version": "compose.mjs",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Educacional",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "REPUTAÇÃO VISUAL",
+      "title": "FOTO BONITA NÃO BASTA",
+      "body": "5 sinais para avaliar uma marca artesanal antes de comprar.",
+      "textVariant": "dark",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "../../blog/imagens/AC-30-09-campanha-como-avaliar-reputacao-de-marca-artesanal/instagram-carousel/instagram carousel-como-avaliar-reputacao-de-v1.webp",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 1",
+      "title": "ACABAMENTO VISÍVEL",
+      "body": "A marca mostra detalhe, textura, proximidade. Não só foto heroica distante.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 2",
+      "title": "CLAREZA COMERCIAL",
+      "body": "Prazo, personalização, forma de pedido e contato — tudo compreensível sem esforço.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 3",
+      "title": "LINGUAGEM COM CRITÉRIO",
+      "body": "A marca evita promessas vazias e comunica com sobriedade — não só entusiasmo.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "SINAL 4",
+      "title": "DEPOIMENTOS ESPECÍFICOS",
+      "body": "Relatos sobre foto vs. realidade, apresentação e atendimento — provas concretas, não elogios genéricos.",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "SINAL 5",
+      "title": "CONSISTÊNCIA DO CONJUNTO",
+      "body": "Close visível? Imagens consistentes? Prazo claro? Linguagem com critério? Depoimentos específicos? Apresentação premium? O conjunto inspira confiança?",
+      "textVariant": "dark",
+      "background": {
+        "type": "gradient",
+        "from": "#722F37",
+        "to": "#5C4033"
+      }
+    }
+  ]
+}

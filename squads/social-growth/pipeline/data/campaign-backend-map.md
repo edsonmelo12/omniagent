@@ -12,17 +12,19 @@ This is the bridge between the workflow design and the HTTP/API layer.
 2. `client_record`
 3. `geo_discoverability`
 4. `research`
-5. `strategy`
-6. `content_plan`
-7. `blog_draft`
-8. `discovery_optimization`
-9. `content_repurpose`
-10. `content_production_package`
-11. `schedule`
-12. `approval`
-13. `publish`
-14. `monitoring`
-15. `adjustment`
+5. `campaign_planning`
+6. `strategy`
+7. `content_plan`
+8. `blog_draft`
+9. `discovery_optimization`
+10. `content_repurpose`
+11. `content_production_package`
+12. `schedule`
+13. `approval`
+14. `publish`
+15. `monitoring`
+16. `campaign_review`
+17. `adjustment`
 
 ## Endpoint Mapping
 
@@ -72,6 +74,18 @@ Primary endpoints:
 Purpose:
 - assemble market context
 - enrich the evidence base
+
+### `campaign_planning`
+
+Primary endpoints:
+- `GET /api/v1/clients/:clientId/campaign-planning`
+- `POST /api/v1/clients/:clientId/campaign-planning`
+- `PATCH /api/v1/clients/:clientId/campaign-planning`
+
+Purpose:
+- capture previous campaign outcomes
+- record engagement, market and trend reads
+- lock the campaign thesis before strategy
 
 ### `strategy`
 
@@ -173,6 +187,17 @@ Primary endpoints:
 Purpose:
 - measure the result of the cycle
 - generate operational observations
+
+### `campaign_review`
+
+Primary endpoints:
+- `GET /api/v1/clients/:clientId/campaign-review`
+- `POST /api/v1/clients/:clientId/campaign-review`
+- `PATCH /api/v1/clients/:clientId/campaign-review`
+
+Purpose:
+- close the campaign loop
+- record what happened, what changed and what seeds the next cycle
 
 ### `adjustment`
 

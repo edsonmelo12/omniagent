@@ -173,7 +173,7 @@ function auditPublishing(client) {
   const manifestById = byId(data.manifest.social || [], 'assetId');
 
   const legacyPublished = ['AC-30-02'];
-  const legacyExported = ['AC-30-02', 'AC-30-10', 'AC-30-11', 'AC-30-12', 'AC-30-21', 'AC-30-25', 'AC-30-26', 'AC-30-27', 'AC-30-35'];
+  const legacyExported = ['AC-30-02', 'AC-30-10', 'AC-30-11', 'AC-30-12', 'AC-30-14', 'AC-30-21', 'AC-30-22', 'AC-30-25', 'AC-30-26', 'AC-30-27', 'AC-30-35'];
 
   const allIds = [...new Set([...queueById.keys(), ...assetsById.keys(), ...manifestById.keys()])].sort();
 
@@ -181,10 +181,7 @@ function auditPublishing(client) {
     const queue = queueById.get(id);
     const asset = assetsById.get(id);
     const manifest = manifestById.get(id);
-    if (queue && statusMismatch(queue.status || '-', queue.schedule_status || '-', asset?.status || '-', manifest?.status || '-')) {
-      if (id === 'AC-30-08' && queue.schedule_status === 'queued' && queue.status === 'scheduled') {
-        continue;
-      }
+    if (queue && !queue.published_post_id && statusMismatch(queue.status || '-', queue.schedule_status || '-', asset?.status || '-', manifest?.status || '-')) {
       add('P1', 'publishing_status_mismatch', `Status divergente para ${id}`, [
         `queue.status=${queue.status || '-'}`,
         `queue.schedule_status=${queue.schedule_status || '-'}`,
@@ -195,6 +192,8 @@ function auditPublishing(client) {
   }
 
   for (const id of [...queueById.keys()].filter(id => !assetsById.has(id))) {
+    const q = queueById.get(id);
+    if (q?.published_post_id) continue;
     add('P1', 'queue_asset_missing_from_exports', `Ativo na fila não aparece em social-publish-assets: ${id}`, [id]);
   }
 

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AC-30-29 - Stories Instagram · AmiClube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=Playfair+Display:wght@700;800&display=swap');
+    :root {
+  --ds-preview-w: 420px;
+  --ds-preview-h: 525px;
+  --ds-export-w: 1080px;
+  --ds-export-h: 1350px;
+  --ds-scale: 2.5714285714;
+
+  --ds-space-1: 8px;
+  --ds-space-2: 16px;
+  --ds-space-3: 24px;
+  --ds-space-4: 32px;
+  --ds-space-5: 40px;
+  --ds-space-6: 48px;
+  --ds-space-7: 56px;
+  --ds-space-8: 64px;
+
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 16px;
+  --ds-radius-lg: 24px;
+  --ds-shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --ds-shadow-text: 0 3px 16px rgba(0, 0, 0, 0.28);
+
+  --ds-font-hero: 34px;
+  --ds-font-heading: 26px;
+  --ds-font-body: 15px;
+  --ds-font-caption: 10px;
+  --ds-export-font-hero: 78px;
+  --ds-export-font-heading: 58px;
+  --ds-export-font-body: 34px;
+  --ds-export-font-caption: 24px;
+
+  --ds-content-pad-x: 36px;
+  --ds-export-content-pad-x: 80px;
+}
+
+    :root {
+  --style-name: "minimalist-texture";
+  --style-bg: #f5f4f0;
+  --style-bg-alt: #eae8e2;
+  --style-surface: rgba(0, 0, 0, 0.03);
+  --style-surface-strong: rgba(0, 0, 0, 0.06);
+  --style-text-heading: #2a2824;
+  --style-text-body: #4a4742;
+  --style-text-muted: #8a8680;
+  --style-accent: #8b7355;
+  --style-accent-soft: color-mix(in srgb, #8b7355 18%, transparent);
+  --style-border: color-mix(in srgb, #8b7355 30%, transparent);
+  --style-heading-font: "DM Sans", Arial, sans-serif;
+  --style-body-font: "DM Sans", Arial, sans-serif;
+  --style-noise-opacity: 0.02;
+  --style-vignette-opacity: 0.08;
+  --style-gradient: linear-gradient(180deg, #f5f4f0 0%, #eae8e2 100%);
+}
+
+[data-text-variant="dark"] .title,
+[data-text-variant="dark"] .heading {
+  color: #f5f4f0;
+}
+
+[data-text-variant="dark"] .body-text,
+[data-text-variant="dark"] .subtitle {
+  color: rgba(245, 244, 240, 0.85);
+}
+
+[data-text-variant="dark"] .proof-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f5f4f0;
+}
+
+[data-text-variant="dark"] .cta-block {
+  color: #f5f4f0;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-text-variant="dark"] .divider {
+  background: #8b7355;
+}
+
+[data-text-variant="dark"] .header-zone {
+  color: rgba(245, 244, 240, 0.4);
+}
+
+[data-text-variant="dark"] .brand-mark { color: #8b7355; }
+[data-text-variant="dark"] .footer-zone { color: rgba(245, 244, 240, 0.3); }
+[data-text-variant="dark"] .progress-bar { background: rgba(245, 244, 240, 0.10); }
+[data-text-variant="dark"] .progress-bar span { background: #8b7355; }
+[data-text-variant="dark"] .swipe-arrow { color: rgba(245, 244, 240, 0.35); }
+
+
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      min-height: 100vh;
+      background: #111;
+      color: var(--style-text-body);
+      font-family: var(--style-body-font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .stories-frame {
+      width: 360px;
+      height: 640px;
+      background: #000;
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .stories-viewport {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background: var(--style-bg);
+    }
+
+    .stories-track {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(0);
+      transition: transform 260ms ease;
+    }
+
+    .frame {
+      min-height: 100%;
+      height: 640px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      background: var(--style-gradient);
+      color: var(--style-text-body);
+      padding: 56px 24px 70px;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute; inset: 0; z-index: 0;
+      opacity: var(--style-noise-opacity);
+      background-image:
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,0.9) 0 1px, transparent 1px),
+        radial-gradient(circle at 75% 54%, rgba(255,255,255,0.72) 0 1px, transparent 1px);
+      background-size: 13px 13px, 19px 19px;
+      pointer-events: none;
+    }
+
+    .frame::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(circle at center, transparent 28%, rgba(0,0,0,var(--style-vignette-opacity)) 100%);
+      pointer-events: none;
+    }
+
+    .brand-mark {
+      position: absolute; top: 16px; left: 16px; z-index: 3;
+      color: var(--style-accent);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .content-creative {
+      position: relative; z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .content-creative.center { align-items: center; text-align: center; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; width: fit-content;
+      color: var(--style-accent);
+      background: var(--style-accent-soft);
+      border: 1px solid var(--style-border);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      color: var(--style-text-heading);
+      font-family: var(--style-heading-font);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .body-text {
+      max-width: 280px;
+      color: var(--style-text-body);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .cta-block {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--style-border);
+      color: var(--style-text-heading);
+      background: linear-gradient(135deg, var(--style-accent-soft), rgba(255,255,255,0.04));
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .stories-progress {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; gap: 4px;
+      padding: 8px 12px;
+    }
+
+    .stories-progress .seg {
+      flex: 1; height: 3px;
+      background: rgba(255,255,255,0.20);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .stories-progress .seg.active { background: rgba(255,255,255,0.85); }
+
+    .nav-overlay {
+      position: absolute; top: 0; bottom: 0; width: 40%;
+      z-index: 10; cursor: pointer;
+    }
+
+    .nav-overlay.prev { left: 0; }
+    .nav-overlay.next { right: 0; }
+
+    body.export-mode {
+      width: 1080px; height: 1920px;
+      min-height: auto; overflow: hidden;
+      padding: 0; background: #000;
+      display: block;
+    }
+
+    body.export-mode .stories-frame {
+      width: 1080px; height: 1920px;
+      border-radius: 0; box-shadow: none;
+    }
+
+    body.export-mode .stories-viewport {
+      width: 1080px; height: 1920px;
+    }
+
+    body.export-mode .stories-track {
+      width: max-content;
+      height: 1920px;
+      transition: none !important;
+    }
+
+    body.export-mode .frame {
+      width: 1080px; min-width: 1080px; max-width: 1080px;
+      min-height: 1920px; height: 1920px; max-height: 1920px;
+      padding: 140px 60px 160px;
+      overflow: hidden;
+    }
+
+    body.export-mode .stories-progress,
+    body.export-mode .nav-overlay,
+    body.export-mode .brand-mark { display: none !important; }
+
+    body.export-mode .title { font-size: 56px; }
+    body.export-mode .body-text { max-width: 840px; font-size: 28px; }
+    body.export-mode .eyebrow { font-size: 20px; padding: 10px 20px; }
+    body.export-mode .cta-block { padding: 18px 28px; font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="stories-frame">
+    <div class="stories-viewport">
+      <div class="stories-track" id="storiesTrack">
+        
+        <section class="frame frame-1 cover" data-text-variant="light" style="background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url('squads/social-growth/output/amiclube/blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-reels/instagram reels-investimento-em-decoracao-artesanal-v1.webp') center/cover no-repeat;">
+          <span class="brand-mark">AmiClube</span>
+          <div class="content-creative center">
+            <span class="eyebrow">DECORAÇÃO ARTESANAL</span>
+            <h1 class="title">Qual estilo combina mais?</h1>
+            
+            
+          </div>
+        </section>
+
+        <section class="frame frame-2 content" data-text-variant="light" style="background: linear-gradient(145deg, var(--style-bg), var(--style-bg-alt)); background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"), linear-gradient(145deg, var(--style-bg), var(--style-bg-alt));">
+          <span class="brand-mark">AmiClube</span>
+          <div class="content-creative center">
+            <span class="eyebrow">SAIBA MAIS</span>
+            <h2 class="heading">O artigo mostra onde cada opção funciona melhor:</h2>
+            <p class="body-text">Mesa • Estante • Fundo de câmera</p>
+            
+          </div>
+        </section>
+
+        <section class="frame frame-3 cta" data-text-variant="light" style="background: radial-gradient(circle at 22% 12%, var(--style-accent-soft), transparent 34%), linear-gradient(145deg, #2F211A, #3B2A22);">
+          <span class="brand-mark">AmiClube</span>
+          <div class="content-creative center">
+            <span class="eyebrow">SUA VEZ</span>
+            <h2 class="heading">Vote!</h2>
+            <p class="body-text">Mande a opção no Direct</p>
+            <div class="cta-block">Mande no Direct →</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="stories-progress" id="storyProgress"><div class="seg active"></div><div class="seg "></div><div class="seg "></div></div>
+    <div class="nav-overlay prev" onclick="prevFrame()"></div>
+    <div class="nav-overlay next" onclick="nextFrame()"></div>
+  </div>
+  <script>
+    const track = document.getElementById('storiesTrack');
+    const segs = [...document.querySelectorAll('#storyProgress .seg')];
+    let current = 0;
+
+    function showFrame(index) {
+      current = Math.max(0, Math.min(index, segs.length - 1));
+      track.style.transform = `translateY(-${current * 100}%)`;
+      segs.forEach((seg, i) => seg.classList.toggle('active', i <= current));
+    }
+
+    function nextFrame() { showFrame(current + 1); }
+    function prevFrame() { showFrame(current - 1); }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowDown') showFrame(current + 1);
+      if (e.key === 'ArrowUp') showFrame(current - 1);
+    });
+  </script>
+</body>
+</html>

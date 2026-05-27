@@ -9,10 +9,12 @@
 5. Run research from the approved record and persist the result in the database, including market, competition, audience hypotheses and presence digital.
 6. Run strategy from the persisted research and the persisted strategy library.
 7. If the proposal checkpoint is confirmed, build the commercial proposal from the research and social evidence, starting with the presentation deck and its title/objective block.
-8. If the cycle includes long-form content, start trend research in the blog topic backlog stage, then build the blog architecture, create the blog draft and optimize discovery before repurposing, carrying forward the approved word-count target, featured-image direction and free/public source search rationale.
+8. If the cycle includes long-form content, follow `pipeline/data/blog-content-flow.md` after strategy is locked.
 9. If the site or brand entity is still ambiguous, run the GEO / AI discoverability audit before scaling the blog layer.
-10. Create, review and schedule the content production package.
-11. Monitor profile health and adjust the next cycle.
+10. Create the content production package.
+11. When Atlas decides that fast visual exploration reduces uncertainty, run optional `NLM Visual Prototype` before final visual direction.
+12. Review and schedule the approved production package.
+13. Monitor profile health and adjust the next cycle.
 
 ## Ownership Loop
 
@@ -24,6 +26,7 @@
 - Discovery Optimizer owns article-level SEO, GEO and LLM finalization.
 - GEO / AI discoverability audit is owned upstream by research and strategy when the brand or site is still unclear.
 - Content Repurposer owns the translation from blog to native social assets.
+- NLM Visual Prototype is an optional Atlas-routed reference layer; it does not own final creative output.
 - Reviewer owns quality and correction notes.
 - Monitor owns the performance readout and action triggers.
 
@@ -51,8 +54,10 @@ Research ends at analysis and opportunity framing unless the downstream artifact
 The social intelligence summary is the required evidence layer before any social proposal is written.
 The brand profile is the canonical bridge between research, content and proposal; it must preserve the confirmed versus inferred split.
 The commercial proposal is optional and only runs after the client confirms the proposal checkpoint and needs a social offer or sales deck. When it runs, the client-facing output should surface the presentation deck first, then the textual proposal.
-If the cycle includes long-form content, the blog architecture must be approved before drafting, and the blog draft must be discovery-optimized before repurpose and schedule approval, with the length target, featured-image direction and source rationale preserved end to end.
+If the cycle includes long-form content, use `pipeline/data/blog-content-flow.md` as the canonical sequence and keep source rationale only when image research is active.
 If the delivery is meant for a client, save the final consolidated report in `output/<client-slug>/client-report.md`.
 Publishing stays as an approval-gated execution step, not a new squad specialist. The backend already records dry-run and live-simulated publishing executions; only platform-specific adapters would move it from simulation to real network delivery.
 
 The canonical campaign sequence is defined in [Campaign State Machine](campaign-state-machine.md) and [Stage Contracts](stage-contracts.md).
+
+`NLM Visual Prototype` may be inserted between social drafts and final visual direction when the asset needs fast pre-visualization. It never bypasses the canonical Visual Director -> Creative Renderer -> Reviewer -> Pipeline Auditor chain.

@@ -1,0 +1,55 @@
+{
+  "asset_id": "AC-30-09B",
+  "client": "amiclube",
+  "hero_image": "AC-30-09B-seguranca-higiene-hero.jpg",
+  "images": [
+    {
+      "id": "img-01",
+      "filename": "AC-30-09B-seguranca-higiene-hero.jpg",
+      "source_url": "https://www.pexels.com/photo/handmade-crochet-sheep-toy-on-white-background-36779479/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-11",
+      "attribution_required": false,
+      "alt": "Ovelha de amigurumi em crochê sobre fundo branco - hero do artigo",
+      "suggested_use": "hero do artigo / capa de carrossel",
+      "orientation": "landscape",
+      "dominant_colors": ["#FFFFFF", "#F5F0E8", "#8B7355"]
+    },
+    {
+      "id": "img-02",
+      "filename": "AC-30-09B-crochet-bear-dark.jpg",
+      "source_url": "https://www.pexels.com/photo/37328223/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-11",
+      "attribution_required": false,
+      "alt": "Urso de crochê em fundo escuro - peça artesanal premium",
+      "suggested_use": "slide 2-4 do carrossel / stories / post feed",
+      "orientation": "landscape",
+      "dominant_colors": ["#1A1918", "#4A3728", "#D2B48C"]
+    },
+    {
+      "id": "img-03",
+      "filename": "AC-30-09B-yarn-closeup.jpg",
+      "source_url": "https://www.pexels.com/photo/6766125/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-11",
+      "attribution_required": false,
+      "alt": "Close-up de novelos de lã coloridos - materiais de qualidade",
+      "suggested_use": "slide 5-6 do carrossel / stories textura",
+      "orientation": "landscape",
+      "dominant_colors": ["#F5F0E8", "#8B4513", "#D2691E"]
+    },
+    {
+      "id": "img-04",
+      "filename": "AC-30-09B-crochet-texture.jpg",
+      "source_url": "https://www.pexels.com/photo/4601228/",
+      "license": "Pexels License",
+      "license_verified_at": "2026-05-11",
+      "attribution_required": false,
+      "alt": "Textura de crochê artesanal - acabamento detalhado",
+      "suggested_use": "slide 7 do carrossel / CTA / final",
+      "orientation": "landscape",
+      "dominant_colors": ["#F5F0E8", "#E8D5C4", "#8C6A5E"]
+    }
+  ]
+}

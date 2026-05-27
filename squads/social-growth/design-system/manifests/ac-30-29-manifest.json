@@ -1,0 +1,89 @@
+{
+  "asset_id": "AC-30-29",
+  "client": "amiclube",
+  "brand": "AmiClube",
+  "style": "motion-social",
+  "format": "reels-sequence",
+  "title": "AC-30-29 - Reels Instagram",
+  "topic": "Decoração Artesanal no Home Office",
+  "deck_label": "reels",
+  "footer": "@amiclube",
+  "canvas": {
+    "width": 1080,
+    "height": 1920
+  },
+  "first_impression": {
+    "diversity_statement": "Frame 1 abre com pergunta forte e ritmo de reel. Não se basear em outros posts.",
+    "base": "Artigo AC-30-13B + composição motion para Reels"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "DECORAÇÃO ARTESANAL",
+      "title": "Mesa, estante ou fundo de câmera?",
+      "body": "Qual setup comunica mais autoridade no seu home office?",
+      "textVariant": "dark",
+      "background": {
+        "type": "image",
+        "src": "squads/social-growth/output/amiclube/blog/imagens/AC-30-13B-campanha-investimento-em-decoração_-artesanal-no-home-office/instagram-reels/instagram reels-investimento-em-decoracao-artesanal-v1.webp",
+        "overlay": "rgba(0,0,0,0.58)",
+        "position": "center"
+      },
+      "contrast_strategy": "dark-overlay",
+      "text_legibility": "legible",
+      "choice_pills": []
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "FRAME 02",
+      "title": "Mesa = foco e rotina",
+      "body": "Boa quando o espaço precisa parecer funcional, limpo e pronto para trabalhar.",
+      "textVariant": "light",
+      "background": {
+        "type": "gradient",
+        "from": "#F4E9DD",
+        "to": "#E6D1BF"
+      },
+      "truthCard": true,
+      "contrast_strategy": "no-overlay-justified",
+      "text_legibility": "legible"
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "FRAME 03",
+      "title": "Estante = repertório",
+      "body": "Funciona quando você quer que o fundo mostre curadoria sem roubar a cena.",
+      "textVariant": "dark",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#111018"
+      },
+      "contrast_strategy": "dark-overlay",
+      "text_legibility": "legible"
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "SUA VEZ",
+      "title": "Salve para comparar",
+      "body": "Se quiser, eu transformo seu setup em uma versão mais premium.",
+      "textVariant": "light",
+      "cta": {
+        "text": "Vote no Direct",
+        "color": "#D4AF37",
+        "url": "https://instagram.com/amiclube"
+      },
+      "background": {
+        "type": "gradient",
+        "from": "#F6F0E7",
+        "to": "#E4D3C3"
+      },
+      "contrast_strategy": "no-overlay-justified",
+      "text_legibility": "legible"
+    }
+  ]
+}

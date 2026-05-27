@@ -1,0 +1,92 @@
+{
+  "asset_id": "example-editorial-magazine-carousel",
+  "client": "Template",
+  "brand": "MARCA",
+  "style": "editorial-magazine",
+  "format": "instagram-carousel",
+  "title": "Template — Editorial Magazine Carrossel",
+  "deck_label": "guia",
+  "topic": "Título do Carrossel",
+  "footer": "@marca",
+  "design_tokens": {},
+  "channel": "Instagram",
+  "objective": "Educacional",
+  "slides": [
+    {
+      "type": "cover",
+      "align": "center",
+      "eyebrow": "GUIA COMPLETO",
+      "title": "Título principal de capa",
+      "body": "Subtítulo ou descrição de apoio que contextualiza o tema",
+      "textVariant": "light",
+      "contrast_strategy": "dark-overlay",
+      "background": {
+        "type": "image",
+        "src": "",
+        "position": "center",
+        "overlay": "rgba(0,0,0,0.52)"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PONTO 1",
+      "title": "Título do primeiro slide",
+      "body": "Corpo do texto explicativo. Use este espaço para desenvolver o argumento com clareza e profundidade editorial.",
+      "textVariant": "light",
+      "truthCard": false,
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PONTO 2",
+      "title": "Segundo tópico da sequência",
+      "body": "Continue a progressão com informações relevantes, mantendo uma ideia por slide.",
+      "textVariant": "light",
+      "truthCard": false,
+      "background": {
+        "type": "solid",
+        "color": "#E8D5C4"
+      }
+    },
+    {
+      "type": "content",
+      "eyebrow": "PONTO 3",
+      "title": "Mais um tópico relevante",
+      "body": "Desenvolva o raciocínio alternando fundos claros para manter ritmo visual.",
+      "textVariant": "light",
+      "truthCard": true,
+      "background": {
+        "type": "solid",
+        "color": "#F5F0E8"
+      }
+    },
+    {
+      "type": "content",
+      "align": "center",
+      "eyebrow": "RECAP",
+      "title": "Resumo dos pontos principais",
+      "body": "✓ Ponto 1\n✓ Ponto 2\n✓ Ponto 3\n✓ Ponto 4",
+      "textVariant": "light",
+      "background": {
+        "type": "solid",
+        "color": "#722F37"
+      }
+    },
+    {
+      "type": "cta",
+      "align": "center",
+      "eyebrow": "MARCA",
+      "title": "CHAMADA PARA AÇÃO PRINCIPAL",
+      "body": "marca.com.br",
+      "textVariant": "light",
+      "background": {
+        "type": "gradient",
+        "from": "#5C4033",
+        "to": "#2D2318"
+      }
+    }
+  ]
+}
